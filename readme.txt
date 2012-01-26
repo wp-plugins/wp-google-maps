@@ -6,7 +6,7 @@ Requires at least: 2.9.2
 Tested up to: 3.3.1
 Stable tag: trunk
 
-Create a custom Google Map with high quality markers that contains Locations, Descriptions, Images and Links. Quick and easy, no fuss.
+Create custom Google Maps with high quality markers containing Locations, Descriptions, Images and Links. Quick and easy, no fuss.
 
 == Description ==
 
