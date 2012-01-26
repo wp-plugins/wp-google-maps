@@ -1,12 +1,12 @@
 === WP Google Maps ===
-Contributors: nickduncan
-Donate link: http://nickduncan.co.za
-Tags: maps, google, google maps, bing maps, map, map markers, interactive map, interactive maps, maps api, api, wp maps, wp google maps, mappress, map press
+Contributors: WPGMaps
+Donate link: http://www.wpgmaps.com
+Tags: google maps, maps, bing maps, map, map markers, interactive map, interactive maps, maps api, wp maps, wp google maps, mappress, map press
 Requires at least: 2.9.2
 Tested up to: 3.3.1
 Stable tag: trunk
 
-Create a custom Google Map with high quality markers that contains Locations, Descriptions, Images and Links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
+Create a custom Google Map with high quality markers that contains Locations, Descriptions, Images and Links. Quick and easy, no fuss.
 
 == Description ==
 
