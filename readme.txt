@@ -6,7 +6,7 @@ Requires at least: 2.9.2
 Tested up to: 3.3.1
 Stable tag: trunk
 
-Create custom Google Maps with high quality markers containing Locations, Descriptions, Images and Links. Quick and easy, no fuss.
+Create a custom Google Map with high quality markers that contains Locations, Descriptions, Images and Links. Quick and easy, no fuss.
 
 == Description ==
 
@@ -28,6 +28,9 @@ No information
 1. A view of what to expect
 
 == Changelog ==
+
+= 1.1.2 =
+* Cleaned up messy code & ensured the javascript only gets called on the correct pages
 
 = 1.1.1 =
 * Removed the php file that may have caused security issues.
