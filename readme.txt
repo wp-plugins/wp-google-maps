@@ -29,8 +29,11 @@ No information
 
 == Changelog ==
 
+= 1.1.3 =
+* Fixed a bug that never created a new marker file after updating
+
 = 1.1.2 =
-* Cleaned up messy code & ensured the javascript only gets called on the correct pages
+* Cleaned up messy code & ensured the javascript only gets called on the correct pa
 
 = 1.1.1 =
 * Removed the php file that may have caused security issues.

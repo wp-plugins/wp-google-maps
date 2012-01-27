@@ -115,6 +115,8 @@ function wpgmaps_admin_javascript() {
     $ajax_nonce = wp_create_nonce("wpgmza");
     
     if (is_admin() && $_GET['page'] == 'wp-google-maps-menu') {
+    
+        wpgmaps_update_xml_file();
 
     ?>
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
