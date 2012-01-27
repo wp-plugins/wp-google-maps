@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<markers>
+  <marker>
+    <address>London</address>
+    <lat>51.5081290</lat>
+    <lng>-0.1280050</lng>
+  </marker>
+  <marker>
+    <address>Amsterdam</address>
+    <lat>52.3702157</lat>
+    <lng>4.8951679</lng>
+  </marker>
+</markers>
