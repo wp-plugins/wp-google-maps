@@ -29,14 +29,19 @@ No information
 
 == Changelog ==
 
+= 2.0 =
+* Merged basic and pro files in order to make the purchase installation less complicated.
+* Fixed a bug where on some hosts you are not able to use SimpleXML. The plugin now uses cURL to get around this.
+* Increased security measures
+
 = 1.1.3 =
 * Fixed a bug that never created a new marker file after updating
 
 = 1.1.2 =
-* Cleaned up messy code & ensured the javascript only gets called on the correct pa
+* Cleaned up messy code & ensured the javascript only gets called on the correct pages
 
 = 1.1.1 =
-* Removed the php file that may have caused security issues.
+* Security updates in line with the basic version
 
 = 1.1.0 =
 * added the ability to export your markers to a CSV file
