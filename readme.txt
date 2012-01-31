@@ -6,11 +6,27 @@ Requires at least: 2.9.2
 Tested up to: 3.3.1
 Stable tag: trunk
 
-Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Quick and easy, no fuss.
+Create a custom Google Map with high quality markers that contains Locations, Descriptions, Images and Links. Quick and easy, no fuss.
 
 == Description ==
 
-Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
+Create a custom Google Map with high quality markers that contains Locations, Descriptions, Images and Links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
+
+= Key Features =
+* WP Google Maps uses the latest Google Maps API (V3)
+* Create as many markers as you need by simply typing in the address
+* WordPress 3.0 friendly
+* Streetview supported
+* Define your own width and height and zoom level for your map
+* Create a map in less than a 30 seconds!
+* No advertising!
+
+= Professional Edition =
+* Get the [WP Google Maps Professional Edition](http://www.wpgmaps.com/) for only $9.99
+* Add descriptions, links and images to your Google Map markers
+* Export your markers to a CSV file for quick editing
+
+
 
 == Installation ==
 
@@ -21,13 +37,20 @@ Create custom Google Maps with high quality markers containing locations, descri
 
 == Frequently Asked Questions ==
 
-No information
+= How do I get the professional edition? =
+
+Simply visit http://www.wpgmaps.com and purchase the Professional Edition for $9.99
+
+
 
 == Screenshots ==
 
 1. A view of what to expect
 
 == Changelog ==
+
+= 2.1 =
+* Created a side menu link instead of having the menu link under "Settings"
 
 = 2.0 =
 * Merged basic and pro files in order to make the purchase installation less complicated.

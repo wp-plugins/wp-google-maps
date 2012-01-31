@@ -3,7 +3,7 @@
 Plugin Name: WP Google Maps
 Plugin URI: http://www.wpgmaps.com
 Description: Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 2.0.0
+Version: 2.1
 Author: Nick Duncan
 Author URI: http://www.wpgmaps.com
 */
@@ -16,8 +16,8 @@ global $wpgmza_p;
 $wpgmza_p = false;
 
 $wpgmza_tblname = $wpdb->prefix . "wpgmza";
-$wpgmza_version = "2.0";
-$wpgmza_t = "b";
+$wpgmza_version = "2.1";
+$wpgmza_t = "basic";
 
 @include_once dirname( __FILE__ ) . '/pro/wpgmaps_pro.php';
 
@@ -520,7 +520,8 @@ function wpgmaps_head() {
 
 
 function wpgmaps_admin_menu() {
-    add_options_page('WP Google Maps', 'WP Google Maps', 'manage_options', 'wp-google-maps-menu', 'wpgmaps_menu_layout');
+    add_menu_page('WP Google Maps', 'WP Google Maps', 'manage_options', 'wp-google-maps-menu', 'wpgmaps_menu_layout', wpgmaps_get_plugin_url()."/images/map_app_small.png");
+//    add_options_page('WP Google Maps', 'WP Google Maps', 'manage_options', 'wp-google-maps-menu', 'wpgmaps_menu_layout');
 }
 function wpgmaps_menu_layout() {
 
@@ -758,6 +759,7 @@ function wpgmza_get_lat_long($address) {
 
 
     define("MAPS_HOST", "maps.google.com");
+//    define("KEY", "ABQIAAAA3lby-Oyzu5Elblu1dTk6khRkbnrZzb7DRK_IleYVa0py8MpCNhSBQRpvzubFzk3Bgbu_0aDhfMiAng");
     define("KEY", "AIzaSyABfpdsxk4_64Cdj3gCRlh0HkXXu2hiVBc");
     $base_url = "http://" . MAPS_HOST . "/maps/geo?output=xml" . "&key=" . KEY;
 
