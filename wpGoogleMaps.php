@@ -758,7 +758,7 @@ function wpgmza_get_lat_long($address) {
 
 
     define("MAPS_HOST", "maps.google.com");
-    define("KEY", "ABQIAAAA3lby-Oyzu5Elblu1dTk6khRkbnrZzb7DRK_IleYVa0py8MpCNhSBQRpvzubFzk3Bgbu_0aDhfMiAng");
+    define("KEY", "AIzaSyABfpdsxk4_64Cdj3gCRlh0HkXXu2hiVBc");
     $base_url = "http://" . MAPS_HOST . "/maps/geo?output=xml" . "&key=" . KEY;
 
 
