@@ -72,21 +72,4 @@ Simply visit http://www.wpgmaps.com and purchase the Professional Edition for $9
 = 1.0.0 =
 * First release
 
-== Upgrade Notice ==
-
-1. No information
-
-== Arbitrary section ==
-
-WP Google Maps allows you to add custom Google Maps with high quality markers to your WordPress posts and pages. No fuss.
-
-== A brief Markdown Example ==
-
-Ordered list:
-
-1. WP Google Maps
-
-Unordered list:
-
-* WP Google Maps
 
