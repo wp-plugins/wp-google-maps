@@ -6,11 +6,11 @@ Requires at least: 2.9.2
 Tested up to: 3.3.1
 Stable tag: trunk
 
-Create a custom Google Map with high quality markers that contains Locations, Descriptions, Images and Links. Quick and easy, no fuss.
+Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Quick and easy, no fuss.
 
 == Description ==
 
-Create a custom Google Map with high quality markers that contains Locations, Descriptions, Images and Links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
+Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
 
 == Installation ==
 
