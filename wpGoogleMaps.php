@@ -3,25 +3,23 @@
 Plugin Name: WP Google Maps
 Plugin URI: http://www.wpgmaps.com
 Description: Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 2.1
+Version: 2.2
 Author: Nick Duncan
 Author URI: http://www.wpgmaps.com
 */
 
 global $wpgmza_version;
+global $wpgmza_p_version;
 global $wpgmza_t;
 global $wpgmza_tblname;
 global $wpdb;
 global $wpgmza_p;
 $wpgmza_p = false;
-
 $wpgmza_tblname = $wpdb->prefix . "wpgmza";
-$wpgmza_version = "2.1";
+$wpgmza_version = "2.2";
+$wpgmza_p_version = "2.1";
 $wpgmza_t = "basic";
-
 @include_once dirname( __FILE__ ) . '/pro/wpgmaps_pro.php';
-
-
 add_action('wp_head', 'wpgmaps_load_maps_api');
 add_action('admin_head', 'wpgmaps_head');
 add_action('admin_head', 'wpgmaps_admin_javascript');
@@ -69,7 +67,16 @@ function wpgmaps_activate() {
 
     wpgmza_cURL_response("activate");
 
-    wpgmaps_update_xml_file();
+
+    //check to see if you have write permissions to the plugin folder
+    // version 2.2
+    if (!wpgmaps_check_permissions()) { wpgmaps_permission_warning(); } else { wpgmaps_update_xml_file(); }
+
+    
+    
+
+
+
 
 }
 function wpgmaps_deactivate() {
@@ -380,6 +387,9 @@ function wpgmaps_user_javascript_basic() {
 
 
 function wpgmaps_update_xml_file() {
+
+
+
     global $wpdb;
 
 
@@ -443,7 +453,7 @@ foreach ( $results as $result )
 
 
 
-   $dom->save(WP_PLUGIN_DIR.'/'.plugin_basename(dirname(__FILE__)).'/markers.xml'); // change back when live
+   @$dom->save(WP_PLUGIN_DIR.'/'.plugin_basename(dirname(__FILE__)).'/markers.xml'); // change back when live
 }
 
 
@@ -512,6 +522,8 @@ function wpgmaps_get_plugin_url() {
 
 function wpgmaps_head() {
     $wpgmza_data = get_option('WPGoogleMaps');
+
+
 }
 
 
@@ -526,6 +538,11 @@ function wpgmaps_admin_menu() {
 function wpgmaps_menu_layout() {
 
     global $wpgmza_p;
+
+
+    //check to see if we have write permissions to the plugin folder
+    if (!wpgmaps_check_permissions()) { wpgmaps_permission_warning(); }
+
 
    if (isset($_POST['wpgmza_savemap'])){
     $data['map_name'] = attribute_escape($_POST['wpgmza_name']);
@@ -664,6 +681,8 @@ function my_admin_scripts() {
     wp_enqueue_script('thickbox');
     wp_register_script('my-upload', WP_PLUGIN_URL.'/'.plugin_basename(dirname(__FILE__)).'/upload.js', array('jquery','media-upload','thickbox'));
     wp_enqueue_script('my-upload');
+
+
 }
 
 function my_admin_styles() {
@@ -847,5 +866,26 @@ function wpgmza_cURL_response($action) {
     $output = curl_exec($ch);
     curl_close($ch);
 
+}
+
+function wpgmaps_check_permissions() {
+    $filename = dirname( __FILE__ ).'/wpgmaps.tmp';
+    $testcontent = "Permission Check\n";
+    $handle = @fopen($filename, 'w');
+    if (@fwrite($handle, $testcontent) === FALSE) {
+        @fclose($handle);
+        add_option("wpgmza_permission","n");
+        return false;
+    }
+    else {
+        @fclose($handle);
+        add_option("wpgmza_permission","y");
+        return true;
+    }
+
+
+}
+function wpgmaps_permission_warning() {
+    echo "<div class='error below-h1'>The plugin directory does not have 'write' permissions. Please enable 'write' permissions (755) for \"".dirname( __FILE__ )."\" in order for this plugin to work! Please see <a href='http://codex.wordpress.org/Changing_File_Permissions#Using_an_FTP_Client'>this page</a> for help on how to do it.</div>";
 }
 ?>

@@ -49,6 +49,9 @@ Simply visit http://www.wpgmaps.com and purchase the Professional Edition for $9
 
 == Changelog ==
 
+= 2.2 =
+* Added a "permission" check to see if the plugin will be able to work and return a warning message instead of leaving users in the dark as to why the plugin might not work on some hosts. The plugin's directory needs permission settings on 755 in order to work. The warnin message displays this note, along with a link on how you could fix it.
+
 = 2.1 =
 * Created a side menu link instead of having the menu link under "Settings"
 
