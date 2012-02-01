@@ -416,7 +416,6 @@ foreach ( $results as $result )
 
         $address = $result->address;
         $description = $result->desc;
-        if (!$description) { $description = "n/a"; }
         $pic = $result->pic;
         if (!$pic) { $pic = ""; }
         $link_url = $result->link;
