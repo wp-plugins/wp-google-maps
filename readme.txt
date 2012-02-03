@@ -14,16 +14,19 @@ Create custom Google Maps with high quality markers containing locations, descri
 
 = Key Features =
 * WP Google Maps uses the latest Google Maps API (V3)
+* Super easy to use, no coding required!
 * Create as many map markers as you need by simply typing in the address
-* WordPress 3.0 friendly
+* Edit your markers with the click of a button
 * Google Maps Streetview supported
 * Define your own width, height and zoom level for your Google Map
 * Create a map in less than a 30 seconds!
-* No advertising!
+* WordPress 3.0 friendly
+* No advertising or links
 
 = Professional Edition =
 * Get the [WP Google Maps Professional Edition](http://www.wpgmaps.com/) for only $9.99
 * Add descriptions, links and images to your Google Map markers
+* Allow your visitors to get directions to your markers
 * Export your markers to a CSV file for quick editing
 
 
@@ -48,6 +51,12 @@ Simply visit http://www.wpgmaps.com and purchase the Professional Edition for $9
 1. A view of what to expect
 
 == Changelog ==
+
+= 3.0 =
+* You are now able to edit your markers.
+* Improved error handling and usability.
+* Killed some bugs.
+* The professional edition of the plugin now supports the Google Maps Directions functionality.
 
 = 2.2 =
 * Added a "permission" check to see if the plugin will be able to work and return a warning message instead of leaving users in the dark as to why the plugin might not work on some hosts. The plugin's directory needs permission settings on 755 in order to work. The warnin message displays this note, along with a link on how you could fix it.
