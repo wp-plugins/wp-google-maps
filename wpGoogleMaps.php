@@ -3,7 +3,7 @@
 Plugin Name: WP Google Maps
 Plugin URI: http://www.wpgmaps.com
 Description: Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 3.0
+Version: 3.1
 Author: Nick Duncan
 Author URI: http://www.wpgmaps.com
 */
@@ -16,11 +16,10 @@ global $wpdb;
 global $wpgmza_p;
 $wpgmza_p = false;
 $wpgmza_tblname = $wpdb->prefix . "wpgmza";
-$wpgmza_version = "3.0";
-$wpgmza_p_version = "3.0";
+$wpgmza_version = "3.1";
+$wpgmza_p_version = "3.1";
 $wpgmza_t = "basic";
 @include_once dirname( __FILE__ ) . '/pro/wpgmaps_pro.php';
-add_action('wp_head', 'wpgmaps_load_maps_api');
 add_action('admin_head', 'wpgmaps_head');
 add_action('admin_footer', 'wpgmaps_reload_map_on_post');
 register_activation_hook( __FILE__, 'wpgmaps_activate' );
@@ -38,36 +37,18 @@ function wpgmaps_activate() {
     
     $table_name = $wpdb->prefix . "wpgmza";
     
+    wpgmaps_handle_db();
 
-    $sql = "
-        CREATE TABLE IF NOT EXISTS `".$table_name."` (
-          `id` int(11) NOT NULL AUTO_INCREMENT,
-          `map_id` int(11) NOT NULL,
-          `address` varchar(700) NOT NULL,
-          `desc` varchar(700) NOT NULL,
-          `pic` varchar(700) NOT NULL,
-          `link` varchar(700) NOT NULL,
-          `lat` varchar(100) NOT NULL,
-          `lng` varchar(100) NOT NULL,
-          PRIMARY KEY (`id`)
-        ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-    ";
-    require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
-    dbDelta($sql);
-
-    add_option("wpgmza_db_version", $wpgmza_version);
 
     $wpgmza_data = get_option("WPGMZA");
-    if (!$wpgmza_data) { add_option("WPGMZA",array("map_start_lat" => "51.5081290", "map_start_lng" => "-0.1280050", "map_width" => "600", "map_height" => "400", "map_start_location" => "London", "map_start_zoom" => "5")); }
-
+    if (!$wpgmza_data) { add_option("WPGMZA",array("map_start_lat" => "51.5081290", "map_start_lng" => "-0.1280050", "map_width" => "600", "map_height" => "400", "map_start_location" => "London", "map_start_zoom" => "5", "directions_enable" => '1')); }
     $results = $wpdb->get_results("SELECT * FROM $table_name WHERE `map_id` = '1'");
     if (!$results) { $rows_affected = $wpdb->insert( $table_name, array( 'map_id' => '1', 'address' => 'London', 'lat' => '51.5081290', 'lng' => '-0.1280050' ) ); }
 
     wpgmza_cURL_response("activate");
 
 
-    //check to see if you have write permissions to the plugin folder
-    // version 2.2
+    //check to see if you have write permissions to the plugin folder (version 2.2)
     if (!wpgmaps_check_permissions()) { wpgmaps_permission_warning(); } else { wpgmaps_update_xml_file(); }
 
     
@@ -96,6 +77,7 @@ function wpgmaps_reload_map_on_post() {
         $wpgmza_lng = $wpgmza_data['map_start_lng'];
         $wpgmza_width = $wpgmza_data['map_width'];
         $wpgmza_height = $wpgmza_data['map_height'];
+        $wpgmza_default_icon = $wpgmza_data['map_default_marker'];
         $start_zoom = $wpgmza_data['map_start_zoom'];
         if ($start_zoom < 1 || !$start_zoom) { $start_zoom = 5; }
         if (!$wpgmza_lat || !$wpgmza_lng) { $wpgmza_lat = "51.5081290"; $wpgmza_lng = "-0.1280050"; } // show London
@@ -103,7 +85,6 @@ function wpgmaps_reload_map_on_post() {
         ?>
         <script type="text/javascript" >
         jQuery(function() {
-
             jQuery("#wpgmza_map").css({
 		height:<?php echo $wpgmza_height; ?>,
 		width:<?php echo $wpgmza_width; ?>
@@ -111,8 +92,9 @@ function wpgmaps_reload_map_on_post() {
             });
             var myLatLng = new google.maps.LatLng(<?php echo $wpgmza_lat; ?>,<?php echo $wpgmza_lng; ?>);
             MYMAP.init('#wpgmza_map', myLatLng, <?php echo $start_zoom; ?>);
-            UniqueCode=Math.round(Math.random()*10000);
+            UniqueCode=Math.round(Math.random()*10010);
             MYMAP.placeMarkers('<?php echo wpgmaps_get_plugin_url(); ?>/markers.xml?u='+UniqueCode);
+            
         });
         </script>
         <?php
@@ -129,6 +111,7 @@ function wpgmaps_admin_javascript_basic() {
 
     ?>
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <link rel='stylesheet' id='wpgooglemaps-css'  href='<?php echo wpgmaps_get_plugin_url(); ?>/css/wpgmza_style.css' type='text/css' media='all' />
     <script type="text/javascript" >
     jQuery(function() {
 
@@ -324,7 +307,8 @@ function wpgmaps_admin_javascript_basic() {
                                     MYMAP.bounds.extend(point);
                                     var marker = new google.maps.Marker({
                                             position: point,
-                                            map: MYMAP.map
+                                            map: MYMAP.map,
+                                            
 
                                     });
                                     var infoWindow = new google.maps.InfoWindow();
@@ -369,12 +353,14 @@ function wpgmaps_user_javascript_basic() {
     $wpgmza_lng = $wpgmza_data['map_start_lng'];
     $wpgmza_width = $wpgmza_data['map_width'];
     $wpgmza_height = $wpgmza_data['map_height'];
+    $wpgmza_default_icon = $wpgmza_data['map_default_marker'];
     $start_zoom = $wpgmza_data['map_start_zoom'];
     if ($start_zoom < 1 || !$start_zoom) { $start_zoom = 5; }
     if (!$wpgmza_lat || !$wpgmza_lng) { $wpgmza_lat = "51.5081290"; $wpgmza_lng = "-0.1280050"; }
 
     ?>
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <link rel='stylesheet' id='wpgooglemaps-css'  href='<?php echo wpgmaps_get_plugin_url(); ?>/css/wpgmza_style.css' type='text/css' media='all' />
     <script type="text/javascript" >
     jQuery(function() {
     
@@ -415,15 +401,20 @@ function wpgmaps_user_javascript_basic() {
         jQuery.get(filename, function(xml){
                 jQuery(xml).find("marker").each(function(){
                         var wpmgza_address = jQuery(this).find('address').text();
-
+                        var wpgmza_def_icon = '<?php echo $wpgmza_default_icon; ?>';
+                        var wpmgza_mapicon = jQuery(this).find('icon').text();
                         var lat = jQuery(this).find('lat').text();
                         var lng = jQuery(this).find('lng').text();
+
+                        if (wpmgza_mapicon == "" || !wpmgza_mapicon) { if (wpgmza_def_icon != "") { wpmgza_mapicon = '<?php echo $wpgmza_default_icon; ?>'; } }
+
+
                         var point = new google.maps.LatLng(parseFloat(lat),parseFloat(lng));
                         MYMAP.bounds.extend(point);
                         var marker = new google.maps.Marker({
                                 position: point,
-                                map: MYMAP.map
-
+                                map: MYMAP.map,
+                                icon: wpmgza_mapicon
                         });
                         var infoWindow = new google.maps.InfoWindow();
                         var html='<strong>'+wpmgza_address+'</strong>';
@@ -480,6 +471,8 @@ foreach ( $results as $result )
         $description = $result->desc;
         $pic = $result->pic;
         if (!$pic) { $pic = ""; }
+        $icon = $result->icon;
+        if (!$icon) { $icon = ""; }
         $link_url = $result->link;
         if ($link_url) {  } else { $link_url = ""; }
         $lat = $result->lat;
@@ -497,6 +490,9 @@ foreach ( $results as $result )
 
         $desc = $channel->appendChild($dom->createElement('pic'));
         $desc->appendChild($dom->CreateTextNode($pic));
+
+        $desc = $channel->appendChild($dom->createElement('icon'));
+        $desc->appendChild($dom->CreateTextNode($icon));
 
         $desc = $channel->appendChild($dom->createElement('linkd'));
         $desc->appendChild($dom->CreateTextNode($link_url));
@@ -593,7 +589,31 @@ function wpgmaps_get_plugin_url() {
 }
 
 function wpgmaps_head() {
-    $wpgmza_data = get_option('WPGoogleMaps');
+
+
+   if (isset($_POST['wpgmza_savemap'])){
+       
+    $data['map_name'] = attribute_escape($_POST['wpgmza_name']);
+    $data['map_height'] = attribute_escape($_POST['wpgmza_height']);
+    $data['map_width'] = attribute_escape($_POST['wpgmza_width']);
+    $data['map_start_location'] = attribute_escape($_POST['wpgmza_start_location']);
+    $data['map_start_zoom'] = intval($_POST['wpgmza_start_zoom']);
+    $data['directions_enabled'] = intval($_POST['wpgmza_directions']);
+    $gps = wpgmza_get_lat_long($data['map_start_location']);
+    $data['map_start_lat'] = $gps['lat'];
+    $data['map_start_lng'] = $gps['lng'];
+    $data['map_default_marker'] = $_POST['upload_default_marker'];
+
+    update_option('WPGMZA', $data);
+    $wpgmza_data = get_option('WPGMZA');
+    echo "
+    <div class='updated'>
+        Your settings have been saved.
+    </div>
+    ";
+   }
+
+
 
 
 }
@@ -616,25 +636,6 @@ function wpgmaps_menu_layout() {
     if (!wpgmaps_check_permissions()) { wpgmaps_permission_warning(); }
 
 
-   if (isset($_POST['wpgmza_savemap'])){
-    $data['map_name'] = attribute_escape($_POST['wpgmza_name']);
-    $data['map_height'] = attribute_escape($_POST['wpgmza_height']);
-    $data['map_width'] = attribute_escape($_POST['wpgmza_width']);
-    $data['map_start_location'] = attribute_escape($_POST['wpgmza_start_location']);
-    $data['map_start_zoom'] = intval($_POST['wpgmza_start_zoom']);
-    $data['directions_enabled'] = intval($_POST['wpgmza_directions']);
-    $gps = wpgmza_get_lat_long($data['map_start_location']);
-    $data['map_start_lat'] = $gps['lat'];
-    $data['map_start_lng'] = $gps['lng'];
-
-    update_option('WPGMZA', $data);
-    echo "
-    <div class='updated'>
-        Your settings have been saved.
-    </div>
-    ";
-   }
-
 
    if ($wpgmza_p) { wpgmza_pro_menu(); }
    else { wpgmza_basic_menu(); }
@@ -651,7 +652,7 @@ function wpgmza_basic_menu() {
 
 
     $wpgmza_act = "disabled readonly";
-    $wpgmza_act_msg = "<span style=\"font-size:16px; color:#666;\">Add descriptions, pictures and links to your markers with the \"<a href=\"http://www.wpgmaps.com/purchase-professional-version/\" title=\"Pro Edition\" target=\"_BLANK\">Pro Edition</a>\" of this plugin for just <strong>$9.99</strong></span>";
+    $wpgmza_act_msg = "<span style=\"font-size:16px; color:#666;\">Add custom icons, descriptions, pictures and links to your markers with the \"<a href=\"http://www.wpgmaps.com/purchase-professional-version/\" title=\"Pro Edition\" target=\"_BLANK\">Pro Edition</a>\" of this plugin for just <strong>$9.99</strong></span>";
     $wpgmza_csv = "<a href=\"http://www.wpgmaps.com/\" title=\"Pro Edition\">Purchase the Pro Edition</a> of WP Google Maps and save your markers to a CSV file!";
 
 
@@ -697,6 +698,7 @@ function wpgmza_basic_menu() {
                         Height: <input id='wpgmza_height' name='wpgmza_height' type='text' size='4' maxlength='4' value='".$wpgmza_data['map_height']."' /> px</p>
 
 
+                        <p>Default Marker Image: <input id=\"upload_default_marker\" name=\"upload_default_marker\" type='hidden' size='35' maxlength='700' value='' ".$wpgmza_act."/> <input id=\"upload_default_marker_btn\" type=\"button\" value=\"Upload Image\" $wpgmza_act /><small><i> available in the <a href=\"http://www.wpgmaps.com/purchase-professional-version/\" title=\"Pro Edition\" target=\"_BLANK\">Pro Edition</a> only.   </i></small></p>
 
 
 
@@ -704,17 +706,24 @@ function wpgmza_basic_menu() {
                         <p class='submit'><input type='submit' name='wpgmza_savemap' value='Save Map &raquo;' /></p>
                         <div id=\"wpgmaps_save_reminder\" style=\"display:none;\"><span style=\"font-size:16px; color:#1C62B9;\">Remember to save your map!</span></div>
                         <p style=\"width:600px; color:#808080;\">Tip: Use your mouse to change the layout of your map. When you have positioned the map to your desired location, press \"Save Map\" to keep your settings.</p>
+
+                        
                         <div id=\"wpgmza_map\">&nbsp;</div>
 
                         <h4>Add a marker</h4>
                         <p>
                         <table>
                         <input type=\"hidden\" name=\"wpgmza_edit_id\" id=\"wpgmza_edit_id\" value=\"\" />
-                        <tr><td>Address: </td><td><input id='wpgmza_add_address' name='wpgmza_add_address' type='text' size='35' maxlength='200' value='' /> &nbsp;<br /></td></tr>
+                        <tr>
+                            <td>Address: </td>
+                            <td><input id='wpgmza_add_address' name='wpgmza_add_address' type='text' size='35' maxlength='200' value='' /> &nbsp;<br /></td>
+                            
+                        </tr>
 
                         <tr><td>Description: </td><td><input id='wpgmza_add_desc' name='wpgmza_add_desc' type='text' size='35' maxlength='300' value='' ".$wpgmza_act."/>  &nbsp;<br /></td></tr>
-                        <tr><td>Pic URL: </td><td><input id='wpgmza_add_pic' name=\"wpgmza_add_pic\" type='text' size='35' maxlength='700' value='' ".$wpgmza_act."/> <input id=\"upload_image_button\" type=\"button\" value=\"Upload Image\" $wpgmza_act /> &nbsp; <small><i>(Or paste image URL)</i></small><br /></td></tr>
-                        <tr><td>Link URL: </td><td><input id='wpgmza_link_url' name='wpgmza_link_url' type='text' size='35' maxlength='700' value='' ".$wpgmza_act." /><small><i> Format: http://www.domain.com</i></small><br /></td></tr>
+                        <tr><td>Pic URL: </td><td><input id='wpgmza_add_pic' name=\"wpgmza_add_pic\" type='text' size='35' maxlength='700' value='' ".$wpgmza_act."/> <input id=\"upload_image_button\" type=\"button\" value=\"Upload Image\" $wpgmza_act /><br /></td></tr>
+                        <tr><td>Link URL: </td><td><input id='wpgmza_link_url' name='wpgmza_link_url' type='text' size='35' maxlength='700' value='' ".$wpgmza_act." /></td></tr>
+                        <tr><td>Custom Marker: </td><td><input id='wpgmza_add_custom_marker' name=\"wpgmza_add_custom_marker\" type='hidden' size='35' maxlength='700' value='' ".$wpgmza_act."/> <input id=\"upload_custom_marker_button\" type=\"button\" value=\"Upload Image\" $wpgmza_act /> &nbsp;</td></tr>
 
                         <tr>
                             <td></td>
@@ -722,10 +731,11 @@ function wpgmza_basic_menu() {
                                 <span id=\"wpgmza_addmarker_div\"><a href='javascript:void(0);' id='wpgmza_addmarker'><big>Add Marker &gt;&gt;</big></a></span> <span id=\"wpgmza_addmarker_loading\" style=\"display:none;\">Adding...</span>
                                 <span id=\"wpgmza_editmarker_div\" style=\"display:none;\"><a href='javascript:void(0);' id='wpgmza_editmarker'><big>Save Marker &gt;&gt;</big></a></span><span id=\"wpgmza_editmarker_loading\" style=\"display:none;\">Saving...</span>
                             </td>
+                            
                         </tr>
-                        </table>
-                        <p>$wpgmza_act_msg</p>
 
+                        </table>
+<p>$wpgmza_act_msg</p>
                         <h4>Markers</h4>
                         <div id=\"wpgmza_marker_holder\">
                             ".wpgmza_return_marker_list()."
@@ -734,11 +744,15 @@ function wpgmza_basic_menu() {
 
                         <table>
                             <tr>
-                                <td><img src=\"".wpgmaps_get_plugin_url()."/images/custom_markers.jpg\" width=\"160\" style=\"border:3px solid #808080;\" title=\"Add custom markers to your map!\" alt=\"Add custom markers to your map!\" /></td>
-                                <td valign=\"middle\"><span style=\"font-size:18px; color:#666;\">Add custom markers to your map for only <strong>$9.99</strong>. Click <a href=\"http://www.wpgmaps.com/purchase-professional-version/\" title=\"Pro Edition\" target=\"_BLANK\">here</a></span></td>
+                                <td><img src=\"".wpgmaps_get_plugin_url()."/images/custom_markers.jpg\" width=\"160\" style=\"border:3px solid #808080;\" title=\"Add detailed information to your markers!\" alt=\"Add custom markers to your map!\" /><br /><br /></td>
+                                <td valign=\"middle\"><span style=\"font-size:18px; color:#666;\">Add detailed information to your markers for only <strong>$9.99</strong>. Click <a href=\"http://www.wpgmaps.com/purchase-professional-version/\" title=\"Pro Edition\" target=\"_BLANK\">here</a></span></td>
                             </tr>
                             <tr>
-                                <td><img src=\"".wpgmaps_get_plugin_url()."/images/get_directions.jpg\" width=\"160\" style=\"border:3px solid #808080;\" title=\"Add custom markers to your map!\" alt=\"Add custom markers to your map!\" /></td>
+                                <td><img src=\"".wpgmaps_get_plugin_url()."/images/custom_marker_icons.jpg\" width=\"160\" style=\"border:3px solid #808080;\" title=\"Add custom markers to your map!\" alt=\"Add custom markers to your map!\" /><br /><br /></td>
+                                <td valign=\"middle\"><span style=\"font-size:18px; color:#666;\">Add different marker icons, or your own icons to make your map really stand out!</span></td>
+                            </tr>
+                            <tr>
+                                <td><img src=\"".wpgmaps_get_plugin_url()."/images/get_directions.jpg\" width=\"160\" style=\"border:3px solid #808080;\" title=\"Add custom markers to your map!\" alt=\"Add custom markers to your map!\" /><br /><br /></td>
                                 <td valign=\"middle\"><span style=\"font-size:18px; color:#666;\">Allow your visitors to get directions to your markers! Click <a href=\"http://www.wpgmaps.com/purchase-professional-version/\" title=\"Pro Edition\" target=\"_BLANK\">here</a></span></td>
                             </tr>
                         </table>
@@ -791,17 +805,33 @@ function wpgmza_return_marker_list() {
 	WHERE `map_id` = '1' ORDER BY `id` DESC
     ");
     $wpgmza_tmp .= "<div style=\"border:1px dashed #666; width:700px; height:300px; display:block; overflow:auto;\"><table width=\"680\" cellspacing=\"5\">";
-    $wpgmza_tmp .= "<tr><td><strong>ID</strong></td><td><strong>Address</strong></td><td><strong>Description</strong></td><td><strong>Image</strong></td><td><strong>Link</strong></td><td><strong>Action</strong></td></tr>";
+    $wpgmza_tmp .= "
+        <tr>
+            <td><strong>ID</strong></td>
+            <td><strong>Icon</strong></td>
+            <td><strong>Address</strong></td>
+            <td><strong>Description</strong></td>
+            <td><strong>Image</strong></td>
+            <td><strong>Link</strong></td>
+            <td><strong>Action</strong></td>
+        </tr>";
 
+
+    $wpgmza_data = get_option('WPGMZA');
+    if ($wpgmza_data['map_default_marker']) { $default_icon = "<img src='".$wpgmza_data['map_default_marker']."' />"; } else { $default_icon = "<img src='".wpgmaps_get_plugin_url()."/images/marker.png' />"; }
 
     foreach ( $results as $result ) {
         $img = $result->pic;
         $link = $result->link;
+        $icon = $result->icon;
+        
         if (!$img) { $pic = ""; } else { $pic = "<img src=\"".$result->pic."\" width=\"40\" />"; }
+        if (!$icon) { $icon = $default_icon; } else { $icon = "<img src='".$result->icon."' />"; }
         if (!$link) { $linktd = ""; } else { $linktd = "<a href=\"".$result->link."\" target=\"_BLANK\" title=\"View this link\">&gt;&gt;</a>"; }
         $wpgmza_tmp .= "
             <tr id=\"wpgmza_tr_".$result->id."\">
                 <td height=\"40\">".$result->id."</td>
+                <td height=\"40\">".$icon."<input type=\"hidden\" id=\"wpgmza_hid_marker_icon_".$result->id."\" value=\"".$result->icon."\" /></td>
                 <td>".$result->address."<input type=\"hidden\" id=\"wpgmza_hid_marker_address_".$result->id."\" value=\"".$result->address."\" /></td>
                 <td>".$result->desc."<input type=\"hidden\" id=\"wpgmza_hid_marker_desc_".$result->id."\" value=\"".$result->desc."\" /></td>
                 <td>$pic<input type=\"hidden\" id=\"wpgmza_hid_marker_pic_".$result->id."\" value=\"".$result->pic."\" /></td>
@@ -957,14 +987,16 @@ if ($wpgmza_p) {
 
 
 function wpgmza_cURL_response($action) {
-    global $wpgmza_version;
-    global $wpgmza_t;
-    $request_url = "http://www.wpgmaps.com/api/rec.php?action=$action&dom=".$_SERVER['HTTP_HOST']."&ver=".$wpgmza_version.$wpgmza_t;
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, $request_url);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    $output = curl_exec($ch);
-    curl_close($ch);
+    if (function_exists('curl_version')) {
+        global $wpgmza_version;
+        global $wpgmza_t;
+        $request_url = "http://www.wpgmaps.com/api/rec.php?action=$action&dom=".$_SERVER['HTTP_HOST']."&ver=".$wpgmza_version.$wpgmza_t;
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $request_url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        $output = curl_exec($ch);
+        curl_close($ch);
+    }
 
 }
 
@@ -988,4 +1020,43 @@ function wpgmaps_check_permissions() {
 function wpgmaps_permission_warning() {
     echo "<div class='error below-h1'>The plugin directory does not have 'write' permissions. Please enable 'write' permissions (755) for \"".dirname( __FILE__ )."\" in order for this plugin to work! Please see <a href='http://codex.wordpress.org/Changing_File_Permissions#Using_an_FTP_Client'>this page</a> for help on how to do it.</div>";
 }
+
+
+// handle database check upon upgrade
+function wpgmaps_update_db_check() {
+    global $wpgmza_version;
+    if (get_option('wpgmza_db_version') != $wpgmza_version) {
+        wpgmaps_handle_db();
+    }
+}
+add_action('plugins_loaded', 'wpgmaps_update_db_check');
+
+
+function wpgmaps_handle_db() {
+   global $wpdb;
+   global $wpgmza_version;
+
+   $table_name = $wpdb->prefix . "wpgmza";
+
+    $sql = "
+        CREATE TABLE `".$table_name."` (
+          `id` int(11) NOT NULL AUTO_INCREMENT,
+          `map_id` int(11) NOT NULL,
+          `address` varchar(700) NOT NULL,
+          `desc` varchar(700) NOT NULL,
+          `pic` varchar(700) NOT NULL,
+          `link` varchar(700) NOT NULL,
+          `icon` varchar(700) NOT NULL,
+          `lat` varchar(100) NOT NULL,
+          `lng` varchar(100) NOT NULL,
+          PRIMARY KEY (`id`)
+        ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+    ";
+
+   require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+   dbDelta($sql);
+
+   add_option("wpgmza_db_version", $wpgmza_version);
+}
+
 ?>

@@ -26,6 +26,7 @@ Create custom Google Maps with high quality markers containing locations, descri
 = Professional Edition =
 * Get the [WP Google Maps Professional Edition](http://www.wpgmaps.com/) for only $9.99
 * Add descriptions, links and images to your Google Map markers
+* Add different marker icons, or your own icons to make your map really stand out!
 * Allow your visitors to get directions to your markers
 * Export your markers to a CSV file for quick editing
 
@@ -36,6 +37,7 @@ Create custom Google Maps with high quality markers containing locations, descri
 1. Once activated, click the "WP Google Maps" link under your settings tabs.
 2. Edit the settings to your preference.
 3. Test it out in a post or page.
+4. Ensure the plugin directory has write access enabled (chmod 755)
 
 
 == Frequently Asked Questions ==
@@ -48,9 +50,19 @@ Simply visit http://www.wpgmaps.com and purchase the Professional Edition for $9
 
 == Screenshots ==
 
-1. A view of what to expect
+1. Back end
+2. Users can make use of the StreetView functionality
+3. Users can get directions to your markers
+4. Add custom markers
 
 == Changelog ==
+
+= 3.1 =
+* Added the ability for you to add a default marker and custom markers for each marker you add (Pro version)
+* Fixed a css bug where the markers do not display correctly on some WordPress themes.
+* Fixed a bug that loads the Google Maps API twice.
+* Fixed a number of other bugs
+* Improved the upgrading process (Code)
 
 = 3.0 =
 * You are now able to edit your markers.
