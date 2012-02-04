@@ -758,6 +758,8 @@ function wpgmza_basic_menu() {
                         </table>
 
                 </form>
+
+                <p>WP Google Maps encourages you to make use of the amazing icons created by Nicolas Mollet's Maps Icons Collection <a href='http://mapicons.nicolasmollet.com'>http://mapicons.nicolasmollet.com/</a></p>
             </div>
 
 
