@@ -3,7 +3,9 @@
 require('../../../wp-load.php' );
 
 
-$fileName = 'wpgmza_export'.time().'.csv';
+
+global $wpdb;
+$fileName = $wpdb->prefix.'wpgmza.csv';
 
 header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
 header('Content-Description: File Transfer');
@@ -14,7 +16,7 @@ header("Pragma: public");
 
 $fh = @fopen( 'php://output', 'w' );
 
-global $wpdb;
+
 $query = "SELECT * FROM `{$wpdb->prefix}wpgmza`";
 $results = $wpdb->get_results( $query, ARRAY_A );
 

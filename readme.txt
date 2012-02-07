@@ -31,13 +31,11 @@ Create custom Google Maps with high quality markers containing locations, descri
 * Export your markers to a CSV file for quick editing
 
 
-
 == Installation ==
 
 1. Once activated, click the "WP Google Maps" link under your settings tabs.
 2. Edit the settings to your preference.
 3. Test it out in a post or page.
-4. Ensure the plugin directory has write access enabled (chmod 755)
 
 
 == Frequently Asked Questions ==
@@ -56,6 +54,13 @@ Simply visit http://www.wpgmaps.com and purchase the Professional Edition for $9
 4. Add custom markers
 
 == Changelog ==
+
+= 3.2 =
+* A number of UX changes were implemented.
+* Fixed the bug where the Pro edition kept getting overwritten everytime the basic version got updated.
+* The Pro edition now supports impoting CSV files
+* Fixed a bug that was causing the JS to display on all user pages instead of only where the shortcode was placed
+
 
 = 3.1 =
 * Added the ability for you to add a default marker and custom markers for each marker you add (Pro version)
