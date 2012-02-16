@@ -45,6 +45,9 @@ The easiest to use Map Plugin! Create custom Google Maps with high quality marke
 
 Simply visit http://www.wpgmaps.com and purchase the Professional Edition for $9.99
 
+= I've installed the plugin, now what? =
+
+Once installed and activated, a link should appear in your left navigation panel within your WP-ADMIN section. Click on the "WP Google Maps" link and follow the on screen instructions.
 
 
 == Screenshots ==
