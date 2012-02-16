@@ -27,7 +27,7 @@ The easiest to use Map Plugin! Create custom Google Maps with high quality marke
 * Get the [WP Google Maps Professional Edition](http://www.wpgmaps.com/) for only $9.99
 * Add = descriptions, links and images = to your Google Map markers.
 * Add different = marker icons =, or your own icons to make your map really stand out!
-* Add = animations = to your markers.
+* Add = animations = to your markers and let them stand out!
 * Allow your visitors to get = directions = to your markers.
 * = Export your markers = to a CSV file for quick editing.
 
