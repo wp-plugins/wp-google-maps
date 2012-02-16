@@ -6,29 +6,30 @@ Requires at least: 2.9.2
 Tested up to: 3.3.1
 Stable tag: trunk
 
-The most easy to use Map Plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Quick and easy, no fuss.
+The easiest to use Map Plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Quick and easy, no fuss.
 
 == Description ==
 
-The most easy to use Map Plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized Google map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss. no iFrames and super easy to use!
+The easiest to use Map Plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized Google map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss. no iFrames and super easy to use!
 
 = Key Features =
 * WP Google Maps uses the latest Google Maps API (V3)
 * Super easy to use, no coding required!
-* Create as many map markers as you need by simply typing in the address
-* Edit your markers with the click of a button
-* Google Maps Streetview supported
-* Define your own width, height and zoom level for your Google Map
+* Create as many map markers as you need by simply typing in the address.
+* Edit your markers with the click of a button.
+* Google Maps Streetview supported.
+* Define your own width, height and zoom level for your Google Map.
 * Create a map in less than a 30 seconds!
-* WordPress 3.0 friendly
-* No advertising or links
+* WordPress 3.0 friendly.
+* No advertising or links.
 
 = Professional Edition =
 * Get the [WP Google Maps Professional Edition](http://www.wpgmaps.com/) for only $9.99
-* Add descriptions, links and images to your Google Map markers
-* Add different marker icons, or your own icons to make your map really stand out!
-* Allow your visitors to get directions to your markers
-* Export your markers to a CSV file for quick editing
+* Add =descriptions, links and images= to your Google Map markers.
+* Add different =marker icons=, or your own icons to make your map really stand out!
+* Add =animations= to your markers.
+* Allow your visitors to get =directions= to your markers.
+* =Export your markers= to a CSV file for quick editing.
 
 
 == Installation ==
