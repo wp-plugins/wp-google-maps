@@ -59,6 +59,9 @@ Once installed and activated, a link should appear in your left navigation panel
 
 == Changelog ==
 
+= 3.4 =
+* Fixed some compatibility bugs with Pro and Basic versions
+
 = 3.3 =
 * Fixed a bug that was causing a JS error in IE in some instances
 * Fixed a jQuery issue
