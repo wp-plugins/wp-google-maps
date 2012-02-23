@@ -6,7 +6,7 @@ Requires at least: 2.9.2
 Tested up to: 3.3.1
 Stable tag: trunk
 
-The easiest to use Map Plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Quick & Easy.
+The easiest to use Map Plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links.
 
 == Description ==
 
