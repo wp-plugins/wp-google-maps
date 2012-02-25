@@ -3,7 +3,7 @@
 Plugin Name: WP Google Maps
 Plugin URI: http://www.wpgmaps.com
 Description: The easiest to use Google Maps plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 4.0
+Version: 4.1
 Author: WP Google Maps
 Author URI: http://www.wpgmaps.com
 */
@@ -22,8 +22,8 @@ $wpgmza_p = false;
 $wpgmza_g = false;
 $wpgmza_tblname = $wpdb->prefix . "wpgmza";
 $wpgmza_tblname_maps = $wpdb->prefix . "wpgmza_maps";
-$wpgmza_version = "4.0";
-$wpgmza_p_version = "4.0";
+$wpgmza_version = "4.1";
+$wpgmza_p_version = "4.1";
 $wpgmza_t = "basic";
 
 add_action('admin_head', 'wpgmaps_head');
@@ -58,6 +58,11 @@ function wpgmaps_activate() {
                                                                     "map_start_location" => "51.5081290,-0.1280050",
                                                                     "map_start_zoom" => "5",
                                                                     "directions_enabled" => '1',
+                                                                    "default_marker" => "0",
+                                                                    "alignment" => "0",
+                                                                    "styling_enabled" => "0",
+                                                                    "styling_json" => "",
+                                                                    "active" => "0",
                                                                     "type" => "1")
                                                                     ); }
     } else {
@@ -71,6 +76,9 @@ function wpgmaps_activate() {
                                                                     "default_marker" => "".$wpgmza_data['map_default_marker']."",
                                                                     "type" => "".$wpgmza_data['map_type']."",
                                                                     "alignment" => "".$wpgmza_data['map_align']."",
+                                                                    "styling_enabled" => "0",
+                                                                    "styling_json" => "",
+                                                                    "active" => "0",
                                                                     "directions_enabled" => "".$wpgmza_data['directions_enabled'].""
                                                                 ) );
         delete_option("WPGMZA");
@@ -752,7 +760,8 @@ function wpgmaps_menu_layout() {
 
             if ($_GET['s'] == "1") {
                 if (wpgmaps_trash_map($_GET['map_id'])) {
-                    wp_redirect( admin_url('?page=wp-google-maps-menu') );
+                    //wp_redirect( admin_url('admin.php?page=wp-google-maps-menu') );
+                    echo "<script>window.location = \"".get_option('siteurl')."/wp-admin/admin.php?page=wp-google-maps-menu\"</script>";
                 } else {
                     echo "There was a problem deleting the map.";
                 }
