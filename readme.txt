@@ -17,18 +17,20 @@ The easiest to use Map Plugin! Create custom Google Maps with high quality marke
 * Super easy to use, no coding required!
 * Create as many map markers as you need by simply typing in the address.
 * Edit your markers with the click of a button.
+* Drag markers to an exact location
 * Google Maps Streetview supported.
 * Choose from four map type: roadmap, terrain, satellite and hybrid.
 * Define your own width, height and zoom level for your Google Map.
 * Create a map in less than a 30 seconds!
 * WordPress 3.0 friendly.
+* WordPress MU friendly
 * No advertising or links.
 
 = Professional Edition =
 * Get the [WP Google Maps Professional Edition](http://www.wpgmaps.com/) for only $9.99
 * Create multiple maps!
 * Add descriptions, links and images to your Google Map markers.
-* Add different marker icons, or your own icons to make your map really stand out!
+* Add different marker icons =, or your own icons to make your map really stand out!
 * Add animations to your markers and let them stand out!
 * Allow your visitors to get directions to your markers.
 * Export your markers to a CSV file for quick editing.
@@ -60,6 +62,16 @@ Once installed and activated, a link should appear in your left navigation panel
 4. Add custom markers
 
 == Changelog ==
+
+= 4.3 =
+* Added functionality to let users drag their markers to an exact location
+* Fixed a CSS bug (marker styling)
+* Added functionality for Wordpress MU
+
+= 4.2 =
+* Fixed the bug that was causing duplicate function names with other plugins
+* Fixed the bug where the map wasnt saving correctly in some instances
+* Fixed the bug that caused a supposedly hidden field to show in IE.
 
 = 4.1 =
 * Killed some bugs!

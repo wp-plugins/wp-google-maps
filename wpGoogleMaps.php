@@ -3,7 +3,7 @@
 Plugin Name: WP Google Maps
 Plugin URI: http://www.wpgmaps.com
 Description: The easiest to use Google Maps plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 4.1
+Version: 4.3
 Author: WP Google Maps
 Author URI: http://www.wpgmaps.com
 */
@@ -22,8 +22,8 @@ $wpgmza_p = false;
 $wpgmza_g = false;
 $wpgmza_tblname = $wpdb->prefix . "wpgmza";
 $wpgmza_tblname_maps = $wpdb->prefix . "wpgmza_maps";
-$wpgmza_version = "4.1";
-$wpgmza_p_version = "4.1";
+$wpgmza_version = "4.3";
+$wpgmza_p_version = "4.3";
 $wpgmza_t = "basic";
 
 add_action('admin_head', 'wpgmaps_head');
@@ -49,6 +49,7 @@ function wpgmaps_activate() {
     if (!$wpgmza_data) {
         // load first map as an example map (i.e. if the user has not installed this plugin before, this must run
         $res_maps = $wpdb->get_results("SELECT * FROM $table_name_maps");
+        $wpdb->show_errors();
         if (!$res_maps) { $rows_affected = $wpdb->insert( $table_name_maps, array(
                                                                     "map_title" => "Your first map",
                                                                     "map_start_lat" => "51.5081290",
@@ -127,12 +128,88 @@ function wpgmaps_reload_map_on_post() {
             var myLatLng = new google.maps.LatLng(<?php echo $wpgmza_lat; ?>,<?php echo $wpgmza_lng; ?>);
             MYMAP.init('#wpgmza_map', myLatLng, <?php echo $start_zoom; ?>);
             UniqueCode=Math.round(Math.random()*10010);
-            MYMAP.placeMarkers('<?php echo wpgmaps_get_plugin_url(); ?>/markers.xml?u='+UniqueCode,<?php echo $_GET['map_id']; ?>);
+            MYMAP.placeMarkers('<?php echo wpgmaps_get_marker_url(); ?>?u='+UniqueCode,<?php echo $_GET['map_id']; ?>);
             
         });
         </script>
         <?php
     }
+
+
+}
+function wpgmaps_get_marker_url() {
+
+    if (is_multisite()) {
+        global $blog_id;
+        return wpgmaps_get_plugin_url()."/".$blog_id."markers.xml";
+    } else {
+        return wpgmaps_get_plugin_url()."/markers.xml";
+    }
+
+
+
+}
+
+
+function wpgmaps_admin_edit_marker_javascript() {
+
+    $res = wpgmza_get_marker_data($_GET['id']);
+        $wpgmza_lat = $res->lat;
+        $wpgmza_lng = $res->lng;
+        $wpgmza_map_type = "ROADMAP";
+
+
+        ?>
+        <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+        <link rel='stylesheet' id='wpgooglemaps-css'  href='<?php echo wpgmaps_get_plugin_url(); ?>/css/wpgmza_style.css' type='text/css' media='all' />
+        <link rel="stylesheet" type="text/css" media="all" href="<?php echo wpgmaps_get_plugin_url(); ?>/css/data_table.css" />
+        <script type="text/javascript" src="<?php echo wpgmaps_get_plugin_url(); ?>/js/jquery.dataTables.js"></script>
+        <script type="text/javascript" >
+            jQuery(document).ready(function(){
+                    function wpgmza_InitMap() {
+                        var myLatLng = new google.maps.LatLng(<?php echo $wpgmza_lat; ?>,<?php echo $wpgmza_lng; ?>);
+                        MYMAP.init('#wpgmza_map', myLatLng, 15);
+                    }
+                    jQuery("#wpgmza_map").css({
+                        height:400,
+                        width:400
+                    });
+                    wpgmza_InitMap();
+            });
+
+            var MYMAP = {
+                map: null,
+                bounds: null
+            }
+            MYMAP.init = function(selector, latLng, zoom) {
+                  var myOptions = {
+                    zoom:zoom,
+                    center: latLng,
+                    mapTypeId: google.maps.MapTypeId.<?php echo $wpgmza_map_type; ?>
+                  }
+                this.map = new google.maps.Map(jQuery(selector)[0], myOptions);
+                this.bounds = new google.maps.LatLngBounds();
+
+                updateMarkerPosition(latLng);
+
+
+                var marker = new google.maps.Marker({
+                    position: latLng,
+                    map: this.map,
+                    draggable: true
+                });
+                google.maps.event.addListener(marker, 'drag', function() {
+                    updateMarkerPosition(marker.getPosition());
+                });
+            }
+            function updateMarkerPosition(latLng) {
+                jQuery("#wpgmaps_marker_lat").val(latLng.lat());
+                jQuery("#wpgmaps_marker_lng").val(latLng.lng());
+            }
+
+
+        </script>
+        <?php
 
 
 }
@@ -142,7 +219,12 @@ function wpgmaps_admin_javascript_basic() {
     global $wpgmza_tblname_maps;
     $ajax_nonce = wp_create_nonce("wpgmza");
 
-    if (is_admin() && $_GET['page'] == 'wp-google-maps-menu' && $_GET['action'] == "edit") {
+    if (is_admin() && $_GET['page'] == 'wp-google-maps-menu' && $_GET['action'] == "edit_marker") {
+        wpgmaps_admin_edit_marker_javascript();
+
+    }
+
+    else if (is_admin() && $_GET['page'] == 'wp-google-maps-menu' && $_GET['action'] == "edit") {
         if (!$_GET['map_id']) { break; }
         wpgmaps_update_xml_file();
         //$wpgmza_data = get_option('WPGMZA');
@@ -333,22 +415,41 @@ function wpgmaps_admin_javascript_basic() {
 
             });
 
-
+            
+            
             var MYMAP = {
                 map: null,
                 bounds: null
             }
             MYMAP.init = function(selector, latLng, zoom) {
-              var myOptions = {
-                zoom:zoom,
-                center: latLng,
-                mapTypeId: google.maps.MapTypeId.<?php echo $wpgmza_map_type; ?>
-              }
-              this.map = new google.maps.Map(jQuery(selector)[0], myOptions);
-                    this.bounds = new google.maps.LatLngBounds();
+                  var myOptions = {
+                    zoom:zoom,
+                    center: latLng,
+                    mapTypeId: google.maps.MapTypeId.<?php echo $wpgmza_map_type; ?>
+                  }
+                this.map = new google.maps.Map(jQuery(selector)[0], myOptions);
+                this.bounds = new google.maps.LatLngBounds();
+
+
+                google.maps.event.addListener(MYMAP.map, 'zoom_changed', function() {
+                zoomLevel = MYMAP.map.getZoom();
+
+                jQuery("#wpgmza_start_zoom").val(zoomLevel);
+                if (zoomLevel == 0) {
+                  MYMAP.map.setZoom(10);
+                }
+                });
+                google.maps.event.addListener(MYMAP.map, 'center_changed', function() {
+                    var location = MYMAP.map.getCenter();
+                    jQuery("#wpgmza_start_location").val(location.lat()+","+location.lng());
+                    jQuery("#wpgmaps_save_reminder").show();
+                });
+
+
             }
 
-        MYMAP.placeMarkers = function(filename,map_id) {
+
+            MYMAP.placeMarkers = function(filename,map_id) {
                 marker_array = [];
                     jQuery.get(filename, function(xml){
                             jQuery(xml).find("marker").each(function(){
@@ -374,24 +475,13 @@ function wpgmaps_admin_javascript_basic() {
                                         });
                                         //MYMAP.map.fitBounds(MYMAP.bounds);
 
-                                        google.maps.event.addListener(MYMAP.map, 'zoom_changed', function() {
-                                            zoomLevel = MYMAP.map.getZoom();
-
-                                            jQuery("#wpgmza_start_zoom").val(zoomLevel);
-                                            if (zoomLevel == 0) {
-                                              MYMAP.map.setZoom(10);
-                                            }
-                                        });
-                                        google.maps.event.addListener(MYMAP.map, 'center_changed', function() {
-                                            var location = MYMAP.map.getCenter();
-                                            jQuery("#wpgmza_start_location").val(location.lat()+","+location.lng());
-                                            jQuery("#wpgmaps_save_reminder").show();
-                                        });
                                     }
 
                             });
                     });
             }
+
+            
 
 
             
@@ -569,7 +659,12 @@ function wpgmaps_update_xml_file() {
 
         
     }
-    @$dom->save(WP_PLUGIN_DIR.'/'.plugin_basename(dirname(__FILE__)).'/markers.xml');
+    if (is_multisite()) {
+        global $blog_id;
+        @$dom->save(WP_PLUGIN_DIR.'/'.plugin_basename(dirname(__FILE__)).'/'.$blog_id.'markers.xml');
+    } else {
+        @$dom->save(WP_PLUGIN_DIR.'/'.plugin_basename(dirname(__FILE__)).'/markers.xml');
+    }
 
 
 
@@ -725,6 +820,36 @@ function wpgmaps_head() {
         ";
    }
 
+   else if (isset($_POST['wpgmza_save_maker_location'])){
+        global $wpdb;
+        global $wpgmza_tblname;
+        $mid = attribute_escape($_POST['wpgmaps_marker_id']);
+        $wpgmaps_marker_lat = attribute_escape($_POST['wpgmaps_marker_lat']);
+        $wpgmaps_marker_lng = attribute_escape($_POST['wpgmaps_marker_lng']);
+
+        $rows_affected = $wpdb->query( $wpdb->prepare(
+                "UPDATE $wpgmza_tblname SET
+                lat = %s,
+                lng = %s
+                WHERE id = %d",
+
+                $wpgmaps_marker_lat,
+                $wpgmaps_marker_lng,
+                $mid)
+        );
+
+
+
+
+        //update_option('WPGMZA', $data);
+        echo "
+        <div class='updated'>
+            Your marker location has been saved.
+        </div>
+        
+        ";
+   }
+
 
 
 
@@ -771,7 +896,13 @@ function wpgmaps_menu_layout() {
             }
 
 
-        } else {
+        }
+        else if ($_GET['action'] == "edit_marker" && isset($_GET['id'])) {
+
+            wpgmza_edit_marker($_GET['id']);
+
+        }
+        else {
 
             if (function_exists(wpgmza_register_pro_version)) {
 
@@ -904,7 +1035,7 @@ function wpgmza_basic_menu() {
                     <input type='hidden' name='http_referer' value='".$_SERVER['PHP_SELF']."' />
                     <input type='hidden' name='wpgmza_id' id='wpgmza_id' value='".$res->id."' />
                     <input id='wpgmza_start_location' name='wpgmza_start_location' type='hidden' size='40' maxlength='100' value='".$res->map_start_location."' />
-                    <select id='wpgmza_start_zoom' name='wpgmza_start_zoom' hidden>
+                    <select id='wpgmza_start_zoom' name='wpgmza_start_zoom' style=\"display:none;\">
                         <option value=\"1\" ".$wpgmza_zoom[1].">1</option>
                         <option value=\"2\" ".$wpgmza_zoom[2].">2</option>
                         <option value=\"3\" ".$wpgmza_zoom[3].">3</option>
@@ -1054,7 +1185,66 @@ function wpgmza_basic_menu() {
 }
 
 
-function my_admin_scripts() {
+
+function wpgmza_edit_marker($mid) {
+    global $wpgmza_tblname_maps;
+    global $wpdb;
+    if ($_GET['action'] == "edit_marker" && isset($mid)) {
+        $res = wpgmza_get_marker_data($mid);
+        echo "
+           <div class='wrap'>
+                <h1>WP Google Maps</h1>
+                <div class='wide'>
+
+                    <h2>Edit Marker Location ID#$mid</h2>
+                    <form action='?page=wp-google-maps-menu&action=edit&map_id=".$res->map_id."' method='post' id='wpgmaps_edit_marker'>
+                    <p></p>
+
+                    <input type='hidden' name='wpgmaps_marker_id' id='wpgmaps_marker_id' value='".$mid."' />
+                    <div id=\"wpgmaps_status\"></div>
+                    <table>
+
+                        <tr>
+                            <td>Marker Latitude:</td>
+                            <td><input id='wpgmaps_marker_lat' name='wpgmaps_marker_lat' type='text' size='15' maxlength='100' value='".$res->lat."' /></td>
+                        </tr>
+                        <tr>
+                            <td>Marker Longitude:</td>
+                            <td><input id='wpgmaps_marker_lng' name='wpgmaps_marker_lng' type='text' size='15' maxlength='100' value='".$res->lng."' /></td>
+                        </tr>
+
+                    </table>
+                    <p class='submit'><input type='submit' name='wpgmza_save_maker_location' class='button-primary' value='Save Marker Location &raquo;' /></p>
+                    <p style=\"width:600px; color:#808080;\">Tip: Use your mouse to change the location of the marker. Simply click and drag it to your desired location.</p>
+
+
+                    <div id=\"wpgmza_map\">&nbsp;</div>
+                    
+                    <p>$wpgmza_act_msg</p>
+                            
+                            
+
+                    </form>
+                </div>
+
+
+            </div>
+
+
+
+        ";
+
+    }
+
+
+
+}
+
+
+
+
+
+function wpgmaps_admin_scripts() {
     wp_enqueue_script('media-upload');
     wp_enqueue_script('thickbox');
     wp_register_script('my-upload', WP_PLUGIN_URL.'/'.plugin_basename(dirname(__FILE__)).'/upload.js', array('jquery','media-upload','thickbox'));
@@ -1063,14 +1253,14 @@ function my_admin_scripts() {
 
 }
 
-function my_admin_styles() {
+function wpgmaps_admin_styles() {
     wp_enqueue_style('thickbox');
 }
 
 if (isset($_GET['page']) && $_GET['page'] == 'wp-google-maps-menu') {
     
-    add_action('admin_print_scripts', 'my_admin_scripts');
-    add_action('admin_print_styles', 'my_admin_styles');
+    add_action('admin_print_scripts', 'wpgmaps_admin_scripts');
+    add_action('admin_print_styles', 'wpgmaps_admin_styles');
 }
 
 
@@ -1130,6 +1320,7 @@ function wpgmza_return_marker_list($map_id) {
                 <td>$linktd<input type=\"hidden\" id=\"wpgmza_hid_marker_link_".$result->id."\" value=\"".$result->link."\" /></td>
                 <td>
                     <a href=\"#wpgmaps_marker\" title=\"Edit this marker\" class=\"wpgmza_edit_btn\" id=\"".$result->id."\">Edit</a> |
+                    <a href=\"?page=wp-google-maps-menu&action=edit_marker&id=".$result->id."\" title=\"Edit this marker\" class=\"wpgmza_edit_btn\" id=\"".$result->id."\">Edit Location</a> |
                     <a href=\"javascript:void(0);\" title=\"Delete this marker\" class=\"wpgmza_del_btn\" id=\"".$result->id."\">Delete</a>
                 </td>
             </tr>";
@@ -1350,7 +1541,20 @@ function wpgmza_get_map_data($map_id) {
     return $res;
 
 }
+function wpgmza_get_marker_data($mid) {
+    global $wpdb;
+    global $wpgmza_tblname;
 
+    $result = $wpdb->get_results("
+        SELECT *
+        FROM $wpgmza_tblname
+        WHERE `id` = '".$mid."' LIMIT 1
+    ");
+
+    $res = $result[0];
+    return $res;
+
+}
 function wpgmaps_upgrade_notice() {
     echo "<div class='error below-h1'>
         <big><big>
