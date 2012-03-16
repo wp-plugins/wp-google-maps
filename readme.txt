@@ -63,6 +63,9 @@ Once installed and activated, a link should appear in your left navigation panel
 
 == Changelog ==
 
+= 4.4 =
+* Security fix: The file Timthumb.php no longer allows external sites. Any image you associate to a marker must be on your WP server.
+
 = 4.3 =
 * Added functionality to let users drag their markers to an exact location
 * Fixed a CSS bug (marker styling)
