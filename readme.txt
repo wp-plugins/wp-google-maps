@@ -63,6 +63,9 @@ Once installed and activated, a link should appear in your left navigation panel
 
 == Changelog ==
 
+= 4.5 =
+* Bug fixes: slow loading bug
+
 = 4.4 =
 * Security fix: The file Timthumb.php no longer allows external sites. Any image you associate to a marker must be on your WP server.
 
