@@ -61,6 +61,12 @@ Once installed and activated, a link should appear in your left navigation panel
 3. Users can get directions to your markers
 4. Add custom markers
 
+== Upgrade Notice ==
+
+= 4.5 =
+Previous versions may cause your blog to slow down. Upgrading to 4.5 will get rid of this bug and increase your page load speed.
+
+
 == Changelog ==
 
 = 4.5 =
