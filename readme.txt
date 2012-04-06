@@ -1,7 +1,7 @@
 === WP Google Maps ===
 Contributors: WPGMaps
 Donate link: http://www.wpgmaps.com
-Tags: google maps, maps, bing maps, map, map markers, google, interactive map, interactive maps, maps api, wp maps, wp google maps, mappress, easy map
+Tags: google maps, maps, map, map markers, google, interactive, maps api, wp maps, wp google maps, mappress, easy map
 Requires at least: 2.9.2
 Tested up to: 3.3.1
 Stable tag: trunk
