@@ -1,7 +1,7 @@
 === WP Google Maps ===
 Contributors: WPGMaps
 Donate link: http://www.wpgmaps.com
-Tags: google maps, maps, bing maps, map, map markers, google, interactive map, interactive maps, maps api, wp maps, wp google maps, mappress, map press controls, custom marker icons, custom marker text, directions, geo, google map short code, google map widget, google maps v3, google maps api location by address, location by latitude, location by longitude, map short code, marker, marker icons, multiple markers, easy map, comprehensive
+Tags: google maps, maps, bing maps, map, map markers, google, interactive map, interactive maps, maps api, wp maps, wp google maps, mappress, easy map
 Requires at least: 2.9.2
 Tested up to: 3.3.1
 Stable tag: trunk
