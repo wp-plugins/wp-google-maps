@@ -69,6 +69,9 @@ Previous versions may cause your blog to slow down. Upgrading to 4.5 will get ri
 
 == Changelog ==
 
+= 4.6 =
+* Fixed small bugs
+
 = 4.5 =
 * Bug fixes: slow loading bug
 
