@@ -69,6 +69,9 @@ Previous versions may cause your blog to slow down. Upgrading to 4.5 will get ri
 
 == Changelog ==
 
+= 4.8 =
+* Bug fix: output caused xxxx characters of unexpected output
+
 = 4.7 =
 * Fixed small bug that was found when moving from 4.5 to 4.6
 
