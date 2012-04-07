@@ -3,7 +3,7 @@
 Plugin Name: WP Google Maps
 Plugin URI: http://www.wpgmaps.com
 Description: The easiest to use Google Maps plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 4.5
+Version: 4.6
 Author: WP Google Maps
 Author URI: http://www.wpgmaps.com
 */
@@ -27,8 +27,8 @@ $wpgmza_p = false;
 $wpgmza_g = false;
 $wpgmza_tblname = $wpdb->prefix . "wpgmza";
 $wpgmza_tblname_maps = $wpdb->prefix . "wpgmza_maps";
-$wpgmza_version = "4.5";
-$wpgmza_p_version = "4.5";
+$wpgmza_version = "4.6";
+$wpgmza_p_version = "4.6";
 $wpgmza_t = "basic";
 
 add_action('admin_head', 'wpgmaps_head');
@@ -104,7 +104,7 @@ function wpgmaps_activate() {
 
     wpgmza_cURL_response("activate");
     //check to see if you have write permissions to the plugin folder (version 2.2)
-    if (!wpgmaps_check_permissions()) { wpgmaps_permission_warning(); } else { wpgmaps_update_xml_file(); }
+    if (!wpgmaps_check_permissions()) { wpgmaps_permission_warning(); } else { wpgmaps_update_all_xml_file(); }
     wpgmaps_debugger("activate_end");
 }
 function wpgmaps_deactivate() { wpgmza_cURL_response("deactivate"); }
@@ -140,7 +140,7 @@ function wpgmaps_reload_map_on_post() {
             var myLatLng = new google.maps.LatLng(<?php echo $wpgmza_lat; ?>,<?php echo $wpgmza_lng; ?>);
             MYMAP.init('#wpgmza_map', myLatLng, <?php echo $start_zoom; ?>);
             UniqueCode=Math.round(Math.random()*10010);
-            MYMAP.placeMarkers('<?php echo wpgmaps_get_marker_url(); ?>?u='+UniqueCode,<?php echo $_GET['map_id']; ?>);
+            MYMAP.placeMarkers('<?php echo wpgmaps_get_marker_url($_GET['map_id']); ?>?u='+UniqueCode,<?php echo $_GET['map_id']; ?>);
             
         });
         </script>
@@ -150,13 +150,24 @@ function wpgmaps_reload_map_on_post() {
 
 
 }
-function wpgmaps_get_marker_url() {
+function wpgmaps_get_marker_url($mapid) {
+
+    if (!$mapid) {
+        $mapid = $_POST['map_id'];
+    }
+    if (!$mapid) {
+        $mapid = $_GET['map_id'];
+    }
+    if (!$mapid) {
+        global $wpgmza_current_map_id;
+        $mapid = $wpgmza_current_map_id;
+    }
 
     if (is_multisite()) {
         global $blog_id;
-        return wpgmaps_get_plugin_url()."/".$blog_id."markers.xml";
+        return wpgmaps_get_plugin_url()."/".$blog_id."-".$mapid."markers.xml";
     } else {
-        return wpgmaps_get_plugin_url()."/markers.xml";
+        return wpgmaps_get_plugin_url()."/".$mapid."markers.xml";
     }
 
 
@@ -245,7 +256,7 @@ function wpgmaps_admin_javascript_basic() {
         if ($debug) { echo ""; }
 
         if (!$_GET['map_id']) { break; }
-        wpgmaps_update_xml_file();
+        wpgmaps_update_xml_file($_GET['map_id']);
         //$wpgmza_data = get_option('WPGMZA');
 
         $res = wpgmza_get_map_data($_GET['map_id']);
@@ -628,11 +639,17 @@ function wpgmaps_user_javascript_basic() {
 
 
 
-function wpgmaps_update_xml_file() {
+function wpgmaps_update_xml_file($mapid) {
 
     wpgmaps_debugger("update_xml_start");
 
 
+    if (!$mapid) {
+        $mapid = $_POST['map_id'];
+    }
+    if (!$mapid) {
+        $mapid = $_GET['map_id'];
+    }
     global $wpdb;
     $dom = new DOMDocument('1.0');
     $dom->formatOutput = true;
@@ -644,6 +661,7 @@ function wpgmaps_update_xml_file() {
 	"
 	SELECT *
 	FROM $table_name
+        WHERE `map_id` = '$mapid'
 	
 	"
     );
@@ -690,9 +708,10 @@ function wpgmaps_update_xml_file() {
     }
     if (is_multisite()) {
         global $blog_id;
-        @$dom->save(WP_PLUGIN_DIR.'/'.plugin_basename(dirname(__FILE__)).'/'.$blog_id.'markers.xml');
+        @$dom->save(WP_PLUGIN_DIR.'/'.plugin_basename(dirname(__FILE__)).'/'.$blog_id.'-'.$mapid.'markers.xml');
     } else {
-        @$dom->save(WP_PLUGIN_DIR.'/'.plugin_basename(dirname(__FILE__)).'/markers.xml');
+
+        @$dom->save(WP_PLUGIN_DIR.'/'.plugin_basename(dirname(__FILE__)).'/'.$mapid.'markers.xml');
     }
     wpgmaps_debugger("update_xml_end");
 
@@ -703,6 +722,28 @@ function wpgmaps_update_xml_file() {
 
 
 
+function wpgmaps_update_all_xml_file($mapid) {
+    // create all XML files
+    wpgmaps_debugger("update_all_xml_start");
+
+    global $wpdb;
+    $table_name = $wpdb->prefix . "wpgmza";
+    $results = $wpdb->get_results(
+	"
+	SELECT *
+	FROM $table_name GROUP BY `map_id`
+	"
+    );
+
+    foreach ( $results as $result ) {
+        $map_id = $result->map_id;
+        wpgmaps_update_xml_file($map_id);
+    }
+
+    wpgmaps_debugger("update_all_xml_end");
+
+
+}
 
 
 
@@ -717,13 +758,13 @@ function wpgmaps_action_callback_basic() {
 
             if ($_POST['action'] == "add_marker") {
                   $rows_affected = $wpdb->insert( $table_name, array( 'map_id' => $_POST['map_id'], 'address' => $_POST['address'], 'lat' => $_POST['lat'], 'lng' => $_POST['lng'] ) );
-                  wpgmaps_update_xml_file();
+                  wpgmaps_update_xml_file($_POST['map_id']);
                   echo wpgmza_return_marker_list($_POST['map_id']);
            }
             if ($_POST['action'] == "edit_marker") {
                   $cur_id = $_POST['edit_id'];
                   $rows_affected = $wpdb->query( $wpdb->prepare( "UPDATE $table_name SET address = %s, lat = %f, lng = %f WHERE id = %d", $_POST['address'], $_POST['lat'], $_POST['lng'], $cur_id) );
-                  wpgmaps_update_xml_file();
+                  wpgmaps_update_xml_file($_POST['map_id']);
                   echo wpgmza_return_marker_list($_POST['map_id']);
            }
             if ($_POST['action'] == "delete_marker") {
@@ -735,7 +776,7 @@ function wpgmaps_action_callback_basic() {
                         LIMIT 1
                         "
                 );
-                wpgmaps_update_xml_file();
+                wpgmaps_update_xml_file($_POST['map_id']);
                 echo wpgmza_return_marker_list($_POST['map_id']);
 
             }
@@ -1055,6 +1096,7 @@ function wpgmaps_check_versions() {
 function wpgmza_basic_menu() {
     wpgmaps_debugger("bm_start");
 
+    
     global $wpgmza_tblname_maps;
     global $wpdb;
     if (!wpgmaps_check_permissions()) { wpgmaps_permission_warning(); }
