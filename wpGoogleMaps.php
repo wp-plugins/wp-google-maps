@@ -3,7 +3,7 @@
 Plugin Name: WP Google Maps
 Plugin URI: http://www.wpgmaps.com
 Description: The easiest to use Google Maps plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 4.6
+Version: 4.7
 Author: WP Google Maps
 Author URI: http://www.wpgmaps.com
 */
@@ -27,8 +27,8 @@ $wpgmza_p = false;
 $wpgmza_g = false;
 $wpgmza_tblname = $wpdb->prefix . "wpgmza";
 $wpgmza_tblname_maps = $wpdb->prefix . "wpgmza_maps";
-$wpgmza_version = "4.6";
-$wpgmza_p_version = "4.6";
+$wpgmza_version = "4.7";
+$wpgmza_p_version = "4.7";
 $wpgmza_t = "basic";
 
 add_action('admin_head', 'wpgmaps_head');
@@ -150,7 +150,7 @@ function wpgmaps_reload_map_on_post() {
 
 
 }
-function wpgmaps_get_marker_url($mapid) {
+function wpgmaps_get_marker_url($mapid = false) {
 
     if (!$mapid) {
         $mapid = $_POST['map_id'];
@@ -639,7 +639,7 @@ function wpgmaps_user_javascript_basic() {
 
 
 
-function wpgmaps_update_xml_file($mapid) {
+function wpgmaps_update_xml_file($mapid = false) {
 
     wpgmaps_debugger("update_xml_start");
 
@@ -724,7 +724,7 @@ function wpgmaps_update_xml_file($mapid) {
 
 function wpgmaps_update_all_xml_file($mapid) {
     // create all XML files
-    wpgmaps_debugger("update_all_xml_start");
+    //wpgmaps_debugger("update_all_xml_start");
 
     global $wpdb;
     $table_name = $wpdb->prefix . "wpgmza";
@@ -740,7 +740,7 @@ function wpgmaps_update_all_xml_file($mapid) {
         wpgmaps_update_xml_file($map_id);
     }
 
-    wpgmaps_debugger("update_all_xml_end");
+    //wpgmaps_debugger("update_all_xml_end");
 
 
 }
