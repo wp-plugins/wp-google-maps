@@ -3,7 +3,7 @@
 Plugin Name: WP Google Maps
 Plugin URI: http://www.wpgmaps.com
 Description: The easiest to use Google Maps plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 4.8
+Version: 4.9
 Author: WP Google Maps
 Author URI: http://www.wpgmaps.com
 */
@@ -301,7 +301,7 @@ function wpgmaps_admin_javascript_basic() {
                         var myLatLng = new google.maps.LatLng(<?php echo $wpgmza_lat; ?>,<?php echo $wpgmza_lng; ?>);
                         MYMAP.init('#wpgmza_map', myLatLng, <?php echo $start_zoom; ?>);
                         UniqueCode=Math.round(Math.random()*10000);
-                        MYMAP.placeMarkers('<?php echo wpgmaps_get_plugin_url(); ?>/markers.xml?u='+UniqueCode,<?php echo $_GET['map_id']; ?>);
+                        MYMAP.placeMarkers('<?php echo wpgmaps_get_marker_url($_GET['map_id']); ?>?u='+UniqueCode,<?php echo $_GET['map_id']; ?>);
                     }
 
                     jQuery("#wpgmza_map").css({
@@ -358,7 +358,8 @@ function wpgmaps_admin_javascript_basic() {
                         if (document.getElementsByName("wpgmza_add_address").length > 0) { wpgm_address = jQuery("#wpgmza_add_address").val(); }
                         if (document.getElementsByName("wpgmza_id").length > 0) { wpgm_map_id = jQuery("#wpgmza_id").val(); }
 
-                        geocoder.geocode( { 'address': wpgm_address}, function(results, status) {
+
+                        geocoder.geocode( { 'address': wpgm_address, 'language': 'russian'}, function(results, status) {
                             if (status == google.maps.GeocoderStatus.OK) {
                                 wpgm_gps = String(results[0].geometry.location);
                                 var latlng1 = wpgm_gps.replace("(","");
@@ -577,7 +578,7 @@ function wpgmaps_user_javascript_basic() {
             var myLatLng = new google.maps.LatLng(<?php echo $wpgmza_lat; ?>,<?php echo $wpgmza_lng; ?>);
             MYMAP.init('#wpgmza_map', myLatLng, <?php echo $start_zoom; ?>);
             UniqueCode=Math.round(Math.random()*10000);
-            MYMAP.placeMarkers('<?php echo wpgmaps_get_plugin_url(); ?>/markers.xml?u='+UniqueCode,<?php echo $wpgmza_current_map_id; ?>);
+            MYMAP.placeMarkers('<?php echo wpgmaps_get_marker_url($wpgmza_current_map_id); ?>?u='+UniqueCode,<?php echo $wpgmza_current_map_id; ?>);
 
 
             });
@@ -1578,17 +1579,17 @@ function wpgmaps_handle_db() {
         CREATE TABLE `".$table_name."` (
           `id` int(11) NOT NULL AUTO_INCREMENT,
           `map_id` int(11) NOT NULL,
-          `address` varchar(700) NOT NULL,
-          `desc` varchar(700) NOT NULL,
+          `address` varchar(700) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+          `desc` varchar(700) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
           `pic` varchar(700) NOT NULL,
           `link` varchar(700) NOT NULL,
           `icon` varchar(700) NOT NULL,
           `lat` varchar(100) NOT NULL,
           `lng` varchar(100) NOT NULL,
           `anim` varchar(3) NOT NULL,
-          `title` varchar(700) NOT NULL,
+          `title` varchar(700) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
           PRIMARY KEY (`id`)
-        ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
     ";
 
    require_once(ABSPATH . 'wp-admin/includes/upgrade.php');

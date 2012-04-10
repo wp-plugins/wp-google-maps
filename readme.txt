@@ -19,6 +19,7 @@ The easiest to use Map Plugin! Create custom Google Maps with high quality marke
 * Edit your markers with the click of a button.
 * Drag markers to an exact location
 * Google Maps Streetview supported.
+* UTF-8 character support
 * Choose from four map type: roadmap, terrain, satellite and hybrid.
 * Define your own width, height and zoom level for your Google Map.
 * Create a map in less than a 30 seconds!
@@ -68,6 +69,10 @@ Previous versions may cause your blog to slow down. Upgrading to 4.5 will get ri
 
 
 == Changelog ==
+
+= 4.9 =
+* Added support for Cyrillic and other UTF-8 addresses, descriptions and titles
+* Fixed small bugs
 
 = 4.8 =
 * Bug fix: output caused xxxx characters of unexpected output

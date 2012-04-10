@@ -1,0 +1,40 @@
+HIGH PRIORITY
+================
+- Add widget functionality (craig@csowerby.wanadoo.co.uk)
+- Margin for Map Div
+
+X The pro and gold versions need to be their own plugins so they do not get overwritten when basic version is updated
+X Bug found on http://www.seabreezebeachhouse.org/  - jQuery script should only be activated on the page where the map is! Current fix was to include the javascript code where the shortcode is initiated.
+X Fix IE problems
+X Add mutlitple map functionality (chodgson@viewnews.com.au, tjallinghielkema@msn.com, jeanfrancoisares@gmail.com, alana.gordon@gmail.com, herman@lamboo.com)
+
+
+
+MEDIUM PRIORITY
+================
+- MCE editor in the description filed for a marker
+- more advanced direction functionality (to and from) ()
+- Edit link on marker infowindow in admin
+- Bigger description box for markers
+- the directions text box is really tight/short for someone to type in a real address (chris@chorus-studio.com.au)
+- currently the destination box is pre-populated with numbers (meaningless for a user). (chris@chorus-studio.com.au)
+- Markers autoclose on next marker open
+
+X Bug found that doesnt save the map when a new map without markers (pro version)
+X Fix up website
+X Draggable markers for editing
+X Give the user an option to make the marker jump or not
+X Fix up short code issue
+X Allow the user to stipulate what map alignment they want
+X Allow users to paste in style from Google Maps styling site
+
+
+LOW PRIORITY
+================
+- Directions without any markers
+- Get javascript into standalone file..!
+- Add more features to Gold package
+- more stringent error handling with cURL
+- more stringent methods for permission checking
+
+
