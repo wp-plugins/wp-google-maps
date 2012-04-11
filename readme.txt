@@ -70,9 +70,12 @@ Previous versions may cause your blog to slow down. Upgrading to 4.5 will get ri
 
 == Changelog ==
 
+= 4.10 =
+* Bug fixes
+
 = 4.9 =
 * Added support for Cyrillic and other UTF-8 addresses, descriptions and titles
-* Fixed small bugs
+* Bug fixes
 
 = 4.8 =
 * Bug fix: output caused xxxx characters of unexpected output
@@ -81,7 +84,7 @@ Previous versions may cause your blog to slow down. Upgrading to 4.5 will get ri
 * Fixed small bug that was found when moving from 4.5 to 4.6
 
 = 4.6 =
-* Fixed small bugs
+* Bug Fixes
 
 = 4.5 =
 * Bug fixes: slow loading bug

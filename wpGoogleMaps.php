@@ -3,7 +3,7 @@
 Plugin Name: WP Google Maps
 Plugin URI: http://www.wpgmaps.com
 Description: The easiest to use Google Maps plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 4.9
+Version: 4.10
 Author: WP Google Maps
 Author URI: http://www.wpgmaps.com
 */
@@ -1050,10 +1050,12 @@ function wpgmaps_list_maps() {
         else if ($result->type == "2") { $map_type = "Satellite"; }
         else if ($result->type == "3") { $map_type = "Hybrid"; }
         else if ($result->type == "4") { $map_type = "Terrain"; }
-
+        if (function_exists(wpgmza_register_pro_version)) {
+            $trashlink = "| <a href=\"?page=wp-google-maps-menu&action=trash&map_id=".$result->id."\" title=\"Trash\">Trash</a>";
+        }
         echo "<tr id=\"record_".$result->id."\">";
         echo "<td class='id column-id'>".$result->id."</td>";
-        echo "<td class='map_title column-map_title'><strong><big><a href=\"?page=wp-google-maps-menu&action=edit&map_id=".$result->id."\" title=\"Edit\">".$result->map_title."</a></big></strong><br /><a href=\"?page=wp-google-maps-menu&action=edit&map_id=".$result->id."\" title=\"Edit\">Edit</a> | <a href=\"?page=wp-google-maps-menu&action=trash&map_id=".$result->id."\" title=\"Trash\">Trash</a></td>";
+        echo "<td class='map_title column-map_title'><strong><big><a href=\"?page=wp-google-maps-menu&action=edit&map_id=".$result->id."\" title=\"Edit\">".$result->map_title."</a></big></strong><br /><a href=\"?page=wp-google-maps-menu&action=edit&map_id=".$result->id."\" title=\"Edit\">Edit</a> $trashlink</td>";
         echo "<td class='map_width column-map_width'>".$result->map_width."</td>";
         echo "<td class='map_width column-map_height'>".$result->map_height."</td>";
         echo "<td class='type column-type'>".$map_type."</td>";
