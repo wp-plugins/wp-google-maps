@@ -20,6 +20,7 @@ The easiest to use Map Plugin! Create custom Google Maps with high quality marke
 * Drag markers to an exact location
 * Google Maps Streetview supported.
 * UTF-8 character support
+* Support for localization
 * Choose from four map type: roadmap, terrain, satellite and hybrid.
 * Define your own width, height and zoom level for your Google Map.
 * Create a map in less than a 30 seconds!
@@ -31,7 +32,7 @@ The easiest to use Map Plugin! Create custom Google Maps with high quality marke
 * Get the [WP Google Maps Professional Edition](http://www.wpgmaps.com/) for only $9.99
 * Create multiple maps!
 * Add descriptions, links and images to your Google Map markers.
-* Add different marker icons, or your own icons to make your map really stand out!
+* Add different marker icons =, or your own icons to make your map really stand out!
 * Add animations to your markers and let them stand out!
 * Allow your visitors to get directions to your markers.
 * Export your markers to a CSV file for quick editing.
@@ -69,6 +70,9 @@ Previous versions may cause your blog to slow down. Upgrading to 4.5 will get ri
 
 
 == Changelog ==
+
+= 4.13 =
+* Added support for localization
 
 = 4.12 =
 * First draft of localization support added for the basic version
