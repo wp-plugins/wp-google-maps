@@ -878,7 +878,7 @@ function wpgmaps_head() {
 
         //update_option('WPGMZA', $data);
         echo "<div class='updated'>";
-        _e("Your settings have sbeen saved.");
+        _e("Your settings have been saved.");
         echo "</div>";
         
    }
@@ -909,7 +909,7 @@ function wpgmaps_head() {
         _e("Your marker location has been saved.");
         echo "</div>";
         
-        ";
+       
    }
 
 
