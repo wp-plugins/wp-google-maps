@@ -3,7 +3,7 @@ Contributors: WPGMaps
 Donate link: http://www.wpgmaps.com
 Tags: google maps, maps, map, map markers, google, interactive, maps api, wp maps, wp google maps, mappress, easy map
 Requires at least: 2.9.2
-Tested up to: 3.3.1
+Tested up to: 3.4
 Stable tag: trunk
 
 The easiest to use Map Plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links.
@@ -31,7 +31,7 @@ The easiest to use Map Plugin! Create custom Google Maps with high quality marke
 * Get the [WP Google Maps Professional Edition](http://www.wpgmaps.com/) for only $9.99
 * Create multiple maps!
 * Add descriptions, links and images to your Google Map markers.
-* Add different marker icons =, or your own icons to make your map really stand out!
+* Add different marker icons, or your own icons to make your map really stand out!
 * Add animations to your markers and let them stand out!
 * Allow your visitors to get directions to your markers.
 * Export your markers to a CSV file for quick editing.
@@ -70,11 +70,15 @@ Previous versions may cause your blog to slow down. Upgrading to 4.5 will get ri
 
 == Changelog ==
 
+= 4.12 =
+* First draft of localization support added for the basic version
+* Small bug fixes
+
 = 4.11 =
-* Bug fixes
+* Small bug fixes
 
 = 4.10 =
-* Bug fixes
+* Small bug fixes
 
 = 4.9 =
 * Added support for Cyrillic and other UTF-8 addresses, descriptions and titles

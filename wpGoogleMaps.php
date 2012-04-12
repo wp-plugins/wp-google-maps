@@ -3,7 +3,7 @@
 Plugin Name: WP Google Maps
 Plugin URI: http://www.wpgmaps.com
 Description: The easiest to use Google Maps plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 4.11
+Version: 4.12
 Author: WP Google Maps
 Author URI: http://www.wpgmaps.com
 */
@@ -28,8 +28,8 @@ $wpgmza_p = false;
 $wpgmza_g = false;
 $wpgmza_tblname = $wpdb->prefix . "wpgmza";
 $wpgmza_tblname_maps = $wpdb->prefix . "wpgmza_maps";
-$wpgmza_version = "4.11";
-$wpgmza_p_version = "4.11";
+$wpgmza_version = "4.12";
+$wpgmza_p_version = "4.12";
 $wpgmza_t = "basic";
 
 add_action('admin_head', 'wpgmaps_head');
@@ -37,7 +37,6 @@ add_action('admin_footer', 'wpgmaps_reload_map_on_post');
 register_activation_hook( __FILE__, 'wpgmaps_activate' );
 register_deactivation_hook( __FILE__, 'wpgmaps_deactivate' );
 add_action('init', 'wpgmaps_init');
-add_action('save_post', 'wpgmaps_save_postdata');
 add_action('admin_menu', 'wpgmaps_admin_menu');
 add_filter('widget_text', 'do_shortcode');
 
@@ -724,6 +723,7 @@ function wpgmaps_update_xml_file($mapid = false) {
 
 function wpgmaps_update_all_xml_file() {
     global $wpdb;
+    
     $table_name = $wpdb->prefix . "wpgmza_maps";
     $results = $wpdb->get_results("SELECT `id` FROM $table_name WHERE `active` = 0");
     
@@ -952,11 +952,11 @@ function wpgmaps_menu_layout() {
                     //wp_redirect( admin_url('admin.php?page=wp-google-maps-menu') );
                     echo "<script>window.location = \"".get_option('siteurl')."/wp-admin/admin.php?page=wp-google-maps-menu\"</script>";
                 } else {
-                    echo "There was a problem deleting the map.";
+                    _e("There was a problem deleting the map.");;
                 }
             } else {
                 $res = wpgmza_get_map_data($_GET['map_id']);
-                echo "<h2>Delete your map</h2><p>Are you sure you want to delete the map <strong>\"".$res->map_title."?\"</strong> <br /><a href='?page=wp-google-maps-menu&action=trash&map_id=".$_GET['map_id']."&s=1'>Yes</a> | <a href='?page=wp-google-maps-menu'>No</a></p>";
+                echo "<h2>".__("Delete your map")."</h2><p>".__("Are you sure you want to delete the map")." <strong>\"".$res->map_title."?\"</strong> <br /><a href='?page=wp-google-maps-menu&action=trash&map_id=".$_GET['map_id']."&s=1'>".__("Yes")."</a> | <a href='?page=wp-google-maps-menu'>".__("No")."</a></p>";
             }
 
 
@@ -1001,12 +1001,12 @@ function wpgmza_map_page() {
     wpgmaps_debugger("map_page_start");
 
     if (function_exists(wpgmza_register_pro_version)) {
-        echo"<div class=\"wrap\"><div id=\"icon-edit\" class=\"icon32 icon32-posts-post\"><br></div><h2>Your Maps <a href=\"admin.php?page=wp-google-maps-menu&action=new\" class=\"add-new-h2\">Add New</a></h2>";
+        echo"<div class=\"wrap\"><div id=\"icon-edit\" class=\"icon32 icon32-posts-post\"><br></div><h2>".__("Your Maps")." <a href=\"admin.php?page=wp-google-maps-menu&action=new\" class=\"add-new-h2\">".__("Add New")."</a></h2>";
         wpgmaps_check_versions();
         wpgmaps_list_maps();
     } else {
-        echo"<div class=\"wrap\"><div id=\"icon-edit\" class=\"icon32 icon32-posts-post\"><br></div><h2>Your Maps</h2>";
-        echo"<p><i><a href='http://www.wpgmaps.com/purchase-professional-version/' title='Pro Version'>Create unlimited maps</a> with the <a href='http://www.wpgmaps.com/purchase-professional-version/' title='Pro Version'>Pro Version</a> of WP Google Maps for only <strong>$9.99!</strong></i></p>";
+        echo"<div class=\"wrap\"><div id=\"icon-edit\" class=\"icon32 icon32-posts-post\"><br></div><h2>".__("Your Maps")."</h2>";
+        echo"<p><i><a href='http://www.wpgmaps.com/purchase-professional-version/' title='".__("Pro Version")."'>".__("Create unlimited maps")."</a> ".__("with the")." <a href='http://www.wpgmaps.com/purchase-professional-version/' title='Pro Version'>".__("Pro Version")."</a> ".__("of WP Google Maps for only")." <strong>$9.99!</strong></i></p>";
         wpgmaps_list_maps();
 
 
@@ -1037,11 +1037,11 @@ function wpgmaps_list_maps() {
       <table class=\"wp-list-table widefat fixed \" cellspacing=\"0\">
 	<thead>
 	<tr>
-		<th scope='col' id='id' class='manage-column column-id sortable desc'  style=''><span>ID</span></th>
-                <th scope='col' id='map_title' class='manage-column column-map_title sortable desc'  style=''><span>Title</span></th>
-                <th scope='col' id='map_width' class='manage-column column-map_width' style=\"\">Width</th>
-                <th scope='col' id='map_height' class='manage-column column-map_height'  style=\"\">Height</th>
-                <th scope='col' id='type' class='manage-column column-type sortable desc'  style=\"\"><span>Type</span></th>
+		<th scope='col' id='id' class='manage-column column-id sortable desc'  style=''><span>".__("ID")."</span></th>
+                <th scope='col' id='map_title' class='manage-column column-map_title sortable desc'  style=''><span>".__("Title")."</span></th>
+                <th scope='col' id='map_width' class='manage-column column-map_width' style=\"\">".__("Width")."</th>
+                <th scope='col' id='map_height' class='manage-column column-map_height'  style=\"\">".__("Height")."</th>
+                <th scope='col' id='type' class='manage-column column-type sortable desc'  style=\"\"><span>".__("Type")."</span></th>
         </tr>
 	</thead>
         <tbody id=\"the-list\" class='list:wp_list_text_link'>
@@ -1052,11 +1052,11 @@ function wpgmaps_list_maps() {
         else if ($result->type == "3") { $map_type = "Hybrid"; }
         else if ($result->type == "4") { $map_type = "Terrain"; }
         if (function_exists(wpgmza_register_pro_version)) {
-            $trashlink = "| <a href=\"?page=wp-google-maps-menu&action=trash&map_id=".$result->id."\" title=\"Trash\">Trash</a>";
+            $trashlink = "| <a href=\"?page=wp-google-maps-menu&action=trash&map_id=".$result->id."\" title=\"Trash\">".__("Trash")."</a>";
         }
         echo "<tr id=\"record_".$result->id."\">";
         echo "<td class='id column-id'>".$result->id."</td>";
-        echo "<td class='map_title column-map_title'><strong><big><a href=\"?page=wp-google-maps-menu&action=edit&map_id=".$result->id."\" title=\"Edit\">".$result->map_title."</a></big></strong><br /><a href=\"?page=wp-google-maps-menu&action=edit&map_id=".$result->id."\" title=\"Edit\">Edit</a> $trashlink</td>";
+        echo "<td class='map_title column-map_title'><strong><big><a href=\"?page=wp-google-maps-menu&action=edit&map_id=".$result->id."\" title=\"".__("Edit")."\">".$result->map_title."</a></big></strong><br /><a href=\"?page=wp-google-maps-menu&action=edit&map_id=".$result->id."\" title=\"".__("Edit")."\">".__("Edit")."</a> $trashlink</td>";
         echo "<td class='map_width column-map_width'>".$result->map_width."</td>";
         echo "<td class='map_width column-map_height'>".$result->map_height."</td>";
         echo "<td class='type column-type'>".$map_type."</td>";
@@ -1083,7 +1083,6 @@ function wpgmaps_check_versions() {
 
 function wpgmza_basic_menu() {
     wpgmaps_debugger("bm_start");
-
     
     global $wpgmza_tblname_maps;
     global $wpdb;
@@ -1099,15 +1098,18 @@ function wpgmza_basic_menu() {
 
 
         $wpgmza_act = "disabled readonly";
-        $wpgmza_act_msg = "<span style=\"font-size:16px; color:#666;\">Add custom icons, titles, descriptions, pictures and links to your markers with the \"<a href=\"http://www.wpgmaps.com/purchase-professional-version/\" title=\"Pro Edition\" target=\"_BLANK\">Pro Edition</a>\" of this plugin for just <strong>$9.99</strong></span>";
-        $wpgmza_csv = "<p><a href=\"http://www.wpgmaps.com/\" title=\"Pro Edition\">Purchase the Pro Edition</a> of WP Google Maps and save your markers to a CSV file!</p>";
+        $wpgmza_act_msg = "<span style=\"font-size:16px; color:#666;\">".__("Add custom icons, titles, descriptions, pictures and links to your markers with the")." \"<a href=\"http://www.wpgmaps.com/purchase-professional-version/\" title=\"".__("Pro Edition")."\" target=\"_BLANK\">".__("Pro Edition")."</a>\" ".__("of this plugin for just")." <strong>$9.99</strong></span>";
+        $wpgmza_csv = "<p><a href=\"http://www.wpgmaps.com/\" title=\"".__("Pro Edition")."\">".__("Purchase the Pro Edition")."</a> ".__("of WP Google Maps and save your markers to a CSV file!")."</p>";
     }
         echo "
+            
            <div class='wrap'>
                 <h1>WP Google Maps</h1>
                 <div class='wide'>
 
-                    <h2>Map Settings</h2>
+
+
+                    <h2>".__("Map Settings")."</h2>
                     <form action='' method='post' id='wpgmaps_options'>
                     <p></p>
 
@@ -1139,89 +1141,92 @@ function wpgmza_basic_menu() {
                     </select>
                     <table>
                         <tr>
-                            <td>Short code:</td>
-                            <td><input type='text' readonly name='shortcode' style='font-size:18px; text-align:center;' value='[wpgmza id=\"".$res->id."\"]' /> <small><i>copy this into your post or page to display the map</i></td>
+                            <td>".__("Short code").":</td>
+                            <td><input type='text' readonly name='shortcode' style='font-size:18px; text-align:center;' value='[wpgmza id=\"".$res->id."\"]' /> <small><i>".__("copy this into your post or page to display the map")."</i></td>
                         </tr>
                         <tr>
-                            <td>Map Name:</td>
+                            <td>".__("Map Name").":</td>
                             <td><input id='wpgmza_title' name='wpgmza_title' type='text' size='20' maxlength='50' value='".$res->map_title."' /></td>
                         </tr>
                         <tr>
-                             <td>Width:</td>
+                             <td>".__("Width").":</td>
                              <td><input id='wpgmza_width' name='wpgmza_width' type='text' size='4' maxlength='4' value='".$res->map_width."' /> px </td>
                         </tr>
                         <tr>
-                            <td>Height:</td>
+                            <td>".__("Height").":</td>
                             <td><input id='wpgmza_height' name='wpgmza_height' type='text' size='4' maxlength='4' value='".$res->map_height."' /> px</td>
                         </tr>
+
                         <tr>
-                            <td>Default Marker Image:</td>
-                            <td><input id=\"upload_default_marker\" name=\"upload_default_marker\" type='hidden' size='35' maxlength='700' value='' ".$wpgmza_act."/> <input id=\"upload_default_marker_btn\" type=\"button\" value=\"Upload Image\" $wpgmza_act /><small><i> available in the <a href=\"http://www.wpgmaps.com/purchase-professional-version/\" title=\"Pro Edition\" target=\"_BLANK\">Pro Edition</a> only.   </i></small></td>
+                            <td>".__("Default Marker Image").":</td>
+                            <td><input id=\"upload_default_marker\" name=\"upload_default_marker\" type='hidden' size='35' maxlength='700' value='' ".$wpgmza_act."/> <input id=\"upload_default_marker_btn\" type=\"button\" value=\"".__("Upload Image")."\" $wpgmza_act /><small><i> ".__("available in the")." <a href=\"http://www.wpgmaps.com/purchase-professional-version/\" title=\"".__("Pro Edition")."\" target=\"_BLANK\">".__("Pro Edition")."</a> ".__("only").".   </i></small></td>
                         </tr>
                         <tr>
-                            <td>Map type:</td>
+                            <td>".__("Map type").":</td>
                             <td><select id='wpgmza_map_type' name='wpgmza_map_type'>
-                                <option value=\"1\" ".$wpgmza_map_type[1].">Roadmap</option>
-                                <option value=\"2\" ".$wpgmza_map_type[2].">Satellite</option>
-                                <option value=\"3\" ".$wpgmza_map_type[3].">Hybrid</option>
-                                <option value=\"4\" ".$wpgmza_map_type[4].">Terrain</option>
+                                <option value=\"1\" ".$wpgmza_map_type[1].">".__("Roadmap")."</option>
+                                <option value=\"2\" ".$wpgmza_map_type[2].">".__("Satellite")."</option>
+                                <option value=\"3\" ".$wpgmza_map_type[3].">".__("Hybrid")."</option>
+                                <option value=\"4\" ".$wpgmza_map_type[4].">".__("Terrain")."</option>
                             </select>
                             </td>
                         </tr>
                         <tr>
-                            <td>Map Alignment:</td>
+                            <td>".__("Map Alignment").":</td>
                             <td><select id='wpgmza_map_align' name='wpgmza_map_align'>
-                                <option value=\"1\" ".$wpgmza_map_align[1].">Left</option>
-                                <option value=\"2\" ".$wpgmza_map_align[2].">Center</option>
-                                <option value=\"3\" ".$wpgmza_map_align[3].">Right</option>
-                                <option value=\"4\" ".$wpgmza_map_align[4].">None</option>
+                                <option value=\"1\" ".$wpgmza_map_align[1].">".__("Left")."</option>
+                                <option value=\"2\" ".$wpgmza_map_align[2].">".__("Center")."</option>
+                                <option value=\"3\" ".$wpgmza_map_align[3].">".__("Right")."</option>
+                                <option value=\"4\" ".$wpgmza_map_align[4].">".__("None")."</option>
                             </select>
                             </td>
                         </tr>
 
 
                         </table>
-                            <div id=\"wpgmaps_save_reminder\" style=\"display:none;\"><span style=\"font-size:16px; color:#1C62B9;\">Remember to save your map!</span></div>
-                            <p class='submit'><input type='submit' name='wpgmza_savemap' class='button-primary' value='Save Map &raquo;' /></p>
-                            <p style=\"width:600px; color:#808080;\">Tip: Use your mouse to change the layout of your map. When you have positioned the map to your desired location, press \"Save Map\" to keep your settings.</p>
+                            <div id=\"wpgmaps_save_reminder\" style=\"display:none;\"><span style=\"font-size:16px; color:#1C62B9;\">
+                            ".__("Remember to save your map!")."
+                            </span></div>
+                            <p class='submit'><input type='submit' name='wpgmza_savemap' class='button-primary' value='".__("Save Map")." &raquo;' /></p>
+                            <p style=\"width:600px; color:#808080;\">
+                                ".__("Tip: Use your mouse to change the layout of your map. When you have positioned the map to your
+                                        desired location, press \"Save Map\" to keep your settings.")."</p>
 
 
                             <div id=\"wpgmza_map\">&nbsp;</div>
                             <div style=\"display:block; overflow:auto; background-color:#FFFBCC; padding:10px; border:1px solid #E6DB55; margin-top:5px; margin-bottom:5px;\">
-                                <h2 style=\"padding-top:0; margin-top:0;\">Add a marker</h2>
+                                <h2 style=\"padding-top:0; margin-top:0;\">".__("Add a marker")."</h2>
                                 <p>
                                 <table>
                                 <input type=\"hidden\" name=\"wpgmza_edit_id\" id=\"wpgmza_edit_id\" value=\"\" />
                                 <tr>
-                                    <td>Title: </td>
+                                    <td>".__("Title").": </td>
                                     <td><input id='wpgmza_add_title' name='wpgmza_add_title' type='text' size='35' maxlength='200' value='' $wpgmza_act /> &nbsp;<br /></td>
 
                                 </tr>
                                 <tr>
-                                    <td>Address/GPS: </td>
+                                    <td>".__("Address/GPS").": </td>
                                     <td><input id='wpgmza_add_address' name='wpgmza_add_address' type='text' size='35' maxlength='200' value='' /> &nbsp;<br /></td>
 
                                 </tr>
 
-                                <tr><td>Description: </td><td><input id='wpgmza_add_desc' name='wpgmza_add_desc' type='text' size='35' maxlength='300' value='' ".$wpgmza_act."/>  &nbsp;<br /></td></tr>
-                                <tr><td>Pic URL: </td><td><input id='wpgmza_add_pic' name=\"wpgmza_add_pic\" type='text' size='35' maxlength='700' value='' ".$wpgmza_act."/> <input id=\"upload_image_button\" type=\"button\" value=\"Upload Image\" $wpgmza_act /><br /></td></tr>
-                                <tr><td>Link URL: </td><td><input id='wpgmza_link_url' name='wpgmza_link_url' type='text' size='35' maxlength='700' value='' ".$wpgmza_act." /></td></tr>
-                                <tr><td>Custom Marker: </td><td><input id='wpgmza_add_custom_marker' name=\"wpgmza_add_custom_marker\" type='hidden' size='35' maxlength='700' value='' ".$wpgmza_act."/> <input id=\"upload_custom_marker_button\" type=\"button\" value=\"Upload Image\" $wpgmza_act /> &nbsp;</td></tr>
+                                <tr><td>".__("Description").": </td><td><input id='wpgmza_add_desc' name='wpgmza_add_desc' type='text' size='35' maxlength='300' value='' ".$wpgmza_act."/>  &nbsp;<br /></td></tr>
+                                <tr><td>".__("Pic URL").": </td><td><input id='wpgmza_add_pic' name=\"wpgmza_add_pic\" type='text' size='35' maxlength='700' value='' ".$wpgmza_act."/> <input id=\"upload_image_button\" type=\"button\" value=\"".__("Upload Image")."\" $wpgmza_act /><br /></td></tr>
+                                <tr><td>".__("Link URL").": </td><td><input id='wpgmza_link_url' name='wpgmza_link_url' type='text' size='35' maxlength='700' value='' ".$wpgmza_act." /></td></tr>
+                                <tr><td>".__("Custom Marker").": </td><td><input id='wpgmza_add_custom_marker' name=\"wpgmza_add_custom_marker\" type='hidden' size='35' maxlength='700' value='' ".$wpgmza_act."/> <input id=\"upload_custom_marker_button\" type=\"button\" value=\"".__("Upload Image")."\" $wpgmza_act /> &nbsp;</td></tr>
                                 <tr>
-                                    <td>Animation: </td>
+                                    <td>".__("Animation").": </td>
                                     <td>
                                         <select name=\"wpgmza_animation\" id=\"wpgmza_animation\" readonly disabled>
-                                            <option value=\"0\">None</option>
-                                            <option value=\"1\">Bounce</option>
-                                            <option value=\"2\">Drop</option>
+                                            <option value=\"0\">".__("None")."</option>
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td></td>
                                     <td>
-                                        <span id=\"wpgmza_addmarker_div\"><input type=\"button\" class='button-primary' id='wpgmza_addmarker' value='Add Marker' /></span> <span id=\"wpgmza_addmarker_loading\" style=\"display:none;\">Adding...</span>
-                                        <span id=\"wpgmza_editmarker_div\" style=\"display:none;\"><input type=\"button\" id='wpgmza_editmarker'  class='button-primary' value='Save Marker' /></span><span id=\"wpgmza_editmarker_loading\" style=\"display:none;\">Saving...</span>
+                                        <span id=\"wpgmza_addmarker_div\"><input type=\"button\" class='button-primary' id='wpgmza_addmarker' value='".__("Add Marker")."' /></span> <span id=\"wpgmza_addmarker_loading\" style=\"display:none;\">".__("Adding")."...</span>
+                                        <span id=\"wpgmza_editmarker_div\" style=\"display:none;\"><input type=\"button\" id='wpgmza_editmarker'  class='button-primary' value='".__("Save Marker")."' /></span><span id=\"wpgmza_editmarker_loading\" style=\"display:none;\">".__("Saving")."...</span>
                                     </td>
 
                                 </tr>
@@ -1229,7 +1234,7 @@ function wpgmza_basic_menu() {
                                 </table>
                             </div>
                             <p>$wpgmza_act_msg</p>
-                            <h2 style=\"padding-top:0; margin-top:0;\">Your Markers</h2>
+                            <h2 style=\"padding-top:0; margin-top:0;\">".__("Your Markers")."</h2>
                             <div id=\"wpgmza_marker_holder\">
                                 ".wpgmza_return_marker_list($_GET['map_id'])."
                             </div>
@@ -1238,22 +1243,22 @@ function wpgmza_basic_menu() {
 
                             <table>
                                 <tr>
-                                    <td><img src=\"".wpgmaps_get_plugin_url()."/images/custom_markers.jpg\" width=\"160\" style=\"border:3px solid #808080;\" title=\"Add detailed information to your markers!\" alt=\"Add custom markers to your map!\" /><br /><br /></td>
-                                    <td valign=\"middle\"><span style=\"font-size:18px; color:#666;\">Add detailed information to your markers for only <strong>$9.99</strong>. Click <a href=\"http://www.wpgmaps.com/purchase-professional-version/\" title=\"Pro Edition\" target=\"_BLANK\">here</a></span></td>
+                                    <td><img src=\"".wpgmaps_get_plugin_url()."/images/custom_markers.jpg\" width=\"160\" style=\"border:3px solid #808080;\" title=\"".__("Add detailed information to your markers!")."\" alt=\"".__("Add custom markers to your map!")."\" /><br /><br /></td>
+                                    <td valign=\"middle\"><span style=\"font-size:18px; color:#666;\">".__("Add detailed information to your markers for only")." <strong>$9.99</strong>. ".__("Click")." <a href=\"http://www.wpgmaps.com/purchase-professional-version/\" title=\"Pro Edition\" target=\"_BLANK\">".__("here")."</a></span></td>
                                 </tr>
                                 <tr>
-                                    <td><img src=\"".wpgmaps_get_plugin_url()."/images/custom_marker_icons.jpg\" width=\"160\" style=\"border:3px solid #808080;\" title=\"Add custom markers to your map!\" alt=\"Add custom markers to your map!\" /><br /><br /></td>
-                                    <td valign=\"middle\"><span style=\"font-size:18px; color:#666;\">Add different marker icons, or your own icons to make your map really stand out!</span></td>
+                                    <td><img src=\"".wpgmaps_get_plugin_url()."/images/custom_marker_icons.jpg\" width=\"160\" style=\"border:3px solid #808080;\" title=\"".__("Add custom markers to your map!")."\" alt=\"".__("Add custom markers to your map!")."\" /><br /><br /></td>
+                                    <td valign=\"middle\"><span style=\"font-size:18px; color:#666;\">".__("Add different marker icons, or your own icons to make your map really stand out!")."</span></td>
                                 </tr>
                                 <tr>
-                                    <td><img src=\"".wpgmaps_get_plugin_url()."/images/get_directions.jpg\" width=\"160\" style=\"border:3px solid #808080;\" title=\"Add custom markers to your map!\" alt=\"Add custom markers to your map!\" /><br /><br /></td>
-                                    <td valign=\"middle\"><span style=\"font-size:18px; color:#666;\">Allow your visitors to get directions to your markers! Click <a href=\"http://www.wpgmaps.com/purchase-professional-version/\" title=\"Pro Edition\" target=\"_BLANK\">here</a></span></td>
+                                    <td><img src=\"".wpgmaps_get_plugin_url()."/images/get_directions.jpg\" width=\"160\" style=\"border:3px solid #808080;\" title=\"".__("Add custom markers to your map!")."\" alt=\"".__("Add custom markers to your map!")."\" /><br /><br /></td>
+                                    <td valign=\"middle\"><span style=\"font-size:18px; color:#666;\">".__("Allow your visitors to get directions to your markers!")." ".__("Click")." <a href=\"http://www.wpgmaps.com/purchase-professional-version/\" title=\"".__("Pro Edition")."\" target=\"_BLANK\">".__("here")."</a></span></td>
                                 </tr>
                             </table>
 
                     </form>
 
-                    <p><br /><br />WP Google Maps encourages you to make use of the amazing icons created by Nicolas Mollet's Maps Icons Collection <a href='http://mapicons.nicolasmollet.com'>http://mapicons.nicolasmollet.com/</a> and to credit him when doing so.</p>
+                    <p><br /><br />".__("WP Google Maps encourages you to make use of the amazing icons created by Nicolas Mollet's Maps Icons Collection")." <a href='http://mapicons.nicolasmollet.com'>http://mapicons.nicolasmollet.com/</a> ".__("and to credit him when doing so.")."</p>
                 </div>
 
 
@@ -1281,7 +1286,7 @@ function wpgmza_edit_marker($mid) {
                 <h1>WP Google Maps</h1>
                 <div class='wide'>
 
-                    <h2>Edit Marker Location ID#$mid</h2>
+                    <h2>".__("Edit Marker Location")." ".__("ID")."#$mid</h2>
                     <form action='?page=wp-google-maps-menu&action=edit&map_id=".$res->map_id."' method='post' id='wpgmaps_edit_marker'>
                     <p></p>
 
@@ -1290,17 +1295,17 @@ function wpgmza_edit_marker($mid) {
                     <table>
 
                         <tr>
-                            <td>Marker Latitude:</td>
+                            <td>".__("Marker Latitude").":</td>
                             <td><input id='wpgmaps_marker_lat' name='wpgmaps_marker_lat' type='text' size='15' maxlength='100' value='".$res->lat."' /></td>
                         </tr>
                         <tr>
-                            <td>Marker Longitude:</td>
+                            <td>".__("Marker Longitude").":</td>
                             <td><input id='wpgmaps_marker_lng' name='wpgmaps_marker_lng' type='text' size='15' maxlength='100' value='".$res->lng."' /></td>
                         </tr>
 
                     </table>
-                    <p class='submit'><input type='submit' name='wpgmza_save_maker_location' class='button-primary' value='Save Marker Location &raquo;' /></p>
-                    <p style=\"width:600px; color:#808080;\">Tip: Use your mouse to change the location of the marker. Simply click and drag it to your desired location.</p>
+                    <p class='submit'><input type='submit' name='wpgmza_save_maker_location' class='button-primary' value='".__("Save Marker Location")." &raquo;' /></p>
+                    <p style=\"width:600px; color:#808080;\">".__("Tip: Use your mouse to change the location of the marker. Simply click and drag it to your desired location.")."</p>
 
 
                     <div id=\"wpgmza_map\">&nbsp;</div>
@@ -1362,7 +1367,7 @@ function wpgmza_return_marker_list($map_id) {
 
     $marker_count = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM $wpgmza_tblname WHERE `map_id` = '$map_id';" ) );
     if ($marker_count > 2000) {
-        return "There are too many markers to make use of the live edit function. The maximum amount for this functionality is 2000 markers. Anything more than that number would crash your browser. In order to edit your markers, you would need to download the table in CSV format, edit it and re-upload it.";
+        return __("There are too many markers to make use of the live edit function. The maximum amount for this functionality is 2000 markers. Anything more than that number would crash your browser. In order to edit your markers, you would need to download the table in CSV format, edit it and re-upload it.");
     } else {
 
 
@@ -1376,14 +1381,14 @@ function wpgmza_return_marker_list($map_id) {
         <table id=\"wpgmza_table\" class=\"display\" cellspacing=\"0\" cellpadding=\"0\">
         <thead>
         <tr>
-            <th><strong>ID</strong></th>
-            <th><strong>Icon</strong></th>
-            <th><strong>Title</strong></th>
-            <th><strong>Address</strong></th>
-            <th><strong>Description</strong></th>
-            <th><strong>Image</strong></th>
-            <th><strong>Link</strong></th>
-            <th><strong>Action</strong></th>
+            <th><strong>".__("ID")."</strong></th>
+            <th><strong>".__("Icon")."</strong></th>
+            <th><strong>".__("Title")."</strong></th>
+            <th><strong>".__("Address")."</strong></th>
+            <th><strong>".__("Description")."</strong></th>
+            <th><strong>".__("Image")."</strong></th>
+            <th><strong>".__("Link")."</strong></th>
+            <th><strong>".__("Action")."</strong></th>
         </tr>
         </thead>
         <tbody>
@@ -1400,7 +1405,7 @@ function wpgmza_return_marker_list($map_id) {
         
         if (!$img) { $pic = ""; } else { $pic = "<img src=\"".$result->pic."\" width=\"40\" />"; }
         if (!$icon) { $icon = $default_icon; } else { $icon = "<img src='".$result->icon."' />"; }
-        if (!$link) { $linktd = ""; } else { $linktd = "<a href=\"".$result->link."\" target=\"_BLANK\" title=\"View this link\">&gt;&gt;</a>"; }
+        if (!$link) { $linktd = ""; } else { $linktd = "<a href=\"".$result->link."\" target=\"_BLANK\" title=\"".__("View this link")."\">&gt;&gt;</a>"; }
         $wpgmza_tmp .= "
             <tr id=\"wpgmza_tr_".$result->id."\">
                 <td height=\"40\">".$result->id."</td>
@@ -1411,9 +1416,9 @@ function wpgmza_return_marker_list($map_id) {
                 <td>$pic<input type=\"hidden\" id=\"wpgmza_hid_marker_pic_".$result->id."\" value=\"".$result->pic."\" /></td>
                 <td>$linktd<input type=\"hidden\" id=\"wpgmza_hid_marker_link_".$result->id."\" value=\"".$result->link."\" /></td>
                 <td>
-                    <a href=\"#wpgmaps_marker\" title=\"Edit this marker\" class=\"wpgmza_edit_btn\" id=\"".$result->id."\">Edit</a> |
-                    <a href=\"?page=wp-google-maps-menu&action=edit_marker&id=".$result->id."\" title=\"Edit this marker\" class=\"wpgmza_edit_btn\" id=\"".$result->id."\">Edit Location</a> |
-                    <a href=\"javascript:void(0);\" title=\"Delete this marker\" class=\"wpgmza_del_btn\" id=\"".$result->id."\">Delete</a>
+                    <a href=\"#wpgmaps_marker\" title=\"".__("Edit this marker")."\" class=\"wpgmza_edit_btn\" id=\"".$result->id."\">".__("Edit")."</a> |
+                    <a href=\"?page=wp-google-maps-menu&action=edit_marker&id=".$result->id."\" title=\"".__("Edit this marker")."\" class=\"wpgmza_edit_btn\" id=\"".$result->id."\">".__("Edit Location")."</a> |
+                    <a href=\"javascript:void(0);\" title=\"".__("Delete this marker")."\" class=\"wpgmza_del_btn\" id=\"".$result->id."\">".__("Delete")."</a>
                 </td>
             </tr>";
     }
@@ -1425,29 +1430,6 @@ function wpgmza_return_marker_list($map_id) {
 }
 
 
-function wpgmaps_save_postdata( $post_id ) {
-
-
-  if ( !wp_verify_nonce( $_POST['myplugin_noncename'], plugin_basename(__FILE__) )) {
-    return $post_id;
-  }
-
-  if ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE )
-    return $post_id;
-
-  if ( 'page' == $_POST['post_type'] ) {
-    if ( !current_user_can( 'edit_page', $post_id ) )
-      return $post_id;
-  } else {
-    if ( !current_user_can( 'edit_post', $post_id ) )
-      return $post_id;
-  }
-
-
-  $mydata = $_POST['myplugin_new_field'];
-
-   return $mydata;
-}
 
 
 function wpgmaps_chmodr($path, $filemode) {
@@ -1552,7 +1534,15 @@ function wpgmaps_check_permissions() {
 
 }
 function wpgmaps_permission_warning() {
-    echo "<div class='error below-h1'>The plugin directory does not have 'write' permissions. Please enable 'write' permissions (755) for \"".dirname( __FILE__ )."\" in order for this plugin to work! Please see <a href='http://codex.wordpress.org/Changing_File_Permissions#Using_an_FTP_Client'>this page</a> for help on how to do it.</div>";
+    echo "<div class='error below-h1'>";
+    _e("The plugin directory does not have 'write' permissions. Please enable 'write' permissions (755) for ");
+    echo "\"".dirname( __FILE__ )."\" ";
+    _e("in order for this plugin to work! Please see ");
+    echo "<a href='http://codex.wordpress.org/Changing_File_Permissions#Using_an_FTP_Client'>";
+    _e("this page");
+    echo "</a> ";
+    _e("for help on how to do it.");
+    echo "</div>";
 }
 
 
@@ -1564,6 +1554,10 @@ function wpgmaps_update_db_check() {
     if (get_option('wpgmza_db_version') != $wpgmza_version) {
         wpgmaps_handle_db();
     }
+
+    // create all XML files
+    wpgmaps_update_all_xml_file();
+
     wpgmaps_debugger("update_db_end");
 }
 
