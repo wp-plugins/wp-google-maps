@@ -3,7 +3,7 @@
 Plugin Name: WP Google Maps
 Plugin URI: http://www.wpgmaps.com
 Description: The easiest to use Google Maps plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 4.10
+Version: 4.11
 Author: WP Google Maps
 Author URI: http://www.wpgmaps.com
 */
@@ -28,8 +28,8 @@ $wpgmza_p = false;
 $wpgmza_g = false;
 $wpgmza_tblname = $wpdb->prefix . "wpgmza";
 $wpgmza_tblname_maps = $wpdb->prefix . "wpgmza_maps";
-$wpgmza_version = "4.7";
-$wpgmza_p_version = "4.7";
+$wpgmza_version = "4.11";
+$wpgmza_p_version = "4.11";
 $wpgmza_t = "basic";
 
 add_action('admin_head', 'wpgmaps_head');
@@ -109,7 +109,10 @@ function wpgmaps_activate() {
     wpgmaps_debugger("activate_end");
 }
 function wpgmaps_deactivate() { wpgmza_cURL_response("deactivate"); }
-function wpgmaps_init() { wp_enqueue_script("jquery"); }
+function wpgmaps_init() {
+    wp_enqueue_script("jquery");
+    load_plugin_textdomain('wpgmza', false, basename( dirname( __FILE__ ) ) . '/languages' );
+    }
 
 function wpgmaps_reload_map_on_post() {
     wpgmaps_debugger("reload_map_start");
@@ -874,11 +877,10 @@ function wpgmaps_head() {
 
 
         //update_option('WPGMZA', $data);
-        echo "
-        <div class='updated'>
-            Your settings have been saved.
-        </div>
-        ";
+        echo "<div class='updated'>";
+        _e("Your settings have sbeen saved.");
+        echo "</div>";
+        
    }
 
    else if (isset($_POST['wpgmza_save_maker_location'])){
@@ -903,10 +905,9 @@ function wpgmaps_head() {
 
 
         //update_option('WPGMZA', $data);
-        echo "
-        <div class='updated'>
-            Your marker location has been saved.
-        </div>
+        echo "<div class='updated'>";
+        _e("Your marker location has been saved.");
+        echo "</div>";
         
         ";
    }
