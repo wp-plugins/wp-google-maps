@@ -65,11 +65,17 @@ Once installed and activated, a link should appear in your left navigation panel
 
 == Upgrade Notice ==
 
+= 4.14 =
+We have updated our Timthumb.php file to the latest version (2.8.5 to 2.8.10) in compliance with new WordPress regulations.
+
 = 4.5 =
 Previous versions may cause your blog to slow down. Upgrading to 4.5 will get rid of this bug and increase your page load speed.
 
 
 == Changelog ==
+
+= 4.14 =
+* We have updated our Timthumb.php file to the latest version (2.8.5 to 2.8.10) in compliance with new WordPress regulations.
 
 = 4.13 =
 * Added support for localization
