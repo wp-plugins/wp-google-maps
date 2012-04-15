@@ -497,3 +497,12 @@ msgstr ""
 msgid "Save Style Settings"
 msgstr ""
 
+msgid "Maps"
+msgstr ""
+
+msgid "Advanced"
+msgstr ""
+
+msgid "Create your map"
+msgstr ""
+

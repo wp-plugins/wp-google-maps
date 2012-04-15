@@ -15,27 +15,31 @@ The easiest to use Map Plugin! Create custom Google Maps with high quality marke
 = Key Features =
 * WP Google Maps uses the latest Google Maps API (V3)
 * Super easy to use, no coding required!
-* Create as many map markers as you need by simply typing in the address.
-* Edit your markers with the click of a button.
+* Create as many map markers as you need by simply typing in the address
+* Edit your markers with the click of a button
 * Drag markers to an exact location
-* Google Maps Streetview supported.
+* Google Maps Streetview supported
 * UTF-8 character support
+* Can be included as a widget
 * Support for localization
-* Choose from four map type: roadmap, terrain, satellite and hybrid.
-* Define your own width, height and zoom level for your Google Map.
+* Choose from four map type: roadmap, terrain, satellite and hybrid
+* Define your own width, height and zoom level for your Google Map
 * Create a map in less than a 30 seconds!
-* WordPress 3.0 friendly.
-* WordPress MU friendly
-* No advertising or links.
+* WordPress 3.0 friendly
+* No advertising or links
 
 = Professional Edition =
 * Get the [WP Google Maps Professional Edition](http://www.wpgmaps.com/) for only $9.99
 * Create multiple maps!
 * Add descriptions, links and images to your Google Map markers.
-* Add different marker icons =, or your own icons to make your map really stand out!
+* Add different marker icons, or your own icons to make your map really stand out!
 * Add animations to your markers and let them stand out!
 * Allow your visitors to get directions to your markers.
 * Export your markers to a CSV file for quick editing.
+* WordPress MU friendly
+
+= Locales Supported =
+* Russian - thanks to Sergey
 
 
 == Installation ==
@@ -73,6 +77,12 @@ Previous versions may cause your blog to slow down. Upgrading to 4.5 will get ri
 
 
 == Changelog ==
+
+= 4.15 =
+* All: Added RUSSIAN support! Thank you Sergey!
+* All: Markers now automatically close when you click on another marker.
+* Pro Addon: More information can now be stored in the description field.
+* Pro Addon: The "To" field in the directions box now shows the address and not the GPS co-ords.
 
 = 4.14 =
 * We have updated our Timthumb.php file to the latest version (2.8.5 to 2.8.10) in compliance with new WordPress regulations.
