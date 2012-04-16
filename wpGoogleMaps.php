@@ -3,7 +3,7 @@
 Plugin Name: WP Google Maps
 Plugin URI: http://www.wpgmaps.com
 Description: The easiest to use Google Maps plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 4.15
+Version: 4.16
 Author: WP Google Maps
 Author URI: http://www.wpgmaps.com
 */
@@ -28,8 +28,8 @@ $wpgmza_p = false;
 $wpgmza_g = false;
 $wpgmza_tblname = $wpdb->prefix . "wpgmza";
 $wpgmza_tblname_maps = $wpdb->prefix . "wpgmza_maps";
-$wpgmza_version = "4.15";
-$wpgmza_p_version = "4.15";
+$wpgmza_version = "4.16";
+$wpgmza_p_version = "4.16";
 $wpgmza_t = "basic";
 
 add_action('admin_head', 'wpgmaps_head');
@@ -171,7 +171,19 @@ function wpgmaps_get_marker_url($mapid = false) {
         global $blog_id;
         return wpgmaps_get_plugin_url()."/".$blog_id."-".$mapid."markers.xml";
     } else {
-        return wpgmaps_get_plugin_url()."/".$mapid."markers.xml";
+        if (function_exists(wpgmza_register_pro_version)) {
+            $prov = get_option("WPGMZA_PRO");
+            $wpgmza_pro_version = $prov['version'];
+            
+            if (floatval($wpgmza_pro_version) <= 3.2 || $wpgmza_pro_version == null) {
+                return wpgmaps_get_plugin_url()."/markers.xml";
+            } else {
+                return wpgmaps_get_plugin_url()."/".$mapid."markers.xml";
+            }
+        } else {
+            return wpgmaps_get_plugin_url()."/".$mapid."markers.xml";
+        }
+
     }
 
 

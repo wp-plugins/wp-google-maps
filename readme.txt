@@ -78,6 +78,9 @@ Previous versions may cause your blog to slow down. Upgrading to 4.5 will get ri
 
 == Changelog ==
 
+= 4.16 =
+* Pro: Fixed a bug that caused the map to stop loading its markers if you had the latest basic version and Pro version 3.2 and below.
+
 = 4.15 =
 * All: Added RUSSIAN support! Thank you Sergey!
 * All: Markers now automatically close when you click on another marker.
