@@ -22,7 +22,7 @@ The easiest to use map plugin! Create custom maps with high quality markers cont
 * UTF-8 character support
 * Can be included as a widget
 * Support for localization
-* Choose from four map type: roadmap, terrain, satellite and hybrid
+* Choose from four map types: roadmap, terrain, satellite and hybrid
 * Define your own width, height and zoom level for your Google Map
 * Latest Google Maps API (V3)
 * WordPress 3.0 friendly
