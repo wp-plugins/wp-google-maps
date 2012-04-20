@@ -6,19 +6,19 @@ Requires at least: 2.9.2
 Tested up to: 3.4
 Stable tag: trunk
 
-The easiest to use Map Plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links.
+The easiest to use map plugin! Create custom maps with high quality markers containing locations, descriptions, images and links.
 
 == Description ==
 
-The easiest to use Map Plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized Google map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss. no iFrames and super easy to use!
+The easiest to use map plugin! Create custom maps with high quality markers containing locations, descriptions, images and links and directions. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss. no iFrames and super easy to use!
 
 = Key Features =
-* WP Google Maps uses the latest Google Maps API (V3)
+* Latest Google Maps API (V3)
 * Super easy to use, no coding required!
 * Create as many map markers as you need by simply typing in the address
 * Edit your markers with the click of a button
 * Drag markers to an exact location
-* Google Maps Streetview supported
+* Google Streetview supported
 * UTF-8 character support
 * Can be included as a widget
 * Support for localization
@@ -29,7 +29,6 @@ The easiest to use Map Plugin! Create custom Google Maps with high quality marke
 * No advertising or links
 
 = Professional Edition =
-* Get the [WP Google Maps Professional Edition](http://www.wpgmaps.com/) for only $9.99
 * Create multiple maps!
 * Add descriptions, links and images to your Google Map markers.
 * Add different marker icons, or your own icons to make your map really stand out!
@@ -37,9 +36,7 @@ The easiest to use Map Plugin! Create custom Google Maps with high quality marke
 * Allow your visitors to get directions to your markers.
 * Export your markers to a CSV file for quick editing.
 * WordPress MU friendly
-
-= Locales Supported =
-* Russian - thanks to Sergey
+* Get the [WP Google Maps Professional Edition](http://www.wpgmaps.com/) for only $9.99
 
 
 == Installation ==
