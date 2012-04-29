@@ -10,21 +10,21 @@ The easiest to use map plugin! Create custom maps with high quality markers cont
 
 == Description ==
 
-The easiest to use map plugin! Create custom maps with high quality markers containing locations, descriptions, images and links and directions. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss. no iFrames and super easy to use!
+The easiest to use Google maps plugin! Create custom maps with high quality markers containing locations, descriptions, images and links and directions. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss. no iFrames and super easy to use!
 
 = Key Features =
+* Latest Google Maps API (V3)
 * Super easy to use, no coding required!
 * Create as many map markers as you need by simply typing in the address
 * Edit your markers with the click of a button
-* Create a map in less than a 30 seconds!
 * Drag markers to an exact location
 * Google Streetview supported
 * UTF-8 character support
 * Can be included as a widget
 * Support for localization
-* Choose from four map types: roadmap, terrain, satellite and hybrid
+* Choose from four map type: roadmap, terrain, satellite and hybrid
 * Define your own width, height and zoom level for your Google Map
-* Latest Google Maps API (V3)
+* Create a map in less than a 30 seconds!
 * WordPress 3.0 friendly
 * No advertising or links
 
@@ -75,14 +75,21 @@ Previous versions may cause your blog to slow down. Upgrading to 4.5 will get ri
 
 == Changelog ==
 
+= 4.17 =
+* Added support for KML/GeoRSS layers
+* Fixed the directions box styling error in Firefox
+* Fixed a bug whereby the latest basic version was clashing with Pro version 3.2 and below.
+* The plugin now automatically saves your last map settings as its default settings for all new maps.
+* Added additional settings
+
 = 4.16 =
-* Pro: Fixed a bug that caused the map to stop loading its markers if you had the latest basic version and Pro version 3.2 and below.
+* Fixed a bug that caused the map to stop loading its markers if you had the latest basic version and Pro version 3.2 and below.
 
 = 4.15 =
-* All: Added RUSSIAN support! Thank you Sergey!
-* All: Markers now automatically close when you click on another marker.
-* Pro Addon: More information can now be stored in the description field.
-* Pro Addon: The "To" field in the directions box now shows the address and not the GPS co-ords.
+* Added RUSSIAN support! Thank you Sergey!
+* Markers now automatically close when you click on another marker.
+* More information can now be stored in the description field.
+* The "To" field in the directions box now shows the address and not the GPS co-ords.
 
 = 4.14 =
 * We have updated our Timthumb.php file to the latest version (2.8.5 to 2.8.10) in compliance with new WordPress regulations.
