@@ -10,7 +10,7 @@ The easiest to use map plugin! Create custom maps with high quality markers cont
 
 == Description ==
 
-The easiest to use Google maps plugin! Create custom maps with high quality markers containing locations, descriptions, images and links and directions. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss. no iFrames and super easy to use!
+The easiest to use map plugin! Create custom maps with high quality markers containing locations, descriptions, images and links and directions. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss. no iFrames and super easy to use!
 
 = Key Features =
 * Latest Google Maps API (V3)
@@ -74,6 +74,9 @@ Previous versions may cause your blog to slow down. Upgrading to 4.5 will get ri
 
 
 == Changelog ==
+
+= 4.18 =
+* Fixed an IE9 bug
 
 = 4.17 =
 * Added support for KML/GeoRSS layers
