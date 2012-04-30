@@ -1160,7 +1160,7 @@ function wpgmaps_settings_page_basic() {
         $pro_settings1 = wpgmaps_settings_page_sub('infowindow');
         $prov = get_option("WPGMZA_PRO");
         $wpgmza_pro_version = $prov['version'];
-        if (floatval($wpgmza_pro_version) <= 3.9) {
+        if (floatval($wpgmza_pro_version) < 3.9) {
             $prov_msg = "<div class='error below-h1'><p>Please note that these settings will only work with the Pro Addon version 3.9 and above. Your current version is $wpgmza_pro_version. To download the latest version, please email <a href='mailto:nick@wpgmaps.com'>nick@wpgmaps.com</a></p></div>";
         }
     }
