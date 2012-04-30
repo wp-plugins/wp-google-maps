@@ -3,7 +3,7 @@
 Plugin Name: WP Google Maps
 Plugin URI: http://www.wpgmaps.com
 Description: The easiest to use Google Maps plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 4.18
+Version: 4.19
 Author: WP Google Maps
 Author URI: http://www.wpgmaps.com
 */
@@ -28,8 +28,8 @@ $wpgmza_p = false;
 $wpgmza_g = false;
 $wpgmza_tblname = $wpdb->prefix . "wpgmza";
 $wpgmza_tblname_maps = $wpdb->prefix . "wpgmza_maps";
-$wpgmza_version = "4.18";
-$wpgmza_p_version = "4.18";
+$wpgmza_version = "4.19";
+$wpgmza_p_version = "4.19";
 $wpgmza_t = "basic";
 
 add_action('admin_head', 'wpgmaps_head');
@@ -927,13 +927,7 @@ function wpgmaps_head() {
 
     global $wpgmza_tblname_maps;
 
-    if (isset($_POST['wpgmza_savesettings'])) {
-        global $wpdb;
 
-        
-
-
-    }
 
 
     if (isset($_POST['wpgmza_savemap'])){
@@ -1164,12 +1158,17 @@ function wpgmaps_settings_page_basic() {
 
     if (function_exists(wpgmza_register_pro_version)) {
         $pro_settings1 = wpgmaps_settings_page_sub('infowindow');
+        $prov = get_option("WPGMZA_PRO");
+        $wpgmza_pro_version = $prov['version'];
+        if (floatval($wpgmza_pro_version) <= 3.9) {
+            $prov_msg = "<div class='error below-h1'><p>Please note that these settings will only work with the Pro Addon version 3.9 and above. Your current version is $wpgmza_pro_version. To download the latest version, please email <a href='mailto:nick@wpgmaps.com'>nick@wpgmaps.com</a></p></div>";
+        }
     }
 
     echo "
             
             <form action='' method='post' id='wpgmaps_options'>
-                <p></p>
+                <p>$prov_msg</p>
 
                 $pro_settings1
                 <h3>".__("Map Settings")."</h3>
