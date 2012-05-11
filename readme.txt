@@ -10,10 +10,9 @@ The easiest to use map plugin! Create custom maps with high quality markers cont
 
 == Description ==
 
-The easiest to use map plugin! Create custom maps with high quality markers containing locations, descriptions, images and links and directions. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss. no iFrames and super easy to use!
+The easiest to use google maps plugin! Create custom maps with high quality markers containing locations, descriptions, images and links and directions. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss. no iFrames and super easy to use! Perfect for contact pages, coverage maps and any other use you can think of!
 
 = Key Features =
-* Latest Google Maps API (V3)
 * Super easy to use, no coding required!
 * Create as many map markers as you need by simply typing in the address
 * Edit your markers with the click of a button
@@ -27,6 +26,7 @@ The easiest to use map plugin! Create custom maps with high quality markers cont
 * Create a map in less than a 30 seconds!
 * WordPress 3.0 friendly
 * No advertising or links
+* Latest Google Maps API (V3)
 
 = Professional Edition =
 * Create multiple maps!
@@ -36,7 +36,7 @@ The easiest to use map plugin! Create custom maps with high quality markers cont
 * Allow your visitors to get directions to your markers.
 * Export your markers to a CSV file for quick editing.
 * WordPress MU friendly
-* Get the [WP Google Maps Professional Edition](http://www.wpgmaps.com/) for only $9.99
+* Get the [WP Google Maps Professional Edition](http://www.wpgmaps.com/) for only $14.99
 
 
 == Installation ==
@@ -50,7 +50,7 @@ The easiest to use map plugin! Create custom maps with high quality markers cont
 
 = How do I get the professional edition? =
 
-Simply visit http://www.wpgmaps.com and purchase the Professional Edition for $9.99
+Simply visit http://www.wpgmaps.com and purchase the Professional Edition for $14.99
 
 = I've installed the plugin, now what? =
 
@@ -62,7 +62,10 @@ Once installed and activated, a link should appear in your left navigation panel
 1. Back end
 2. Users can make use of the StreetView functionality
 3. Users can get directions to your markers
-4. Add custom markers
+4. Add custom markers to your map
+5. General settings page
+6. Specific map settings
+7. Advanced settings
 
 == Upgrade Notice ==
 
@@ -74,6 +77,10 @@ Previous versions may cause your blog to slow down. Upgrading to 4.5 will get ri
 
 
 == Changelog ==
+
+= 4.21 =
+* Fixed FireFox directions box styling error
+* Fixed small bugs
 
 = 4.20 =
 * Fixed small bugs
