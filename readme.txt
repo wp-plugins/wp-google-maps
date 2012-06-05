@@ -78,6 +78,11 @@ Previous versions may cause your blog to slow down. Upgrading to 4.5 will get ri
 
 == Changelog ==
 
+= 4.22 =
+* Added bicycle layer
+* Added traffic layer
+* Fixed the bug that was not allowing users to overwrite existing data when uploading a CSV file
+
 = 4.21 =
 * Fixed FireFox directions box styling error
 * Fixed small bugs

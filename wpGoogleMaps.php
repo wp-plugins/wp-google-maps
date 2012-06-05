@@ -3,7 +3,7 @@
 Plugin Name: WP Google Maps
 Plugin URI: http://www.wpgmaps.com
 Description: The easiest to use Google Maps plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 4.21
+Version: 4.22
 Author: WP Google Maps
 Author URI: http://www.wpgmaps.com
 */
@@ -28,8 +28,8 @@ $wpgmza_p = false;
 $wpgmza_g = false;
 $wpgmza_tblname = $wpdb->prefix . "wpgmza";
 $wpgmza_tblname_maps = $wpdb->prefix . "wpgmza_maps";
-$wpgmza_version = "4.21";
-$wpgmza_p_version = "4.21";
+$wpgmza_version = "4.22";
+$wpgmza_p_version = "4.22";
 $wpgmza_t = "basic";
 
 add_action('admin_head', 'wpgmaps_head');
@@ -75,7 +75,9 @@ function wpgmaps_activate() {
                                                                     "styling_enabled" => "0",
                                                                     "styling_json" => "",
                                                                     "active" => "0",
-                                                                    "type" => "1")
+                                                                    "type" => "1",
+                                                                    "bicycle" => "1",
+                                                                    "traffic" => "1")
                                                                     ); }
     } else {
         $rows_affected = $wpdb->insert( $table_name_maps, array(    "map_start_lat" => "".$wpgmza_data['map_start_lat']."",
@@ -91,7 +93,9 @@ function wpgmaps_activate() {
                                                                     "styling_enabled" => "0",
                                                                     "styling_json" => "",
                                                                     "active" => "0",
-                                                                    "directions_enabled" => "".$wpgmza_data['directions_enabled'].""
+                                                                    "directions_enabled" => "".$wpgmza_data['directions_enabled']."",
+                                                                    "bicycle" => "".$wpgmza_data['bicycle']."",
+                                                                    "traffic" => "".$wpgmza_data['traffic'].""
                                                                 ) );
         delete_option("WPGMZA");
 
@@ -938,6 +942,8 @@ function wpgmaps_head() {
     if (isset($_POST['wpgmza_savemap'])){
         global $wpdb;
 
+        
+
         $map_id = attribute_escape($_POST['wpgmza_id']);
         $map_title = attribute_escape($_POST['wpgmza_title']);
         $map_height = attribute_escape($_POST['wpgmza_height']);
@@ -947,6 +953,9 @@ function wpgmaps_head() {
         $type = intval($_POST['wpgmza_map_type']);
         $alignment = intval($_POST['wpgmza_map_align']);
         $directions_enabled = intval($_POST['wpgmza_directions']);
+        $bicycle_enabled = intval($_POST['wpgmza_bicycle']);
+        $traffic_enabled = intval($_POST['wpgmza_traffic']);
+        
         $gps = explode(",",$map_start_location);
         $map_start_lat = $gps[0];
         $map_start_lng = $gps[1];
@@ -961,6 +970,8 @@ function wpgmaps_head() {
         $data['map_default_type'] = $type;
         $data['map_default_alignment'] = $alignment;
         $data['map_default_directions'] = $directions_enabled;
+        $data['map_default_bicycle'] = $bicycle_enabled;
+        $data['map_default_traffic'] = $traffic_enabled;
         $data['map_default_marker'] = $map_default_marker;
 
 
@@ -978,7 +989,9 @@ function wpgmaps_head() {
                 type = %d,
                 alignment = %d,
                 directions_enabled = %d,
-                kml = %s
+                kml = %s,
+                bicycle = %d,
+                traffic = %d
                 WHERE id = %d",
 
                 $map_title,
@@ -993,10 +1006,12 @@ function wpgmaps_head() {
                 $alignment,
                 $directions_enabled,
                 $kml,
+                $bicycle_enabled,
+                $traffic_enabled,
                 $map_id)
         );
 
-
+        //echo $wpdb->print_error();
 
 
         update_option('WPGMZA_SETTINGS', $data);
@@ -1046,6 +1061,7 @@ function wpgmaps_head() {
         $wpgmza_data['wpgmza_settings_map_zoom'] = attribute_escape($_POST['wpgmza_settings_map_zoom']);
         $wpgmza_data['wpgmza_settings_map_pan'] = attribute_escape($_POST['wpgmza_settings_map_pan']);
         $wpgmza_data['wpgmza_settings_map_type'] = attribute_escape($_POST['wpgmza_settings_map_type']);
+        $wpgmza_data['wpgmza_settings_map_scroll'] = attribute_escape($_POST['wpgmza_settings_map_scroll']);
         update_option('WPGMZA_OTHER_SETTINGS', $wpgmza_data);
         echo "<div class='updated'>";
         _e("Your settings have been saved.");
@@ -1759,7 +1775,7 @@ function wpgmaps_check_permissions() {
 
 }
 function wpgmaps_permission_warning() {
-    echo "<div class='error below-h1'>";
+    echo "<div class='error below-h1'><big>";
     _e("The plugin directory does not have 'write' permissions. Please enable 'write' permissions (755) for ");
     echo "\"".dirname( __FILE__ )."\" ";
     _e("in order for this plugin to work! Please see ");
@@ -1767,7 +1783,7 @@ function wpgmaps_permission_warning() {
     _e("this page");
     echo "</a> ";
     _e("for help on how to do it.");
-    echo "</div>";
+    echo "</big></div>";
 }
 
 
@@ -1841,6 +1857,8 @@ function wpgmaps_handle_db() {
           `styling_json` mediumtext NOT NULL,
           `active` INT(1) NOT NULL,
           `kml` VARCHAR(700) NOT NULL,
+          `bicycle` INT(10) NOT NULL,
+          `traffic` INT(10) NOT NULL,
           PRIMARY KEY (`id`)
         ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
     ";
