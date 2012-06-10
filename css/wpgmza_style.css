@@ -1,0 +1,13 @@
+#wpgmza_map img {
+    border: none !important;
+    background-color:transparent !important;
+}
+.wpgmza_map img {
+    border: none !important;
+    background-color:transparent !important;
+    padding:0 !important;
+    margin:0 !important;
+}
+#wpgmaps_directions_edit {
+    padding-top:20px;
+}
