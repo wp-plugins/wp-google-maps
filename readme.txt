@@ -78,6 +78,16 @@ Previous versions may cause your blog to slow down. Upgrading to 4.5 will get ri
 
 == Changelog ==
 
+= 5.0 =
+* Plugin now supports multiple maps on one page
+* Bicycle directions now added
+* Walking directions now added
+* "Avoid tolls" now added to the directions functionality
+* "Avoid highways" now added to directions functionality
+* New setting: open links in a new window
+* Added functionality to reset the default marker image if required.
+
+
 = 4.22 =
 * Added bicycle layer
 * Added traffic layer

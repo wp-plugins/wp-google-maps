@@ -3,7 +3,7 @@
 Plugin Name: WP Google Maps
 Plugin URI: http://www.wpgmaps.com
 Description: The easiest to use Google Maps plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 4.22
+Version: 5.0
 Author: WP Google Maps
 Author URI: http://www.wpgmaps.com
 */
@@ -28,8 +28,8 @@ $wpgmza_p = false;
 $wpgmza_g = false;
 $wpgmza_tblname = $wpdb->prefix . "wpgmza";
 $wpgmza_tblname_maps = $wpdb->prefix . "wpgmza_maps";
-$wpgmza_version = "4.22";
-$wpgmza_p_version = "4.22";
+$wpgmza_version = "5.0";
+$wpgmza_p_version = "5.0";
 $wpgmza_t = "basic";
 
 add_action('admin_head', 'wpgmaps_head');
@@ -180,11 +180,7 @@ function wpgmaps_get_marker_url($mapid = false) {
             $prov = get_option("WPGMZA_PRO");
             $wpgmza_pro_version = $prov['version'];
 
-            if (floatval($wpgmza_pro_version) <= 3.2 || $wpgmza_pro_version == null) {
-                return wpgmaps_get_plugin_url()."/markers.xml";
-            } else {
-                return wpgmaps_get_plugin_url()."/".$mapid."markers.xml";
-            }
+            return wpgmaps_get_plugin_url()."/".$mapid."markers.xml";
         } else {
             return wpgmaps_get_plugin_url()."/".$mapid."markers.xml";
         }
@@ -731,14 +727,6 @@ function wpgmaps_update_xml_file($mapid = false) {
     if (function_exists(wpgmza_register_pro_version)) {
             $prov = get_option("WPGMZA_PRO");
             $wpgmza_pro_version = $prov['version'];
-            if (floatval($wpgmza_pro_version) <= 3.2 || $wpgmza_pro_version == null) {
-                $results = $wpdb->get_results(
-                    "
-                    SELECT *
-                    FROM $table_name
-                    "
-                );
-            } else {
                 $results = $wpdb->get_results(
                     "
                     SELECT *
@@ -747,7 +735,6 @@ function wpgmaps_update_xml_file($mapid = false) {
 
                     "
                 );
-            }
         }
         else {
             $results = $wpdb->get_results(
@@ -815,11 +802,7 @@ function wpgmaps_update_xml_file($mapid = false) {
         if (function_exists(wpgmza_register_pro_version)) {
             $prov = get_option("WPGMZA_PRO");
             $wpgmza_pro_version = $prov['version'];
-            if (floatval($wpgmza_pro_version) <= 3.2 || $wpgmza_pro_version == null) {
-                @$dom->save(WP_PLUGIN_DIR.'/'.plugin_basename(dirname(__FILE__)).'/markers.xml');
-            } else {
-                @$dom->save(WP_PLUGIN_DIR.'/'.plugin_basename(dirname(__FILE__)).'/'.$mapid.'markers.xml');
-            }
+            @$dom->save(WP_PLUGIN_DIR.'/'.plugin_basename(dirname(__FILE__)).'/'.$mapid.'markers.xml');
         }
         else {
             @$dom->save(WP_PLUGIN_DIR.'/'.plugin_basename(dirname(__FILE__)).'/'.$mapid.'markers.xml');
@@ -1057,6 +1040,8 @@ function wpgmaps_head() {
         $wpgmza_data['wpgmza_settings_image_height'] = attribute_escape($_POST['wpgmza_settings_image_height']);
         $wpgmza_data['wpgmza_settings_use_timthumb'] = attribute_escape($_POST['wpgmza_settings_use_timthumb']);
         $wpgmza_data['wpgmza_settings_infowindow_width'] = attribute_escape($_POST['wpgmza_settings_infowindow_width']);
+        $wpgmza_data['wpgmza_settings_infowindow_links'] = attribute_escape($_POST['wpgmza_settings_infowindow_links']);
+        $wpgmza_data['wpgmza_settings_infowindow_address'] = attribute_escape($_POST['wpgmza_settings_infowindow_address']);
         $wpgmza_data['wpgmza_settings_map_streetview'] = attribute_escape($_POST['wpgmza_settings_map_streetview']);
         $wpgmza_data['wpgmza_settings_map_zoom'] = attribute_escape($_POST['wpgmza_settings_map_zoom']);
         $wpgmza_data['wpgmza_settings_map_pan'] = attribute_escape($_POST['wpgmza_settings_map_pan']);
