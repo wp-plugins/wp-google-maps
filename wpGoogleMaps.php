@@ -3,7 +3,7 @@
 Plugin Name: WP Google Maps
 Plugin URI: http://www.wpgmaps.com
 Description: The easiest to use Google Maps plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 5.0
+Version: 5.01
 Author: WP Google Maps
 Author URI: http://www.wpgmaps.com
 */
@@ -28,8 +28,8 @@ $wpgmza_p = false;
 $wpgmza_g = false;
 $wpgmza_tblname = $wpdb->prefix . "wpgmza";
 $wpgmza_tblname_maps = $wpdb->prefix . "wpgmza_maps";
-$wpgmza_version = "5.0";
-$wpgmza_p_version = "5.0";
+$wpgmza_version = "5.01";
+$wpgmza_p_version = "5.01";
 $wpgmza_t = "basic";
 
 add_action('admin_head', 'wpgmaps_head');
@@ -76,8 +76,11 @@ function wpgmaps_activate() {
                                                                     "styling_json" => "",
                                                                     "active" => "0",
                                                                     "type" => "1",
-                                                                    "bicycle" => "1",
-                                                                    "traffic" => "1")
+                                                                    "bicycle" => "2",
+                                                                    "traffic" => "2",
+                                                                    "dbox" => "1",
+                                                                    "dbox_width" => "250",
+                                                                    "listmarkers" => "0")
                                                                     ); }
     } else {
         $rows_affected = $wpdb->insert( $table_name_maps, array(    "map_start_lat" => "".$wpgmza_data['map_start_lat']."",
@@ -95,7 +98,11 @@ function wpgmaps_activate() {
                                                                     "active" => "0",
                                                                     "directions_enabled" => "".$wpgmza_data['directions_enabled']."",
                                                                     "bicycle" => "".$wpgmza_data['bicycle']."",
-                                                                    "traffic" => "".$wpgmza_data['traffic'].""
+                                                                    "traffic" => "".$wpgmza_data['traffic']."",
+                                                                    "dbox" => "".$wpgmza_data['dbox']."",
+                                                                    "dbox_width" => "".$wpgmza_data['dbox_width']."",
+                                                                    "listmarkers" => "".$wpgmza_data['listmarkers'].""
+
                                                                 ) );
         delete_option("WPGMZA");
 
@@ -122,7 +129,7 @@ function wpgmaps_init() {
 function wpgmaps_reload_map_on_post() {
     wpgmaps_debugger("reload_map_start");
     if (isset($_POST['wpgmza_savemap'])){
-
+        
         $res = wpgmza_get_map_data($_GET['map_id']);
         $wpgmza_lat = $res->map_start_lat;
         $wpgmza_lng = $res->map_start_lng;
@@ -606,7 +613,6 @@ function wpgmaps_user_javascript_basic() {
 
         ?>
         <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-        <link rel='stylesheet' id='wpgooglemaps-css'  href='<?php echo wpgmaps_get_plugin_url(); ?>/css/wpgmza_style.css' type='text/css' media='all' />
         <script type="text/javascript" >
 
 
@@ -752,6 +758,7 @@ function wpgmaps_update_xml_file($mapid = false) {
 
     foreach ( $results as $result )
     {
+        $id = $result->id;
         $address = $result->address;
         $description = $result->desc;
         $pic = $result->pic;
@@ -768,6 +775,8 @@ function wpgmaps_update_xml_file($mapid = false) {
         $map_id = $result->map_id;
 
         $channel = $channel_main->appendChild($dom->createElement('marker'));
+        $title = $channel->appendChild($dom->createElement('marker_id'));
+        $title->appendChild($dom->CreateTextNode($id));
         $title = $channel->appendChild($dom->createElement('map_id'));
         $title->appendChild($dom->CreateTextNode($map_id));
         $title = $channel->appendChild($dom->createElement('title'));
@@ -925,7 +934,7 @@ function wpgmaps_head() {
     if (isset($_POST['wpgmza_savemap'])){
         global $wpdb;
 
-        
+        //var_dump($_POST);
 
         $map_id = attribute_escape($_POST['wpgmza_id']);
         $map_title = attribute_escape($_POST['wpgmza_title']);
@@ -938,7 +947,12 @@ function wpgmaps_head() {
         $directions_enabled = intval($_POST['wpgmza_directions']);
         $bicycle_enabled = intval($_POST['wpgmza_bicycle']);
         $traffic_enabled = intval($_POST['wpgmza_traffic']);
-        
+        $dbox = intval($_POST['wpgmza_dbox']);
+        $dbox_width = attribute_escape($_POST['wpgmza_dbox_width']);
+        $listmarkers = intval($_POST['wpgmza_listmarkers']);
+        echo "LISTMARKERS: $listmarkers";
+
+
         $gps = explode(",",$map_start_location);
         $map_start_lat = $gps[0];
         $map_start_lng = $gps[1];
@@ -955,6 +969,9 @@ function wpgmaps_head() {
         $data['map_default_directions'] = $directions_enabled;
         $data['map_default_bicycle'] = $bicycle_enabled;
         $data['map_default_traffic'] = $traffic_enabled;
+        $data['map_default_dbox'] = $dbox;
+        $data['map_default_dbox_width'] = $dbox_width;
+        $data['map_default_listmarkers'] = $listmarkers;
         $data['map_default_marker'] = $map_default_marker;
 
 
@@ -974,7 +991,10 @@ function wpgmaps_head() {
                 directions_enabled = %d,
                 kml = %s,
                 bicycle = %d,
-                traffic = %d
+                traffic = %d,
+                dbox = %d,
+                dbox_width = %s,
+                listmarkers = %d
                 WHERE id = %d",
 
                 $map_title,
@@ -991,6 +1011,9 @@ function wpgmaps_head() {
                 $kml,
                 $bicycle_enabled,
                 $traffic_enabled,
+                $dbox,
+                $dbox_width,
+                $listmarkers,
                 $map_id)
         );
 
@@ -1115,8 +1138,9 @@ function wpgmaps_menu_layout() {
 
                     $prov = get_option("WPGMZA_PRO");
                     $wpgmza_pro_version = $prov['version'];
-                    if (floatval($wpgmza_pro_version) < 3 || $wpgmza_pro_version == null) {
+                    if (floatval($wpgmza_pro_version) < 4.01 || $wpgmza_pro_version == null) {
                         wpgmaps_upgrade_notice();
+                        wpgmza_pro_menu();
                     } else {
                         wpgmza_pro_menu();
                     }
@@ -1568,6 +1592,9 @@ function wpgmaps_admin_scripts() {
     wpgmaps_debugger("admin_scripts_end");
 
 }
+function wpgmaps_user_styles() {
+    wp_register_style( 'wpgmaps-style', plugins_url('/css/wpgmza_style.css', __FILE__) );
+    wp_enqueue_style( 'wpgmaps-style' );}
 
 function wpgmaps_admin_styles() {
     wp_enqueue_style('thickbox');
@@ -1581,6 +1608,7 @@ if (isset($_GET['page']) && $_GET['page'] == 'wp-google-maps-menu') {
     wpgmaps_debugger("load_scripts_styles_end");
 }
 
+    add_action('wp_print_styles', 'wpgmaps_user_styles');
 
 
 
@@ -1844,6 +1872,9 @@ function wpgmaps_handle_db() {
           `kml` VARCHAR(700) NOT NULL,
           `bicycle` INT(10) NOT NULL,
           `traffic` INT(10) NOT NULL,
+          `dbox` INT(10) NOT NULL,
+          `dbox_width` varchar(10) NOT NULL,
+          `listmarkers` INT(10) NOT NULL,
           PRIMARY KEY (`id`)
         ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
     ";
@@ -1887,30 +1918,26 @@ function wpgmza_get_marker_data($mid) {
 
 }
 function wpgmaps_upgrade_notice() {
+    global $wpgmza_pro_version;
     echo "<div class='error below-h1'>
         <big><big>
-            <p>Dear Pro User. <br /></p>
+            <p>Dear Pro User<br /></p>
 
-            <p>We recently upgraded the WP Google Maps plugin to include functionality for <strong>multiple maps.</strong>
-            You need to upgrade your Pro version to the <strong>latest version</strong> in order for the plugin to continue
-            working. We apologise for the inconvenience but would urge you to consider that we are attempting to make this
-            the best map plugin available on the market. There was a big need for multiple maps and the only way we could
-            achieve this was to make major changes to the code, thus resulting in the need for the latest version!<br /></p>
+            <p>We have recently added new functionality to the Pro version of this plugin. You are currently using the latest
+            Basic version which needs the latest Pro version for all functionality to work. Your current Pro version is
+            $wpgmza_pro_version - The latest Pro version is 4.01<br /></p>
 
             <p>You should have already received an email with the download link for the latest version, if not please
-            <big><a href='http://www.wpgmaps.com/d/wp-google-maps-pro.zip' target='_blank'>download it here</a></big>! (This link will only be available
-            for 1 week, thereafter please <a href='http://www.wpgmaps.com/contact-us/'>contact us</a>)<br /><br /></p>
-
+            <a href='http://www.wpgmaps.com/contact-us/'>contact us</a><br /><br /></p>
+            <small>
             <p><strong>Installation Instructions:</strong><br />
             <ul>
-                <li>- Once downloaded, please <strong>deactivate</strong> and <strong>delete</strong> your old Pro plugin (your marker information wont be affected at all).</li>
+                <li>- Once downloaded, please <strong>deactivate</strong> and <strong>delete</strong> your old Pro plugin (your marker and map information wont be affected at all).</li>
                 <li>- <a href=\"".get_option('siteurl')."/wp-admin/plugin-install.php?tab=upload\" target=\"_BLANK\">Upload the new</a> plugin ZIP file.</li>
-                <li>- You will notice the left hand navigation has now changed from \"WP Google Maps\" to just \"Maps\".</li>
-                <li>- Enjoy creating multiple maps!</li>
-
+            </ul>
             </p>
-
-            <p>If you run into any bugs, please let me know so that I can get it sorted out ASAP</p>
+            </small>
+            <p>If you experience into any bugs, please let me know so that I can get it sorted out ASAP</p>
 
             <p>Kind regards,<br /><a href='http://www.wpgmaps.com/'>WP Google Maps</a></p>
         </big></big>
