@@ -503,6 +503,117 @@ msgstr ""
 msgid "Advanced"
 msgstr ""
 
-msgid "Create your map"
+msgid "Create your Map"
+msgstr ""
+
+msgid "Show advanced options"
+msgstr ""
+
+msgid "Hide advanced options"
+msgstr ""
+
+msgid "List all Markers"
+msgstr ""
+
+msgid "List all markers below the map"
+msgstr ""
+
+msgid "Directions Box Open by Default?"
+msgstr ""
+
+msgid "Yes, on the left"
+msgstr ""
+
+msgid "Yes, on the right"
+msgstr ""
+
+msgid "Yes, above"
+msgstr ""
+
+msgid "Yes, below"
+msgstr ""
+
+msgid "Directions Box Width"
+msgstr ""
+
+msgid "InfoWindow open by default"
+msgstr ""
+
+msgid "Disable StreetView"
+msgstr ""
+
+msgid "Disable Zoom Controls"
+msgstr ""
+
+msgid "Disable Pan Controls"
+msgstr ""
+
+msgid "Disable Map Type Controls"
+msgstr ""
+
+msgid "Disable Mouse Wheel Zoom"
+msgstr ""
+
+msgid "Open links in a new window"
+msgstr ""
+
+msgid "(Tick this if you want to open your links in a new window)"
+msgstr ""
+
+msgid "Hide the address field"
+msgstr ""
+
+msgid "Other settings"
+msgstr ""
+
+msgid "Max InfoWindow Width"
+msgstr ""
+
+msgid "(Minimum: 200px)"
+msgstr ""
+
+msgid "Image Thumbnails"
+msgstr ""
+
+msgid "(Tick this if you are having problems viewing your thumbnail images)"
+msgstr ""
+
+msgid "Default Image Height"
+msgstr ""
+
+msgid "Default Image Width"
+msgstr ""
+
+msgid "InfoWindow Settings"
+msgstr ""
+
+msgid "General Map Settings"
+msgstr ""
+
+msgid "Do not use TimThumb"
+msgstr ""
+
+msgid "WP Google Map Settings"
+msgstr ""
+
+msgid "Enable Directions?"
+msgstr ""
+
+msgid "Enable Bicycle Layer?"
+msgstr ""
+
+msgid "Enable Traffic Layer?"
+msgstr ""
+
+msgid "The KML/GeoRSS layer will over-ride most of your map settings"
+msgstr ""
+
+msgid "KML/GeoRSS URL"
+msgstr ""
+
+msgid "Map Dimensions"
+msgstr ""
+
+msgid "Settings"
 msgstr ""
 

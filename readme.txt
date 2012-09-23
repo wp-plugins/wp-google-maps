@@ -3,7 +3,7 @@ Contributors: WPGMaps
 Donate link: http://www.wpgmaps.com
 Tags: google maps, maps, map, map markers, google, interactive, maps api, wp maps, wp google maps, mappress, easy map
 Requires at least: 2.9.2
-Tested up to: 3.4.1
+Tested up to: 3.4.2
 Stable tag: trunk
 
 The easiest to use map plugin! Create custom maps with high quality markers containing locations, descriptions, images and links.
@@ -78,7 +78,14 @@ Previous versions may cause your blog to slow down. Upgrading to 4.5 will get ri
 
 == Changelog ==
 
-= 5.1 =
+= 5.02 =
+* Fixed a firefox styling bug that caused the Directions box to load on the right of the map instead of below.
+* Added support code for the new WP Google Maps Visitor Generated Markers plugin
+* Added the option for a more advanced way to list your markers below your maps
+* Added responsive size functionality
+* Added support for Fusion Tables
+ 
+= 5.01 =
 * Added the functionality to list your markers below the map
 * Added more advanced directions functionality
 * Fixed small bugs

@@ -37,8 +37,12 @@
     padding:0 !important;
     
 }
+.wpgmaps_mlist_row {
+    cursor:pointer;
+}
 .wpgmaps_mlist_row:hover {
     background-color: #EEEEEE;
+    
 }
 .wpgmaps_directions_outer_div {
     padding-top:30px;
@@ -48,3 +52,7 @@
 .wpgmaps_directions_outer_div table, wpgmza_marker_list_class {
     margin-bottom:0px !important;
 }
+
+.wpgmza_map h2 { clear:both; }
+
+.wpgmaps_user_form { clear: both; }
