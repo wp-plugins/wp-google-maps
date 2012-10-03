@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: WP Google Maps
-Plugin URI: http://nickduncan.co.za/wp-google-maps/
+Plugin URI: http://www.wpgmaps.com
 Description: Create a custom Google Map with high quality markers that contains Locations, Descriptions, Images and Links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
 Version: 1.1.1
-Author: Nick Duncan
-Author URI: http://nickduncan.co.za
+Author: WP Google Maps
+Author URI: http://www.wpgmaps.com
 */
 
 global $wpgmza_db_version;
