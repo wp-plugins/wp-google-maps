@@ -3,7 +3,7 @@ Contributors: WPGMaps
 Donate link: http://www.wpgmaps.com
 Tags: google maps, maps, map, map markers, google, interactive, maps api, wp maps, wp google maps, mappress, easy map
 Requires at least: 2.9.2
-Tested up to: 3.4.2
+Tested up to: 3.5
 Stable tag: trunk
 
 The easiest to use map plugin! Create custom maps with high quality markers containing locations, descriptions, images and links.
