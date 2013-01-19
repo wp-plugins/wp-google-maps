@@ -3,7 +3,7 @@
 Plugin Name: WP Google Maps
 Plugin URI: http://www.wpgmaps.com
 Description: The easiest to use Google Maps plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 5.02
+Version: 5.03
 Author: WP Google Maps
 Author URI: http://www.wpgmaps.com
 */
@@ -28,8 +28,8 @@ $wpgmza_p = false;
 $wpgmza_g = false;
 $wpgmza_tblname = $wpdb->prefix . "wpgmza";
 $wpgmza_tblname_maps = $wpdb->prefix . "wpgmza_maps";
-$wpgmza_version = "5.02";
-$wpgmza_p_version = "5.02";
+$wpgmza_version = "5.03";
+$wpgmza_p_version = "5.03";
 $wpgmza_t = "basic";
 
 add_action('admin_head', 'wpgmaps_head');
@@ -52,7 +52,7 @@ function wpgmaps_activate() {
     $table_name_maps = $wpdb->prefix . "wpgmza_maps";
 
     wpgmaps_debugger("activate_start");
-
+    delete_option("WPGMZA");
 
     wpgmaps_handle_db();
 
@@ -70,7 +70,7 @@ function wpgmaps_activate() {
                                                                     "map_width_type" => "px",
                                                                     "map_height_type" => "px",
                                                                     "map_start_location" => "51.5081290,-0.1280050",
-                                                                    "map_start_zoom" => "5",
+                                                                    "map_start_zoom" => "1",
                                                                     "directions_enabled" => '1',
                                                                     "default_marker" => "0",
                                                                     "alignment" => "0",
@@ -124,12 +124,12 @@ function wpgmaps_activate() {
 
 
 
-    wpgmza_cURL_response("activate");
+    //wpgmza_cURL_response("activate");
     //check to see if you have write permissions to the plugin folder (version 2.2)
     if (!wpgmaps_check_permissions()) { wpgmaps_permission_warning(); } else { wpgmaps_update_all_xml_file(); }
     wpgmaps_debugger("activate_end");
 }
-function wpgmaps_deactivate() { wpgmza_cURL_response("deactivate"); }
+function wpgmaps_deactivate() { /* wpgmza_cURL_response("deactivate"); */ }
 function wpgmaps_init() {
     wp_enqueue_script("jquery");
     $plugin_dir = basename(dirname(__FILE__))."/languages/";
@@ -432,6 +432,8 @@ function wpgmaps_admin_javascript_basic() {
                                         jQuery("#wpgmza_addmarker").show();
                                         jQuery("#wpgmza_addmarker_loading").hide();
                                         wpgmza_reinitialisetbl();
+                                        var myLatLng = new google.maps.LatLng(wpgm_lat,wpgm_lng);
+                                        MYMAP.map.setCenter(myLatLng);
                                 });
 
                             } else {
@@ -651,6 +653,8 @@ function wpgmaps_user_javascript_basic() {
             });
 
         });
+        
+        
         var MYMAP = {
             map: null,
             bounds: null
@@ -1492,15 +1496,16 @@ function wpgmza_basic_menu() {
 
 
                         </table>
-                            <div id=\"wpgmaps_save_reminder\" style=\"display:none;\"><span style=\"font-size:16px; color:#1C62B9;\">
-                            ".__("Remember to save your map!","wp-google-maps")."
-                            </span></div>
+                            
                             <p class='submit'><input type='submit' name='wpgmza_savemap' class='button-primary' value='".__("Save Map","wp-google-maps")." &raquo;' /></p>
                             <p style=\"width:600px; color:#808080;\">
                                 ".__("Tip: Use your mouse to change the layout of your map. When you have positioned the map to your desired location, press \"Save Map\" to keep your settings.","wp-google-maps")."</p>
 
 
                             <div id=\"wpgmza_map\">&nbsp;</div>
+                            <div id=\"wpgmaps_save_reminder\" style=\"display:none;\"><span style=\"font-size:26px; padding-top:15px; color:red;\"><br />
+                            ".__("Remember to save your map!","wp-google-maps")."
+                            </span></div>
                             <div style=\"display:block; overflow:auto; background-color:#FFFBCC; padding:10px; border:1px solid #E6DB55; margin-top:5px; margin-bottom:5px;\">
                                 <h2 style=\"padding-top:0; margin-top:0;\">".__("Add a marker","wp-google-maps")."</h2>
                                 <p>
@@ -1802,6 +1807,14 @@ function wpgmaps_chmodr($path, $filemode) {
         return FALSE;
 }
 
+
+
+
+
+
+
+
+
 if (function_exists(wpgmza_register_pro_version)) {
     add_action('wp_ajax_add_marker', 'wpgmaps_action_callback_pro');
     add_action('wp_ajax_delete_marker', 'wpgmaps_action_callback_pro');
@@ -1815,6 +1828,10 @@ if (function_exists(wpgmza_register_pro_version)) {
         add_action('wp_footer', 'wpgmaps_user_javascript_pro');
         add_action('admin_head', 'wpgmaps_admin_javascript_pro');
     }
+
+    if (function_exists(wpgmza_register_ugm_version)) {
+    }
+
     add_shortcode( 'wpgmza', 'wpgmaps_tag_pro' );
 } else {
     add_action('admin_head', 'wpgmaps_admin_javascript_basic');
@@ -1840,7 +1857,6 @@ function wpgmaps_check_shortcode() {
             if (is_array($match)) {
                 foreach($match as $key => $val) {
                     $pos = strpos($val, "wpgmza");
-                    
                     if ($pos === false) { } else { $short_code_active = true; }
                 }
             }

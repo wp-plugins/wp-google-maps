@@ -78,6 +78,10 @@ Previous versions may cause your blog to slow down. Upgrading to 4.5 will get ri
 
 == Changelog ==
 
+= 5.03 =
+* The google map now auto centres onto the address of the marker you have added
+* Fixed some bugs
+
 = 5.02 =
 * Fixed a firefox styling bug that caused the Directions box to load on the right of the map instead of below.
 * Added support code for the new WP Google Maps Visitor Generated Markers plugin
