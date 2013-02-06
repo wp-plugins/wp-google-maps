@@ -78,6 +78,12 @@ Previous versions may cause your blog to slow down. Upgrading to 4.5 will get ri
 
 == Changelog ==
 
+= 5.04 =
+* Fixed multiple bugs (big thanks to Alexander Gieg)
+* Fixed a firefox styling bug when using percentage width/height and set map alignment to 'none'
+* Added support for disabling mouse zooming and dragging
+* Added support for jQuery1.9+
+
 = 5.03 =
 * The google map now auto centres onto the address of the marker you have added
 * Fixed some bugs
