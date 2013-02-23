@@ -69,6 +69,9 @@ Once installed and activated, a link should appear in your left navigation panel
 
 == Upgrade Notice ==
 
+= 5.05 =
+This is a must for users on IIS. Older WP Google Maps versions will not be compatible.
+
 = 4.14 =
 We have updated our Timthumb.php file to the latest version (2.8.5 to 2.8.10) in compliance with new WordPress regulations.
 
@@ -78,6 +81,15 @@ Previous versions may cause your blog to slow down. Upgrading to 4.5 will get ri
 
 == Changelog ==
 
+= 5.05 =
+* Czech localization added thanks to Pavel Riha
+* Extended localization added to the jQuery.dataTables thanks to Pavel Riha
+* Added troubleshooting support for various common problems
+* Fixed a bug that was stopping the plugin from working on IIS servers
+* Marker list now shows the default marker if set
+* A lot of bugs fixed!
+
+
 = 5.04 =
 * Fixed multiple bugs (big thanks to Alexander Gieg)
 * Fixed a firefox styling bug when using percentage width/height and set map alignment to 'none'
@@ -85,11 +97,11 @@ Previous versions may cause your blog to slow down. Upgrading to 4.5 will get ri
 * Added support for jQuery1.9+
 
 = 5.03 =
-* The google map now auto centres onto the address of the marker you have added
+* The Google map now auto centres onto the address of the marker you have added
 * Fixed some bugs
 
 = 5.02 =
-* Fixed a firefox styling bug that caused the Directions box to load on the right of the map instead of below.
+* Fixed a Firefox styling bug that caused the Directions box to load on the right of the map instead of below.
 * Added support code for the new WP Google Maps Visitor Generated Markers plugin
 * Added the option for a more advanced way to list your markers below your maps
 * Added responsive size functionality
