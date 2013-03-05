@@ -3,7 +3,7 @@
 Plugin Name: WP Google Maps
 Plugin URI: http://www.wpgmaps.com
 Description: The easiest to use Google Maps plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 5.05
+Version: 5.06
 Author: WP Google Maps
 Author URI: http://www.wpgmaps.com
 */
@@ -28,8 +28,8 @@ $wpgmza_p = false;
 $wpgmza_g = false;
 $wpgmza_tblname = $wpdb->prefix . "wpgmza";
 $wpgmza_tblname_maps = $wpdb->prefix . "wpgmza_maps";
-$wpgmza_version = "5.05";
-$wpgmza_p_version = "5.05";
+$wpgmza_version = "5.06";
+$wpgmza_p_version = "5.06";
 $wpgmza_t = "basic";
 
 add_action('admin_head', 'wpgmaps_head');
@@ -2143,3 +2143,10 @@ function wpgmaps_filter(&$array) {
         }
     }
 }
+
+function wpgmaps_load_jquery() {
+    wp_deregister_script('jquery');
+    wp_register_script('jquery', 'http://code.jquery.com/jquery-1.8.3.min.js', false, "1.8.3");
+    wp_enqueue_script('jquery');
+}
+add_action('wp_enqueue_scripts', 'wpgmaps_load_jquery', 9999);

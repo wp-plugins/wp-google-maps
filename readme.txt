@@ -81,6 +81,9 @@ Previous versions may cause your blog to slow down. Upgrading to 4.5 will get ri
 
 == Changelog ==
 
+= 5.06 =
+* Updated the plugin to force the latest jQuery to be loaded.
+
 = 5.05 =
 * Czech localization added thanks to Pavel Riha
 * Extended localization added to the jQuery.dataTables thanks to Pavel Riha
