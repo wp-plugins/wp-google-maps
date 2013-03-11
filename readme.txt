@@ -81,6 +81,10 @@ Previous versions may cause your blog to slow down. Upgrading to 4.5 will get ri
 
 == Changelog ==
 
+= 5.08 =
+* Fixed another jQuery loading bug. The plugin now comes with Jquery loaded in it's own folder to avoid CDN issues.
+
+
 = 5.07 =
 * Fixed a wp-admin jQuery bug
 
