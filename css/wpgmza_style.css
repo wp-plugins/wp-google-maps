@@ -33,6 +33,7 @@
 }
 
 .wpgmaps_mlist_info {
+    vertical-align:top;
     text-align:left;
     padding:0 !important;
     
@@ -58,3 +59,36 @@
 .wpgmaps_user_form { clear: both; }
 
 .wpgmza_table { clear:both; }
+
+
+.wpgmaps_mlist_row img {
+	margin-bottom:0 !important;
+}
+
+.wpgmza_table td {
+	vertical-align: top !important;
+        padding-bottom: 15px !important;
+        padding-right: 10px !important;
+
+}
+.wpgmza_table th {
+	text-align: left !important;
+        padding-bottom: 15px !important;
+
+}
+
+.wpgmza_table_description {
+    width:40% !important;
+}
+.wpgmza_table_marker {
+    width:10% !important;
+}
+.wpgmza_table_title {
+    width:20% !important;
+}
+.wpgmza_table_address {
+    width:30% !important;
+}
+.dataTables_filter input[type="text"], .dataTables_filter select { display: inline !important; }
+.dataTables_filter label { font-weight:bold; }
+.adp-placemark img { width:24px !important; max-width:none !important; }
