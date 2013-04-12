@@ -82,6 +82,9 @@ Previous versions may cause your blog to slow down. Upgrading to 4.5 will get ri
 
 == Changelog ==
 
+= 5.10 =
+* Small bug fix
+
 = 5.09 =
 * Map markers can now be sorted by id,title,description or address
 * Add Polylines to your map with the Pro version

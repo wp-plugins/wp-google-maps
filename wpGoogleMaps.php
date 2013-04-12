@@ -3,7 +3,7 @@
 Plugin Name: WP Google Maps
 Plugin URI: http://www.wpgmaps.com
 Description: The easiest to use Google Maps plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 5.09
+Version: 5.10
 Author: WP Google Maps
 Author URI: http://www.wpgmaps.com
 */
@@ -33,8 +33,8 @@ $wpgmza_tblname = $wpdb->prefix . "wpgmza";
 $wpgmza_tblname_maps = $wpdb->prefix . "wpgmza_maps";
 $wpgmza_tblname_poly = $wpdb->prefix . "wpgmza_polygon";
 $wpgmza_tblname_polylines = $wpdb->prefix . "wpgmza_polylines";
-$wpgmza_version = "5.09";
-$wpgmza_p_version = "5.09";
+$wpgmza_version = "5.10";
+$wpgmza_p_version = "5.10";
 $wpgmza_t = "basic";
 
 add_action('admin_head', 'wpgmaps_head');
@@ -2460,7 +2460,6 @@ function wpgmaps_handle_db() {
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
     ";
 
-   require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
    dbDelta($sql);
 
    
@@ -2470,13 +2469,12 @@ function wpgmaps_handle_db() {
           `map_id` int(11) NOT NULL,
           `polydata` LONGTEXT NOT NULL,
           `linecolor` VARCHAR(7) NOT NULL,
-          `linethickness` VARCHAR(3s) NOT NULL,
+          `linethickness` VARCHAR(3) NOT NULL,
           `opacity` VARCHAR(3) NOT NULL,
           PRIMARY KEY (`id`)
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
     ";
 
-   require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
    dbDelta($sql);   
    
    
@@ -2518,7 +2516,6 @@ function wpgmaps_handle_db() {
         ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
     ";
 
-   require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
    dbDelta($sql);
 
 
