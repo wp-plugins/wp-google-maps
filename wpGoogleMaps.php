@@ -1997,7 +1997,7 @@ function wpgmza_basic_menu() {
                                     <h2 style=\"padding-top:0; margin-top:0;\">".__("Add a Polygon","wp-google-maps")."</h2>
                                     <table>
                                         <tr>
-                                            <td><img src=\"".wpgmaps_get_plugin_url()."/images/New2.jpg\" width=\"260\" style=\"border:3px solid #808080;\" title=\"".__("Add detailed information to your markers!")."\" alt=\"".__("Add custom markers to your map!","wp-google-maps")."\" /><br /><br /></td>
+                                            <td><img src=\"".wpgmaps_get_plugin_url()."/images/New2.JPG\" width=\"260\" style=\"border:3px solid #808080;\" title=\"".__("Add detailed information to your markers!")."\" alt=\"".__("Add custom markers to your map!","wp-google-maps")."\" /><br /><br /></td>
                                             <td valign=\"middle\"><span style=\"font-size:18px; color:#666;\">".__("Add Polygons to your maps for only","wp-google-maps")." <strong>$14.99</strong>. ".__("Click","wp-google-maps")." <a href=\"http://www.wpgmaps.com/purchase-professional-version/?utm_source=plugin&utm_medium=link&utm_campaign=polygon\" title=\"Pro Edition\" target=\"_BLANK\">".__("here","wp-google-maps")."</a></span></td>
                                         </tr>
                                     </table>
@@ -2006,7 +2006,7 @@ function wpgmza_basic_menu() {
                                     <h2 style=\"padding-top:0; margin-top:0;\">".__("Add a Polyline","wp-google-maps")."</h2>
                                     <table>
                                         <tr>
-                                            <td><img src=\"".wpgmaps_get_plugin_url()."/images/New1.jpg\" width=\"260\" style=\"border:3px solid #808080;\" title=\"".__("Add detailed information to your markers!")."\" alt=\"".__("Add custom markers to your map!","wp-google-maps")."\" /><br /><br /></td>
+                                            <td><img src=\"".wpgmaps_get_plugin_url()."/images/New1.JPG\" width=\"260\" style=\"border:3px solid #808080;\" title=\"".__("Add detailed information to your markers!")."\" alt=\"".__("Add custom markers to your map!","wp-google-maps")."\" /><br /><br /></td>
                                             <td valign=\"middle\"><span style=\"font-size:18px; color:#666;\">".__("Add Polyline and routes to your maps for only","wp-google-maps")." <strong>$14.99</strong>. ".__("Click","wp-google-maps")." <a href=\"http://www.wpgmaps.com/purchase-professional-version/?utm_source=plugin&utm_medium=link&utm_campaign=polyline\" title=\"Pro Edition\" target=\"_BLANK\">".__("here","wp-google-maps")."</a></span></td>
                                         </tr>
                                     </table>
