@@ -5,6 +5,7 @@ Tags: google maps, maps, map, map markers, google, interactive, maps api, wp map
 Requires at least: 2.9.2
 Tested up to: 3.5.1
 Stable tag: trunk
+License: GPLv2
 
 The easiest to use map plugin! Create custom maps with high quality markers containing locations, descriptions, images and links.
 
