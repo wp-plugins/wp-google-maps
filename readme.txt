@@ -83,6 +83,9 @@ Previous versions may cause your blog to slow down. Upgrading to 4.5 will get ri
 
 == Changelog ==
 
+= 5.13 =
+* Fixed a small bug
+
 = 5.12 =
 * Removed deprecated code
 
