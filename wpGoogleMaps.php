@@ -3,7 +3,7 @@
 Plugin Name: WP Google Maps
 Plugin URI: http://www.wpgmaps.com
 Description: The easiest to use Google Maps plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 5.10
+Version: 5.11
 Author: WP Google Maps
 Author URI: http://www.wpgmaps.com
 */
@@ -33,8 +33,8 @@ $wpgmza_tblname = $wpdb->prefix . "wpgmza";
 $wpgmza_tblname_maps = $wpdb->prefix . "wpgmza_maps";
 $wpgmza_tblname_poly = $wpdb->prefix . "wpgmza_polygon";
 $wpgmza_tblname_polylines = $wpdb->prefix . "wpgmza_polylines";
-$wpgmza_version = "5.10";
-$wpgmza_p_version = "5.10";
+$wpgmza_version = "5.11";
+$wpgmza_p_version = "5.11";
 $wpgmza_t = "basic";
 
 add_action('admin_head', 'wpgmaps_head');
@@ -1149,13 +1149,14 @@ function wpgmaps_head() {
                 "UPDATE $wpgmza_tblname SET
                 lat = %s,
                 lng = %s
-                WHERE id = sss%d",
+                WHERE id = %d",
 
                 $wpgmaps_marker_lat,
                 $wpgmaps_marker_lng,
                 $mid)
         );
 
+        
 
 
 
@@ -2112,23 +2113,23 @@ function wpgmaps_admin_scripts() {
     wpgmaps_debugger("admin_scripts_start");
     wp_enqueue_script('media-upload');
     wp_enqueue_script('thickbox');
-    wp_register_script('my-wpgmaps-upload', WP_PLUGIN_URL.'/'.plugin_basename(dirname(__FILE__)).'/upload.js', array('jquery','media-upload','thickbox'));
+    wp_register_script('my-wpgmaps-upload', plugins_url('upload.js', __FILE__), array('jquery','media-upload','thickbox'));
     wp_enqueue_script('my-wpgmaps-upload');
     
     if ($_GET['action'] == "add_poly" || $_GET['action'] == "edit_poly" || $_GET['action'] == "add_polyline" || $_GET['action'] == "edit_polyline") {
-        wp_register_script('my-wpgmaps-color', WP_PLUGIN_URL.'/'.plugin_basename(dirname(__FILE__)).'/js/jscolor.js', false, '1.4.1', false);
+        wp_register_script('my-wpgmaps-color', plugins_url('js/jscolor.js',__FILE__), false, '1.4.1', false);
         wp_enqueue_script('my-wpgmaps-color');
     }
     if ($_GET['page'] == "wp-google-maps-menu" && $_GET['action'] == "edit") {
         wp_enqueue_script( 'jquery-ui-tabs');
-        wp_register_script('my-wpgmaps-tabs', WP_PLUGIN_URL.'/'.plugin_basename(dirname(__FILE__)).'/js/wpgmaps_tabs.js', array('jquery-ui-core'), '1.0.1', true);
+        wp_register_script('my-wpgmaps-tabs', plugins_url('js/wpgmaps_tabs.js',__FILE__), array('jquery-ui-core'), '1.0.1', true);
         wp_enqueue_script('my-wpgmaps-tabs');
     }    
     wpgmaps_debugger("admin_scripts_end");
 
 }
 function wpgmaps_user_styles() {
-    wp_register_style( 'wpgmaps-style', plugins_url('/css/wpgmza_style.css', __FILE__) );
+    wp_register_style( 'wpgmaps-style', plugins_url('css/wpgmza_style.css', __FILE__) );
     wp_enqueue_style( 'wpgmaps-style' );
     
     
@@ -2626,7 +2627,7 @@ function wpgmaps_load_jquery() {
             $wpgmza_settings = get_option("WPGMZA_OTHER_SETTINGS");
             if ($wpgmza_settings['wpgmza_settings_force_jquery'] == "yes") {
                 wp_deregister_script('jquery');
-                wp_register_script('jquery', WP_PLUGIN_URL.'/'.plugin_basename(dirname(__FILE__))."/js/jquery.min.js", false, "1.8.3");
+                wp_register_script('jquery', plugins_url("js/jquery.min.js",__FILE__), false, "1.8.3");
             }
         wp_enqueue_script('jquery');
     }

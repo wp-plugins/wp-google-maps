@@ -82,6 +82,10 @@ Previous versions may cause your blog to slow down. Upgrading to 4.5 will get ri
 
 == Changelog ==
 
+= 5.11 =
+* Added SSL bug fixes
+* Fixed a bug that wasnt allowing users to edit the exact location of the marker on the Google Map
+
 = 5.10 =
 * Small bug fix
 
