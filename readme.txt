@@ -1,8 +1,8 @@
 === WP Google Maps ===
 Contributors: WPGMaps
 Donate link: http://www.wpgmaps.com
-Tags: google maps, maps, map, map markers, google, interactive, maps api, wp maps, wp google maps, mappress, easy map
-Requires at least: 2.9.2
+Tags: google maps, maps, map, map markers, google, google map, maps api, wp maps, wp google maps, easy map
+Requires at least: 3.4
 Tested up to: 3.5.1
 Stable tag: trunk
 License: GPLv2
@@ -82,6 +82,9 @@ Previous versions may cause your blog to slow down. Upgrading to 4.5 will get ri
 
 
 == Changelog ==
+
+= 5.12 =
+* Removed deprecated code
 
 = 5.11 =
 * Added SSL bug fixes
@@ -298,5 +301,3 @@ Previous versions may cause your blog to slow down. Upgrading to 4.5 will get ri
 
 = 1.0.0 =
 * First release
-
-
