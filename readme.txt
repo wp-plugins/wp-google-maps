@@ -18,11 +18,11 @@ The easiest to use google maps plugin! Create custom maps with high quality mark
 * Create as many map markers as you need by simply typing in the address
 * Edit your markers with the click of a button
 * Drag markers to an exact location
-* Google Streetview supported
+* Google Maps Streetview supported
 * UTF-8 character support
-* Can be included as a widget
+* Map Can be included as a widget
 * Support for localization
-* Choose from four map type: roadmap, terrain, satellite and hybrid
+* Choose from four Google maps types: roadmap, terrain, satellite and hybrid
 * Define your own width, height and zoom level for your Google Map
 * Create a map in less than a 30 seconds!
 * WordPress 3.0 friendly
@@ -30,7 +30,7 @@ The easiest to use google maps plugin! Create custom maps with high quality mark
 * Latest Google Maps API (V3)
 
 = Professional Edition =
-* Create multiple maps!
+* Create multiple Google maps!
 * Add descriptions, links and images to your Google Map markers.
 * Add different marker icons, or your own icons to make your map really stand out!
 * Add animations to your markers and let them stand out!
