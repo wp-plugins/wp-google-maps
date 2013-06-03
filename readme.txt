@@ -83,6 +83,12 @@ Previous versions may cause your blog to slow down. Upgrading to 4.5 will get ri
 
 == Changelog ==
 
+= 5.14 =
+* The map plugin now uses the new media manager
+* Fixed some styling conflicts
+* Added missing strings to localization
+* Updated to the latest Timthumb version
+
 = 5.13 =
 * Fixed a small bug
 

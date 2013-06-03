@@ -3,7 +3,7 @@
 Plugin Name: WP Google Maps
 Plugin URI: http://www.wpgmaps.com
 Description: The easiest to use Google Maps plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 5.13
+Version: 5.14
 Author: WP Google Maps
 Author URI: http://www.wpgmaps.com
 */
@@ -33,8 +33,8 @@ $wpgmza_tblname = $wpdb->prefix . "wpgmza";
 $wpgmza_tblname_maps = $wpdb->prefix . "wpgmza_maps";
 $wpgmza_tblname_poly = $wpdb->prefix . "wpgmza_polygon";
 $wpgmza_tblname_polylines = $wpdb->prefix . "wpgmza_polylines";
-$wpgmza_version = "5.13";
-$wpgmza_p_version = "5.13";
+$wpgmza_version = "5.14";
+$wpgmza_p_version = "5.14";
 $wpgmza_t = "basic";
 
 add_action('admin_head', 'wpgmaps_head');
@@ -1771,7 +1771,10 @@ function wpgmza_basic_menu() {
                             </table>
                         </div>
                         <div id=\"tabs-2\">
-                
+                                        <div id=\"wpgmaps_save_reminder\" style=\"margin-top:20px;\" class=\"update-nag\" >
+                        ".__("Get all of these advanced features with the Pro version for only <a href=\"http://www.wpgmaps.com/purchase-professional-version/?utm_source=plugin&utm_medium=link&utm_campaign=advanced\">$14.99 once off</a>. Support and updates included forever.","wp-google-maps")."
+                        </div>
+
                     <table class='form-table' id='wpgmaps_advanced_options'>
                         <tr>
                             <td>".__("Default Marker Image","wp-google-maps").":</td>
@@ -1866,10 +1869,7 @@ function wpgmza_basic_menu() {
                         </tr>
                         </table>
 
-                        <div id=\"wpgmaps_save_reminder\" style=\"margin-top:20px;\" class=\"update-nag\" >
-                        ".__("Get all of these advanced features with the Pro version for only <a href=\"http://www.wpgmaps.com/purchase-professional-version/?utm_source=plugin&utm_medium=link&utm_campaign=advanced\">$14.99 once off</a>. Support and updates included forever.","wp-google-maps")."
-                        </div>
-            
+
     
                 </div>
             </div> <!-- end of tab2 -->                              
@@ -1891,9 +1891,9 @@ function wpgmza_basic_menu() {
 
                             <div id=\"wpgmaps_tabs_markers\">
                                 <ul>
-                                        <li><a href=\"#tabs-m-1\" class=\"tabs-m-1\">Markers</a></li>
-                                        <li><a href=\"#tabs-m-2\" class=\"tabs-m-2\">Polygons</a></li>
-                                        <li><a href=\"#tabs-m-3\" class=\"tabs-m-3\">Polylines</a></li>
+                                        <li><a href=\"#tabs-m-1\" class=\"tabs-m-1\">".__("Markers","wp-google-maps")."</a></li>
+                                        <li><a href=\"#tabs-m-2\" class=\"tabs-m-2\">".__("Polygons","wp-google-maps")."</a></li>
+                                        <li><a href=\"#tabs-m-3\" class=\"tabs-m-3\">".__("Polylines","wp-google-maps")."</a></li>
                                 </ul>
                                 <div id=\"tabs-m-1\">
                                 
@@ -1910,12 +1910,12 @@ function wpgmza_basic_menu() {
                                     </tr>
                                     <tr>
                                         <td>".__("Address/GPS","wp-google-maps").": </td>
-                                        <td><input id='wpgmza_add_address' name='wpgmza_add_address' type='text' size='35' maxlength='200' value='' /> &nbsp;<br /></td>
+                                        <td><input id='wpgmza_add_address' name='wpgmza_add_address' type='text' size='35' maxlength='200' value='' style='background-color:#99EE99;' /> &nbsp;<br /></td>
 
                                     </tr>
 
                                     <tr><td>".__("Description","wp-google-maps").": </td>
-                                        <td><textarea id='wpgmza_add_desc' name='wpgmza_add_desc' ".$wpgmza_act."></textarea>  &nbsp;<br /></td></tr>
+                                        <td><textarea id='wpgmza_add_desc' name='wpgmza_add_desc' ".$wpgmza_act."  style='background-color:#EEE;'></textarea>  &nbsp;<br /></td></tr>
                                     <tr><td>".__("Pic URL","wp-google-maps").": </td>
                                         <td><input id='wpgmza_add_pic' name=\"wpgmza_add_pic\" type='text' size='35' maxlength='700' value='' ".$wpgmza_act."/> <input id=\"upload_image_button\" type=\"button\" value=\"".__("Upload Image","wp-google-maps")."\" $wpgmza_act /><br /></td></tr>
                                     <tr><td>".__("Link URL","wp-google-maps").": </td>
@@ -2063,8 +2063,9 @@ function wpgmza_edit_marker($mid) {
 
 function wpgmaps_admin_scripts() {
     wp_enqueue_script('media-upload');
-    wp_enqueue_script('thickbox');
-    wp_register_script('my-wpgmaps-upload', plugins_url('upload.js', __FILE__), array('jquery','media-upload','thickbox'));
+    //wp_enqueue_script('thickbox');
+    wp_enqueue_media();
+    wp_register_script('my-wpgmaps-upload', plugins_url('js/media.js', __FILE__), array('jquery'), '1.0', true);
     wp_enqueue_script('my-wpgmaps-upload');
     
     if ($_GET['action'] == "add_poly" || $_GET['action'] == "edit_poly" || $_GET['action'] == "add_polyline" || $_GET['action'] == "edit_polyline") {
@@ -2085,7 +2086,7 @@ function wpgmaps_user_styles() {
 }
 
 function wpgmaps_admin_styles() {
-    wp_enqueue_style('thickbox');
+    //wp_enqueue_style('thickbox');
 
 }
 
