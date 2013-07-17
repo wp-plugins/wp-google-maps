@@ -7,7 +7,7 @@ Tested up to: 3.5.2
 Stable tag: trunk
 License: GPLv2
 
-The easiest to use map plugin! Create custom maps with high quality markers containing locations, caetgories, descriptions, images and links.
+The easiest to use map plugin! Create custom maps with high quality markers containing locations, categories, descriptions, images and links.
 
 == Description ==
 
