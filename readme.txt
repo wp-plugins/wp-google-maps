@@ -3,7 +3,7 @@ Contributors: WPGMaps
 Donate link: http://www.wpgmaps.com
 Tags: google maps, maps, map, map markers, google, google map, maps api, wp maps, wp google maps, easy map
 Requires at least: 3.4
-Tested up to: 3.5.2
+Tested up to: 3.6
 Stable tag: trunk
 License: GPLv2
 
@@ -85,7 +85,10 @@ Previous versions may cause your blog to slow down. Upgrading to 4.5 will get ri
 
 == Changelog ==
 
-= 5.15 =
+= 5.17 =
+* Fixed update bug
+
+= 5.16 =
 * Plugin now checks to see if the Google Maps API is already loaded before trying to load it again
 * Fixed some SSL bugs
 
