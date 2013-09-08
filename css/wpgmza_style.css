@@ -16,6 +16,7 @@
     padding-top:20px;
 }
 .wpgmza_markerbox {
+    margin:0; padding:0;
     color:#000 !important;
 }
 .wpgmza_markerbox a {

@@ -3,7 +3,7 @@
 Plugin Name: WP Google Maps
 Plugin URI: http://www.wpgmaps.com
 Description: The easiest to use Google Maps plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 5.15
+Version: 5.16
 Author: WP Google Maps
 Author URI: http://www.wpgmaps.com
 */
@@ -37,8 +37,8 @@ $wpgmza_tblname_maps = $wpdb->prefix . "wpgmza_maps";
 $wpgmza_tblname_poly = $wpdb->prefix . "wpgmza_polygon";
 $wpgmza_tblname_polylines = $wpdb->prefix . "wpgmza_polylines";
 $wpgmza_tblname_categories = $wpdb->prefix. "wpgmza_categories";
-$wpgmza_version = "5.15";
-$wpgmza_p_version = "5.15";
+$wpgmza_version = "5.16";
+$wpgmza_p_version = "5.16";
 $wpgmza_t = "basic";
 
 add_action('admin_head', 'wpgmaps_head');
@@ -655,8 +655,10 @@ function wpgmaps_user_javascript_basic() {
 
         ?>
         <script type="text/javascript">
-            var gmapsJsHost = (("https:" == document.location.protocol) ? "https://" : "http://");
-            document.write(unescape("%3Cscript src='" + gmapsJsHost + "maps.google.com/maps/api/js?sensor=false' type='text/javascript'%3E%3C/script%3E"));
+            if (typeof google === 'object' && typeof google.maps === 'object') { } else {
+                var gmapsJsHost = (("https:" == document.location.protocol) ? "https://" : "http://");
+                document.write(unescape("%3Cscript src='" + gmapsJsHost + "maps.google.com/maps/api/js?sensor=false' type='text/javascript'%3E%3C/script%3E"));
+            }
         </script>
         <script type="text/javascript" >
 
@@ -2405,7 +2407,7 @@ function wpgmaps_update_db_check() {
     }
 
     // create all XML files
-    wpgmaps_update_all_xml_file();
+    //wpgmaps_update_all_xml_file();
 }
 
 

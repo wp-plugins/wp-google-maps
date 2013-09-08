@@ -63,10 +63,10 @@ Once installed and activated, a link should appear in your left navigation panel
 
 == Screenshots ==
 
-1. Back end
-2. Users can make use of the StreetView functionality
+1. Back end of WP Google Maps
+2. Users can make use of the Google Maps StreetView functionality
 3. Users can get directions to your markers
-4. Add custom markers to your map
+4. Add custom markers to your Google map
 5. General settings page
 6. Specific map settings
 7. Advanced settings
@@ -84,6 +84,10 @@ Previous versions may cause your blog to slow down. Upgrading to 4.5 will get ri
 
 
 == Changelog ==
+
+= 5.15 =
+* Plugin now checks to see if the Google Maps API is already loaded before trying to load it again
+* Fixed some SSL bugs
 
 = 5.15 =
 * Added marker category functionality
