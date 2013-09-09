@@ -3,7 +3,7 @@ Contributors: WPGMaps
 Donate link: http://www.wpgmaps.com
 Tags: google maps, maps, map, map markers, google, google map, maps api, wp maps, wp google maps, easy map
 Requires at least: 3.4
-Tested up to: 3.6
+Tested up to: 3.5.2
 Stable tag: trunk
 License: GPLv2
 
