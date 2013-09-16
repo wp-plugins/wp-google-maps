@@ -3,7 +3,7 @@ Contributors: WPGMaps
 Donate link: http://www.wpgmaps.com
 Tags: google maps, maps, map, map markers, google, google map, maps api, wp maps, wp google maps, easy map
 Requires at least: 3.4
-Tested up to: 3.6
+Tested up to: 3.6.1
 Stable tag: trunk
 License: GPLv2
 
@@ -37,7 +37,7 @@ The easiest to use google maps plugin! Create custom maps with high quality mark
 * Add different marker icons, or your own icons to make your map really stand out!
 * Add animations to your markers and let them stand out!
 * Allow your visitors to get directions to your markers.
-* Add polygons and polylines to your map
+* Add polygons and polylines to your Google map
 * Export your markers to a CSV file for quick editing.
 * WordPress MU friendly
 * Get the [WP Google Maps Professional Edition](http://www.wpgmaps.com/) for only $14.99
@@ -84,6 +84,10 @@ Previous versions may cause your blog to slow down. Upgrading to 4.5 will get ri
 
 
 == Changelog ==
+
+= 5.19 =
+* Fixed a styling bug with Firefox
+* Fixed the bug that caused all markers to be lost upon upgrading
 
 = 5.18 =
 * Added improved styling to the address in the map infowindow

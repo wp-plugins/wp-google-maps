@@ -3,7 +3,7 @@
 Plugin Name: WP Google Maps
 Plugin URI: http://www.wpgmaps.com
 Description: The easiest to use Google Maps plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 5.18
+Version: 5.19
 Author: WP Google Maps
 Author URI: http://www.wpgmaps.com
 */
@@ -37,8 +37,8 @@ $wpgmza_tblname_maps = $wpdb->prefix . "wpgmza_maps";
 $wpgmza_tblname_poly = $wpdb->prefix . "wpgmza_polygon";
 $wpgmza_tblname_polylines = $wpdb->prefix . "wpgmza_polylines";
 $wpgmza_tblname_categories = $wpdb->prefix. "wpgmza_categories";
-$wpgmza_version = "5.18";
-$wpgmza_p_version = "5.18";
+$wpgmza_version = "5.19";
+$wpgmza_p_version = "5.19";
 $wpgmza_t = "basic";
 
 add_action('admin_head', 'wpgmaps_head');
@@ -576,7 +576,7 @@ function wpgmaps_admin_javascript_basic() {
         <?php
             $wpgmza_settings = get_option("WPGMZA_OTHER_SETTINGS");
             $wpgmza_settings_infowindow_width = $wpgmza_settings['wpgmza_settings_infowindow_width'];
-            if (!$wpgmza_settings_infowindow_width || !isset($wpgmza_settings_infowindow_width)) { $wpgmza_settings_infowindow_width = "200"; }
+            if (!$wpgmza_settings_infowindow_width || !isset($wpgmza_settings_infowindow_width)) { $wpgmza_settings_infowindow_width = "300"; }
         ?>
         infoWindow.setOptions({maxWidth:<?php echo $wpgmza_settings_infowindow_width; ?>});
 
@@ -751,7 +751,7 @@ function wpgmaps_user_javascript_basic() {
                                 position: point,
                                 map: MYMAP.map
                             });
-                            var html='<p class="wpgmza_infowinfow_address" style="margin-top:0; padding-top:0; margin-bottom:2px; padding-bottom:2px; font-weight:bold;">'+wpmgza_address+'</p>';
+                            var html=''+wpmgza_address+'';
 
                             google.maps.event.addListener(marker, 'click', function(evt) {
                                 infoWindow.close();
@@ -1991,7 +1991,7 @@ function wpgmza_basic_menu() {
                                     <table>
                                         <tr>
                                             <td><img src=\"".wpgmaps_get_plugin_url()."/images/New1.JPG\" width=\"260\" style=\"border:3px solid #808080;\" title=\"".__("Add detailed information to your markers!")."\" alt=\"".__("Add custom markers to your map!","wp-google-maps")."\" /><br /><br /></td>
-                                            <td valign=\"middle\"><span style=\"font-size:18px; color:#666;\">".__("Add Polyline and routes to your maps for only","wp-google-maps")." <strong>$14.99</strong>. ".__("Click","wp-google-maps")." <a href=\"http://www.wpgmaps.com/purchase-professional-version/?utm_source=plugin&utm_medium=link&utm_campaign=polyline\" title=\"Pro Edition\" target=\"_BLANK\">".__("here","wp-google-maps")."</a></span></td>
+                                            <td valign=\"middle\"><span style=\"font-size:18px; color:#666;\">".__("Add Polylines and routes to your maps for only","wp-google-maps")." <strong>$14.99</strong>. ".__("Click","wp-google-maps")." <a href=\"http://www.wpgmaps.com/purchase-professional-version/?utm_source=plugin&utm_medium=link&utm_campaign=polyline\" title=\"Pro Edition\" target=\"_BLANK\">".__("here","wp-google-maps")."</a></span></td>
                                         </tr>
                                     </table>
                                 </div>
@@ -2408,8 +2408,8 @@ function wpgmaps_update_db_check() {
         wpgmaps_handle_db();
     }
 
-    // create all XML files
-    //wpgmaps_update_all_xml_file();
+    //create all XML files
+    wpgmaps_update_all_xml_file();
 }
 
 
