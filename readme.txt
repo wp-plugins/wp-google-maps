@@ -87,7 +87,7 @@ Previous versions may cause your blog to slow down. Upgrading to 4.5 will get ri
 
 = 5.19 =
 * Fixed a styling bug with Firefox
-* Fixed the bug that caused all markers to be lost upon upgrading
+* Fixed the bug that caused all markers to be lost upon upgrading the plugin
 
 = 5.18 =
 * Added improved styling to the address in the map infowindow
