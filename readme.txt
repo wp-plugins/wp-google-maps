@@ -11,16 +11,21 @@ The easiest to use map plugin! Create custom maps with high quality markers cont
 
 == Description ==
 
-The easiest to use google maps plugin! Create custom maps with high quality markers containing locations, descriptions, images and links and directions. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss. no iFrames and super easy to use! Perfect for contact pages, coverage maps and any other use you can think of!
+The easiest to use Google maps plugin! Add your customized Google map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss. No iFrames and super easy to use! Perfect for contact pages, coverage maps and any other use you can think of!
 
-= Key Features =
+While the free version allows you to create a Google map with as many markers as you like, the Pro version allows you to do so much more! 
+
+The [WP Google Maps Pro Version](http://www.wpgmaps.com/purchase-professional-version/) version allows you create custom maps with high quality markers containing locations, descriptions, images, categories, links and directions. 
+
+= Lite Version (Free) =
 * Super easy to use, no coding required!
 * Create as many map markers as you need by simply typing in the address
+* Responsive
 * Edit your markers with the click of a button
 * Drag markers to an exact location
 * Google Maps Streetview supported
 * UTF-8 character support
-* Map Can be included as a widget
+* Map can be included as a widget
 * Support for localization
 * Choose from four Google maps types: roadmap, terrain, satellite and hybrid
 * Define your own width, height and zoom level for your Google Map
@@ -32,15 +37,17 @@ The easiest to use google maps plugin! Create custom maps with high quality mark
 = Professional Edition =
 * Create multiple Google maps!
 * Add descriptions, links and images to your Google Map markers.
-* Add categories to your map markers
+* Add categories to your Google map markers
 * Mashup multiple Google maps
 * Add different marker icons, or your own icons to make your map really stand out!
 * Add animations to your markers and let them stand out!
 * Allow your visitors to get directions to your markers.
 * Add polygons and polylines to your Google map
-* Export your markers to a CSV file for quick editing.
-* WordPress MU friendly
-* Get the [WP Google Maps Professional Edition](http://www.wpgmaps.com/) for only $14.99
+* Export/Import your markers to a CSV file for quick editing.
+* Link Fusion tables to your Google Maps
+* Import KML/KMZ files to your Google Map
+* WordPress Network friendly
+* Get the [WP Google Maps Professional Edition](http://www.wpgmaps.com/purchase-professional-version/) for only $14.99
 
 
 == Installation ==
@@ -63,13 +70,14 @@ Once installed and activated, a link should appear in your left navigation panel
 
 == Screenshots ==
 
-1. Back end of WP Google Maps
-2. Users can make use of the Google Maps StreetView functionality
-3. Users can get directions to your markers
-4. Add custom markers to your Google map
-5. General settings page
-6. Specific map settings
-7. Advanced settings
+1. The "Lite" version of WP Google Maps.
+2. The "Pro" version of WP Google Maps.
+3. Pro version: Users can get directions to your markers
+4. Pro version: Add custom markers to your Google map
+5. Lite version: General settings page
+6. Pro version: General settings page
+7. Pro version: Export/Import your Google map markers
+8. Pro version: Advanced Google map options.
 
 == Upgrade Notice ==
 
@@ -85,9 +93,13 @@ Previous versions may cause your blog to slow down. Upgrading to 4.5 will get ri
 
 == Changelog ==
 
+= 5.20 =
+* Categories can now be hidden from the marker list
+* German translation added thanks to Matteo Ender
+
 = 5.19 =
 * Fixed a styling bug with Firefox
-* Fixed the bug that caused all markers to be lost upon upgrading the plugin
+* Fixed the bug that caused all markers to be lost upon upgrading
 
 = 5.18 =
 * Added improved styling to the address in the map infowindow
