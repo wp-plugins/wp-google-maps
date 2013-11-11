@@ -61,7 +61,7 @@ The [WP Google Maps Pro Version](http://www.wpgmaps.com/purchase-professional-ve
 
 = How do I get the professional edition? =
 
-Simply visit http://www.wpgmaps.com and purchase the Professional Edition for $14.99
+Simply visit http://www.wpgmaps.com and purchase the WP Google Maps Professional Edition for $14.99
 
 = I've installed the plugin, now what? =
 
@@ -72,7 +72,7 @@ Once installed and activated, a link should appear in your left navigation panel
 
 1. The "Lite" version of WP Google Maps.
 2. The "Pro" version of WP Google Maps.
-3. Pro version: Users can get directions to your markers
+3. Pro version: Users can get directions to your Google map markers
 4. Pro version: Add custom markers to your Google map
 5. Lite version: General settings page
 6. Pro version: General settings page
@@ -92,6 +92,9 @@ Previous versions may cause your blog to slow down. Upgrading to 4.5 will get ri
 
 
 == Changelog ==
+
+= 5.21 =
+* Fixed a bug that if clicking the "add maker" button produced an error, the "add marker" button would disappear.
 
 = 5.20 =
 * Categories can now be hidden from the marker list

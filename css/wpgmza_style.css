@@ -2,16 +2,16 @@
     border:0;
     margin:5px !important;
 }
-#wpgmza_map img {
-    border: none !important;
-    background-color:transparent !important;
-}
 .wpgmza_map img {
     border: none !important;
     background-color:transparent !important;
     padding:0 !important;
     margin:0 !important;
+    visibility: visible !important;
 }
+
+.gm-style div { margin-top:0 !important; }
+
 #wpgmaps_directions_edit {
     padding-top:20px;
 }
