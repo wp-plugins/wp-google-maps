@@ -3,7 +3,7 @@ Contributors: WPGMaps
 Donate link: http://www.wpgmaps.com
 Tags: google maps, maps, map, map markers, google, google map, maps api, wp maps, wp google maps, easy map
 Requires at least: 3.4
-Tested up to: 3.6.1
+Tested up to: 3.8
 Stable tag: trunk
 License: GPLv2
 
@@ -92,6 +92,10 @@ Previous versions may cause your blog to slow down. Upgrading to 4.5 will get ri
 
 
 == Changelog ==
+
+= 5.22 =
+* Tested the plugin on WordPress 3.8
+* Pro fix: HTML can now be added and edited to markers without any problems.
 
 = 5.21 =
 * Fixed a bug that if clicking the "add maker" button produced an error, the "add marker" button would disappear.

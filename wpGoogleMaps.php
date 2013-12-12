@@ -3,7 +3,7 @@
 Plugin Name: WP Google Maps
 Plugin URI: http://www.wpgmaps.com
 Description: The easiest to use Google Maps plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 5.21
+Version: 5.22
 Author: WP Google Maps
 Author URI: http://www.wpgmaps.com
 */
@@ -37,8 +37,8 @@ $wpgmza_tblname_maps = $wpdb->prefix . "wpgmza_maps";
 $wpgmza_tblname_poly = $wpdb->prefix . "wpgmza_polygon";
 $wpgmza_tblname_polylines = $wpdb->prefix . "wpgmza_polylines";
 $wpgmza_tblname_categories = $wpdb->prefix. "wpgmza_categories";
-$wpgmza_version = "5.21";
-$wpgmza_p_version = "5.21";
+$wpgmza_version = "5.22";
+$wpgmza_p_version = "5.22";
 $wpgmza_t = "basic";
 
 add_action('admin_head', 'wpgmaps_head');
@@ -2221,7 +2221,7 @@ function wpgmza_return_marker_list($map_id,$admin = true,$width = "100%",$mashup
                 $wpgmza_tmp_body .= "<td>".$result->title."<input type=\"hidden\" id=\"wpgmza_hid_marker_title_".$result->id."\" value=\"".$result->title."\" /></td>";
                 $wpgmza_tmp_body .= "<td>".wpgmza_return_category_name($result->category)."<input type=\"hidden\" id=\"wpgmza_hid_marker_category_".$result->id."\" value=\"".$result->category."\" /></td>";
                 $wpgmza_tmp_body .= "<td>".$result->address."<input type=\"hidden\" id=\"wpgmza_hid_marker_address_".$result->id."\" value=\"".$result->address."\" /></td>";
-                $wpgmza_tmp_body .= "<td>".$result->description."<input type=\"hidden\" id=\"wpgmza_hid_marker_desc_".$result->id."\" value=\"".$result->description."\" /></td>";
+                $wpgmza_tmp_body .= "<td>".$result->description."<input type=\"hidden\" id=\"wpgmza_hid_marker_desc_".$result->id."\" value=\"".  htmlspecialchars($result->description)."\" /></td>";
                 $wpgmza_tmp_body .= "<td>$pic<input type=\"hidden\" id=\"wpgmza_hid_marker_pic_".$result->id."\" value=\"".$result->pic."\" /></td>";
                 $wpgmza_tmp_body .= "<td>$linktd<input type=\"hidden\" id=\"wpgmza_hid_marker_link_".$result->id."\" value=\"".$result->link."\" /></td>";
                 $wpgmza_tmp_body .= "<td width='170' align='center'>";
