@@ -92,6 +92,9 @@ Previous versions may cause your blog to slow down. Upgrading to 4.5 will get ri
 
 == Changelog ==
 
+= 5.24 =
+* Bug fix - The map style changed the style of your theme.
+
 = 5.23 =
 * Add animations to your map markers (lite)
 * Choose to have the infowindow open by default (lite)
