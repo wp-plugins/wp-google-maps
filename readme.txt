@@ -1,13 +1,13 @@
 === WP Google Maps ===
 Contributors: WPGMaps
 Donate link: http://www.wpgmaps.com
-Tags: google maps, maps, map, map markers, google, google map, maps api, wp maps, wp google maps, easy map
+Tags: google maps, maps, map, map markers, google, google map, wp maps, wp google maps, wp google map, easy map
 Requires at least: 3.4
-Tested up to: 3.8
+Tested up to: 3.6.1
 Stable tag: trunk
 License: GPLv2
 
-The easiest to use map plugin! Create custom maps with high quality markers containing locations, categories, descriptions, images and links.
+The easiest to use Google maps plugin! Create custom maps with high quality markers containing locations, categories, descriptions, images and links.
 
 == Description ==
 
@@ -15,12 +15,12 @@ The easiest to use Google maps plugin! Add your customized Google map to your Wo
 
 While the free version allows you to create a Google map with as many markers as you like, the Pro version allows you to do so much more! 
 
-The [WP Google Maps Pro Version](http://www.wpgmaps.com/purchase-professional-version/) version allows you create custom maps with high quality markers containing locations, descriptions, images, categories, links and directions. 
+The [WP Google Maps Pro Version](http://www.wpgmaps.com/purchase-professional-version/) version allows you create custom Google maps with high quality markers containing locations, descriptions, images, categories, links and directions. 
 
 = Lite Version (Free) =
 * Super easy to use, no coding required!
 * Create as many map markers as you need by simply typing in the address
-* Responsive
+* Responsive maps
 * Edit your markers with the click of a button
 * Drag markers to an exact location
 * Google Maps Streetview supported
@@ -29,8 +29,8 @@ The [WP Google Maps Pro Version](http://www.wpgmaps.com/purchase-professional-ve
 * Support for localization
 * Choose from four Google maps types: roadmap, terrain, satellite and hybrid
 * Define your own width, height and zoom level for your Google Map
+* Add animations to your map markers!
 * Create a map in less than a 30 seconds!
-* WordPress 3.0 friendly
 * No advertising or links
 * Latest Google Maps API (V3)
 
@@ -40,7 +40,6 @@ The [WP Google Maps Pro Version](http://www.wpgmaps.com/purchase-professional-ve
 * Add categories to your Google map markers
 * Mashup multiple Google maps
 * Add different marker icons, or your own icons to make your map really stand out!
-* Add animations to your markers and let them stand out!
 * Allow your visitors to get directions to your markers.
 * Add polygons and polylines to your Google map
 * Export/Import your markers to a CSV file for quick editing.
@@ -48,13 +47,13 @@ The [WP Google Maps Pro Version](http://www.wpgmaps.com/purchase-professional-ve
 * Import KML/KMZ files to your Google Map
 * WordPress Network friendly
 * Get the [WP Google Maps Professional Edition](http://www.wpgmaps.com/purchase-professional-version/) for only $14.99
-
+* Coming soon: WP Google Map Store Locator add-on!
 
 == Installation ==
 
 1. Once activated, click the "WP Google Maps" link under your settings tabs.
 2. Edit the settings to your preference.
-3. Test it out in a post or page.
+3. Test your map on a post or page.
 
 
 == Frequently Asked Questions ==
@@ -93,9 +92,14 @@ Previous versions may cause your blog to slow down. Upgrading to 4.5 will get ri
 
 == Changelog ==
 
+= 5.23 =
+* Add animations to your map markers (lite)
+* Choose to have the infowindow open by default (lite)
+* Add the bicycle and traffic layer to your map (lite)
+* Substantial coding improvements and bug fixes
+
 = 5.22 =
-* Tested the plugin on WordPress 3.8
-* Pro fix: HTML can now be added and edited to markers without any problems.
+* Fixed the marker sort order bug
 
 = 5.21 =
 * Fixed a bug that if clicking the "add maker" button produced an error, the "add marker" button would disappear.
