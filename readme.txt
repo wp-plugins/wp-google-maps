@@ -1,9 +1,9 @@
 === WP Google Maps ===
 Contributors: WPGMaps
 Donate link: http://www.wpgmaps.com
-Tags: google maps, maps, map, map markers, google, google map, wp maps, wp google maps, wp google map, easy map
+Tags: google maps, maps, map, map markers, google, google map, wp maps, wp google maps, wp google map, easy map, store locator, map plugin, directions, map directions, google map plugin, polygons, polylines, streetview, location, marker, latitude, longitude
 Requires at least: 3.4
-Tested up to: 3.6.1
+Tested up to: 3.8.1
 Stable tag: trunk
 License: GPLv2
 
@@ -30,6 +30,9 @@ The [WP Google Maps Pro Version](http://www.wpgmaps.com/purchase-professional-ve
 * Choose from four Google maps types: roadmap, terrain, satellite and hybrid
 * Define your own width, height and zoom level for your Google Map
 * Add animations to your map markers!
+* Store locator functionality
+* Add Polygons to your Map
+* Add Polylines / Routes to your map
 * Create a map in less than a 30 seconds!
 * No advertising or links
 * Latest Google Maps API (V3)
@@ -41,7 +44,6 @@ The [WP Google Maps Pro Version](http://www.wpgmaps.com/purchase-professional-ve
 * Mashup multiple Google maps
 * Add different marker icons, or your own icons to make your map really stand out!
 * Allow your visitors to get directions to your markers.
-* Add polygons and polylines to your Google map
 * Export/Import your markers to a CSV file for quick editing.
 * Link Fusion tables to your Google Maps
 * Import KML/KMZ files to your Google Map
@@ -91,6 +93,16 @@ Previous versions may cause your blog to slow down. Upgrading to 4.5 will get ri
 
 
 == Changelog ==
+
+= 6.0.0 =
+* Fixed a map width bug with the datatables layout. Now falls in line with the map width.
+* Added more options to the map settings page
+* Fixed a bug that forced a new geocode on every marker edit, even if the address wasnt changed
+* Updated TimThumb from 2.8.11 to 2.8.13
+* You can now choose for your map InfoWindows to open from mouse click or hover
+* Better error handling when the map cannot show due to conflicts or JS errors
+* Fixed the bug that caused high memory usage
+* Major bug fixes
 
 = 5.24 =
 * Bug fix - The map style changed the style of your theme.
