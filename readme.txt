@@ -2,7 +2,7 @@
 Contributors: WPGMaps
 Donate link: http://www.wpgmaps.com
 Tags: google maps, maps, map, map markers, google, google map, wp maps, wp google maps, wp google map, easy map, store locator, map plugin, directions, map directions, google map plugin, polygons, polylines, streetview, location, marker, latitude, longitude
-Requires at least: 3.5
+Requires at least: 3.4
 Tested up to: 3.8.1
 Stable tag: trunk
 License: GPLv2
@@ -93,6 +93,9 @@ Previous versions may cause your blog to slow down. Upgrading to 4.5 will get ri
 
 
 == Changelog ==
+
+= 6.0.2 =
+* Style bug fix
 
 = 6.0.1 =
 * Small bug fix

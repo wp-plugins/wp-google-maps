@@ -28,7 +28,7 @@
 }
 .wpgmza_markerbox img { margin: 3px !important; }
 
-.wpgmza_markerbox h1,h2,h3,h4,h5,h6,h7,h8,strong,p,br {
+.wpgmza_markerbox h1,.wpgmza_markerbox h2,.wpgmza_markerbox h3,.wpgmza_markerbox h4,.wpgmza_markerbox h5,.wpgmza_markerbox h6,.wpgmza_markerbox h7,.wpgmza_markerbox h8,.wpgmza_markerbox strong,.wpgmza_markerbox p,.wpgmza_markerbox br {
     padding-left:0 !important;
     padding-right:0 !important;
     margin-left:0 !important;
