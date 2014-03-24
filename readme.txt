@@ -94,6 +94,9 @@ Previous versions may cause your blog to slow down. Upgrading to 4.5 will get ri
 
 == Changelog ==
 
+= 6.0.1 =
+* Small bug fix
+
 = 6.0.0 =
 * Fixed a map width bug with the datatables layout. Now falls in line with the map width.
 * Added more options to the map settings page
