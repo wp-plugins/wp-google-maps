@@ -3,12 +3,20 @@
 Plugin Name: WP Google Maps
 Plugin URI: http://www.wpgmaps.com
 Description: The easiest to use Google Maps plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 6.0.2
+Version: 6.0.3
 Author: WP Google Maps
 Author URI: http://www.wpgmaps.com
 */
 
 /*
+ * 6.0.3
+ * Small bug fix
+ * 
+ * 6.0.2
+ * Small bug fuix
+ * 
+ * 6.0.1
+ * Small bug fix with styling
  * 
  * 6.0.0
  * Fixed a width bug with the datatables layout. Now falls in line with the map width.
@@ -53,8 +61,8 @@ $wpgmza_tblname_poly = $wpdb->prefix . "wpgmza_polygon";
 $wpgmza_tblname_polylines = $wpdb->prefix . "wpgmza_polylines";
 $wpgmza_tblname_categories = $wpdb->prefix. "wpgmza_categories";
 $wpgmza_tblname_category_maps = $wpdb->prefix. "wpgmza_category_maps";
-$wpgmza_version = "6.0.2";
-$wpgmza_p_version = "6.0.2";
+$wpgmza_version = "6.0.3";
+$wpgmza_p_version = "6.0.3";
 $wpgmza_t = "basic";
 define("WPGMAPS", $wpgmza_version);
 define("WPGMAPS_DIR",plugin_dir_url(__FILE__));
@@ -854,8 +862,9 @@ function wpgmaps_admin_javascript_basic() {
         var infoWindow = new google.maps.InfoWindow();
         <?php
             $wpgmza_settings = get_option("WPGMZA_OTHER_SETTINGS");
-                if (isset($wpgmza_settings['wpgmza_settings_infowindow_width'])) { $wpgmza_settings_infowindow_width = $wpgmza_settings['wpgmza_settings_infowindow_width']; }
-                if (!isset($wpgmza_settings_infowindow_width)) { $wpgmza_settings_infowindow_width = "250"; }
+            $wpgmza_settings_infowindow_width = "250";
+            if (isset($wpgmza_settings['wpgmza_settings_infowindow_width'])) { $wpgmza_settings_infowindow_width = $wpgmza_settings['wpgmza_settings_infowindow_width']; }
+            if (!isset($wpgmza_settings_infowindow_width)) { $wpgmza_settings_infowindow_width = "250"; }
         ?>
         infoWindow.setOptions({maxWidth:<?php echo $wpgmza_settings_infowindow_width; ?>});
 
