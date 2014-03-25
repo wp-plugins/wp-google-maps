@@ -2,7 +2,7 @@
 Contributors: WPGMaps
 Donate link: http://www.wpgmaps.com
 Tags: google maps, maps, map, map markers, google, google map, wp maps, wp google maps, wp google map, easy map, store locator, map plugin, directions, map directions, google map plugin, polygons, polylines, streetview, location, marker, latitude, longitude
-Requires at least: 3.4
+Requires at least: 3.5
 Tested up to: 3.8.1
 Stable tag: trunk
 License: GPLv2
@@ -13,7 +13,7 @@ The easiest to use Google maps plugin! Create custom maps with high quality mark
 
 The easiest to use Google maps plugin! Add your customized Google map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss. No iFrames and super easy to use! Perfect for contact pages, coverage maps and any other use you can think of!
 
-While the free version allows you to create a Google map with as many markers as you like, the Pro version allows you to do so much more! 
+While the free version of WP Google Maps allows you to create a Google map with as many markers as you like, the Pro version allows you to do so much more! 
 
 The [WP Google Maps Pro Version](http://www.wpgmaps.com/purchase-professional-version/) version allows you create custom Google maps with high quality markers containing locations, descriptions, images, categories, links and directions. 
 
@@ -21,8 +21,8 @@ The [WP Google Maps Pro Version](http://www.wpgmaps.com/purchase-professional-ve
 * Super easy to use, no coding required!
 * Create as many map markers as you need by simply typing in the address
 * Responsive maps
-* Edit your markers with the click of a button
-* Drag markers to an exact location
+* Edit your map markers with the click of a button
+* Drag map markers to an exact location
 * Google Maps Streetview supported
 * UTF-8 character support
 * Map can be included as a widget
@@ -50,6 +50,11 @@ The [WP Google Maps Pro Version](http://www.wpgmaps.com/purchase-professional-ve
 * WordPress Network friendly
 * Get the [WP Google Maps Professional Edition](http://www.wpgmaps.com/purchase-professional-version/) for only $14.99
 * Coming soon: WP Google Map Store Locator add-on!
+
+= Coming Soon =
+* Weather layer
+* Transit layer
+* Panoramio layer
 
 == Installation ==
 
@@ -93,6 +98,9 @@ Previous versions may cause your blog to slow down. Upgrading to 4.5 will get ri
 
 
 == Changelog ==
+
+= 6.0.4 =
+* Performance update
 
 = 6.0.3 =
 * Small bug fix
