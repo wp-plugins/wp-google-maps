@@ -10,7 +10,7 @@ class WPGMAPS_templates {
             <div class="wrap about-wrap">
 
                 <!-- <img src='<?php echo WPGMAPS_DIR; ?>base/assets/WP-google-maps-logo.png' style="float:right; width:250px;" /> -->
-                <h1><?php _e("Welcome to","wp-google-maps"); ?> <strong>WP Google Maps</strong> <small>v6.0.0</small></h1>
+                <h1><?php _e("Welcome to","wp-google-maps"); ?> <strong>WP Google Maps</strong> <small>v6</small></h1>
 
                 <div class="about-text"><?php _e("Amazing maps. Simple interface. Powerful functionality. World Class Support.","wp-google-maps"); ?></div>
 
