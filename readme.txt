@@ -99,6 +99,10 @@ Previous versions may cause your blog to slow down. Upgrading to 4.5 will get ri
 
 == Changelog ==
 
+= 6.0.6 =
+* Multisite bug fixes
+* XML marker file bug fixes (thank you Endymion00)
+
 = 6.0.5 =
 * Markers are now stored in the uploads folder
 * Small bug fixes

@@ -3,12 +3,15 @@
 Plugin Name: WP Google Maps
 Plugin URI: http://www.wpgmaps.com
 Description: The easiest to use Google Maps plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 6.0.5
+Version: 6.0.6
 Author: WP Google Maps
 Author URI: http://www.wpgmaps.com
 */
 
 /*
+ * 6.0.6
+ * Multisite bug fixes
+ * 
  * 6.0.5
  * Bug fixes
  * All XML marker files are now kept in wp-content/uploads/wp-google-maps/
@@ -69,8 +72,8 @@ $wpgmza_tblname_poly = $wpdb->prefix . "wpgmza_polygon";
 $wpgmza_tblname_polylines = $wpdb->prefix . "wpgmza_polylines";
 $wpgmza_tblname_categories = $wpdb->prefix. "wpgmza_categories";
 $wpgmza_tblname_category_maps = $wpdb->prefix. "wpgmza_category_maps";
-$wpgmza_version = "6.0.5";
-$wpgmza_p_version = "6.0.5";
+$wpgmza_version = "6.0.6";
+$wpgmza_p_version = "6.0.6";
 $wpgmza_t = "basic";
 define("WPGMAPS", $wpgmza_version);
 define("WPGMAPS_DIR",plugin_dir_url(__FILE__));
@@ -113,7 +116,6 @@ function wpgmaps_activate() {
 
     wpgmaps_handle_db();
     wpgmaps_handle_directory();
-    //wpgmaps_update_all_xml_file();
 
 
     $wpgmza_data = get_option("WPGMZA");
@@ -201,6 +203,8 @@ function wpgmaps_activate() {
     $results = $wpdb->get_results("SELECT * FROM $table_name WHERE `map_id` = '1'");
     if (!$results) { $rows_affected = $wpdb->insert( $table_name, array( 'map_id' => '1', 'address' => 'London', 'lat' => '51.5081290', 'lng' => '-0.1280050', 'pic' => '', 'link' => '', 'icon' => '', 'anim' => '', 'title' => '', 'infoopen' => '', 'description' => '') ); }
 
+    wpgmaps_update_all_xml_file();
+
     //wpgmaps_update_all_xml_file();
 }
 function wpgmaps_deactivate() { /* wpgmza_cURL_response("deactivate"); */ }
@@ -219,8 +223,15 @@ function wpgmaps_init() {
 }
 
 function wpgmaps_handle_directory() {
+    $upload_dir = wp_upload_dir();
+        
     if (!file_exists(ABSPATH.'wp-content/uploads/wp-google-maps/cache')) {
         wp_mkdir_p(ABSPATH.'wp-content/uploads/wp-google-maps/cache');
+    }
+    if (is_multisite()) {
+        if (!file_exists($upload_dir['basedir'].'/wp-google-maps/cache')) {
+            wp_mkdir_p($upload_dir['basedir'].'/wp-google-maps/cache');
+        }
     }
 }
 function wpgmaps_cache_permission_warning() {
@@ -315,8 +326,9 @@ function wpgmaps_get_marker_url($mapid = false) {
     } else {
         /* later versions store marker files in wp-content/uploads/wp-google-maps director */
         if (is_multisite()) { 
+            $upload_dir = wp_upload_dir();
             global $blog_id;
-            $wurl = content_url().'/uploads/wp-google-maps/'.$blog_id."-".$mapid."markers.xml";;
+            $wurl = $upload_dir['baseurl'].'/wp-google-maps/'.$blog_id."-".$mapid."markers.xml";;
         }
         else {
             $wurl = content_url().'/uploads/wp-google-maps/'.$mapid."markers.xml";;
