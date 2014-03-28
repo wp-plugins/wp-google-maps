@@ -99,6 +99,9 @@ Previous versions may cause your blog to slow down. Upgrading to 4.5 will get ri
 
 == Changelog ==
 
+= 6.0.7 =
+* Upgrading of plugin is now handled correctly
+
 = 6.0.6 =
 * Multisite bug fixes
 * XML marker file bug fixes (thank you Endymion00)

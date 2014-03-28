@@ -3,12 +3,15 @@
 Plugin Name: WP Google Maps
 Plugin URI: http://www.wpgmaps.com
 Description: The easiest to use Google Maps plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 6.0.6
+Version: 6.0.7
 Author: WP Google Maps
 Author URI: http://www.wpgmaps.com
 */
 
 /*
+ * 6.0.7
+ * Upgrades are now handled correctly
+ * 
  * 6.0.6
  * Multisite bug fixes
  * 
@@ -72,8 +75,8 @@ $wpgmza_tblname_poly = $wpdb->prefix . "wpgmza_polygon";
 $wpgmza_tblname_polylines = $wpdb->prefix . "wpgmza_polylines";
 $wpgmza_tblname_categories = $wpdb->prefix. "wpgmza_categories";
 $wpgmza_tblname_category_maps = $wpdb->prefix. "wpgmza_category_maps";
-$wpgmza_version = "6.0.6";
-$wpgmza_p_version = "6.0.6";
+$wpgmza_version = "6.0.7";
+$wpgmza_p_version = "6.0.7";
 $wpgmza_t = "basic";
 define("WPGMAPS", $wpgmza_version);
 define("WPGMAPS_DIR",plugin_dir_url(__FILE__));
@@ -204,16 +207,42 @@ function wpgmaps_activate() {
     if (!$results) { $rows_affected = $wpdb->insert( $table_name, array( 'map_id' => '1', 'address' => 'London', 'lat' => '51.5081290', 'lng' => '-0.1280050', 'pic' => '', 'link' => '', 'icon' => '', 'anim' => '', 'title' => '', 'infoopen' => '', 'description' => '') ); }
 
     wpgmaps_update_all_xml_file();
+    add_option("wpgmaps_current_version",$wpgmza_version);
 
     //wpgmaps_update_all_xml_file();
 }
 function wpgmaps_deactivate() { /* wpgmza_cURL_response("deactivate"); */ }
 function wpgmaps_init() {
+    global $wpgmza_pro_version;
+    global $wpgmza_version;
     wp_enqueue_script("jquery");
     $plugin_dir = basename(dirname(__FILE__))."/languages/";
     load_plugin_textdomain( 'wp-google-maps', false, $plugin_dir );
+
     
-    global $wpgmza_pro_version;
+    /* handle first time users and updates */
+    if (isset($_GET['page']) && $_GET['page'] == 'wp-google-maps-menu') {
+        $wpgmza_first_time = get_option("WPGMZA_FIRST_TIME");
+        if (!isset($wpgmza_first_time) || $wpgmza_first_time != $wpgmza_version) { 
+            /* show welcome screen */
+            $wpgmza_first_time = $wpgmza_version;
+            update_option("WPGMZA_FIRST_TIME",$wpgmza_first_time);
+            wp_redirect(get_option('siteurl')."/wp-admin/admin.php?page=wp-google-maps-menu&action=welcome_page");
+            exit();
+            //echo "<script>window.location = \"".get_option('siteurl')."/wp-admin/admin.php?page=wp-google-maps-menu&action=welcome_page\"</script>";
+        }
+    }
+    
+    /* check if version is outdated or plugin is being automatically updated */
+    $current_version = get_option("wpgmaps_current_version");
+    if (!isset($current_version) || $current_version != $wpgmza_version) {
+        wpgmaps_handle_db();
+        wpgmaps_handle_directory();
+        wpgmaps_update_all_xml_file();
+        update_option("wpgmaps_current_version",$wpgmza_version);
+        
+    }
+    
     if ($wpgmza_pro_version == '5.13' || $wpgmza_pro_version == '5.12' || $wpgmza_pro_version == '5.11' || $wpgmza_pro_version == '5.10') {
         if (isset($_GET['page']) && $_GET['page'] == 'wp-google-maps-menu') {
             echo "<div id='message' class='updated' style='padding:10px; '><span style='font-weight:bold; color:red;'>Please update your WP Google Maps Pro to version 5.16 or higher. You can do this by going to 'Dashboard'->'Updates' and updating the plugin.</div>";
@@ -1794,19 +1823,7 @@ function wpgmaps_get_plugin_url() {
 function wpgmaps_head() {
     global $wpgmza_tblname_maps;
     global $wpgmza_version;
-    if (isset($_GET['page']) && $_GET['page'] == 'wp-google-maps-menu') {
-        $wpgmza_first_time = get_option("WPGMZA_FIRST_TIME");
-        if (!isset($wpgmza_first_time) || $wpgmza_first_time != $wpgmza_version) { 
-            /* show welcome screen */
-            $wpgmza_first_time = $wpgmza_version;
-            update_option("WPGMZA_FIRST_TIME",$wpgmza_first_time);
-            wp_redirect(get_option('siteurl')."/wp-admin/admin.php?page=wp-google-maps-menu&action=welcome_page");
-            exit();
-            //echo "<script>window.location = \"".get_option('siteurl')."/wp-admin/admin.php?page=wp-google-maps-menu&action=welcome_page\"</script>";
-            
-        }
-
-    }
+    
     
     if (isset($_POST['wpgmza_savemap'])){
         global $wpdb;
