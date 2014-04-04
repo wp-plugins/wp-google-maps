@@ -271,7 +271,7 @@ function wpgmaps_b_admin_edit_polyline_javascript($mapid,$polyid) {
         
         
         
-        $poly_array = wpgmza__breturn_polyline_array($polyid);
+        $poly_array = wpgmza_b_return_polyline_array($polyid);
 
         $polyoptions = wpgmza_b_return_polyline_options($polyid);
         $linecolor = $polyoptions->linecolor;

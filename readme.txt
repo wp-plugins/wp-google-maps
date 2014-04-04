@@ -98,6 +98,9 @@ Previous versions may cause your blog to slow down. Upgrading to 4.5 will get ri
 
 
 == Changelog ==
+= 6.0.8 =
+* Fixed a Mac Firefox style issue with the WP Google Maps Store Locator
+* Fixed a function error in the polyline functions file
 
 = 6.0.7 =
 * Upgrading of plugin is now handled correctly

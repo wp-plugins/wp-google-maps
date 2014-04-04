@@ -3,12 +3,16 @@
 Plugin Name: WP Google Maps
 Plugin URI: http://www.wpgmaps.com
 Description: The easiest to use Google Maps plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 6.0.7
+Version: 6.0.8
 Author: WP Google Maps
 Author URI: http://www.wpgmaps.com
 */
 
 /*
+ * 6.0.8
+ * Fixed a Mac Firefox style issue with the Store Locator
+ * Fixed a function error in the polyline functions file
+ * 
  * 6.0.7
  * Upgrades are now handled correctly
  * 
@@ -75,8 +79,8 @@ $wpgmza_tblname_poly = $wpdb->prefix . "wpgmza_polygon";
 $wpgmza_tblname_polylines = $wpdb->prefix . "wpgmza_polylines";
 $wpgmza_tblname_categories = $wpdb->prefix. "wpgmza_categories";
 $wpgmza_tblname_category_maps = $wpdb->prefix. "wpgmza_category_maps";
-$wpgmza_version = "6.0.7";
-$wpgmza_p_version = "6.0.7";
+$wpgmza_version = "6.0.8";
+$wpgmza_p_version = "6.0.8";
 $wpgmza_t = "basic";
 define("WPGMAPS", $wpgmza_version);
 define("WPGMAPS_DIR",plugin_dir_url(__FILE__));
@@ -1763,7 +1767,7 @@ function wpgmaps_sl_user_output_basic($map_id) {
     $ret_msg .= "           <div style=\"display:block; float:left; width:250px;\"><input type=\"text\" id=\"addressInput\" size=\"20\"/></div>";
     $ret_msg .= "       </div>";
 
-    $ret_msg .= "       <div style=\"display:block; width:".$map_width.$map_width_type."; height:30px; margin-top:10px;\">";
+    $ret_msg .= "       <div style=\"display:block; width:".$map_width.$map_width_type."; height:30px; margin-top:10px; clear:both;\">";
     $ret_msg .= "           <div style=\"display:block; float:left; width:150px;\">".__("Radius","wp-google-maps").":</div>";
     $ret_msg .= "           <div style=\"display:block; float:left; width:250px;\">";
     $ret_msg .= "           <input type='hidden' value='".$map_other_settings['store_locator_distance']."' name='wpgmza_distance_type' id='wpgmza_distance_type' />";
@@ -1798,7 +1802,7 @@ function wpgmaps_sl_user_output_basic($map_id) {
     $ret_msg .= "       </div>";
     
     if (function_exists("wpgmza_register_pro_version")) {
-        $ret_msg .= "       <div style=\"display:block; width:".$map_width.$map_width_type."; clear:both; height:auto; overflow:auto; margin-top:10px; margin-bottom:10px;\">";
+        $ret_msg .= "       <div style=\"display:block; width:".$map_width.$map_width_type."; clear:both; height:auto; overflow:auto; margin-top:10px; margin-bottom:10px; clear:both;\">";
         $ret_msg .= "           <div style=\"display:block; float:left; width:150px;\">".__("Category","wp-google-maps").":</div>";
         $ret_msg .= "           <div style=\"display:block; float:left; \">";
         $ret_msg .= "              ".wpgmza_pro_return_category_checkbox_list($map_id)."";
@@ -2457,13 +2461,16 @@ function wpgmaps_admin_menu() {
         add_submenu_page('wp-google-maps-menu', 'WP Google Maps - Advanced Options', __('Advanced','wp-google-maps'), 'manage_options' , 'wp-google-maps-menu-advanced', 'wpgmaps_menu_advanced_layout');
     }
     add_submenu_page('wp-google-maps-menu', 'WP Google Maps - Settings', __('Settings','wp-google-maps'), 'manage_options' , 'wp-google-maps-menu-settings', 'wpgmaps_menu_settings_layout');
-    
-    add_dashboard_page( 'WP Google Maps', 'Custom Dashboard', 'read', 'custom-dashboard', 'wpgmza_dashboard' );
 
 }
 
 
 function wpgmaps_menu_layout() {
+    
+    
+    
+    
+    
     //check to see if we have write permissions to the plugin folder
     if (!isset($_GET['action'])) {
         wpgmza_map_page();
@@ -2889,6 +2896,32 @@ function wpgmza_basic_menu() {
         $wpgmza_act_msg = "<div class=\"update-nag\" style=\"padding:5px; \">".__("Add custom icons, titles, descriptions, pictures and links to your markers with the","wp-google-maps")." \"<a href=\"http://www.wpgmaps.com/purchase-professional-version/?utm_source=plugin&utm_medium=link&utm_campaign=below_marker\" title=\"".__("Pro Edition","wp-google-maps")."\" target=\"_BLANK\">".__("Pro Edition","wp-google-maps")."</a>\" ".__("of this plugin for just","wp-google-maps")." <strong>$14.99</strong></div>";
         $wpgmza_csv = "<p><a href=\"http://www.wpgmaps.com/purchase-professional-version/?utm_source=plugin&utm_medium=link&utm_campaign=csv_link\" title=\"".__("Pro Edition","wp-google-maps")."\">".__("Purchase the Pro Edition","wp-google-maps")."</a> ".__("of WP Google Maps and save your markers to a CSV file!","wp-google-maps")."</p>";
     }
+    
+    
+    
+    /* check if they are using W3 Total Cache and that wp-google-maps appears in the rejected files list */
+    if (class_exists("W3_Plugin_TotalCache")) {
+        $wpgmza_w3_check = new W3_Plugin_TotalCache;
+        if (function_exists("w3_instance")) {
+            $modules = w3_instance('W3_ModuleStatus');
+            $cdn_check = $modules->is_enabled('cdn');
+            if (strpos(esc_textarea(implode("\r\n", $wpgmza_w3_check->_config->get_array('cdn.reject.files'))),'wp-google-maps') !== false) {
+                $does_cdn_contain_our_plugin = true;
+            } else { $does_cdn_contain_our_plugin = false; }
+
+
+
+            if ($cdn_check == 1 && !$does_cdn_contain_our_plugin) {
+                echo "<div class=\"update-nag\" style=\"padding:5px; \"><h1>".__("Please note","wp-google-maps").":</h1>".__("We've noticed that you are using W3 Total Cache and that you have CDN enabled.<br /><br />In order for the markers to show up on your map, you need to add '<strong><em>{uploads_dir}/wp-google-maps*</strong></em>' to the '<strong>rejected files</strong>' list in the <a href='admin.php?page=w3tc_cdn#advanced'>CDN settings page</a> of W3 Total Cache","wp-google-maps")."</div>";
+            }
+        }
+        
+        
+    }
+    
+    
+
+    
     echo "
 
            <div class='wrap'>
