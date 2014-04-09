@@ -357,9 +357,9 @@ function wpgmaps_b_admin_edit_polyline_javascript($mapid,$polyid) {
                 
                 
                 <?php
-              $poly_array = wpgmza_return_polyline_array($polyid);
+              $poly_array = wpgmza_b_return_polyline_array($polyid);
                     
-                $polyoptions = wpgmza_return_polyline_options($polyid);
+                $polyoptions = wpgmza_b_return_polyline_options($polyid);
                 $linecolor = $polyoptions->linecolor;
                 $fillopacity = $polyoptions->opacity;
                 if (!$linecolor) { $linecolor = "000000"; }

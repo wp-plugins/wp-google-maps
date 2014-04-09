@@ -26,6 +26,7 @@ function wpgmza_b_pro_add_poly($mid) {
                     <form action='?page=wp-google-maps-menu&action=edit&map_id=".$mid."' method='post' id='wpgmaps_add_poly_form'>
                     <input type='hidden' name='wpgmaps_map_id' id='wpgmaps_map_id' value='".$mid."' />
                     <p>Line Color:<input id=\"poly_line\" name=\"poly_line\" type=\"text\" class=\"color\" value=\"000000\" /></p>   
+                    <p>Line Opacity:<input id=\"poly_line_opacity\" name=\"poly_line_opacity\" type=\"text\" value=\"0.5\" /> (0 - 1.0) example: 0.5 for 50%</p>   
                     <p>Fill Color:<input id=\"poly_fill\" name=\"poly_fill\" type=\"text\" class=\"color\" value=\"66ff00\" /></p>   
                     <p>Opacity:<input id=\"poly_opacity\" name=\"poly_opacity\" type=\"text\" value=\"0.5\" /> (0 - 1.0) example: 0.5 for 50%</p>   
                     <div id=\"wpgmza_map\">&nbsp;</div>
@@ -75,6 +76,7 @@ function wpgmza_b_pro_edit_poly($mid) {
                     <input type='hidden' name='wpgmaps_map_id' id='wpgmaps_map_id' value='".$mid."' />
                     <input type='hidden' name='wpgmaps_poly_id' id='wpgmaps_poly_id' value='".$_GET['poly_id']."' />
                     <p>Line Color:<input id=\"poly_line\" name=\"poly_line\" type=\"text\" class=\"color\" value=\"".$pol->linecolor."\" /></p>   
+                    <p>Line Opacity:<input id=\"poly_line_opacity\" name=\"poly_line_opacity\" type=\"text\" value=\"".$pol->lineopacity."\" /> (0 - 1.0) example: 0.5 for 50%</p>   
                     <p>Fill Color:<input id=\"poly_fill\" name=\"poly_fill\" type=\"text\" class=\"color\" value=\"".$pol->fillcolor."\" /></p>   
                     <p>Opacity:<input id=\"poly_opacity\" name=\"poly_opacity\" type=\"text\" value=\"".$pol->opacity."\" /> (0 - 1.0) example: 0.5 for 50%</p>   
                     <div id=\"wpgmza_map\">&nbsp;</div>
@@ -151,6 +153,9 @@ function wpgmaps_b_admin_add_poly_javascript($mapid) {
                     });
                     jQuery("#poly_fill").focusout(function() {
                         poly.setOptions({ fillColor: "#"+jQuery("#poly_fill").val() }); 
+                    });
+                    jQuery("#poly_line_opacity").focusout(function() {
+                        poly.setOptions({ strokeOpacity: jQuery("#poly_line_opacity").val() }); 
                     });
                     jQuery("#poly_opacity").keyup(function() {
                         poly.setOptions({ fillOpacity: jQuery("#poly_opacity").val() }); 
@@ -300,6 +305,9 @@ function wpgmaps_b_admin_edit_poly_javascript($mapid,$polyid) {
                     jQuery("#poly_opacity").keyup(function() {
                         poly.setOptions({ fillOpacity: jQuery("#poly_opacity").val() }); 
                     });
+                    jQuery("#poly_line_opacity").keyup(function() {
+                        poly.setOptions({ strokeOpacity: jQuery("#poly_line_opacity").val() }); 
+                    });
             });
             
 
@@ -332,11 +340,13 @@ function wpgmaps_b_admin_edit_poly_javascript($mapid,$polyid) {
                     
                 $polyoptions = wpgmza_b_return_poly_options($polyid);
                 $linecolor = $polyoptions->linecolor;
+                $lineopacity = $polyoptions->lineopacity;
                 $fillcolor = $polyoptions->fillcolor;
                 $fillopacity = $polyoptions->opacity;
                 if (!$linecolor) { $linecolor = "000000"; }
                 if (!$fillcolor) { $fillcolor = "66FF00"; }
-                if (!$fillopacity) { $fillopacity = "0.5"; }
+                if ($fillopacity == "") { $fillopacity = "0.5"; }
+                if ($lineopacity == "") { $lineopacity = "1"; }
                 $linecolor = "#".$linecolor;
                 $fillcolor = "#".$fillcolor;
                 
@@ -359,6 +369,7 @@ function wpgmaps_b_admin_edit_poly_javascript($mapid,$polyid) {
                 poly = new google.maps.Polygon({
                     strokeWeight: 3,
                     strokeColor: "<?php echo $linecolor; ?>",
+                    strokeOpacity: "<?php echo $lineopacity; ?>",
                     fillOpacity: "<?php echo $fillopacity; ?>",
                     fillColor: "<?php echo $fillcolor; ?>"
                 });

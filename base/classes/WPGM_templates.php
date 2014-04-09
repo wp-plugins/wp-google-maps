@@ -99,7 +99,7 @@ class WPGMAPS_templates {
                         
                                             
 
-                <a class="button-primary" href="admin.php?page=wp-google-maps-menu"><?php echo __("OK! Let's start","wp-google-maps"); ?></a>
+                <a class="button-primary" href="admin.php?page=wp-google-maps-menu&override=1"><?php echo __("OK! Let's start","wp-google-maps"); ?></a>
 
             </div>
                 </div>

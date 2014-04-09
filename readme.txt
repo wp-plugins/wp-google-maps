@@ -98,6 +98,15 @@ Previous versions may cause your blog to slow down. Upgrading to 4.5 will get ri
 
 
 == Changelog ==
+
+= 6.0.9 =
+* Maps now automatically work in Tabs without having to add any code
+* Added a "zoom level" slider to the Google map settings
+* Added a check for GoDaddy Wordpress hosting and the APC object cache due to the issues that arise while using it
+* Fixed a polyline bug
+* Added "stroke opacity" options to polygons
+* Added a warning when users want to use % for the map height
+
 = 6.0.8 =
 * Fixed a Mac Firefox style issue with the WP Google Maps Store Locator
 * Fixed a function error in the polyline functions file

@@ -669,7 +669,7 @@ msgstr ""
 msgid ""
 "Get the rest of these advanced features with the Pro version for only <a "
 "href=\"http://www.wpgmaps.com/purchase-professional-version/?"
-"utm_source=plugin&utm_medium=link&utm_campaign=advanced\">$14.99 once off</"
+"utm_source=plugin&utm_medium=link&utm_campaign=advanced\">$19.99 once off</"
 "a>. Support and updates included forever."
 msgstr ""
 
