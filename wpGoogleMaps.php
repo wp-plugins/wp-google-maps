@@ -3,12 +3,15 @@
 Plugin Name: WP Google Maps
 Plugin URI: http://www.wpgmaps.com
 Description: The easiest to use Google Maps plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 6.0.10
+Version: 6.0.11
 Author: WP Google Maps
 Author URI: http://www.wpgmaps.com
 */
 
 /*
+ * 6.0.11
+ * Small bug fix for the welcome page
+ * 
  * 6.0.10
  * Fixed a bug that used the category icon instead of a defined marker icon when there was a category icon set
  * Fixed a bug that only displayed two map marker categories for the store locator (pro)
@@ -93,8 +96,8 @@ $wpgmza_tblname_poly = $wpdb->prefix . "wpgmza_polygon";
 $wpgmza_tblname_polylines = $wpdb->prefix . "wpgmza_polylines";
 $wpgmza_tblname_categories = $wpdb->prefix. "wpgmza_categories";
 $wpgmza_tblname_category_maps = $wpdb->prefix. "wpgmza_category_maps";
-$wpgmza_version = "6.0.10";
-$wpgmza_p_version = "6.0.10";
+$wpgmza_version = "6.0.11";
+$wpgmza_p_version = "6.0.11";
 $wpgmza_t = "basic";
 define("WPGMAPS", $wpgmza_version);
 define("WPGMAPS_DIR",plugin_dir_url(__FILE__));
@@ -242,7 +245,7 @@ function wpgmaps_init() {
     if (isset($_GET['page']) && $_GET['page'] == 'wp-google-maps-menu') {
         
         /* check if their using APC object cache, if yes, do nothing with the welcome page as it causes issues when caching the DB options */
-        if (class_exists("WP_Object_Cache")) {
+        if (class_exists("APC_Object_Cache")) {
             /* do nothing here as this caches the "first time" option and the welcome page just loads over and over again. quite annoying really... */
         }  else { 
             if (isset($_GET['override']) && $_GET['override'] == "1") {

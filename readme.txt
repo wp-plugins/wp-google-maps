@@ -99,6 +99,9 @@ Previous versions may cause your blog to slow down. Upgrading to 4.5 will get ri
 
 == Changelog ==
 
+= 6.0.11 =
+* Small bug fix on the WP Google Maps welcome page
+
 = 6.0.10 =
 * Tested on WP 3.9
 * Fixed a bug that only displayed two map marker categories for the store locator (pro)
