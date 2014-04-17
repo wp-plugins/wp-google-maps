@@ -3,7 +3,7 @@ Contributors: WPGMaps
 Donate link: http://www.wpgmaps.com
 Tags: google maps, maps, map, map markers, google, google map, wp maps, wp google maps, wp google map, easy map, store locator, map plugin, directions, map directions, google map plugin, polygons, polylines, streetview, location, marker, latitude, longitude
 Requires at least: 3.5
-Tested up to: 3.8.1
+Tested up to: 3.9
 Stable tag: trunk
 License: GPLv2
 
@@ -98,6 +98,11 @@ Previous versions may cause your blog to slow down. Upgrading to 4.5 will get ri
 
 
 == Changelog ==
+
+= 6.0.10 =
+* Tested on WP 3.9
+* Fixed a bug that only displayed two map marker categories for the store locator (pro)
+* Added the option to select which Google Map API version you would like to use. There were issues when using Google Map API v3.15 (lines were created on the map for no reason. The default is now Google Map API V3.14)
 
 = 6.0.9 =
 * Maps now automatically work in Tabs without having to add any code
