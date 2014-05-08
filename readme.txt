@@ -1,7 +1,7 @@
 === WP Google Maps ===
 Contributors: WPGMaps
 Donate link: http://www.wpgmaps.com
-Tags: google maps, maps, map, map markers, google, google map, wp maps, wp google maps, wp google map, easy map, store locator, map plugin, directions, map directions, google map plugin, polygons, polylines, streetview, location, marker, latitude, longitude
+Tags: google maps, maps, map, map markers, google, google map, wp maps, wp google maps, wp google map, easy map, store locator, map plugin, directions, map directions, google map plugin, polygons, polylines, streetview, location, marker, latitude, longitude, map sreetview, map routes
 Requires at least: 3.5
 Tested up to: 3.9
 Stable tag: trunk
@@ -52,8 +52,6 @@ The [WP Google Maps Pro Version](http://www.wpgmaps.com/purchase-professional-ve
 * Coming soon: WP Google Map Store Locator add-on!
 
 = Coming Soon =
-* Weather layer
-* Transit layer
 * Panoramio layer
 
 == Installation ==
@@ -65,7 +63,7 @@ The [WP Google Maps Pro Version](http://www.wpgmaps.com/purchase-professional-ve
 
 == Frequently Asked Questions ==
 
-= How do I get the professional edition? =
+= How do I get the WP Google Maps professional edition? =
 
 Simply visit http://www.wpgmaps.com and purchase the WP Google Maps Professional Edition for $19.99
 
@@ -98,6 +96,9 @@ Previous versions may cause your blog to slow down. Upgrading to 4.5 will get ri
 
 
 == Changelog ==
+
+= 6.0.12 =
+* Fixed a google map marker XML file location bug
 
 = 6.0.11 =
 * Small bug fix on the WP Google Maps welcome page
