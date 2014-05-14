@@ -1,9 +1,9 @@
 === WP Google Maps ===
 Contributors: WPGMaps
 Donate link: http://www.wpgmaps.com
-Tags: google maps, maps, map, map markers, google, google map, wp maps, wp google maps, wp google map, easy map, store locator, map plugin, directions, map directions, google map plugin, polygons, polylines, streetview, location, marker, latitude, longitude, map sreetview, map routes
+Tags: google maps, maps, map, map markers, google, google map, wp maps, wp google maps, wp google map, easy map, store locator, map plugin, directions, map directions, google map plugin, polygons, polylines, streetview, location, marker, latitude, longitude
 Requires at least: 3.5
-Tested up to: 3.9
+Tested up to: 3.9.1
 Stable tag: trunk
 License: GPLv2
 
@@ -39,8 +39,8 @@ The [WP Google Maps Pro Version](http://www.wpgmaps.com/purchase-professional-ve
 
 = Professional Edition =
 * Create multiple Google maps!
-* Add descriptions, links and images to your Google Map markers.
-* Add categories to your Google map markers
+* Add descriptions, links and images to your map markers.
+* Add categories to your map markers
 * Mashup multiple Google maps
 * Add different marker icons, or your own icons to make your map really stand out!
 * Allow your visitors to get directions to your markers.
@@ -49,7 +49,6 @@ The [WP Google Maps Pro Version](http://www.wpgmaps.com/purchase-professional-ve
 * Import KML/KMZ files to your Google Map
 * WordPress Network friendly
 * Get the [WP Google Maps Professional Edition](http://www.wpgmaps.com/purchase-professional-version/) for only $19.99
-* Coming soon: WP Google Map Store Locator add-on!
 
 = Coming Soon =
 * Panoramio layer
@@ -63,7 +62,7 @@ The [WP Google Maps Pro Version](http://www.wpgmaps.com/purchase-professional-ve
 
 == Frequently Asked Questions ==
 
-= How do I get the WP Google Maps professional edition? =
+= How do I get the professional edition? =
 
 Simply visit http://www.wpgmaps.com and purchase the WP Google Maps Professional Edition for $19.99
 
@@ -76,26 +75,22 @@ Once installed and activated, a link should appear in your left navigation panel
 
 1. The "Lite" version of WP Google Maps.
 2. The "Pro" version of WP Google Maps.
-3. Pro version: Users can get directions to your Google map markers
+3. Pro version: Users can get directions to your map markers
 4. Pro version: Add custom markers to your Google map
 5. Lite version: General settings page
 6. Pro version: General settings page
-7. Pro version: Export/Import your Google map markers
-8. Pro version: Advanced Google map options.
+7. Pro version: Export/Import your map markers
+8. Pro version: Advanced Google maps options.
 
 == Upgrade Notice ==
 
 = 5.05 =
 This is a must for users on IIS. Older WP Google Maps versions will not be compatible.
 
-= 4.14 =
-We have updated our Timthumb.php file to the latest version (2.8.5 to 2.8.10) in compliance with new WordPress regulations.
-
-= 4.5 =
-Previous versions may cause your blog to slow down. Upgrading to 4.5 will get rid of this bug and increase your page load speed.
-
-
 == Changelog ==
+
+= 6.0.13 =
+* Fixed PHP warnings and the plugin is now PHP 5.5 compatible
 
 = 6.0.12 =
 * Fixed a google map marker XML file location bug
@@ -152,62 +147,5 @@ Previous versions may cause your blog to slow down. Upgrading to 4.5 will get ri
 * Better error handling when the map cannot show due to conflicts or JS errors
 * Fixed the bug that caused high memory usage
 * Major bug fixes
-
-= 5.24 =
-* Bug fix - The map style changed the style of your theme.
-
-= 5.23 =
-* Add animations to your map markers (lite)
-* Choose to have the infowindow open by default (lite)
-* Add the bicycle and traffic layer to your map (lite)
-* Substantial coding improvements and bug fixes
-
-= 5.22 =
-* Fixed the marker sort order bug
-
-= 5.21 =
-* Fixed a bug that if clicking the "add maker" button produced an error, the "add marker" button would disappear.
-
-= 5.20 =
-* Categories can now be hidden from the marker list
-* German translation added thanks to Matteo Ender
-
-= 5.19 =
-* Fixed a styling bug with Firefox
-* Fixed the bug that caused all markers to be lost upon upgrading
-
-= 5.18 =
-* Added improved styling to the address in the map infowindow
-
-= 5.17 =
-* Fixed update bug
-
-= 5.16 =
-* Plugin now checks to see if the Google Maps API is already loaded before trying to load it again
-* Fixed some SSL bugs
-
-= 5.15 =
-* Added marker category functionality
-* Added Google Map Mashup functionality
-* Fixed small bugs
-* Added backwards compatibility for older versions of WordPress
-* Replaced deprecated WordPress function calls
-* Added Spanish translation - Thank you Fernando!
-
-= 5.14 =
-* The map plugin now uses the new media manager
-* Fixed some styling conflicts
-* Added missing strings to localization
-* Updated to the latest Timthumb version
-
-= 5.13 =
-* Fixed a small bug
-
-= 5.12 =
-* Removed deprecated code
-
-= 5.11 =
-* Added SSL bug fixes
-* Fixed a bug that wasnt allowing users to edit the exact location
 
 For more, please view our website.

@@ -3,12 +3,16 @@
 Plugin Name: WP Google Maps
 Plugin URI: http://www.wpgmaps.com
 Description: The easiest to use Google Maps plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 6.0.12
+Version: 6.0.13
 Author: WP Google Maps
 Author URI: http://www.wpgmaps.com
 */
 
 /*
+ * 6.0.13
+ * Fixed PHP Warnings
+ * Plugin is now PHP 5.5 compatible
+ * 
  * 6.0.12
  * Fixed a marker XML file location bug
  * 
@@ -66,7 +70,7 @@ Author URI: http://www.wpgmaps.com
  * 
  */
 
-error_reporting(E_ERROR);
+//error_reporting(E_ERROR);
 global $wpgmza_version;
 global $wpgmza_p_version;
 global $wpgmza_t;
@@ -99,8 +103,8 @@ $wpgmza_tblname_poly = $wpdb->prefix . "wpgmza_polygon";
 $wpgmza_tblname_polylines = $wpdb->prefix . "wpgmza_polylines";
 $wpgmza_tblname_categories = $wpdb->prefix. "wpgmza_categories";
 $wpgmza_tblname_category_maps = $wpdb->prefix. "wpgmza_category_maps";
-$wpgmza_version = "6.0.12";
-$wpgmza_p_version = "6.0.12";
+$wpgmza_version = "6.0.13";
+$wpgmza_p_version = "6.0.13";
 $wpgmza_t = "basic";
 define("WPGMAPS", $wpgmza_version);
 define("WPGMAPS_DIR",plugin_dir_url(__FILE__));
@@ -1944,7 +1948,7 @@ function wpgmaps_sl_user_output_basic($map_id) {
     $ret_msg .= "           </div>";
     $ret_msg .= "       </div>";
     
-    if (function_exists("wpgmza_register_pro_version") && $map_other_settings['store_locator_category'] == "1") {
+    if (function_exists("wpgmza_register_pro_version") && isset($map_other_settings['store_locator_category']) && $map_other_settings['store_locator_category'] == "1") {
         $ret_msg .= "       <div style=\"display:block; width:".$map_width.$map_width_type."; clear:both; height:auto; overflow:auto; margin-top:10px; margin-bottom:10px; clear:both;\">";
         $ret_msg .= "           <div style=\"display:block; float:left; width:150px;\">".__("Category","wp-google-maps").":</div>";
         $ret_msg .= "           <div style=\"display:block; float:left; \">";
@@ -3200,6 +3204,7 @@ function wpgmza_basic_menu() {
                                         <option value=\"px\" $wpgmza_map_width_type_px>px</option>
                                         <option value=\"%\" $wpgmza_map_width_type_percentage>%</option>
                                      </select>
+                                     <small><em>".__("Set to 100% for a responsive map","wp-google-maps")."</em></small>
 
                                     </td>
                                 </tr>
@@ -4385,7 +4390,7 @@ function wpgmaps_filter(&$array) {
             if (get_magic_quotes_gpc()) {
                 $data = stripslashes($value);
             }
-            $data = mysql_real_escape_string($value);
+            $data = esc_sql($value);
         }
     }
 }
@@ -4482,7 +4487,7 @@ function wpgmza_return_error_log() {
             $ret .= $visits;
         }
     } else {
-        $ret .= "There was an error opening the log file. Please make sure it exists";
+        $ret .= "No errors to report on";
     }
     return $ret;
     
