@@ -1,7 +1,7 @@
 === WP Google Maps ===
 Contributors: WPGMaps
 Donate link: http://www.wpgmaps.com
-Tags: google maps, maps, map, map markers, google, google map, wp maps, wp google maps, wp google map, easy map, store locator, map plugin, directions, map directions, google map plugin, polygons, polylines, streetview, location, marker, latitude, longitude
+Tags: google maps, maps, map, map markers, google, google map, wp maps, wp google maps, wp google map, easy map, store locator, map plugin, directions, map directions, google map plugin, routes, polygons, polylines, streetview, location, marker, latitude, longitude
 Requires at least: 3.5
 Tested up to: 3.9.1
 Stable tag: trunk
@@ -75,12 +75,12 @@ Once installed and activated, a link should appear in your left navigation panel
 
 1. The "Lite" version of WP Google Maps.
 2. The "Pro" version of WP Google Maps.
-3. Pro version: Users can get directions to your map markers
-4. Pro version: Add custom markers to your Google map
-5. Lite version: General settings page
-6. Pro version: General settings page
-7. Pro version: Export/Import your map markers
-8. Pro version: Advanced Google maps options.
+3. WP Google Maps Pro version: Users can get directions to your map markers
+4. WP Google Maps Pro version: Add custom markers to your Google map
+5. WP Google Maps Lite version: General settings page
+6. WP Google Maps Pro version: General settings page
+7. WP Google Maps Pro version: Export/Import your map markers
+8. WP Google Maps Pro version: Advanced Google map options.
 
 == Upgrade Notice ==
 
@@ -88,6 +88,10 @@ Once installed and activated, a link should appear in your left navigation panel
 This is a must for users on IIS. Older WP Google Maps versions will not be compatible.
 
 == Changelog ==
+
+= 6.0.14 =
+* Code improvements
+* Added option for selecting Celsius or Fahrenheit with the Google Maps weather layer 
 
 = 6.0.13 =
 * Fixed PHP warnings and the plugin is now PHP 5.5 compatible

@@ -3,12 +3,15 @@
 Plugin Name: WP Google Maps
 Plugin URI: http://www.wpgmaps.com
 Description: The easiest to use Google Maps plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 6.0.13
+Version: 6.0.14
 Author: WP Google Maps
 Author URI: http://www.wpgmaps.com
 */
 
 /*
+ * 6.0.14
+ * Fixed PHP warnings
+ * 
  * 6.0.13
  * Fixed PHP Warnings
  * Plugin is now PHP 5.5 compatible
@@ -103,8 +106,8 @@ $wpgmza_tblname_poly = $wpdb->prefix . "wpgmza_polygon";
 $wpgmza_tblname_polylines = $wpdb->prefix . "wpgmza_polylines";
 $wpgmza_tblname_categories = $wpdb->prefix. "wpgmza_categories";
 $wpgmza_tblname_category_maps = $wpdb->prefix. "wpgmza_category_maps";
-$wpgmza_version = "6.0.13";
-$wpgmza_p_version = "6.0.13";
+$wpgmza_version = "6.0.14";
+$wpgmza_p_version = "6.0.14";
 $wpgmza_t = "basic";
 define("WPGMAPS", $wpgmza_version);
 define("WPGMAPS_DIR",plugin_dir_url(__FILE__));
@@ -230,9 +233,10 @@ function wpgmaps_activate() {
         delete_option("WPGMZA");
 
     }
+
     // load first marker as an example marker
     $results = $wpdb->get_results("SELECT * FROM $table_name WHERE `map_id` = '1'");
-    if (!$results) { $rows_affected = $wpdb->insert( $table_name, array( 'map_id' => '1', 'address' => 'London', 'lat' => '51.5081290', 'lng' => '-0.1280050', 'pic' => '', 'link' => '', 'icon' => '', 'anim' => '', 'title' => '', 'infoopen' => '', 'description' => '') ); }
+    if (!$results) { $rows_affected = $wpdb->insert( $table_name, array( 'map_id' => '1', 'address' => 'London', 'lat' => '51.5081290', 'lng' => '-0.1280050', 'pic' => '', 'link' => '', 'icon' => '', 'anim' => '', 'title' => '', 'infoopen' => '', 'description' => '', 'category' => 0) ); }
 
     wpgmaps_update_all_xml_file();
     add_option("wpgmaps_current_version",$wpgmza_version);
@@ -520,9 +524,10 @@ function wpgmaps_admin_javascript_basic() {
         $wpgmza_settings = get_option("WPGMZA_OTHER_SETTINGS");
 
         $map_other_settings = maybe_unserialize($res->other_settings);
-        $weather_layer = $map_other_settings['weather_layer'];
-        $cloud_layer = $map_other_settings['cloud_layer'];
-        $transport_layer = $map_other_settings['transport_layer'];
+        if (isset($map_other_settings['weather_layer'])) { $weather_layer = $map_other_settings['weather_layer']; } else { $weather_layer = 0; }
+        if (isset($map_other_settings['weather_layer_temp_type'])) { $weather_layer_temp_type = $map_other_settings['weather_layer_temp_type']; } else { $weather_layer_temp_type = 0; }
+        if (isset($map_other_settings['cloud_layer'])) { $cloud_layer = $map_other_settings['cloud_layer']; } else { $cloud_layer = 0; }
+        if (isset($map_other_settings['transport_layer'])) { $transport_layer = $map_other_settings['transport_layer']; } else { $transport_layer = 0; }
         
         
         
@@ -1018,8 +1023,18 @@ function wpgmaps_admin_javascript_basic() {
             trafficLayer.setMap(MYMAP.map);
             <?php } ?>
             <?php if ($weather_layer == 1) { ?>
-            var weatherLayer = new google.maps.weather.WeatherLayer();
-            weatherLayer.setMap(MYMAP.map);
+            <?php if($weather_layer_temp_type == 2) { ?>
+                var weatherLayer = new google.maps.weather.WeatherLayer({ 
+                    temperatureUnits: google.maps.weather.TemperatureUnit.FAHRENHEIT
+                });
+                weatherLayer.setMap(MYMAP.map);
+            <?php } else { ?>
+                var weatherLayer = new google.maps.weather.WeatherLayer({ 
+                    temperatureUnits: google.maps.weather.TemperatureUnit.CELSIUS
+                });
+                weatherLayer.setMap(MYMAP.map);
+                
+            <?php } ?>
             <?php } ?>
             <?php if ($cloud_layer == 1) { ?>
             var cloudLayer = new google.maps.weather.CloudLayer();
@@ -1147,9 +1162,10 @@ function wpgmaps_user_javascript_basic() {
         }
         
         $map_other_settings = maybe_unserialize($res->other_settings);
-        $weather_layer = $map_other_settings['weather_layer'];
-        $cloud_layer = $map_other_settings['cloud_layer'];
-        $transport_layer = $map_other_settings['transport_layer'];
+        if (isset($map_other_settings['weather_layer'])) { $weather_layer = $map_other_settings['weather_layer']; } 
+        if (isset($map_other_settings['weather_layer_temp_type'])) { $weather_layer_temp_type = $map_other_settings['weather_layer_temp_type']; } else { $weather_layer_temp_type = 0; }
+        if (isset($map_other_settings['cloud_layer'])) { $cloud_layer = $map_other_settings['cloud_layer']; }
+        if (isset($map_other_settings['transport_layer'])) { $transport_layer = $map_other_settings['transport_layer']; }
         
         $wpgmza_lat = $res->map_start_lat;
         $wpgmza_lng = $res->map_start_lng;
@@ -1364,8 +1380,18 @@ function wpgmaps_user_javascript_basic() {
                 trafficLayer.setMap(this.map);
                 <?php } ?>
                 <?php if ($weather_layer == 1) { ?>
-                var weatherLayer = new google.maps.weather.WeatherLayer();
-                weatherLayer.setMap(MYMAP.map);
+                <?php if($weather_layer_temp_type == 2) { ?>
+                    var weatherLayer = new google.maps.weather.WeatherLayer({ 
+                        temperatureUnits: google.maps.weather.TemperatureUnit.FAHRENHEIT
+                    });
+                    weatherLayer.setMap(MYMAP.map);
+                <?php } else { ?>
+                    var weatherLayer = new google.maps.weather.WeatherLayer({ 
+                        temperatureUnits: google.maps.weather.TemperatureUnit.CELSIUS
+                    });
+                    weatherLayer.setMap(MYMAP.map);
+
+                <?php } ?>
                 <?php } ?>
                 <?php if ($cloud_layer == 1) { ?>
                 var cloudLayer = new google.maps.weather.CloudLayer();
@@ -1829,6 +1855,7 @@ function wpgmaps_tag_basic( $atts ) {
     $wpgmza_current_map_id = $atts['id'];
 
     $res = wpgmza_get_map_data($atts['id']);
+    if (!isset($res)) { echo __("Error: The map ID","wp-google-maps")." (".$wpgmza_current_map_id.") ".__("does not exist","wp-google-maps"); return; }
     $short_code_active = true;
     //$wpgmza_data = get_option('WPGMZA');
     $map_align = $res->alignment;
@@ -1852,7 +1879,7 @@ function wpgmaps_tag_basic( $atts ) {
 
     $map_other_settings = maybe_unserialize($res->other_settings);
     $sl_data = "";
-    if ($map_other_settings['store_locator_enabled'] == 1) {
+    if (isset($map_other_settings['store_locator_enabled']) && $map_other_settings['store_locator_enabled'] == 1) {
         $sl_data = wpgmaps_sl_user_output_basic($wpgmza_current_map_id);
     } else { $sl_data = ""; }
     
@@ -1980,6 +2007,7 @@ function wpgmaps_head() {
         global $wpdb;
 
         //var_dump($_POST);
+        
 
         $map_id = esc_attr($_POST['wpgmza_id']);
         $map_title = esc_attr($_POST['wpgmza_title']);
@@ -2005,6 +2033,7 @@ function wpgmaps_head() {
         $other_settings['store_locator_distance'] = intval($_POST['wpgmza_store_locator_distance']);
         
         $other_settings['weather_layer'] = intval($_POST['wpgmza_weather']);
+        $other_settings['weather_layer_temp_type'] = intval($_POST['wpgmza_weather_temp_type']);
         $other_settings['cloud_layer'] = intval($_POST['wpgmza_cloud']);
         $other_settings['transport_layer'] = intval($_POST['wpgmza_transport']);
         
@@ -2864,7 +2893,7 @@ function wpgmaps_settings_page_basic() {
 <h3>".__("WP Google Maps Error log","wp-google-maps")."</h3>
 <p>".__("Having issues? Perhaps something below can give you a clue as to what's wrong. Alternatively, email this through to nick@wpgmaps.com for help!","wp-google-maps")."</p>    
 <textarea style='width:100%; height:600px;' readonly>
-        ".wpgmza_return_error_log()."
+".wpgmza_return_error_log()."
 </textarea>
 
 
@@ -2942,8 +2971,8 @@ function wpgmaps_list_maps() {
         echo "<tr id=\"record_".$result->id."\">";
         echo "<td class='id column-id'>".$result->id."</td>";
         echo "<td class='map_title column-map_title'><strong><big><a href=\"?page=wp-google-maps-menu&action=edit&map_id=".$result->id."\" title=\"".__("Edit","wp-google-maps")."\">".$result->map_title."</a></big></strong><br /><a href=\"?page=wp-google-maps-menu&action=edit&map_id=".$result->id."\" title=\"".__("Edit","wp-google-maps")."\">".__("Edit","wp-google-maps")."</a> $trashlink</td>";
-        echo "<td class='map_width column-map_width'>".$result->map_width."</td>";
-        echo "<td class='map_width column-map_height'>".$result->map_height."</td>";
+        echo "<td class='map_width column-map_width'>".$result->map_width."".stripslashes($result->map_width_type)."</td>";
+        echo "<td class='map_width column-map_height'>".$result->map_height."".stripslashes($result->map_height_type)."</td>";
         echo "<td class='type column-type'>".$map_type."</td>";
         echo "</tr>";
 
@@ -3033,12 +3062,14 @@ function wpgmza_basic_menu() {
 
         
         $other_settings_data = maybe_unserialize($res->other_settings);
-        $wpgmza_store_locator_enabled = $other_settings_data['store_locator_enabled'];
-        $wpgmza_store_locator_distance = $other_settings_data['store_locator_distance'];
+        if (isset($other_settings_data['store_locator_enabled'])) { $wpgmza_store_locator_enabled = $other_settings_data['store_locator_enabled']; } else { $wpgmza_store_locator_enabled = 0; }
+        if (isset($other_settings_data['store_locator_distance'])) { $wpgmza_store_locator_distance = $other_settings_data['store_locator_distance']; } else { $wpgmza_store_locator_distance = 0; }
+        
 
-        $wpgmza_weather_option = $other_settings_data['weather_layer'];
-        $wpgmza_cloud_option = $other_settings_data['cloud_layer'];
-        $wpgmza_transport_option = $other_settings_data['transport_layer'];
+        if (isset($other_settings_data['weather_layer'])) { $wpgmza_weather_option = $other_settings_data['weather_layer']; } else { $wpgmza_weather_option = 2; } 
+        if (isset($other_settings_data['weather_layer_temp_type'])) { $wpgmza_weather_option_temp_type = $other_settings_data['weather_layer_temp_type']; } else { $wpgmza_weather_option_temp_type = 1; } 
+        if (isset($other_settings_data['cloud_layer'])) { $wpgmza_cloud_option = $other_settings_data['cloud_layer']; } else { $wpgmza_cloud_option = 2; } 
+        if (isset($other_settings_data['transport_layer'])) { $wpgmza_transport_option = $other_settings_data['transport_layer']; } else { $wpgmza_transport_option = 2; } 
         
         
         
@@ -3088,6 +3119,11 @@ function wpgmza_basic_menu() {
         
         $wpgmza_weather_layer_checked[0] = '';
         $wpgmza_weather_layer_checked[1] = '';
+
+        $wpgmza_weather_layer_temp_type_checked[0] = '';
+        $wpgmza_weather_layer_temp_type_checked[1] = '';
+        
+        
         $wpgmza_cloud_layer_checked[0] = '';
         $wpgmza_cloud_layer_checked[1] = '';
         $wpgmza_transport_layer_checked[0] = '';
@@ -3098,6 +3134,11 @@ function wpgmza_basic_menu() {
             $wpgmza_weather_layer_checked[0] = 'selected';
         } else {
             $wpgmza_weather_layer_checked[1] = 'selected';
+        }
+        if ($wpgmza_weather_option_temp_type == 1) {
+            $wpgmza_weather_layer_temp_type_checked[0] = 'selected';
+        } else {
+            $wpgmza_weather_layer_temp_type_checked[1] = 'selected';
         }
         if ($wpgmza_cloud_option == 1) {
             $wpgmza_cloud_layer_checked[0] = 'selected';
@@ -3340,9 +3381,14 @@ function wpgmza_basic_menu() {
                         </tr>
                         <tr>
                             <td width='320'>".__("Enable Weather Layer?","wp-google-maps").":</td>
-                            <td><select id='wpgmza_weather' name='wpgmza_weather' class='postform'>
+                            <td>
+                            <select id='wpgmza_weather' name='wpgmza_weather' class='postform'>
                                 <option value=\"1\" ".$wpgmza_weather_layer_checked[0].">".__("Yes","wp-google-maps")."</option>
                                 <option value=\"2\" ".$wpgmza_weather_layer_checked[1].">".__("No","wp-google-maps")."</option>
+                            </select>
+                            <select id='wpgmza_weather_temp_type' name='wpgmza_weather_temp_type' class='postform'>
+                                <option value=\"1\" ".$wpgmza_weather_layer_temp_type_checked[0].">".__("Show in Degrees Celsius","wp-google-maps")."</option>
+                                <option value=\"2\" ".$wpgmza_weather_layer_temp_type_checked[1].">".__("Show in Degrees Fahrenheit","wp-google-maps")."</option>
                             </select>
                             </td>
                         </tr>
@@ -4330,9 +4376,9 @@ function wpgmza_get_map_data($map_id) {
         WHERE `id` = '".$map_id."' LIMIT 1
     ");
 
-    $res = $result[0];
+    if (isset($result[0])) { return $result[0]; }
 
-    return $result[0];
+    
 
 }
 function wpgmza_get_marker_data($mid) {
@@ -4443,11 +4489,11 @@ function wpgmza_write_to_error_log($data) {
         if (is_multisite()) {
             $upload_dir = wp_upload_dir();
             $content = "\r\n".date("Y-m-d H:i:s").": ".$data->get_error_message() . " -> ". $data->get_error_data();
-            $fp = fopen($upload_dir['basedir'].'/wp-google-maps'."/error_log.txt","a+");
+            $fp = @fopen($upload_dir['basedir'].'/wp-google-maps'."/error_log.txt","a+");
             fwrite($fp,$content);
         } else {
             $content = "\r\n".date("Y-m-d H:i:s").": ".$data->get_error_message() . " -> ". $data->get_error_data();
-            $fp = fopen(ABSPATH.'wp-content/uploads/wp-google-maps'."/error_log.txt","a+");
+            $fp = @fopen(ABSPATH.'wp-content/uploads/wp-google-maps'."/error_log.txt","a+");
             fwrite($fp,$content);
         }
     }
@@ -4462,14 +4508,14 @@ function wpgmza_error_directory() {
         if (!file_exists($upload_dir['basedir'].'/wp-google-maps')) {
             wp_mkdir_p($upload_dir['basedir'].'/wp-google-maps');
             $content = "Error log created";
-            $fp = fopen($upload_dir['basedir'].'/wp-google-maps'."/error_log.txt","w+");
+            $fp = @fopen($upload_dir['basedir'].'/wp-google-maps'."/error_log.txt","w+");
             fwrite($fp,$content);
         }
     } else {
         if (!file_exists(ABSPATH.'wp-content/uploads/wp-google-maps')) {
             wp_mkdir_p(ABSPATH.'wp-content/uploads/wp-google-maps');
             $content = "Error log created";
-            $fp = fopen(ABSPATH.'wp-content/uploads/wp-google-maps'."/error_log.txt","w+");
+            $fp = @fopen(ABSPATH.'wp-content/uploads/wp-google-maps'."/error_log.txt","w+");
             fwrite($fp,$content);
         }
         
@@ -4479,7 +4525,7 @@ function wpgmza_error_directory() {
 }
 
 function wpgmza_return_error_log() {
-    $fh = fopen(ABSPATH.'wp-content/uploads/wp-google-maps'."/error_log.txt","r");
+    $fh = @fopen(ABSPATH.'wp-content/uploads/wp-google-maps'."/error_log.txt","r");
     $ret = "";
     if ($fh) {
         for ($i=0;$i<10;$i++) {
