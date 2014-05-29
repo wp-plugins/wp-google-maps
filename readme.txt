@@ -56,14 +56,14 @@ Get a free copy of the WP Google Maps Pro version in exchange for translating ou
 * English - default
 * Russian
 * German
-* Czechoslovakian*
-* Spanish*
-* French*
-* Italian*
-* Dutch*
-* Swedish*
+* Czechoslovakian^
+* Spanish^
+* French^
+* Italian^
+* Dutch^
+* Swedish^
 
-* Language file needs to be updated
+^Language file needs to be updated
 
 == Installation ==
 
