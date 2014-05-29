@@ -3,12 +3,16 @@
 Plugin Name: WP Google Maps
 Plugin URI: http://www.wpgmaps.com
 Description: The easiest to use Google Maps plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 6.0.14
+Version: 6.0.15
 Author: WP Google Maps
 Author URI: http://www.wpgmaps.com
 */
 
 /*
+ * 6.0.15
+ * Fixed a bug that used the incorrect upload folder if the upload folder was changed in wp-config
+ * Small bug fixes
+ * 
  * 6.0.14
  * Fixed PHP warnings
  * 
@@ -96,6 +100,8 @@ global $debug_start;
 global $wpgmza_global_array;
 if(!defined('DS')) define('DS', DIRECTORY_SEPARATOR);
 
+
+
 $debug = false;
 $debug_step = 0;
 $wpgmza_p = false;
@@ -106,8 +112,8 @@ $wpgmza_tblname_poly = $wpdb->prefix . "wpgmza_polygon";
 $wpgmza_tblname_polylines = $wpdb->prefix . "wpgmza_polylines";
 $wpgmza_tblname_categories = $wpdb->prefix. "wpgmza_categories";
 $wpgmza_tblname_category_maps = $wpdb->prefix. "wpgmza_category_maps";
-$wpgmza_version = "6.0.14";
-$wpgmza_p_version = "6.0.14";
+$wpgmza_version = "6.0.15";
+$wpgmza_p_version = "6.0.15";
 $wpgmza_t = "basic";
 define("WPGMAPS", $wpgmza_version);
 define("WPGMAPS_DIR",plugin_dir_url(__FILE__));
@@ -251,7 +257,7 @@ function wpgmaps_init() {
     $plugin_dir = basename(dirname(__FILE__))."/languages/";
     load_plugin_textdomain( 'wp-google-maps', false, $plugin_dir );
 
-        
+    
     /* handle first time users and updates */
     if (isset($_GET['page']) && $_GET['page'] == 'wp-google-maps-menu') {
         
@@ -263,18 +269,22 @@ function wpgmaps_init() {
                 $wpgmza_first_time = $wpgmza_version;
                 update_option("WPGMZA_FIRST_TIME",$wpgmza_first_time);
             } else {
-
                 $wpgmza_first_time = get_option("WPGMZA_FIRST_TIME");
-                if (!isset($wpgmza_first_time) || $wpgmza_first_time != $wpgmza_version) { 
+                if (!$wpgmza_first_time) { 
                     /* show welcome screen */
-
                     $wpgmza_first_time = $wpgmza_version;
                     update_option("WPGMZA_FIRST_TIME",$wpgmza_first_time);
-
                     wp_redirect(get_option('siteurl')."/wp-admin/admin.php?page=wp-google-maps-menu&action=welcome_page");
                     exit();
                     //echo "<script>window.location = \"".get_option('siteurl')."/wp-admin/admin.php?page=wp-google-maps-menu&action=welcome_page\"</script>";
                 }
+                
+                if ($wpgmza_first_time != $wpgmza_version) {
+                    // user has updated - will build update page
+                    update_option("WPGMZA_FIRST_TIME",$wpgmza_version);
+                    
+                }
+                
             }
         }
     }
@@ -299,8 +309,8 @@ function wpgmaps_init() {
 function wpgmaps_handle_directory() {
     $upload_dir = wp_upload_dir();
         
-    if (!file_exists(ABSPATH.'wp-content/uploads/wp-google-maps/cache')) {
-        wp_mkdir_p(ABSPATH.'wp-content/uploads/wp-google-maps/cache');
+    if (!file_exists($upload_dir['basedir'].'/wp-google-maps/cache')) {
+        wp_mkdir_p($upload_dir['basedir'].'/wp-google-maps/cache');
     }
     if (is_multisite()) {
         if (!file_exists($upload_dir['basedir'].'/wp-google-maps/cache')) {
@@ -1892,7 +1902,7 @@ function wpgmaps_tag_basic( $atts ) {
             $sl_data    
             <div id=\"wpgmza_map\" $map_style>
                 <div style='text-align:center; width:90%;'>
-                        <small><strong>".__("The map could not load.","wp-google-maps")."</strong><br />".__("This is normally caused by a conflict with another plugin or a JavaScript error that is preventing our plugin's Javascript from executing. Please try disable all plugins one by one and see if this problem persists. If it persists, please contact nick@wpgmaps.com for support.","wp-google-maps")."</small>
+                        <small><strong>".__("The map could not load.","wp-google-maps")."</strong><br />".__("This is normally caused by a conflict with another plugin or a JavaScript error that is preventing our plugin's Javascript from executing. Please try disable all plugins one by one and see if this problem persists. If it persists, please contact WP Google Maps for support.","wp-google-maps")."</small>
                     
                 </div>
             </div>

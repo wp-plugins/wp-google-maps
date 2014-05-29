@@ -1,13 +1,16 @@
 .wpgmza_map {
     border:0;
     margin:5px !important;
+    
 }
+
 .wpgmza_map img {
     border: none !important;
     background-color:transparent !important;
     padding:0 !important;
     box-shadow: none !important;
     visibility: visible !important;
+    
 }
 #wpgmza_map img { box-shadow: none !important; }
 .wpgmza_table img {
@@ -98,12 +101,13 @@
 	vertical-align: top !important;
         padding-bottom: 15px !important;
         padding-right: 10px !important;
-
+        border: 0 !important;
 }
+.wpgmza_table tr { border: 0 !important; }
 .wpgmza_table th {
 	text-align: left !important;
         padding-bottom: 15px !important;
-
+        border: 0 !important;
 }
 
 .wpgmza_table_description {

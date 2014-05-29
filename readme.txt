@@ -50,8 +50,20 @@ The [WP Google Maps Pro Version](http://www.wpgmaps.com/purchase-professional-ve
 * WordPress Network friendly
 * Get the [WP Google Maps Professional Edition](http://www.wpgmaps.com/purchase-professional-version/) for only $19.99
 
-= Coming Soon =
-* Panoramio layer
+
+= Translations =
+Get a free copy of the WP Google Maps Pro version in exchange for translating our plugin!
+* English - default
+* Russian
+* German
+* Czechoslovakian*
+* Spanish*
+* French*
+* Italian*
+* Dutch*
+* Swedish*
+
+* Language file needs to be updated
 
 == Installation ==
 
@@ -88,6 +100,11 @@ Once installed and activated, a link should appear in your left navigation panel
 This is a must for users on IIS. Older WP Google Maps versions will not be compatible.
 
 == Changelog ==
+
+= 6.0.15 =
+* Small bug fixes
+* Map marker location bug fix
+* Russian translation added by Borisa Djuraskovic
 
 = 6.0.14 =
 * Code improvements
