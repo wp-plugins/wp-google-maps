@@ -53,6 +53,7 @@ The [WP Google Maps Pro Version](http://www.wpgmaps.com/purchase-professional-ve
 
 = Translations =
 Get a free copy of the WP Google Maps Pro version in exchange for translating our plugin!
+
 * English - default
 * Russian
 * German
