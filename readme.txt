@@ -83,6 +83,8 @@ Simply visit http://www.wpgmaps.com and purchase the WP Google Maps Professional
 
 Once installed and activated, a link should appear in your left navigation panel within your WP-ADMIN section. Click on the "WP Google Maps" link and follow the on screen instructions.
 
+= How do I put a Google map on my page/post? =
+In order to show your custom Google map on your page or post, simply copy the shortcode supplied and paste it into your page or post. WP Google Maps will automatically configure the map to the settings you selected in the map edit page.
 
 == Screenshots ==
 
@@ -101,6 +103,10 @@ Once installed and activated, a link should appear in your left navigation panel
 This is a must for users on IIS. Older WP Google Maps versions will not be compatible.
 
 == Changelog ==
+
+= 6.0.16 =
+* You can now choose which folder your markers are saved in
+* Better error reporting for file permission issues
 
 = 6.0.15 =
 * Small bug fixes
