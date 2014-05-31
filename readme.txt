@@ -104,6 +104,9 @@ This is a must for users on IIS. Older WP Google Maps versions will not be compa
 
 == Changelog ==
 
+= 6.0.17 =
+* Minor update: PO files updated
+
 = 6.0.16 =
 * You can now choose which folder your markers are saved in
 * Better error reporting for file permission issues
@@ -175,5 +178,62 @@ This is a must for users on IIS. Older WP Google Maps versions will not be compa
 * Better error handling when the map cannot show due to conflicts or JS errors
 * Fixed the bug that caused high memory usage
 * Major bug fixes
+
+= 5.24 =
+* Bug fix - The map style changed the style of your theme.
+
+= 5.23 =
+* Add animations to your map markers (lite)
+* Choose to have the infowindow open by default (lite)
+* Add the bicycle and traffic layer to your map (lite)
+* Substantial coding improvements and bug fixes
+
+= 5.22 =
+* Fixed the marker sort order bug
+
+= 5.21 =
+* Fixed a bug that if clicking the "add maker" button produced an error, the "add marker" button would disappear.
+
+= 5.20 =
+* Categories can now be hidden from the marker list
+* German translation added thanks to Matteo Ender
+
+= 5.19 =
+* Fixed a styling bug with Firefox
+* Fixed the bug that caused all markers to be lost upon upgrading
+
+= 5.18 =
+* Added improved styling to the address in the map infowindow
+
+= 5.17 =
+* Fixed update bug
+
+= 5.16 =
+* Plugin now checks to see if the Google Maps API is already loaded before trying to load it again
+* Fixed some SSL bugs
+
+= 5.15 =
+* Added marker category functionality
+* Added Google Map Mashup functionality
+* Fixed small bugs
+* Added backwards compatibility for older versions of WordPress
+* Replaced deprecated WordPress function calls
+* Added Spanish translation - Thank you Fernando!
+
+= 5.14 =
+* The map plugin now uses the new media manager
+* Fixed some styling conflicts
+* Added missing strings to localization
+* Updated to the latest Timthumb version
+
+= 5.13 =
+* Fixed a small bug
+
+= 5.12 =
+* Removed deprecated code
+
+= 5.11 =
+* Added SSL bug fixes
+* Fixed a bug that wasnt allowing users to edit the exact location
 
 For more, please view our website.
