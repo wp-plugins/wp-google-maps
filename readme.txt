@@ -35,18 +35,25 @@ The [WP Google Maps Pro Version](http://www.wpgmaps.com/purchase-professional-ve
 * Add Polylines / Routes to your map
 * Create a map in less than a 30 seconds!
 * No advertising or links
-* Latest Google Maps API (V3)
+* Google Maps Weather Layer
+* Google Maps Cloud Layer
+* Google Maps Transport Layer
+* Google Maps Weather Layer
+* Latest Google Maps API (V3.14, V3.15 & V3.exp)
 
 = Professional Edition =
 * Create multiple Google maps!
 * Add descriptions, links and images to your map markers.
 * Add categories to your map markers
+* Filter markers by category
 * Mashup multiple Google maps
 * Add different marker icons, or your own icons to make your map really stand out!
 * Allow your visitors to get directions to your markers.
 * Export/Import your markers to a CSV file for quick editing.
 * Link Fusion tables to your Google Maps
+* Show your visitor's location on the Map
 * Import KML/KMZ files to your Google Map
+* More advanced options for the Store Locator
 * WordPress Network friendly
 * Get the [WP Google Maps Professional Edition](http://www.wpgmaps.com/purchase-professional-version/) for only $19.99
 
@@ -66,11 +73,46 @@ Get a free copy of the WP Google Maps Pro version in exchange for translating ou
 
 ^Language file needs to be updated
 
+= Demos =
+WP Google Maps Lite
+
+* [Basic Google Map with Markers](http://www.wpgmaps.com/demo/basic-google-map-with-markers/)
+* [Store Locator](http://www.wpgmaps.com/demo/wp-google-maps-store-locator-free-version/)
+* [Polygons & Polyines/Routes](http://www.wpgmaps.com/demo/polygons-and-polylines/)
+* [Google Maps Weather Layer](http://www.wpgmaps.com/demo/google-maps-weather-layer/)
+* [Google Maps Cloud Layer](http://www.wpgmaps.com/demo/google-maps-cloud-layer/)
+* [Google Maps Transit Layer](http://www.wpgmaps.com/demo/google-maps-transit-layer/)
+* [Google Maps Traffic Layer](http://www.wpgmaps.com/demo/google-maps-traffic-layer/)
+* [Google Maps Bicycle Layer](http://www.wpgmaps.com/demo/google-maps-bicycle-layer/)
+
+WP Google Maps Pro
+
+* [Google map with advanced markers](http://www.wpgmaps.com/demo/basic-map-and-markers/)
+* [Marker listings - Simple](http://www.wpgmaps.com/demo/list-markers/)
+* [Marker listings - Advanced](http://www.wpgmaps.com/demo/map-with-markers-listed-below-advanced/)
+* [Google Maps Directions](http://www.wpgmaps.com/demo/directions/)
+* [Resposive Map](http://www.wpgmaps.com/demo/responsive-maps/)
+* [Marker Categories](http://www.wpgmaps.com/demo/marker-categories/) (Filtering)
+* [Advanced Store Locator](http://www.wpgmaps.com/demo/store-locator/)
+* [WP Google Maps Editor](http://www.wpgmaps.com/demo/screenshots-back-end/) (Back-end Screenshots)
+* [Visitor Generated Markers](http://www.wpgmaps.com/demo/visitor-generated-markers/) - (WP Google Maps VGM Add-on)
+* [Custom Map Styling](http://www.wpgmaps.com/demo/custom-map-styling/) (WP Google Maps Gold Add-on)
+
+
+
 == Installation ==
 
-1. Once activated, click the "WP Google Maps" link under your settings tabs.
-2. Edit the settings to your preference.
-3. Test your map on a post or page.
+= First time WP Google Maps user =
+Thank you for choosing WP Google Maps! In order to create your Google map, simply activate the plugin and click on "Maps" in your left navigation menu.
+Once the WP Google Maps page loads, set the options for your map (height, width, map type, zoom level etc) and then use your mouse to drag your Google map to your desired location and press the "Save map" button.
+Copy and paste the shortcode into your post or page and WP Google Maps will automatically create the map on your page using the settings you chose above.
+
+= Adding your first map marker =
+To add a marker to your Google map, scroll to below the map in your admin section and enter the address or GPS location in the Address input field. Click "Add Marker" and WP Google Maps will add your marker to the address you specified.
+
+= Setting up a Google Maps Store Locator =
+In order to make use of WP Google Maps' Store Locator functionality, simply click on the "Store Locator" tab in the map creation page and select "Yes"
+
 
 
 == Frequently Asked Questions ==
@@ -103,6 +145,9 @@ In order to show your custom Google map on your page or post, simply copy the sh
 This is a must for users on IIS. Older WP Google Maps versions will not be compatible.
 
 == Changelog ==
+
+= 6.0.18 =
+* You can now select which roles can access the map editor
 
 = 6.0.17 =
 * Minor update: PO files updated
@@ -236,4 +281,4 @@ This is a must for users on IIS. Older WP Google Maps versions will not be compa
 * Added SSL bug fixes
 * Fixed a bug that wasnt allowing users to edit the exact location
 
-For more, please view our website.
+For more, please view the WP Google Maps website.

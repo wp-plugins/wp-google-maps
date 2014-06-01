@@ -3,12 +3,15 @@
 Plugin Name: WP Google Maps
 Plugin URI: http://www.wpgmaps.com
 Description: The easiest to use Google Maps plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 6.0.17
+Version: 6.0.18
 Author: WP Google Maps
 Author URI: http://www.wpgmaps.com
 */
 
 /*
+ * 6.0.18
+ * You can now select which roles can access the map editor
+ * 
  * 6.0.17
  * Minor update: PO files updated
  * 
@@ -119,8 +122,8 @@ $wpgmza_tblname_poly = $wpdb->prefix . "wpgmza_polygon";
 $wpgmza_tblname_polylines = $wpdb->prefix . "wpgmza_polylines";
 $wpgmza_tblname_categories = $wpdb->prefix. "wpgmza_categories";
 $wpgmza_tblname_category_maps = $wpdb->prefix. "wpgmza_category_maps";
-$wpgmza_version = "6.0.17";
-$wpgmza_p_version = "6.0.17";
+$wpgmza_version = "6.0.18";
+$wpgmza_p_version = "6.0.18";
 $wpgmza_t = "basic";
 define("WPGMAPS", $wpgmza_version);
 define("WPGMAPS_DIR",plugin_dir_url(__FILE__));
@@ -2309,7 +2312,7 @@ function wpgmaps_head() {
         if (isset($_POST['wpgmza_api_version'])) { $wpgmza_data['wpgmza_api_version'] = esc_attr($_POST['wpgmza_api_version']); }
         if (isset($_POST['wpgmza_marker_xml_location'])) { update_option("wpgmza_xml_location",$_POST['wpgmza_marker_xml_location']); }
         if (isset($_POST['wpgmza_marker_xml_url'])) { update_option("wpgmza_xml_url",$_POST['wpgmza_marker_xml_url']); }
-        
+        if (isset($_POST['wpgmza_access_level'])) { $wpgmza_data['wpgmza_settings_access_level'] = esc_attr($_POST['wpgmza_access_level']); }
         
         update_option('WPGMZA_OTHER_SETTINGS', $wpgmza_data);
         echo "<div class='updated'>";
@@ -2689,14 +2692,17 @@ function wpgmaps_head_old() {
 
 
 function wpgmaps_admin_menu() {
-    add_menu_page('WPGoogle Maps', __('Maps','wp-google-maps'), 'manage_options', 'wp-google-maps-menu', 'wpgmaps_menu_layout', wpgmaps_get_plugin_url()."/images/map_app_small.png");
-    //add_submenu_page('wp-google-maps-menu', 'WP Google Maps - Markers', __('Markers','wp-google-maps'), 'manage_options' , 'wp-google-maps-menu-markers', 'wpgmaps_menu_marker_layout');
-
+    $wpgmza_settings = get_option("WPGMZA_OTHER_SETTINGS");
+    //var_dump($wpgmza_settings);
+    
+    if (isset($wpgmza_settings['wpgmza_settings_access_level'])) { $access_level = $wpgmza_settings['wpgmza_settings_access_level']; } else { $access_level = "manage_options"; }
+    add_menu_page('WPGoogle Maps', __('Maps','wp-google-maps'), $access_level, 'wp-google-maps-menu', 'wpgmaps_menu_layout', wpgmaps_get_plugin_url()."/images/map_app_small.png");
+    
     if (function_exists('wpgmza_pro_advanced_menu')) {
-        add_submenu_page('wp-google-maps-menu', 'WP Google Maps - Categories', __('Categories','wp-google-maps'), 'manage_options' , 'wp-google-maps-menu-categories', 'wpgmaps_menu_category_layout');
-        add_submenu_page('wp-google-maps-menu', 'WP Google Maps - Advanced Options', __('Advanced','wp-google-maps'), 'manage_options' , 'wp-google-maps-menu-advanced', 'wpgmaps_menu_advanced_layout');
+        add_submenu_page('wp-google-maps-menu', 'WP Google Maps - Categories', __('Categories','wp-google-maps'), $access_level , 'wp-google-maps-menu-categories', 'wpgmaps_menu_category_layout');
+        add_submenu_page('wp-google-maps-menu', 'WP Google Maps - Advanced Options', __('Advanced','wp-google-maps'), $access_level , 'wp-google-maps-menu-advanced', 'wpgmaps_menu_advanced_layout');
     }
-    add_submenu_page('wp-google-maps-menu', 'WP Google Maps - Settings', __('Settings','wp-google-maps'), 'manage_options' , 'wp-google-maps-menu-settings', 'wpgmaps_menu_settings_layout');
+    add_submenu_page('wp-google-maps-menu', 'WP Google Maps - Settings', __('Settings','wp-google-maps'), $access_level , 'wp-google-maps-menu-settings', 'wpgmaps_menu_settings_layout');
 
 }
 
@@ -2858,7 +2864,13 @@ function wpgmaps_settings_page_basic() {
     else if ($wpgmza_settings_map_open_marker_by == '2') { $wpgmza_settings_map_open_marker_by_checked[1] = "checked='checked'"; }
     else { $wpgmza_settings_map_open_marker_by_checked[0] = "checked='checked'"; }
 
-    
+    if (isset($wpgmza_settings['wpgmza_settings_access_level'])) { $wpgmza_access_level = $wpgmza_settings['wpgmza_settings_access_level']; } else { $wpgmza_access_level = ""; }
+    if ($wpgmza_access_level == "manage_options") { $wpgmza_access_level_checked[0] = "selected"; }
+    else if ($wpgmza_access_level == "edit_pages") { $wpgmza_access_level_checked[1] = "selected"; }
+    else if ($wpgmza_access_level == "publish_posts") { $wpgmza_access_level_checked[2] = "selected"; }
+    else if ($wpgmza_access_level == "edit_posts") { $wpgmza_access_level_checked[3] = "selected"; }
+    else if ($wpgmza_access_level == "read") { $wpgmza_access_level_checked[4] = "selected"; }
+    else { $wpgmza_access_level_checked[0] = "selected"; }
     
     if (isset($wpgmza_settings_map_scroll)) { if ($wpgmza_settings_map_scroll == "yes") { $wpgmza_scroll_checked = "checked='checked'"; } else { $wpgmza_scroll_checked = ""; } } else { $wpgmza_scroll_checked = ""; }
     if (isset($wpgmza_settings_map_draggable)) { if ($wpgmza_settings_map_draggable == "yes") { $wpgmza_draggable_checked = "checked='checked'"; } else { $wpgmza_draggable_checked = ""; } } else { $wpgmza_draggable_checked = ""; }
@@ -2947,6 +2959,18 @@ function wpgmaps_settings_page_basic() {
                                         <option value=\"3.exp\" ".$wpgmza_api_version_selected[2].">3.exp</option>
                                         
                                     </select>    
+                        </td>
+                    </tr>
+                    <tr>
+                            <td width='200' valign='top'>".__("Lowest level of access to the map editor","wp-google-maps").":</td>
+                         <td>
+                            <select id='wpgmza_access_level' name='wpgmza_access_level'  >
+                                        <option value=\"manage_options\" ".$wpgmza_access_level_checked[0].">Admin</option>
+                                        <option value=\"edit_pages\" ".$wpgmza_access_level_checked[1].">Editor</option>
+                                        <option value=\"publish_posts\" ".$wpgmza_access_level_checked[2].">Author</option>
+                                        <option value=\"edit_posts\" ".$wpgmza_access_level_checked[3].">Contributor</option>
+                                        <option value=\"read\" ".$wpgmza_access_level_checked[4].">Subscriber</option>
+                            </select>    
                         </td>
                     </tr>
                    
