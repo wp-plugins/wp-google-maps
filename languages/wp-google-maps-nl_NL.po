@@ -1,19 +1,18 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: wpgooglemaps kay to german\n"
+"Project-Id-Version: wpgooglemaps\n"
 "POT-Creation-Date: 2014-03-24 16:49+0200\n"
-"PO-Revision-Date: 2014-07-11 09:57+0200\n"
-"Last-Translator: Kay Weber <Kay@wuffweb.de>\n"
-"Language-Team: Ellerkalle <Ellerkalle@wuffweb.de>\n"
+"PO-Revision-Date: 2014-05-19 12:49+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.7\n"
+"X-Generator: Poedit 1.6.5\n"
 "X-Poedit-KeywordsList: _;gettext;gettext_noop;__;_e\n"
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Language: de_DE\n"
-"X-Poedit-SourceCharset: UTF-8\n"
+"Language: nl_NL\n"
 "X-Poedit-SearchPath-0: C:\\wamp\\www\\wordpress38\\wp-content\\plugins\\wp-"
 "google-maps\n"
 "X-Poedit-SearchPath-1: C:\\wamp\\www\\wordpress38\\wp-content\\plugins\\wp-"
@@ -29,7 +28,7 @@ msgstr ""
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:868
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1415
 msgid "The map could not load."
-msgstr "Die Karte kann nicht geladen werden. "
+msgstr "De kaart kon niet worden geladen."
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1619
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3161
@@ -42,99 +41,94 @@ msgid ""
 "disable all plugins one by one and see if this problem persists. If it "
 "persists, please contact nick@wpgmaps.com for support."
 msgstr ""
-"Vermutlich liegt ein Konflikt mit eine anderen Plugin oder einen JavaScript "
-"vor, welcher verhindert das diese Javascript ausgeführt werden kann. "
-"Versuchen sie nacheinander alle Plugins zu deaktivieren bis sie feststellen "
-"welches diesen Konflikt ausgelöst hat. sollte das Problem weiter bestehen so "
-"kontaktieren Sie  bitte nick@wpgmaps.com"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1639
 msgid "ZIP / Address"
-msgstr "PLZ / Adresse"
+msgstr "Uw postcode of adres"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1644
 msgid "Radius"
-msgstr "Umkreis"
+msgstr "Straal"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1650
 msgid "1mi"
-msgstr "1min"
+msgstr "1 min."
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1651
 msgid "5mi"
-msgstr "5min"
+msgstr "5 min."
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1652
 msgid "10mi"
-msgstr "10min"
+msgstr "10 min."
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1653
 msgid "25mi"
-msgstr "25min"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1654
 msgid "50mi"
-msgstr "50min"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1655
 msgid "75mi"
-msgstr "75min"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1656
 msgid "100mi"
-msgstr "100min"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1657
 msgid "150mi"
-msgstr "150min"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1658
 msgid "200mi"
-msgstr "200min"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1659
 msgid "300mi"
-msgstr "300min"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1661
 msgid "1km"
-msgstr "1km"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1662
 msgid "5km"
-msgstr "5Km"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1663
 msgid "10km"
-msgstr "10km"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1664
 msgid "25km"
-msgstr "25km"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1665
 msgid "50km"
-msgstr "50km"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1666
 msgid "75km"
-msgstr "75km"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1667
 msgid "100km"
-msgstr "100km"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1668
 msgid "150km"
-msgstr "150km"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1669
 msgid "200km"
-msgstr "200km"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1670
 msgid "300km"
-msgstr "300km"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1679
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3280
@@ -144,12 +138,12 @@ msgstr "300km"
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:920
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:446
 msgid "Category"
-msgstr "Kategorie"
+msgstr "Categorie"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1686
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1752
 msgid "Search"
-msgstr "Suche"
+msgstr "Zoeken"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1794
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1965
@@ -158,88 +152,88 @@ msgstr "Suche"
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:3062
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:3249
 msgid "Your settings have been saved."
-msgstr "Ihre Änderungen wurden gespeichert"
+msgstr "Uw instellingen zijn opgeslagen."
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1818
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2169
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:3091
 msgid "Your marker location has been saved."
-msgstr "Der Laocation Marker wurde gespeichert."
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1849
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2200
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:3122
 msgid "Your polygon has been created."
-msgstr "Ihr Polygon wurde erstellt."
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1881
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2232
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:3154
 msgid "Your polygon has been saved."
-msgstr "Ihr Polygon wurde gespeichert."
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1912
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2263
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:3185
 msgid "Your polyline has been created."
-msgstr "Ihre Polyline (Lienezug) wurde erstellt."
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1944
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2295
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:3217
 msgid "Your polyline has been saved."
-msgstr "Ihre Polyline (Lienenzug) wurde gespeichert"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1993
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1997
 msgid "Thank you for your feedback!"
-msgstr "Vielen Dank für Ihr Feedback!"
+msgstr "Bedankt voor uw feedback!"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2341
 msgid "Maps"
-msgstr "Karten"
+msgstr "Kaarten"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2345
 msgid "Categories"
-msgstr "Kategorien"
+msgstr "Categorieen"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2346
 msgid "Advanced"
-msgstr "Erweitert"
+msgstr "Geavanceerd"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2348
 msgid "Settings"
-msgstr "Einstellungen"
+msgstr "Instellingen"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2360
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2441
 msgid "Experiencing problems with the plugin?"
-msgstr "Habe sie Probleme mit dem Plugin?"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2360
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2441
 msgid "See the troubleshooting manual."
-msgstr "Schauen sie in in die Fehlerbehebungsanleitung"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2360
 msgid "Or ask a question on our "
-msgstr "oder stellen sie ein Frage auf dem"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2360
 msgid "Support forum."
-msgstr "Support forum."
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2368
 msgid "There was a problem deleting the map."
-msgstr "Es gab ein Problem bei der Löschung der Karte"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2372
 msgid "Delete your map"
-msgstr "Karte löschen"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2372
 msgid "Are you sure you want to delete the map"
-msgstr "Sind Sie sich sicher das Sie die Karte löschen wollen?"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2372
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2455
@@ -287,80 +281,80 @@ msgstr "Ja"
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-ugm/wp-google-maps-ugm.php:108
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-ugm/wp-google-maps-ugm.php:126
 msgid "No"
-msgstr "Nein"
+msgstr "Nee"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2451
 msgid "There was a problem deleting the marker."
-msgstr "Es gab ein Problem bei der Löschung des Markers"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2455
 msgid "Delete Marker"
-msgstr "Marker löschen"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2455
 msgid "Are you sure you want to delete this marker:"
-msgstr "Sind Sie sich sicher das Sie den Marker löschen wolen?"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2477
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2616
 msgid "WP Google Map Settings"
-msgstr "WP Google Map Einstellungen"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2526
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2787
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2796
 msgid "Map Settings"
-msgstr "Karten Einstellungen"
+msgstr "Kaart instellingen"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2529
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2799
 msgid "General Map Settings"
-msgstr "allgemeine Karten Einstellungen"
+msgstr "Algemen kaart instellingen"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2531
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2801
 msgid "Disable StreetView"
-msgstr "StreetView deaktivieren "
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2532
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2802
 msgid "Disable Zoom Controls"
-msgstr "Zoom Kontrolle deaktivieren"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2533
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2803
 msgid "Disable Pan Controls"
-msgstr "Schwenk Kontrolle (pan) deaktivieren"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2534
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2804
 msgid "Disable Map Type Controls"
-msgstr "deaktivieren  Map Type Controls"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2535
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2805
 msgid "Disable Mouse Wheel Zoom"
-msgstr "Deaktivieren Maus Zoom"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2536
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2806
 msgid "Disable Mouse Dragging"
-msgstr "Deaktivieren aufziehen mit der Maus "
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2537
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2807
 msgid "Disable Mouse Double Click Zooming"
-msgstr "Deaktivieren doppelklick"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2542
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2811
 msgid "Open Marker InfoWindows by"
-msgstr "Öffnen des Marker Info Fensters bei"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2547
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2832
 msgid "Troubleshooting Options"
-msgstr "Problemlösungsoptionen "
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2549
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2834
@@ -368,50 +362,47 @@ msgid ""
 "Over-ride current jQuery with version 1.8.3 (Tick this box if you are "
 "receiving jQuery related errors)"
 msgstr ""
-"Überschreiben der  bestehenden jQuery with version 1.8.3 (dieses Feld "
-"Aktivieren wenn sie eine  jQuery Fehlermeldung erhalten."
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2556
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2641
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-ugm/wp-google-maps-ugm.php:132
 msgid "Save Settings"
-msgstr "Einstellungen Speichern"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2579
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2584
 msgid "My Maps"
-msgstr "Meine Karten"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2579
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2651
 msgid "Add New"
-msgstr "Neu hinzufügen"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2585
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:19
 msgid "Pro Version"
-msgstr "Pro Version"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2585
 msgid "Create unlimited maps"
-msgstr "unbegrenzt Karten erstellen"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2585
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:19
 msgid "with the"
-msgstr "mit der"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2585
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:19
 msgid "of WP Google Maps for only"
-msgstr "von WP nur für Google Maps"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2591
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2654
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:24
 msgid "Problems with the plugin? See the troubleshooting manual."
 msgstr ""
-"Probleme mit dem Plugin? Schauen sie in in die Fehlerbehebungsanleitung"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2615
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2674
@@ -425,7 +416,7 @@ msgstr ""
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_polygons.php:465
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_polylines.php:493
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2616
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2677
@@ -436,52 +427,52 @@ msgstr "ID"
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:784
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:901
 msgid "Title"
-msgstr "Titel"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2617
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2836
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:648
 msgid "Width"
-msgstr "Breite"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2618
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2847
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:655
 msgid "Height"
-msgstr "Höhe"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2619
 msgid "Type"
-msgstr "Typ"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2625
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2869
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:757
 msgid "Roadmap"
-msgstr "Straßenkarte"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2626
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2870
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:758
 msgid "Satellite"
-msgstr "Satellit"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2627
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2871
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:759
 msgid "Hybrid"
-msgstr "Hybrid"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2628
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2872
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:760
 msgid "Terrain"
-msgstr "Gelände"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2630
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:454
 msgid "Trash"
-msgstr "Papierkorb"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2636
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3559
@@ -491,21 +482,21 @@ msgstr "Papierkorb"
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_polygons.php:490
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_polylines.php:518
 msgid "Edit"
-msgstr "Bearbeiten"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2651
 msgid "My Markers"
-msgstr "Meine Marker"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2675
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3581
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:447
 msgid "Icon"
-msgstr "Icon"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2676
 msgid "Linked to"
-msgstr "Verlinkt zu "
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2678
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3007
@@ -513,83 +504,80 @@ msgstr "Verlinkt zu "
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3603
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:785
 msgid "Address"
-msgstr "Adresse"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2679
 msgid "GPS"
-msgstr "GPS"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2680
 msgid "Pic"
-msgstr "Bild"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2681
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3587
 msgid "Link"
-msgstr "Link"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2776
 msgid ""
 "Add custom icons, titles, descriptions, pictures and links to your markers "
 "with the"
 msgstr ""
-"Hinzufügen eigener Icons, Titel, Beschreibungen, Bilder und Links für Ihre "
-"Marker mit "
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2776
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2777
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3324
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3328
 msgid "Pro Edition"
-msgstr "Pro Edition"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2776
 msgid "of this plugin for just"
-msgstr "von diesem Plugin nur für"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2777
 msgid "Purchase the Pro Edition"
-msgstr "Erwebe die Pro Edition"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2777
 msgid "of WP Google Maps and save your markers to a CSV file!"
-msgstr "von WP Google Maps zum speichern ihrer Marker in eine CSV Datei!"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2828
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:637
 msgid "Short code"
-msgstr "Short code"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2829
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:638
 msgid "copy this into your post or page to display the map"
 msgstr ""
-"Kopieren dsie dies in ihre Webseite oder Artikel um die Karte anzuzeigen. "
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2832
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:642
 msgid "Map Name"
-msgstr "Karten Name"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2857
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:797
 msgid "Map Alignment"
-msgstr "Kartenposition"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2859
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:799
 msgid "Left"
-msgstr "Links"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2860
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:800
 msgid "Center"
-msgstr "Zentriert"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2861
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:801
 msgid "Right"
-msgstr "Rechts"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2862
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3203
@@ -597,87 +585,87 @@ msgstr "Rechts"
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:802
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:930
 msgid "None"
-msgstr "Keine"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2867
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:755
 msgid "Map type"
-msgstr "Kartentyp"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2893
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:673
 msgid "Enable Directions?"
-msgstr "Routenplaner aktivieren?"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2902
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:682
 msgid "Directions Box Open by Default?"
-msgstr "Routenplaner als Standard anzeigen."
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2907
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:687
 msgid "Yes, on the left"
-msgstr "Ja, links"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2908
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:688
 msgid "Yes, on the right"
-msgstr "Ja, rechts"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2909
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:689
 msgid "Yes, above"
-msgstr "ja, oben"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2910
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:690
 msgid "Yes, below"
-msgstr "Ja, unten"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2916
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:696
 msgid "Directions Box Width"
-msgstr "Routenplaner Größe"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2930
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:719
 msgid "Enable Store Locator"
-msgstr "Anschalten Laden-Finder "
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2939
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:728
 msgid "Show distance in"
-msgstr "Entfernung anzeigen in"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2941
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:730
 msgid "Miles"
-msgstr "Meilen"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2942
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:731
 msgid "Kilometers"
-msgstr "Kilometern"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2948
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:737
 msgid "View"
-msgstr "Anzeigen"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2948
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:737
 msgid "Store Locator Documentation"
-msgstr "Laden-Finder  Dokumentation"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2956
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:816
 msgid "Enable Bicycle Layer?"
-msgstr "Fahradwege aktivieren?"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2964
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:823
 msgid "Enable Traffic Layer?"
-msgstr "Straßenverkehr aktivieren?"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2975
 msgid ""
@@ -686,15 +674,11 @@ msgid ""
 "utm_source=plugin&utm_medium=link&utm_campaign=advanced\">$19.99 once off</"
 "a>. Support and updates included forever."
 msgstr ""
-"Erhalten Sie weitere Funktionen mit der Pro Version <a href=\"http://www."
-"wpgmaps.com/purchase-professional-version/?"
-"utm_source=plugin&utm_medium=link&utm_campaign=advanced\">$19.99 einmalig</"
-"a>. Beinhaltet alle updates und Support auf Lebenszeit.  "
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2982
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:750
 msgid "Default Marker Image"
-msgstr "Standard Marker Bild"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2983
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3274
@@ -705,37 +689,37 @@ msgstr "Standard Marker Bild"
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:101
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:171
 msgid "Upload Image"
-msgstr "Bild hochladen "
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2987
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:765
 msgid "List all Markers"
-msgstr "Alle Marker anzeigen"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2989
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:767
 msgid "List all markers below the map"
-msgstr "Alle Marker  unter der Karte anzeigen"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2990
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:768
 msgid "Select this for the advanced listing functionality"
-msgstr "Hier auswählen für erweiterte Anzeigeoptionen"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2995
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:773
 msgid "Filter by Category"
-msgstr "Nach Kategorie filtern"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2997
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:775
 msgid "Allow users to filter by category?"
-msgstr "Benutzeren erlauben nach Kategorie zu filteren?"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3002
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:780
 msgid "Order markers by"
-msgstr "Reihenfolge der Marken nach"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3008
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3271
@@ -744,47 +728,46 @@ msgstr "Reihenfolge der Marken nach"
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:786
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:911
 msgid "Description"
-msgstr "Beschreibung"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3011
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:791
 msgid "Descending"
-msgstr "Absteigend"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3012
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:790
 msgid "Ascending"
-msgstr "aufsteigend"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3019
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:808
 msgid "Show User's Location?"
-msgstr "Ortsbestimmung anzeigen ?"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3033
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:836
 msgid "KML/GeoRSS URL"
-msgstr "KML/GeoRSS URL"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3035
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:838
 msgid "The KML/GeoRSS layer will over-ride most of your map settings"
 msgstr ""
-"Der KML/GeoRSS layer wird die meisten Ihrer Karteneinstellungen überschreiben"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3039
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:842
 msgid "Fusion table ID"
-msgstr "Fusion table ID"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3041
 msgid "Read data directly from your Fusion Table."
-msgstr "Daten werden direkt von ihrer Fusion Table gelesen."
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3153
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:860
 msgid "Save Map"
-msgstr "Karte speichern"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3155
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:862
@@ -793,177 +776,173 @@ msgid ""
 "positioned the map to your desired location, press \"Save Map\" to keep your "
 "settings."
 msgstr ""
-"Tip: Benutzen sie ihre Maus um das Layout ihrer Karte zu ändern. Wenn Sie "
-"die richtige Position gefunden haben klicken sie auf  \"Karte Speichern\" um "
-"die Einstellungen zu sichern."
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3171
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:877
 msgid "Remember to save your map!"
-msgstr "Speichern der Karte nicht vergessen!"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3182
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3190
 msgid "Add a basic marker"
-msgstr "Hinzufügen eines basic Marker"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3183
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3231
 msgid "Add an advanced marker"
-msgstr "Hinzufügen eines erweiterten Markers"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3184
 msgid "Add a polygon"
-msgstr "Polygon hinzufügen"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3185
 msgid "Add a polyline"
-msgstr "Hinzufügen Streckenzug (Polyline)"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3194
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3241
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:906
 msgid "Address/GPS"
-msgstr "Adresse/GPS"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3200
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3247
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:927
 msgid "Animation"
-msgstr "Animation"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3204
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3251
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:931
 msgid "Bounce"
-msgstr "Bounce (überspringen?)"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3205
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3252
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:932
 msgid "Drop"
-msgstr "Drop"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3211
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3258
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:936
 msgid "InfoWindow open by default"
-msgstr "Info Fenster als Standard anzeigen"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3221
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3289
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:946
 msgid "Add Marker"
-msgstr "Marker hinzufügen"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3221
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:946
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-ugm/wp-google-maps-ugm.php:237
 msgid "Adding"
-msgstr "Hinzufügen"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3222
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:947
 msgid "Save Marker"
-msgstr "Marker Speichern"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3222
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:947
 msgid "Saving"
-msgstr "Speichern"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3235
 msgid "Add advanced markers"
-msgstr "Hinzufügen erwiterter Marker"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3235
 msgid "with the Pro version"
-msgstr "mir der Pro Version"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3273
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:913
 msgid "Pic URL"
-msgstr "Bild URL"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3275
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:915
 msgid "Link URL"
-msgstr "Link URL"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3277
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:917
 msgid "Custom Marker"
-msgstr "Eigener Marker"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3283
 msgid "Select"
-msgstr "Auswählen"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3300
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/base/includes/wp-google-maps-polygons.php:25
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:957
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_polygons.php:25
 msgid "Add a Polygon"
-msgstr "Polygon hinzufügen"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3301
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:958
 msgid "Add a New Polygon"
-msgstr "Neues Polygon hinzufügen"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3305
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/base/includes/wp-google-maps-polylines.php:25
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:962
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_polylines.php:25
 msgid "Add a Polyline"
-msgstr "Streckenzug (Polyline) hinzufügen"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3306
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:963
 msgid "Add a New Polyline"
-msgstr "Neuen Streckenzug (Polyline) hinzufügen"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3312
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:951
 msgid "Your Markers"
-msgstr "Ihre Marker"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3319
 msgid "Add detailed information to your markers!"
-msgstr "Hinzufügen von Detalierter informationen zu ihren Markeren."
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3319
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3323
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3327
 msgid "Add custom markers to your map!"
-msgstr "Hinzufügenpeigener  Marker zur Karte!"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3320
 msgid "Add detailed information to your markers for only"
-msgstr "Hinzufügen von Detalierter informationen zu ihren Markeren nur für"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3320
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3324
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3328
 msgid "Click"
-msgstr "Klick"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3320
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3324
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3328
 msgid "here"
-msgstr "hier"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3324
 msgid ""
 "Add different marker icons, or your own icons to make your map really stand "
 "out!"
 msgstr ""
-"Hinzufügen von eigenen Markeren um ihre Karte zu etwas besonderen zu machen. "
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3328
 msgid "Allow your visitors to get directions to your markers!"
-msgstr "Besuchern Erlauben ein wegbeschreibung zu Ihren Markern zu erstellen!"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3334
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:972
@@ -971,37 +950,33 @@ msgid ""
 "WP Google Maps encourages you to make use of the amazing icons created by "
 "Nicolas Mollet's Maps Icons Collection"
 msgstr ""
-"WP Google Map ermutert sie dazu die tollen icons aus der von Nicolas "
-"Mollet's erstellten  Maps Icons Collection zu verwenden. "
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3334
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:972
 msgid "and to credit him when doing so."
-msgstr "und ihm zu unterstützen wenn sie dies machen."
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3360
 msgid "Edit Marker Location"
-msgstr "Bearbeiten der Marker Position "
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3369
 msgid "Marker Latitude"
-msgstr "Marker Breite"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3373
 msgid "Marker Longitude"
-msgstr "Marker Länge"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3378
 msgid "Save Marker Location"
-msgstr "Speichen Marker Position"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3379
 msgid ""
 "Tip: Use your mouse to change the location of the marker. Simply click and "
 "drag it to your desired location."
 msgstr ""
-"Tip: Benutzen Sie die Maus um den Standort des Markers zu verändern. einfach "
-"mit  click and drag zum Standort,"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3511
 msgid ""
@@ -1010,27 +985,23 @@ msgid ""
 "that could crash your browser. In order to edit your markers, you would need "
 "to download the table in CSV format, edit it and re-upload it."
 msgstr ""
-"Sie haben zu viele Marker in Verwendung. Maximal sollten 2000 Marker "
-"vewendet werden und eien Absturz des Browsers zu verhindern. Zum optimalen "
-"bearbeiten sollten sie ihre Marker ans CSV herunter laden, bearbeiten und "
-"wieder hochladen. "
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3545
 msgid "View this link"
-msgstr "Link anzeigen"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3559
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3560
 msgid "Edit this marker"
-msgstr "Marker editieren "
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3560
 msgid "Edit Location"
-msgstr "Standort editieren"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3561
 msgid "Delete this marker"
-msgstr "Marker löschen"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3561
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/base/includes/wp-google-maps-polygons.php:492
@@ -1038,11 +1009,11 @@ msgstr "Marker löschen"
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_polygons.php:491
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_polylines.php:519
 msgid "Delete"
-msgstr "Löschen"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3586
 msgid "Image"
-msgstr "Bild"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3588
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/base/includes/wp-google-maps-polygons.php:467
@@ -1050,230 +1021,218 @@ msgstr "Bild"
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_polygons.php:467
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_polylines.php:495
 msgid "Action"
-msgstr "Aktion"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3738
 msgid ""
 "The plugin directory does not have 'write' permissions. Please enable "
 "'write' permissions (755) for "
 msgstr ""
-"Das Plugin-Verzeichnis hat keine Schreibenden rechte. Bitte setzen sie diese "
-"(755) für"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3740
 msgid "in order for this plugin to work! Please see "
-msgstr "um "
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3742
 msgid "this page"
-msgstr "Diese Seite"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3744
 msgid "for help on how to do it."
-msgstr "Für Hilfe bei 'Wie macht man das'"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/base/classes/WPGM_templates.php:13
 msgid "Welcome to"
-msgstr "Wilkommen bei"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/base/classes/WPGM_templates.php:15
 msgid ""
 "Amazing maps. Simple interface. Powerful functionality. World Class Support."
 msgstr ""
-"Erstaunliche Karten, Einfache Inteface, Umfangreiche Funktionalität und "
-"Weltklasse Service. "
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/base/classes/WPGM_templates.php:17
 msgid "What's new?"
-msgstr "Was ist Neu?"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/base/classes/WPGM_templates.php:21
 msgid "Store Locator"
-msgstr "Geschäft (Store) Finder "
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/base/classes/WPGM_templates.php:22
 msgid "Let users search for products, branches and stores near them"
 msgstr ""
-"Benutzer können nach Produkten, Filialen, Geschäften in ihrer umgebung "
-"suchen.  "
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/base/classes/WPGM_templates.php:26
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:890
 msgid "Polygons"
-msgstr "Polygons"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/base/classes/WPGM_templates.php:27
 msgid "Create service areas or coverage maps with polygons"
-msgstr "Erstellen von Service-Gebieten oder Abdeckungsgebiet mit Polygonen"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/base/classes/WPGM_templates.php:31
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:891
 msgid "Polylines"
-msgstr "Polylines"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/base/classes/WPGM_templates.php:32
 msgid "Create custom routes or outlines using polylines"
 msgstr ""
-"Erstellen eigene Ruten oder  oder Abgrenzungen mit Streckenzügen (polylines)"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/base/classes/WPGM_templates.php:44
 msgid "How did you find out about us?"
-msgstr "Wie sind Sie auf uns aufmerksam geworden?"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/base/classes/WPGM_templates.php:51
 msgid "WordPress.org plugin repository"
-msgstr "WordPress.org plugin repository"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/base/classes/WPGM_templates.php:52
 msgid "What search term did you use?"
-msgstr "Welche Suchbegriffe haben Sie verwendet? "
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/base/classes/WPGM_templates.php:56
 msgid "Google or other search engine"
-msgstr "Google oder andere Suchmaschiene"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/base/classes/WPGM_templates.php:60
 msgid "Friend recommendation"
-msgstr "Empfehlung durch Freunde oder Bekannte. "
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/base/classes/WPGM_templates.php:64
 msgid "Other"
-msgstr "Aus andrem Wege"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/base/classes/WPGM_templates.php:65
 msgid "Please explain"
-msgstr "Bitte besreiben sie kurz wie."
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/base/classes/WPGM_templates.php:87
 msgid "New to WP Google Maps?"
-msgstr "Sind Sie neuer Nutzer von WP Google Maps?"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/base/classes/WPGM_templates.php:88
 msgid "You may want to"
-msgstr "Sie möchen vieleicht"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/base/classes/WPGM_templates.php:88
 msgid "review our documentation"
-msgstr "unsere Dokumentation anschauen"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/base/classes/WPGM_templates.php:88
 msgid ""
 "before you get started. If you're a tech-savvy individual, you may skip this "
 "step."
 msgstr ""
-"bevor Sie loslegen Wenn sie technich versiert sind können Sie diesen Schritt "
-"aber überspringen. "
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/base/classes/WPGM_templates.php:91
 msgid "Help me!"
-msgstr "Ich brauche Hilfe!"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/base/classes/WPGM_templates.php:92
 msgid "Visit our"
-msgstr "Besuchen Sie unser"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/base/classes/WPGM_templates.php:92
 msgid "Support Forum"
-msgstr "Support Forum"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/base/classes/WPGM_templates.php:92
 msgid "for quick and friendly help. We'll answer your request within 24hours."
 msgstr ""
-"für freundliche und schnelle Hilfe. Wir beantworten ihre Fragen in der Regel "
-"innerhalb von 24 Stunden. "
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/base/classes/WPGM_templates.php:95
 msgid "Feedback"
-msgstr "Feedback"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/base/classes/WPGM_templates.php:96
 msgid "We need you to help us make this plugin better."
-msgstr "Wie brauchen Ihre Unterstützung damit unser Plugin noch besser wird. "
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/base/classes/WPGM_templates.php:96
 msgid "Send us your feedback"
-msgstr "Senden Sie uns ihr Feedback"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/base/classes/WPGM_templates.php:96
 msgid "and we'll act on it as soon as humanly possible."
 msgstr ""
-"und wir werden alles menschenmögliche anstellen um an diesen zu arbeiten. "
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/base/classes/WPGM_templates.php:102
 msgid "OK! Let's start"
-msgstr "Okay - los geht es - fanngen wir an! "
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/base/includes/wp-google-maps-polygons.php:42
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/base/includes/wp-google-maps-polygons.php:90
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_polygons.php:42
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_polygons.php:90
 msgid "Save Polygon"
-msgstr "Speicher Polygon"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/base/includes/wp-google-maps-polygons.php:73
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_polygons.php:73
 msgid "Edit Polygon"
-msgstr "bearbeite Polygon"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/base/includes/wp-google-maps-polygons.php:466
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_polygons.php:466
 msgid "Polygon Data"
-msgstr "Polygon Daten"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/base/includes/wp-google-maps-polygons.php:492
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_polygons.php:491
 msgid "Delete this polygon"
-msgstr "Dieses  Polygon löschen"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/base/includes/wp-google-maps-polylines.php:42
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/base/includes/wp-google-maps-polylines.php:90
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_polylines.php:42
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_polylines.php:90
 msgid "Save Polyline"
-msgstr "Speicher Polyline"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/base/includes/wp-google-maps-polylines.php:73
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_polylines.php:73
 msgid "Edit Polyline"
-msgstr "bearbeite Polyline"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/base/includes/wp-google-maps-polylines.php:490
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_polylines.php:494
 msgid "Polyline Data"
-msgstr "Polyline Daten"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/base/includes/wp-google-maps-polylines.php:516
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_polylines.php:519
 msgid "Delete this polyline"
-msgstr "Dieses Polyline löschen"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:493
 msgid "including Pro &amp; Gold add-ons"
-msgstr "Inklusive  Pro &amp; Gold add-ons"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:493
 msgid "including Pro add-on"
-msgstr "Inklusive  Pro add-on"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:576
 msgid "Download this as a CSV file"
-msgstr "Herunterladen als CSV Datei"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:576
 msgid "Download this data as a CSV file"
-msgstr "Herunterladen dieser Daten als CSV Datei"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:590
 msgid "Create your Map"
-msgstr "Erstellen Sie Ihre Karte"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:646
 msgid "Map Dimensions"
-msgstr "Karten Abmessungen"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:703
 msgid "Default 'To' address"
-msgstr "Standard 'Nach' Adresse"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:751
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:101
@@ -1282,8 +1241,6 @@ msgid ""
 "Get great map markers <a href='http://mapicons.nicolasmollet.com/' "
 "target='_BLANK' title='Great Google Map Markers'>here</a>"
 msgstr ""
-"Beziehe tolle map markers <a href='http://mapicons.nicolasmollet.com/' "
-"target='_BLANK' title='Great Google Map Markers'>hier</a>"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:844
 msgid ""
@@ -1292,184 +1249,177 @@ msgid ""
 "api.html'>http://googlemapsmania.blogspot.com/2010/05/fusion-tables-google-"
 "maps-api.html</a>"
 msgstr ""
-"Daten direkt aus der Fusiontabelle lesen. Für mehr Information  <a "
-"href='http://googlemapsmania.blogspot.com/2010/05/fusion-tables-google-maps-"
-"api.html'>http://googlemapsmania.blogspot.com/2010/05/fusion-tables-google-"
-"maps-api.html</a>"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:889
 msgid "Markers"
-msgstr "Marker"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:896
 msgid "Add a marker"
-msgstr "Marker anbringen"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:914
 msgid "Or paste image URL"
-msgstr "oder eine Image URL einfügen"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:916
 msgid "Format: http://www.domain.com"
-msgstr "Format: http://www.domain.com"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:918
 msgid "ignore if you want to use the default marker"
-msgstr "Ingnorieren wenn sie den Standard Marker verwenden wollen"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1147
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1148
 msgid "Use my location"
-msgstr "Meinen Standort benutzen"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1173
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1179
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1187
 msgid "Filter by"
-msgstr "Gefiltert nach "
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1289
 msgid "Get directions to"
-msgstr "Richtungen auswählen nach"
+msgstr "Routebeschrijving naar"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1289
 msgid "Directions"
-msgstr "Route"
+msgstr ""
 
-# not sure this make sens
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1319
 msgid "Get Directions"
-msgstr "Streckenplaner"
+msgstr "Routebeschrijving"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1323
 msgid "For"
-msgstr "für"
+msgstr "Voor:"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1325
 msgid "Driving"
-msgstr "KFZ"
+msgstr "Auto"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1326
 msgid "Walking"
-msgstr "Fussweg"
+msgstr "Lopen"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1327
 msgid "Bicycling"
-msgstr "Fahrad"
+msgstr "Fietsen"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1330
 msgid "show options"
-msgstr "Optionen anzeigen"
+msgstr "opties weergeven"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1331
 msgid "hide options"
-msgstr "Optionen vestecken"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1333
 msgid "Avoid Tolls"
-msgstr "Maut vermeiden"
+msgstr "Vermijd tolwegen"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1334
 msgid "Avoid Highways"
-msgstr "Autobahn vermeiden"
+msgstr "Vermijd snelwegen"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1339
 msgid "From"
-msgstr "von"
+msgstr "Van"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1340
 msgid "To"
-msgstr "nach"
+msgstr "Naar"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1345
 msgid "Go"
-msgstr "Los"
+msgstr "Start"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1378
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1401
 msgid "Fetching directions..."
-msgstr "Abrufen der Wegbeschreibung..."
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1379
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1402
 msgid "Reset directions"
-msgstr "Zurücksetzen der Wegbeschreibung"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1732
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2404
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2856
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-gold/wp-google-maps-gold.php:762
 msgid "More details"
-msgstr "Mehr Details"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1737
 msgid "Get directions"
-msgstr "Route berechnen"
+msgstr "Routebeschrijving"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1738
 msgid "My location"
-msgstr "Mein Ort"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1739
 msgid "Please fill out both the 'from' and 'to' fields"
-msgstr "Bitte befüllen Sie das 'von' und 'nach' Eingabefeld"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1740
 msgid "Getting your current location address..."
-msgstr "Empfang ihres Ortes...."
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1743
 msgid "Show _MENU_ entries"
-msgstr "Show _MENU_ entries"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1744
 msgid "Nothing found - sorry"
-msgstr "Entschuldigung, es gibt leider keien Treffer"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1745
 msgid "Showing _START_ to _END_ of _TOTAL_ records"
-msgstr "Showing _START_ to _END_ of _TOTAL_ records"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1746
 msgid "Showing 0 to 0 of 0 records"
-msgstr "Anzeige von 0 von 0 Datensetzen"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1747
 msgid "(filtered from _MAX_ total records)"
-msgstr "(filtered from _MAX_ total records)"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1748
 msgid "First"
-msgstr "Erster"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1749
 msgid "Last"
-msgstr "Letzter"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1750
 msgid "Next"
-msgstr "Nächster"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1751
 msgid "Previous"
-msgstr "Vorheriger"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1757
 msgid "Please prove that you are human by checking the checkbox above"
 msgstr ""
-"Bitte bestätigen Sie das sie eine reale Peson sind indem sie die Auswahlbox "
-"überprüfen. "
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2067
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2162
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-gold/wp-google-maps-gold.php:447
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-gold/wp-google-maps-gold.php:531
 msgid "Geocode was not successful for the following reason"
-msgstr "Geocode war aus nachstehenden Grund nicht erfolgreich"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2513
 msgid "WP Google Maps"
-msgstr "WP Google Maps"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2513
 msgid ""
@@ -1477,94 +1427,90 @@ msgid ""
 "<strong>Pro</strong> versions of WP Google Maps installed and activated at "
 "the same time in order for the plugin to function correctly."
 msgstr ""
-"Bitte stellen Sie sicher das Sie <strong>beide</strong>  die <strong>Basic</"
-"strong> und <strong>Pro</strong>  Version von  WP Google Maps instaliert "
-"haben, nur so ist ein richtige Funktion sichergestelt. "
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2527
 msgid "Header 1 should be 'id', not"
-msgstr "Header 1 should be 'id', not"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2528
 msgid "Header 2 should be 'map_id', not"
-msgstr "Header 2 should be 'map_id', not"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2529
 msgid "Header 3 should be 'address', not"
-msgstr "Header 3 should be 'address', not"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2530
 msgid "Header 4 should be 'description', not"
-msgstr "Header 3 should be 'address', not"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2531
 msgid "Header 5 should be 'pic', not"
-msgstr "Header 3 should be 'address', not"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2532
 msgid "Header 6 should be 'link', not"
-msgstr "Header 3 should be 'address', not"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2533
 msgid "Header 7 should be 'icon', not"
-msgstr "Header 3 should be 'address', not"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2534
 msgid "Header 8 should be 'lat', not"
-msgstr "Header 3 should be 'address', not"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2535
 msgid "Header 9 should be 'lng', not"
-msgstr "Header 3 should be 'address', not"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2536
 msgid "Header 10 should be 'anim', not"
-msgstr "Header 3 should be 'address', not"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2537
 msgid "Header 11 should be 'title', not"
-msgstr "Header 3 should be 'address', not"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2538
 msgid "Header 12 should be 'infoopen', not"
-msgstr "Header 3 should be 'address', not"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2539
 msgid "Header 13 should be 'category', not"
-msgstr "Header 3 should be 'address', not"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2541
 msgid "CSV import failed"
-msgstr "CSV Import fehlgeschlagen"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2569
 msgid "Your CSV file has been successfully imported"
-msgstr "CSV import erfolgreich durchgeführt"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2591
 msgid "Download ALL marker data to a CSV file"
-msgstr "Download ALLER marker Daten in eine  CSV atei"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2594
 msgid "Advanced Options"
-msgstr "Erweiterte Optionen"
+msgstr ""
 
-# Not sure the OR is in use for an SQL or any other logic . therfore no translation.
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2597
 msgid "OR"
-msgstr "OR"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2598
 msgid "Upload CSV File"
-msgstr "Upload CSV Datei"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2600
 msgid "Replace existing data with data in file"
-msgstr "Überschreiben bestehender Daten mit den Daten aus dem Datensatz"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2601
 msgid "Upload File"
-msgstr "Upload Datei"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2727
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-gold/wp-google-maps-gold.php:975
@@ -1573,163 +1519,158 @@ msgid ""
 "An Unexpected HTTP Error occurred during the API request.</p> <p><a href=\"?"
 "\" onclick=\"document.location.reload(); return false;\">Try again</a>"
 msgstr ""
-"Ein unerwarteter  HTTP Fehler  is ist  beim der API Anfordeung aufgetreten.</"
-"p> <p><a href=\"?\" onclick=\"document.location.reload(); return false;"
-"\">Try again</a>"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2732
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-gold/wp-google-maps-gold.php:980
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-ugm/wp-google-maps-ugm.php:362
 msgid "An unknown error occurred"
-msgstr "Ein unbekannter Fehler ist aufgetreten"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2815
 msgid "Filter by category displayed as"
-msgstr "Filter nach Katerogie werden angezeigt als"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2817
 msgid "Dropdown"
-msgstr "Dropdown"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2818
 msgid "Checkboxes"
-msgstr "Checkboxes"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2822
 msgid "Marker Listing Settings"
-msgstr "Marker Auflistungs Einstellungen"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2824
 msgid "Hide the Icon column"
-msgstr "Verbergen der Icon Kolonne (column)"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2825
 msgid "Hide the Title column"
-msgstr "Verbergen der Titel Kolonne (column)"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2826
 msgid "Hide the Address column"
-msgstr "Verbergen der Adressen Kolonne (column)"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2827
 msgid "Hide the Category column"
-msgstr "Verbergen der Kategorie Kolonne (column)"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2828
 msgid "Hide the Description column"
-msgstr "Verbergen der Beschreibung Kolonne (column)"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2868
 msgid "InfoWindow Settings"
-msgstr "InfoWindow Einstellungen"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2871
 msgid "Default Image Width"
-msgstr "Standard Image Breite"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2875
 msgid "Default Image Height"
-msgstr "Standard Image Höhe "
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2879
 msgid "Image Thumbnails"
-msgstr "Image Thumbnails"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2881
 msgid "Do not use TimThumb"
-msgstr "Keie TimThumb benutzen"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2882
 msgid "(Tick this if you are having problems viewing your thumbnail images)"
 msgstr ""
-"(Hier auswählen wenn Sie ein Problem mit der Ansicht der thumbnail images "
-"haben )"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2886
 msgid "Max InfoWindow Width"
-msgstr "Max InfoWindow Breite"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2887
 msgid "(Minimum: 250px)"
-msgstr "(Minimum: 250px)"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2890
 msgid "Other settings"
-msgstr "Andere Einstellungen"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2892
 msgid "Open links in a new window"
-msgstr "Link im neuen Fenster"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2893
 msgid "(Tick this if you want to open your links in a new window)"
-msgstr "(Hier auswählen wenn Sie den Link im neuen Fenster öffnen wollen)"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2894
 msgid "Hide the address field"
-msgstr "Verstecke Adressen Feld"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2898
 msgid "Link text"
-msgstr "Link text"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:15
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:18
 msgid "Marker Categories"
-msgstr "Marker Kategorieen"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:15
 msgid "Add New Category"
-msgstr "Hinzufügen einer neuen Kategorie "
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:19
 msgid "Create marker categories"
-msgstr "Erstelle neue Marker Kategorie "
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:32
 msgid "There was a problem deleting the category."
-msgstr "Es ist ein Problem beim Löschen der Kategorie aufgereten. "
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:35
 msgid "Delete your Category"
-msgstr "Löschen sie iher Kategorie "
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:35
 msgid "Are you sure you want to delete the category"
-msgstr "Sind sie sich sicher das Sie die Kategorie löschen wollen?"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:85
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:154
 msgid "Add a Marker Category"
-msgstr "Hinzufügen Kategorie Marker"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:89
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:159
 msgid "Category Name"
-msgstr "Kategorie Name"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:99
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:169
 msgid "Category Marker"
-msgstr "Kategorie Marker"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:109
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:179
 msgid "Assigned to "
-msgstr "Übergeben an "
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:122
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:193
 msgid "Save Category"
-msgstr "Speichere Kategorie"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:272
 msgid "Your category has been created."
-msgstr "Ihre Kategorie wurde erstellt."
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:336
 msgid "Your category has been saved."
-msgstr "Iher Kategorie wurde gespeichert. "
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:346
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:392
@@ -1738,15 +1679,15 @@ msgstr "Alles"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:416
 msgid "All maps"
-msgstr "Alle Karten"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:448
 msgid "Linked maps"
-msgstr "Verlinkte Karten"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-gold/wp-google-maps-gold.php:869
 msgid "Advanced Map Settings"
-msgstr "Erweiterte Map Einstellungen"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-gold/wp-google-maps-gold.php:870
 msgid ""
@@ -1754,84 +1695,79 @@ msgid ""
 "wizard/index.html' target='_BLANK'>Google Maps API Styled Map Wizard</a> to "
 "get your style settings"
 msgstr ""
-"Use the <a href='http://gmaps-samples-v3.googlecode.com/svn/trunk/styledmaps/"
-"wizard/index.html' target='_BLANK'>Google Maps API Styled Map Wizard</a> to "
-"get your style settings"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-gold/wp-google-maps-gold.php:875
 msgid "Enable Mass Marker Support"
-msgstr "Aktiviere Massen Marker Support"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-gold/wp-google-maps-gold.php:884
 msgid "Enable Advanced Styling"
-msgstr "Aktiviere Fortgeschrittene Stylings "
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-gold/wp-google-maps-gold.php:893
 msgid "Paste the JSON data here"
-msgstr " JSON Daten hier einfügen"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-gold/wp-google-maps-gold.php:897
 msgid "Save Style Settings"
-msgstr "Style Einstellungen speichern"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-ugm/wp-google-maps-ugm.php:98
 msgid "Visitor Generated Markers - Settings"
-msgstr "Besucher generierte  Markers - Einstellungen"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-ugm/wp-google-maps-ugm.php:104
 msgid "Enable Visitor Generated Markers?"
-msgstr "Aktivieren Besucher generierte Marker"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-ugm/wp-google-maps-ugm.php:113
 msgid "Who can add markers?"
-msgstr "Wer kann Marker erstellen?"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-ugm/wp-google-maps-ugm.php:116
 msgid "Everyone"
-msgstr "Jeder"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-ugm/wp-google-maps-ugm.php:117
 msgid "Registered Users"
-msgstr "Regisrierte Benutzer"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-ugm/wp-google-maps-ugm.php:122
 msgid "Allow users to select a marker category?"
-msgstr "Benutzeren erlauben eine Marker Kategorie zu wählen?"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-ugm/wp-google-maps-ugm.php:212
 msgid "Marker Title"
-msgstr "Marker Titel"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-ugm/wp-google-maps-ugm.php:216
 msgid "Marker Address or GPS Location"
-msgstr "Marker Adresse oder GPS Koordinaten"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-ugm/wp-google-maps-ugm.php:220
 msgid "Marker Description"
-msgstr "Marker Beschreibung"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-ugm/wp-google-maps-ugm.php:227
 msgid "Marker Category"
-msgstr "Marker Kategorie"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-ugm/wp-google-maps-ugm.php:233
 msgid "Please tick this box to prove you are human"
 msgstr ""
-"Bitte bestätigen Sie durch das aktivieren der Schaltfläche das Sie ein "
-"Mensch sind. "
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-ugm/wp-google-maps-ugm.php:237
 msgid "Add marker"
-msgstr "Marker hinzufügen"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-ugm/wp-google-maps-ugm.php:386
 msgid "Visitor Generated Marker Settings"
-msgstr "Besucher generierte Marker Einstellungen"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-ugm/wp-google-maps-ugm.php:389
 msgid "Visitor Marker Input Settings"
-msgstr "Besucher Marker Eingabe-Einstellungen"
+msgstr ""
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-ugm/wp-google-maps-ugm.php:391
 msgid "Strip all HTML tags in descriptions and titles"
-msgstr "Entferne HTML Tags aus der Beschreibungen und Titeln "
+msgstr ""

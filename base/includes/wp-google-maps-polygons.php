@@ -25,18 +25,46 @@ function wpgmza_b_pro_add_poly($mid) {
                     <h2>".__("Add a Polygon","wp-google-maps")."</h2>
                     <form action='?page=wp-google-maps-menu&action=edit&map_id=".$mid."' method='post' id='wpgmaps_add_poly_form'>
                     <input type='hidden' name='wpgmaps_map_id' id='wpgmaps_map_id' value='".$mid."' />
-                    <p>Line Color:<input id=\"poly_line\" name=\"poly_line\" type=\"text\" class=\"color\" value=\"000000\" /></p>   
-                    <p>Line Opacity:<input id=\"poly_line_opacity\" name=\"poly_line_opacity\" type=\"text\" value=\"0.5\" /> (0 - 1.0) example: 0.5 for 50%</p>   
-                    <p>Fill Color:<input id=\"poly_fill\" name=\"poly_fill\" type=\"text\" class=\"color\" value=\"66ff00\" /></p>   
-                    <p>Opacity:<input id=\"poly_opacity\" name=\"poly_opacity\" type=\"text\" value=\"0.5\" /> (0 - 1.0) example: 0.5 for 50%</p>   
-                    <div id=\"wpgmza_map\">&nbsp;</div>
+                    
+                    <table>
+                    <tr>
+                        <td>".__("Title","wp-google-maps")."</td><td><input disabled type=\"text\" value=\"".__("Pro version only","wp-google-maps")."\" /><i><a href='http://www.wpgmaps.com/purchase-professional-version/?utm_source=plugin&utm_medium=link&utm_campaign=polygons' title='".__("Pro Version","wp-google-maps")."'>".__("Get the Pro add-on","wp-google-maps")."</a></i></td>
+                    </tr>
+                    <tr>
+                        <td>".__("Link","wp-google-maps")."</td><td><input disabled type=\"text\" value=\"pro version only\" /></td> 
+                    </tr>
+                    <tr>
+                        <td>".__("Line Color","wp-google-maps")."</td><td><input id=\"poly_line\" name=\"poly_line\" type=\"text\" class=\"color\" value=\"000000\" /></td>   
+                    </tr>
+                    <tr>
+                        <td>".__("Line Opacity","wp-google-maps")."</td><td><input id=\"poly_line_opacity\" name=\"poly_line_opacity\" type=\"text\" value=\"0.5\" /> (0 - 1.0) example: 0.5 for 50%</td>   
+                    </tr>
+                    <tr>
+                        <td>".__("Fill Color","wp-google-maps")."</td><td><input id=\"poly_fill\" name=\"poly_fill\" type=\"text\" class=\"color\" value=\"66ff00\" /></td>  
+                    </tr>
+                    <tr>
+                        <td>".__("Opacity","wp-google-maps")."</td><td><input id=\"poly_opacity\" name=\"poly_opacity\" type=\"text\" value=\"0.5\" /> (0 - 1.0) example: 0.5 for 50%</td>   
+                    </tr>
+                    <tr>
+                        <td>".__("On Hover Line Color","wp-google-maps")."</td><td><input disabled type=\"text\" value=\"".__("Pro version only","wp-google-maps")."\"/></td>   
+                    </tr>
+                    <tr>
+                        <td>".__("On Hover Fill Color","wp-google-maps")."</td><td><input disabled type=\"text\" value=\"".__("Pro version only","wp-google-maps")."\"/></td>  
+                    </tr>
+                    <tr>
+                        <td>".__("On Hover Opacity","wp-google-maps")."</td><td><input disabled type=\"text\"value=\"".__("Pro version only","wp-google-maps")."\" /></td>   
+                    </tr>
+                        
+                    </table>
                     <p>
                             <ul style=\"list-style:initial;\">
-                                <li style=\"margin-left:30px;\">Click on the map to insert a vertex.</li>
-                                <li style=\"margin-left:30px;\">Click on a vertex to remove it.</li>
-                                <li style=\"margin-left:30px;\">Drag a vertex to move it.</li>
+                                <li style=\"margin-left:30px;\">".__("Click on the map to insert a vertex.","wp-google-maps")."</li>
+                                <li style=\"margin-left:30px;\">".__("Click on a vertex to remove it.","wp-google-maps")."</li>
+                                <li style=\"margin-left:30px;\">".__("Drag a vertex to move it.","wp-google-maps")."</li>
                             </ul>
                     </p>
+                    <div id=\"wpgmza_map\">&nbsp;</div>
+                    
 
 
                      <p>Polygon data:<br /><textarea name=\"wpgmza_polygon\" id=\"poly_line_list\" style=\"width:90%; height:100px; border:1px solid #ccc; background-color:#FFF; padding:5px; overflow:auto;\"></textarea>

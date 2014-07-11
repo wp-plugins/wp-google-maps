@@ -3,12 +3,19 @@
 Plugin Name: WP Google Maps
 Plugin URI: http://www.wpgmaps.com
 Description: The easiest to use Google Maps plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 6.0.18
+Version: 6.0.19
 Author: WP Google Maps
 Author URI: http://www.wpgmaps.com
 */
 
 /*
+ * 6.0.19
+ * Fixed a bug that caused the marker file to be recreated on every page load in some instances.
+ * Fixed a marker listing display bug (iPhone)
+ * Now showing default settings for marker path and URL
+ * Removed the "map could not load" error
+ * Fixed a bug that when threw off gps co-ordinates when adding a lat,lng as an address
+ * 
  * 6.0.18
  * You can now select which roles can access the map editor
  * 
@@ -122,8 +129,8 @@ $wpgmza_tblname_poly = $wpdb->prefix . "wpgmza_polygon";
 $wpgmza_tblname_polylines = $wpdb->prefix . "wpgmza_polylines";
 $wpgmza_tblname_categories = $wpdb->prefix. "wpgmza_categories";
 $wpgmza_tblname_category_maps = $wpdb->prefix. "wpgmza_category_maps";
-$wpgmza_version = "6.0.18";
-$wpgmza_p_version = "6.0.18";
+$wpgmza_version = "6.0.19";
+$wpgmza_p_version = "6.0.19";
 $wpgmza_t = "basic";
 define("WPGMAPS", $wpgmza_version);
 define("WPGMAPS_DIR",plugin_dir_url(__FILE__));
@@ -760,57 +767,92 @@ function wpgmaps_admin_javascript_basic() {
                     var wpgm_map_id = "0";
                     if (document.getElementsByName("wpgmza_add_address").length > 0) { wpgm_address = jQuery("#wpgmza_add_address").val(); }
                     if (document.getElementsByName("wpgmza_id").length > 0) { wpgm_map_id = jQuery("#wpgmza_id").val(); }
+                    var wpgm_anim = "0";
+                    var wpgm_infoopen = "0";
+                    if (document.getElementsByName("wpgmza_animation").length > 0) { wpgm_anim = jQuery("#wpgmza_animation").val(); }
+                    if (document.getElementsByName("wpgmza_infoopen").length > 0) { wpgm_infoopen = jQuery("#wpgmza_infoopen").val(); }
 
-
-                    geocoder.geocode ({ 'address': wpgm_address }, function(results, status) {
-                        if (status == google.maps.GeocoderStatus.OK) {
-                            
-                        
-                            wpgm_gps = String(results[0].geometry.location);
-                            var latlng1 = wpgm_gps.replace("(","");
-                            var latlng2 = latlng1.replace(")","");
-                            var latlngStr = latlng2.split(",",2);
-                            
-                            var wpgm_lat = parseFloat(latlngStr[0]);
-                            var wpgm_lng = parseFloat(latlngStr[1]);
-                            
-                            var wpgm_anim = "0";
-                            var wpgm_infoopen = "0";
-                            if (document.getElementsByName("wpgmza_animation").length > 0) { wpgm_anim = jQuery("#wpgmza_animation").val(); }
-                            if (document.getElementsByName("wpgmza_infoopen").length > 0) { wpgm_infoopen = jQuery("#wpgmza_infoopen").val(); }
-
-                            
-                            var data = {
-                                action: 'add_marker',
-                                security: '<?php echo $ajax_nonce; ?>',
-                                map_id: wpgm_map_id,
-                                address: wpgm_address,
-                                lat: wpgm_lat,
-                                lng: wpgm_lng,
-                                infoopen: wpgm_infoopen,
-                                anim: wpgm_anim 
-                            };
-
-                            jQuery.post(ajaxurl, data, function(response) {
-                                wpgmza_InitMap();
-                                jQuery("#wpgmza_marker_holder").html(response);
-                                jQuery("#wpgmza_addmarker").show();
-                                jQuery("#wpgmza_addmarker_loading").hide();
-                                jQuery("#wpgmza_add_address").val("");
-                                jQuery("#wpgmza_animation").val("");
-                                jQuery("#wpgmza_infoopen").val("");
-                                wpgmza_reinitialisetbl();
-                                var myLatLng = new google.maps.LatLng(wpgm_lat,wpgm_lng);
-                                MYMAP.map.setCenter(myLatLng);
-                            });
-
-                        } else {
-                            alert("Geocode was not successful for the following reason: " + status);
+                    /* first check if user has added a GPS co-ordinate */
+                    checker = wpgm_address.split(",");
+                    var wpgm_lat = "";
+                    var wpgm_lng = "";
+                    wpgm_lat = checker[0];
+                    wpgm_lng = checker[1];
+                    checker1 = parseFloat(checker[0]);
+                    checker2 = parseFloat(checker[1]);
+                    if ((wpgm_lat.match(/[a-zA-Z]/g) === null && wpgm_lng.match(/[a-zA-Z]/g) === null) && checker.length === 2 && (checker1 != NaN && (checker1 <= 90 || checker1 >= -90)) && (checker2 != NaN && (checker2 <= 90 || checker2 >= -90))) {
+                        var data = {
+                            action: 'add_marker',
+                            security: '<?php echo $ajax_nonce; ?>',
+                            map_id: wpgm_map_id,
+                            address: wpgm_address,
+                            lat: wpgm_lat,
+                            lng: wpgm_lng,
+                            infoopen: wpgm_infoopen,
+                            anim: wpgm_anim 
+                        };
+                        jQuery.post(ajaxurl, data, function(response) {
+                            wpgmza_InitMap();
+                            jQuery("#wpgmza_marker_holder").html(response);
                             jQuery("#wpgmza_addmarker").show();
                             jQuery("#wpgmza_addmarker_loading").hide();
-                            
-                        }
-                    });
+                            jQuery("#wpgmza_add_address").val("");
+                            jQuery("#wpgmza_animation").val("");
+                            jQuery("#wpgmza_infoopen").val("");
+                            wpgmza_reinitialisetbl();
+                            var myLatLng = new google.maps.LatLng(wpgm_lat,wpgm_lng);
+                            MYMAP.map.setCenter(myLatLng);
+                        });
+                    } else { 
+                        geocoder.geocode ({ 'address': wpgm_address }, function(results, status) {
+                            if (status == google.maps.GeocoderStatus.OK) {
+
+                                wpgm_gps = String(results[0].geometry.location);
+                                var latlng1 = wpgm_gps.replace("(","");
+                                var latlng2 = latlng1.replace(")","");
+                                var latlngStr = latlng2.split(",",2);
+                                wpgm_lat = parseFloat(latlngStr[0]);
+                                wpgm_lng = parseFloat(latlngStr[1]);
+
+
+                                var data = {
+                                    action: 'add_marker',
+                                    security: '<?php echo $ajax_nonce; ?>',
+                                    map_id: wpgm_map_id,
+                                    address: wpgm_address,
+                                    lat: wpgm_lat,
+                                    lng: wpgm_lng,
+                                    infoopen: wpgm_infoopen,
+                                    anim: wpgm_anim 
+                                };
+                                jQuery.post(ajaxurl, data, function(response) {
+                                    wpgmza_InitMap();
+                                    jQuery("#wpgmza_marker_holder").html(response);
+                                    jQuery("#wpgmza_addmarker").show();
+                                    jQuery("#wpgmza_addmarker_loading").hide();
+                                    jQuery("#wpgmza_add_address").val("");
+                                    jQuery("#wpgmza_animation").val("");
+                                    jQuery("#wpgmza_infoopen").val("");
+                                    wpgmza_reinitialisetbl();
+                                    var myLatLng = new google.maps.LatLng(wpgm_lat,wpgm_lng);
+                                    MYMAP.map.setCenter(myLatLng);
+                                });
+                                
+
+                            } else {
+                                alert("Geocode was not successful for the following reason: " + status);
+                                jQuery("#wpgmza_addmarker").show();
+                                jQuery("#wpgmza_addmarker_loading").hide();
+
+                            }
+                        });
+                    }
+                    
+                    
+                    
+                    
+
+                    
 
 
                 });
@@ -958,12 +1000,22 @@ function wpgmaps_admin_javascript_basic() {
                     $fillcolor = $polyoptions->fillcolor;
                     $fillopacity = $polyoptions->opacity;
                     $lineopacity = $polyoptions->lineopacity;
+                    $title = $polyoptions->title;
+                    $link = $polyoptions->link;
+                    $ohlinecolor = $polyoptions->ohlinecolor;
+                    $ohfillcolor = $polyoptions->ohfillcolor;
+                    $ohopacity = $polyoptions->ohopacity;
                     if (!$linecolor) { $linecolor = "000000"; }
                     if (!$fillcolor) { $fillcolor = "66FF00"; }
                     if ($fillopacity == "") { $fillopacity = "0.5"; }
                     if ($lineopacity == "") { $lineopacity = "1.0"; }
+                    if ($ohlinecolor == "") { $ohlinecolor = $linecolor; }
+                    if ($ohfillcolor == "") { $ohfillcolor = $fillcolor; }
+                    if ($ohopacity == "") { $ohopacity = $fillopacity; }
                     $linecolor = "#".$linecolor;
                     $fillcolor = "#".$fillcolor;
+                    $ohlinecolor = "#".$ohlinecolor;
+                    $ohfillcolor = "#".$ohfillcolor;
                     
                     $poly_array = wpgmza_b_return_polygon_array($poly_id);
                     
@@ -1666,7 +1718,6 @@ function wpgmaps_user_javascript_basic() {
 
 function wpgmaps_update_xml_file($mapid = false) {
 
-
     if (!$mapid) {
         $mapid = $_POST['map_id'];
     }
@@ -1936,10 +1987,6 @@ function wpgmaps_tag_basic( $atts ) {
             
             $sl_data    
             <div id=\"wpgmza_map\" $map_style>
-                <div style='text-align:center; width:90%;'>
-                        <small><strong>".__("The map could not load.","wp-google-maps")."</strong><br />".__("This is normally caused by a conflict with another plugin or a JavaScript error that is preventing our plugin's Javascript from executing. Please try disable all plugins one by one and see if this problem persists. If it persists, please contact WP Google Maps for support.","wp-google-maps")."</small>
-                    
-                </div>
             </div>
         ";
     return $ret_msg;
@@ -1947,25 +1994,22 @@ function wpgmaps_tag_basic( $atts ) {
 function wpgmza_check_if_marker_file_exists($mapid) {
     wpgmaps_handle_directory();
     $upload_dir = wp_upload_dir(); 
+    
+    $xml_marker_location = get_option("wpgmza_xml_location");
     if (is_multisite()) {
         global $blog_id;
-        if (file_exists($upload_dir['path'].'/wp-google-maps/'.$blog_id.'-'.$mapid.'markers.xml')) {
+        if (file_exists($xml_marker_location.$blog_id.'-'.$mapid.'markers.xml')) {
             /* all OK */  
         } else {
-            
             $wpgmza_check = wpgmaps_update_xml_file($mapid);
             if ( is_wp_error($wpgmza_check) ) wpgmza_return_error($wpgmza_check);
-
-        
         }
     }
     else {
-            if (file_exists($upload_dir['path'].'/wp-google-maps/'.$mapid.'markers.xml')) {
-
+            if (file_exists($xml_marker_location.$mapid.'markers.xml')) {
             } else {
                 $wpgmza_check = wpgmaps_update_xml_file($mapid);
                 if ( is_wp_error($wpgmza_check) ) wpgmza_return_error($wpgmza_check);
-
             }
     }
 }
@@ -2174,6 +2218,9 @@ function wpgmaps_head() {
         $fillcolor = esc_attr($_POST['poly_fill']);
         $opacity = esc_attr($_POST['poly_opacity']);
         $line_opacity = esc_attr($_POST['poly_line_opacity']);
+        $ohlinecolor = esc_attr($_POST['poly_line_hover_line_color']);
+        $ohfillcolor = esc_attr($_POST['poly_hover_fill_color']);
+        $ohopacity = esc_attr($_POST['poly_hover_opacity']);
 
         $rows_affected = $wpdb->query( $wpdb->prepare(
                 "INSERT INTO $wpgmza_tblname_poly SET
@@ -2182,7 +2229,10 @@ function wpgmaps_head() {
                 linecolor = %s,
                 lineopacity = %s,
                 fillcolor = %s,
-                opacity = %s
+                opacity = %s,
+                ohlinecolor = %s,
+                ohfillcolor = %s,
+                ohopacity = %s
                 ",
 
                 $mid,
@@ -2190,7 +2240,10 @@ function wpgmaps_head() {
                 $linecolor,
                 $line_opacity,
                 $fillcolor,
-                $opacity
+                $opacity,
+                $ohlinecolor,
+                $ohfillcolor,
+                $ohopacity
             )
         );
         echo "<div class='updated'>";
@@ -2209,6 +2262,9 @@ function wpgmaps_head() {
         $fillcolor = esc_attr($_POST['poly_fill']);
         $opacity = esc_attr($_POST['poly_opacity']);
         $line_opacity = esc_attr($_POST['poly_line_opacity']);
+        $ohlinecolor = esc_attr($_POST['poly_line_hover_line_color']);
+        $ohfillcolor = esc_attr($_POST['poly_hover_fill_color']);
+        $ohopacity = esc_attr($_POST['poly_hover_opacity']);
 
         $rows_affected = $wpdb->query( $wpdb->prepare(
                 "UPDATE $wpgmza_tblname_poly SET
@@ -2216,7 +2272,10 @@ function wpgmaps_head() {
                 linecolor = %s,
                 lineopacity = %s,
                 fillcolor = %s,
-                opacity = %s
+                opacity = %s,
+                ohlinecolor = %s,
+                ohfillcolor = %s,
+                ohopacity = %s
                 WHERE `id` = %d"
                 ,
 
@@ -2225,6 +2284,9 @@ function wpgmaps_head() {
                 $line_opacity,
                 $fillcolor,
                 $opacity,
+                $ohlinecolor,
+                $ohfillcolor,
+                $ohopacity,
                 $pid
             )
         );
@@ -2740,12 +2802,21 @@ function wpgmaps_menu_layout() {
         }
         else if ($_GET['action'] == "add_poly" && isset($_GET['map_id'])) {
 
-            wpgmza_b_pro_add_poly($_GET['map_id']);
+            if (function_exists("wpgmza_b_real_pro_add_poly")) {
+                wpgmza_b_real_pro_add_poly($_GET['map_id']);
+            } else {
+                wpgmza_b_pro_add_poly($_GET['map_id']);
+            }
 
         }
         else if ($_GET['action'] == "edit_poly" && isset($_GET['map_id'])) {
 
-            wpgmza_b_pro_edit_poly($_GET['map_id']);
+            if (function_exists("wpgmza_b_real_pro_edit_poly")) {
+                wpgmza_b_real_pro_edit_poly($_GET['map_id']);
+            } else {
+                wpgmza_b_pro_edit_poly($_GET['map_id']);
+            }
+            
 
         }
         else if ($_GET['action'] == "add_polyline" && isset($_GET['map_id'])) {
@@ -2917,6 +2988,7 @@ function wpgmaps_settings_page_basic() {
         $wpgmza_file_perms_check = "<span style='color:green;'>$fpe_error</span>";
         
     }
+    $upload_dir = wp_upload_dir();
     
     echo "
             
@@ -2983,12 +3055,17 @@ function wpgmaps_settings_page_basic() {
                             <td width='200' valign='top'>".__("Marker data XML directory","wp-google-maps").":</td>
                          <td>
                             <input id='wpgmza_marker_xml_location' name='wpgmza_marker_xml_location' value='$marker_location' class='regular-text code' /> $wpgmza_file_perms_check
+                                <br />
+                                ".__("Default","wp-google-maps").": ".$upload_dir['basedir']."/wp-google-maps/
+                               
                         </td>
                     </tr>
                      <tr>
                             <td width='200' valign='top'>".__("Marker data XML URL","wp-google-maps").":</td>
                          <td>
                             <input id='wpgmza_marker_xml_url' name='wpgmza_marker_xml_url' value='$marker_url' class='regular-text code' />
+                                <br />
+                                ".__("Default","wp-google-maps").": ".$upload_dir['baseurl']."/wp-google-maps/
                         </td>
                     </tr>
                     </table>
@@ -4383,6 +4460,11 @@ function wpgmaps_handle_db() {
           lineopacity VARCHAR(7) NOT NULL,
           fillcolor VARCHAR(7) NOT NULL,
           opacity VARCHAR(3) NOT NULL,
+          title VARCHAR(250) NOT NULL,
+          link VARCHAR(700) NOT NULL,
+          ohfillcolor VARCHAR(7) NOT NULL,
+          ohlinecolor VARCHAR(7) NOT NULL,
+          ohopacity VARCHAR(3) NOT NULL,
           PRIMARY KEY  (id)
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
     ";

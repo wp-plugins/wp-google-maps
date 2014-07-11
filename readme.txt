@@ -3,7 +3,7 @@ Contributors: WPGMaps
 Donate link: http://www.wpgmaps.com
 Tags: google maps, maps, map, map markers, google, google map, wp maps, wp google maps, wp google map, easy map, store locator, map plugin, directions, map directions, google map plugin, routes, polygons, polylines, streetview, location, marker, latitude, longitude
 Requires at least: 3.5
-Tested up to: 3.9.1
+Tested up to: 4.0
 Stable tag: trunk
 License: GPLv2
 
@@ -64,11 +64,13 @@ Get a free copy of the WP Google Maps Pro version in exchange for translating ou
 * English - default
 * Russian
 * German
+* Polish (Michal Kotnowski)
+* Finnish (Johanna Joutti)
+* Dutch (Jan Wind)
 * Czechoslovakian^
 * Spanish^
 * French^
 * Italian^
-* Dutch^
 * Swedish^
 
 ^Language file needs to be updated
@@ -145,6 +147,13 @@ In order to show your custom Google map on your page or post, simply copy the sh
 This is a must for users on IIS. Older WP Google Maps versions will not be compatible.
 
 == Changelog ==
+
+= 6.0.19 =
+* Fixed a bug that caused the marker file to be recreated on every page load in some instances.
+* Fixed a marker listing display bug (iPhone)
+* Now showing default settings for marker path and URL
+* Removed the "Google map could not load" error
+* Fixed a bug that when threw off GPS co-ordinates when adding a lat,lng as an address
 
 = 6.0.18 =
 * You can now select which roles can access the map editor
