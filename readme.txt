@@ -148,6 +148,9 @@ This is a must for users on IIS. Older WP Google Maps versions will not be compa
 
 == Changelog ==
 
+= 6.0.20 =
+* You can now alter the query string for the store locator
+
 = 6.0.19 =
 * Fixed a bug that caused the marker file to be recreated on every page load in some instances.
 * Fixed a marker listing display bug (iPhone)

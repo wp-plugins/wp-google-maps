@@ -3,94 +3,20 @@
 Plugin Name: WP Google Maps
 Plugin URI: http://www.wpgmaps.com
 Description: The easiest to use Google Maps plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 6.0.19
+Version: 6.0.20
 Author: WP Google Maps
 Author URI: http://www.wpgmaps.com
 */
 
-/*
+/* 6.0.20
+ * You can now set the query string for the store locator
+ * 
  * 6.0.19
  * Fixed a bug that caused the marker file to be recreated on every page load in some instances.
  * Fixed a marker listing display bug (iPhone)
  * Now showing default settings for marker path and URL
  * Removed the "map could not load" error
  * Fixed a bug that when threw off gps co-ordinates when adding a lat,lng as an address
- * 
- * 6.0.18
- * You can now select which roles can access the map editor
- * 
- * 6.0.17
- * Minor update: PO files updated
- * 
- * 6.0.16
- * You can now choose which folder your markers are saved in
- * Better error reporting for file permission issues
- * 
- * 6.0.15
- * Fixed a bug that used the incorrect upload folder if the upload folder was changed in wp-config
- * Small bug fixes
- * 
- * 6.0.14
- * Fixed PHP warnings
- * 
- * 6.0.13
- * Fixed PHP Warnings
- * Plugin is now PHP 5.5 compatible
- * 
- * 6.0.12
- * Fixed a marker XML file location bug
- * 
- * 6.0.11
- * Small bug fix for the welcome page
- * 
- * 6.0.10
- * Fixed a bug that used the category icon instead of a defined marker icon when there was a category icon set
- * Fixed a bug that only displayed two map marker categories for the store locator (pro)
- * Added the option to select which API version you would like to use
- * 
- * 
- * 6.0.9
- * Maps now automatically work in Tabs without having to add any code
- * Added a "zoom level" slider to the Google map settings
- * Added a check for GoDaddy Wordpress hosting and the APC object cache due to the issues that arise while using it
- * Fixed a polyline bug
- * Added "stroke opacity" options to polygons
- * Added a warning when users want to use % for the map height
- * 
- * 6.0.8
- * Fixed a Mac Firefox style issue with the Store Locator
- * Fixed a function error in the polyline functions file
- * 
- * 6.0.7
- * Upgrades are now handled correctly
- * 
- * 6.0.6
- * Multisite bug fixes
- * 
- * 6.0.5
- * Bug fixes
- * All XML marker files are now kept in wp-content/uploads/wp-google-maps/
- * 
- * 6.0.4
- * Performance improvements
- * 
- * 6.0.3
- * Small bug fix
- * 
- * 6.0.2
- * Small bug fuix
- * 
- * 6.0.1
- * Small bug fix with styling
- * 
- * 6.0.0
- * Fixed a width bug with the datatables layout. Now falls in line with the map width.
- * Added more options to the settings page
- * Fixed a bug that forced a new geocode on every marker edit, even if the address wasnt changed
- * Updated TimThumb from 2.8.11 to 2.8.13
- * You can now choose for your InfoWindows to open from mouse click or hover
- * Better error handling when the map cannot show due to conflicts or JS errors
- * Fixed the bug that caused high memory usage
  * 
  */
 
@@ -129,8 +55,8 @@ $wpgmza_tblname_poly = $wpdb->prefix . "wpgmza_polygon";
 $wpgmza_tblname_polylines = $wpdb->prefix . "wpgmza_polylines";
 $wpgmza_tblname_categories = $wpdb->prefix. "wpgmza_categories";
 $wpgmza_tblname_category_maps = $wpdb->prefix. "wpgmza_category_maps";
-$wpgmza_version = "6.0.19";
-$wpgmza_p_version = "6.0.19";
+$wpgmza_version = "6.0.20";
+$wpgmza_p_version = "6.0.20";
 $wpgmza_t = "basic";
 define("WPGMAPS", $wpgmza_version);
 define("WPGMAPS_DIR",plugin_dir_url(__FILE__));
@@ -2020,13 +1946,15 @@ function wpgmaps_sl_user_output_basic($map_id) {
     $map_width_type = stripslashes($map_settings->map_width_type);
     $map_other_settings = maybe_unserialize($map_settings->other_settings);
     
+    if (isset($map_other_settings['store_locator_query_string'])) { $sl_query_string = stripslashes($map_other_settings['store_locator_query_string']); } else { $sl_query_string = __("ZIP / Address:","wp-google-maps"); }
+    
     if ($map_width_type == "px" && $map_width < 300) { $map_width = "300"; }
     
     $ret_msg = "";
     
     $ret_msg .= "<div>";
     $ret_msg .= "   <div style=\"display:block; width:".$map_width.$map_width_type."; height:30px;\">";
-    $ret_msg .= "       <div style=\"display:block; float:left; width:150px;\">".__("ZIP / Address","wp-google-maps").":</div>";
+    $ret_msg .= "       <div style=\"display:block; float:left; width:150px;\">".$sl_query_string."</div>";
     $ret_msg .= "           <div style=\"display:block; float:left; width:250px;\"><input type=\"text\" id=\"addressInput\" size=\"20\"/></div>";
     $ret_msg .= "       </div>";
 
@@ -2125,6 +2053,8 @@ function wpgmaps_head() {
         $other_settings = array();
         $other_settings['store_locator_enabled'] = intval($_POST['wpgmza_store_locator']);
         $other_settings['store_locator_distance'] = intval($_POST['wpgmza_store_locator_distance']);
+        $other_settings['store_locator_query_string'] = sanitize_text_field($_POST['wpgmza_store_locator_query_string']);
+        
         
         $other_settings['weather_layer'] = intval($_POST['wpgmza_weather']);
         $other_settings['weather_layer_temp_type'] = intval($_POST['wpgmza_weather_temp_type']);
@@ -3247,14 +3177,13 @@ function wpgmza_basic_menu() {
     */
     if ($_GET['action'] == "edit" && isset($_GET['map_id'])) {
         $res = wpgmza_get_map_data($_GET['map_id']);
-
         if (function_exists("wpgmaps_marker_permission_check")) { wpgmaps_marker_permission_check(); }
 
         
         $other_settings_data = maybe_unserialize($res->other_settings);
         if (isset($other_settings_data['store_locator_enabled'])) { $wpgmza_store_locator_enabled = $other_settings_data['store_locator_enabled']; } else { $wpgmza_store_locator_enabled = 0; }
         if (isset($other_settings_data['store_locator_distance'])) { $wpgmza_store_locator_distance = $other_settings_data['store_locator_distance']; } else { $wpgmza_store_locator_distance = 0; }
-        
+        if (isset($other_settings_data['store_locator_query_string'])) { $wpgmza_store_locator_query_string = stripslashes($other_settings_data['store_locator_query_string']); } else { $wpgmza_store_locator_query_string = __("ZIP / Address:","wp-google-maps"); }
 
         if (isset($other_settings_data['weather_layer'])) { $wpgmza_weather_option = $other_settings_data['weather_layer']; } else { $wpgmza_weather_option = 2; } 
         if (isset($other_settings_data['weather_layer_temp_type'])) { $wpgmza_weather_option_temp_type = $other_settings_data['weather_layer_temp_type']; } else { $wpgmza_weather_option_temp_type = 1; } 
@@ -3529,26 +3458,31 @@ function wpgmza_basic_menu() {
                             
                             <table class='form-table' id='wpgmaps_directions_options'>
                                 <tr>
-                            <td width='200'>".__("Enable Store Locator","wp-google-maps").":</td>
-                            <td><select id='wpgmza_store_locator' name='wpgmza_store_locator' class='postform'>
-                                <option value=\"1\" ".$wpgmza_store_locator_enabled_checked[0].">".__("Yes","wp-google-maps")."</option>
-                                <option value=\"2\" ".$wpgmza_store_locator_enabled_checked[1].">".__("No","wp-google-maps")."</option>
-                            </select>
-                            </td>
-                        </tr>
+                                    <td width='200'>".__("Enable Store Locator","wp-google-maps").":</td>
+                                    <td><select id='wpgmza_store_locator' name='wpgmza_store_locator' class='postform'>
+                                            <option value=\"1\" ".$wpgmza_store_locator_enabled_checked[0].">".__("Yes","wp-google-maps")."</option>
+                                            <option value=\"2\" ".$wpgmza_store_locator_enabled_checked[1].">".__("No","wp-google-maps")."</option>
+                                        </select>
+                                    </td>
+                                </tr>
 
-                        <tr>
-                            <td>".__("Show distance in","wp-google-maps").":</td>
-                            <td><select id='wpgmza_store_locator_distance' name='wpgmza_store_locator_distance' class='postform'>
-                                <option value=\"1\" ".$wpgmza_store_locator_distance_checked[0].">".__("Miles","wp-google-maps")."</option>
-                                <option value=\"2\" ".$wpgmza_store_locator_distance_checked[1].">".__("Kilometers","wp-google-maps")."</option>
-                            </select>
-                            </td>
-                        </tr>
+                                <tr>
+                                    <td>".__("Show distance in","wp-google-maps").":</td>
+                                    <td><select id='wpgmza_store_locator_distance' name='wpgmza_store_locator_distance' class='postform'>
+                                        <option value=\"1\" ".$wpgmza_store_locator_distance_checked[0].">".__("Miles","wp-google-maps")."</option>
+                                        <option value=\"2\" ".$wpgmza_store_locator_distance_checked[1].">".__("Kilometers","wp-google-maps")."</option>
+                                    </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>".__("Query String","wp-google-maps").":</td>
+                                    <td><input type=\"text\" name=\"wpgmza_store_locator_query_string\" id=\"wpgmza_store_locator_query_string\" value=\"$wpgmza_store_locator_query_string\">
+                                    </td>
+                                </tr>
 
-                        </table>
-                        <p><em>".__('View','wp-google-maps')." <a href='http://wpgmaps.com/documentation/store-locator'>".__('Store Locator Documentation','wp-google-maps')."</a></em></p>
-                        <p><em>Please note: the store locator is still in Beta. If you find any bugs, please <a href='http://wpgmaps.com/contact-us/'>let us know</a></em></p>
+                            </table>
+                            <p><em>".__('View','wp-google-maps')." <a href='http://wpgmaps.com/documentation/store-locator'>".__('Store Locator Documentation','wp-google-maps')."</a></em></p>
+                            <p><em>Please note: the store locator is still in Beta. If you find any bugs, please <a href='http://wpgmaps.com/contact-us/'>let us know</a></em></p>
                         </div><!-- end of tab3 -->
 
                         <div id=\"tabs-4\">
