@@ -1,0 +1,1515 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Google Maps\n"
+"POT-Creation-Date: 2014-02-11 13:53+0200\n"
+"PO-Revision-Date: 2014-06-19 13:07+0200\n"
+"Last-Translator: johanna.joutti@iki.fi <johanna.joutti@iki.fi>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.5\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;__;_e\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: fi_FI\n"
+"X-Poedit-SearchPath-0: C:\\wamp\\www\\wordpress361\\wp-content\\plugins\\wp-"
+"google-maps\n"
+"X-Poedit-SearchPath-1: C:\\wamp\\www\\wordpress361\\wp-content\\plugins\\wp-"
+"google-maps-pro\n"
+"X-Poedit-SearchPath-2: C:\\wamp\\www\\wordpress361\\wp-content\\plugins\\wp-"
+"google-maps-gold\n"
+"X-Poedit-SearchPath-3: C:\\wamp\\www\\wordpress361\\wp-content\\plugins\\wp-"
+"google-maps-store-locator\n"
+"X-Poedit-SearchPath-4: C:\\wamp\\www\\wordpress361\\wp-content\\plugins\\wp-"
+"google-maps-ugm\n"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/newEmptyPHP1.php:240
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/newEmptyPHP1.php:252
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1526
+msgid "Getting your current location address..."
+msgstr "Nykyistä osoitettasi ollaan hakemassa..."
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/newEmptyPHP1.php:735
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/newEmptyPHP1.php:1541
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1518
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2130
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2547
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-gold/wp-google-maps-gold.php:759
+msgid "More details"
+msgstr "Lisätietoja"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/newEmptyPHP1.php:788
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1523
+msgid "Get directions"
+msgstr "Hae reittitiedot"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/newEmptyPHP1.php:860
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1524
+msgid "My location"
+msgstr "Sijaintini"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/newEmptyPHP1.php:945
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1525
+msgid "Please fill out both the 'from' and 'to' fields"
+msgstr "Anna sekä lähtöpaikka että saapumispaikka"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/newEmptyPHP1.php:1226
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/newEmptyPHP1.php:1310
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1843
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1925
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-gold/wp-google-maps-gold.php:444
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-gold/wp-google-maps-gold.php:528
+msgid "Geocode was not successful for the following reason"
+msgstr "Geocode epäonnistui seuraavan syyn takia"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/newEmptyPHP1.php:1648
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-gold/wp-google-maps-gold.php:866
+msgid "Advanced Map Settings"
+msgstr "Lisäkartta-asetukset"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/newEmptyPHP1.php:1649
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-gold/wp-google-maps-gold.php:867
+msgid ""
+"Use the <a href='http://gmaps-samples-v3.googlecode.com/svn/trunk/styledmaps/"
+"wizard/index.html' target='_BLANK'>Google Maps API Styled Map Wizard</a> to "
+"get your style settings"
+msgstr ""
+"Käytä <a href='http://gmaps-samples-v3.googlecode.com/svn/trunk/styledmaps/"
+"wizard/index.html' target='_BLANK'>Google Maps API Styled Map Wizard</a> "
+"saadaksesi tyyliasetuksesi "
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/newEmptyPHP1.php:1654
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-gold/wp-google-maps-gold.php:872
+msgid "Enable Mass Marker Support"
+msgstr "Aktivoi Mass Marker - tuki"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/newEmptyPHP1.php:1657
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/newEmptyPHP1.php:1666
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1394
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1470
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1827
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1904
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1913
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1921
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2101
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:568
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:672
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:680
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:687
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:784
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:35
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-gold/wp-google-maps-gold.php:875
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-gold/wp-google-maps-gold.php:884
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-ugm/wp-google-maps-ugm.php:98
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-ugm/wp-google-maps-ugm.php:116
+msgid "Yes"
+msgstr "Kyllä"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/newEmptyPHP1.php:1658
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/newEmptyPHP1.php:1667
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1394
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1470
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1826
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1838
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1903
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1912
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1920
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2100
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:569
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:579
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:673
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:681
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:688
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:783
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:35
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-gold/wp-google-maps-gold.php:876
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-gold/wp-google-maps-gold.php:885
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-ugm/wp-google-maps-ugm.php:99
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-ugm/wp-google-maps-ugm.php:117
+msgid "No"
+msgstr "Ei"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/newEmptyPHP1.php:1663
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-gold/wp-google-maps-gold.php:881
+msgid "Enable Advanced Styling"
+msgstr "Aktivoi Lisätyyliasetukset"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/newEmptyPHP1.php:1672
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-gold/wp-google-maps-gold.php:890
+msgid "Paste the JSON data here"
+msgstr "Liitä JSON data tähän"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/newEmptyPHP1.php:1676
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-gold/wp-google-maps-gold.php:894
+msgid "Save Style Settings"
+msgstr "Tallenna tyyliasetukset"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/newEmptyPHP1.php:1754
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2447
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-gold/wp-google-maps-gold.php:972
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-store-locator/wp-google-maps-store-locator-add-on.php:124
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-ugm/wp-google-maps-ugm.php:349
+msgid ""
+"An Unexpected HTTP Error occurred during the API request.</p> <p><a href=\"?"
+"\" onclick=\"document.location.reload(); return false;\">Try again</a>"
+msgstr ""
+"Odottamaton HTTP - virhe API-kutsun aikana.</p> <p><a href=\"?\" onclick="
+"\"document.location.reload(); return false;\">Yritä uudestaan</a>"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/newEmptyPHP1.php:1759
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2452
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-gold/wp-google-maps-gold.php:977
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-store-locator/wp-google-maps-store-locator-add-on.php:129
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-ugm/wp-google-maps-ugm.php:354
+msgid "An unknown error occurred"
+msgstr "Tuntematon virhe tapahtui"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1165
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1350
+msgid "Your settings have been saved."
+msgstr "Asetuksesi on tallennettu."
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1194
+msgid "Your marker location has been saved."
+msgstr "Antamasi karttakoordinaatit on tallennettu."
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1225
+msgid "Your polygon has been created."
+msgstr "Polygonisi on luotu."
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1257
+msgid "Your polygon has been saved."
+msgstr "Polygonisi on tallennettu."
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1288
+msgid "Your polyline has been created."
+msgstr "Polylinesi on luotu."
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1320
+msgid "Your polyline has been saved."
+msgstr "Polylinesi on tallennettu."
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1366
+msgid "Maps"
+msgstr "Kartat"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1370
+msgid "Categories"
+msgstr "Kategoriat"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1371
+msgid "Advanced"
+msgstr "Lisä"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1373
+msgid "Settings"
+msgstr "Asetukset"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1382
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1456
+msgid "Experiencing problems with the plugin?"
+msgstr "Onko ongelmia lisäosan käytössä?"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1382
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1456
+msgid "See the troubleshooting manual."
+msgstr "Katso troubleshooting - ohjeistus"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1382
+msgid "Or ask a question on our "
+msgstr "Tai kysy asiasta meidän"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1382
+msgid "Support forum."
+msgstr "tukikeskustelufoorumillamme."
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1390
+msgid "There was a problem deleting the map."
+msgstr "Kartan poistaminen ei onnistunut virheen takia."
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1394
+msgid "Delete your map"
+msgstr "Poista karttasi."
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1394
+msgid "Are you sure you want to delete the map"
+msgstr "Oletko varma että haluat poistaa kartan."
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1466
+msgid "There was a problem deleting the marker."
+msgstr "Karttamerkinnän poistaminen epäonnistui virheen takia."
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1470
+msgid "Delete Marker"
+msgstr "Poista karttamerkintä"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1470
+msgid "Are you sure you want to delete this marker:"
+msgstr "Oletko varma että haluat poistaa tämän karttamerkinnän:"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1492
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2336
+msgid "WP Google Map Settings"
+msgstr "WP Google Map asetukset"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1521
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1724
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2500
+msgid "Map Settings"
+msgstr "Kartta-asetukset"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1524
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2503
+msgid "General Map Settings"
+msgstr "Yleiset kartta-asetukset"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1526
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2505
+msgid "Disable StreetView"
+msgstr "Estä StreetView"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1527
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2506
+msgid "Disable Zoom Controls"
+msgstr "Estä Zoomin ohjauspainikkeet"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1528
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2507
+msgid "Disable Pan Controls"
+msgstr "Estä Panoneerausohjauspainikkeet"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1529
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2508
+msgid "Disable Map Type Controls"
+msgstr "Estä karttatyypin ohjauspainikkeet"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1533
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2525
+msgid "Troubleshooting Options"
+msgstr "Troubleshooting vaihtoehdot"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1535
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2527
+msgid ""
+"Over-ride current jQuery with version 1.8.3 (Tick this box if you are "
+"receiving jQuery related errors)"
+msgstr ""
+"Korvaa nykyinen jQuery 1.8.3-versiolla (Valitse tämä ruutu jos sinulla "
+"jQuery-virheitä)"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1542
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2361
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-ugm/wp-google-maps-ugm.php:123
+msgid "Save Settings"
+msgstr "Tallenna asetukset"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1564
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1568
+msgid "My Maps"
+msgstr "Karttani"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1564
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1633
+msgid "Add New"
+msgstr "Lisää uusi"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1569
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:19
+msgid "Pro Version"
+msgstr "Pro versio"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1569
+msgid "Create unlimited maps"
+msgstr "Luo rajaton määrä karttoja"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1569
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:19
+msgid "with the"
+msgstr "käyttäen"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1569
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:19
+msgid "of WP Google Maps for only"
+msgstr "WP Google Maps Pro - versiota ainoastaan"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1575
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1636
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:24
+msgid "Problems with the plugin? See the troubleshooting manual."
+msgstr ""
+"Onko sinulla ongelmia tämän lisäosan kanssa? Katso Troubleshooting - ohje "
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1599
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1656
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1887
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2210
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2421
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:645
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:432
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_polygons.php:465
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_polylines.php:493
+msgid "ID"
+msgstr "ID"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1600
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1659
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1888
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2106
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2423
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2442
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:646
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:745
+msgid "Title"
+msgstr "Otsikko"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1601
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1772
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:541
+msgid "Width"
+msgstr "Leveys"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1602
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1783
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:548
+msgid "Height"
+msgstr "Korkeus"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1603
+msgid "Type"
+msgstr "Tyyppi"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1609
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1805
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:619
+msgid "Roadmap"
+msgstr "Tiekartta"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1610
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1806
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:620
+msgid "Satellite"
+msgstr "Satelliitti"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1611
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1807
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:621
+msgid "Hybrid"
+msgstr "Hybridi"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1612
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1808
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:622
+msgid "Terrain"
+msgstr "Maasto"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1614
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:441
+msgid "Trash"
+msgstr "Roska"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1618
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2400
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:445
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_polygons.php:490
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_polylines.php:518
+msgid "Edit"
+msgstr "Muuta"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1633
+msgid "My Markers"
+msgstr "Karttamerkintäni"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1657
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2422
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:434
+msgid "Icon"
+msgstr "Kuvake"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1658
+msgid "Linked to"
+msgstr "Linkitettynä"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1660
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1889
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2425
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2444
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:647
+msgid "Address"
+msgstr "Osoite"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1661
+msgid "GPS"
+msgstr "GPS"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1662
+msgid "Pic"
+msgstr "Kuva"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1663
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2428
+msgid "Link"
+msgstr "Link"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1713
+msgid ""
+"Add custom icons, titles, descriptions, pictures and links to your markers "
+"with the"
+msgstr ""
+"Lisää mukautettuja kuvakkeita, otsikoita, kuvauksia, kuvia ja linkkejä "
+"karttamerkintöihisi käyttäen"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1713
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1714
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2174
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2178
+msgid "Pro Edition"
+msgstr "tämän lisäosan Pro Versiota"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1713
+msgid "of this plugin for just"
+msgstr "ainoastaan"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1714
+msgid "Purchase the Pro Edition"
+msgstr "Osta Pro Versionen"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1714
+msgid "of WP Google Maps and save your markers to a CSV file!"
+msgstr ""
+"WP Google Maps Pro - versio ja voit tallentaa karttamerkintäsi CSV-"
+"tiedostoon!"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1764
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:530
+msgid "Short code"
+msgstr "Short code"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1765
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:531
+msgid "copy this into your post or page to display the map"
+msgstr "kopioi tämä artikkeliin tai sivullesi näyttääksesi kartan"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1768
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:535
+msgid "Map Name"
+msgstr "Karttanimi"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1793
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:659
+msgid "Map Alignment"
+msgstr "Kartan asettelu"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1795
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:661
+msgid "Left"
+msgstr "Vasen"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1796
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:662
+msgid "Center"
+msgstr "Keskitetty"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1797
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:663
+msgid "Right"
+msgstr "Oikea"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1798
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2091
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:664
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:774
+msgid "None"
+msgstr "Ei mitään asettelua"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1803
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:617
+msgid "Map type"
+msgstr "Karttatyyppi"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1818
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1859
+msgid ""
+"Get all of these advanced features with the Pro version for only <a href="
+"\"http://www.wpgmaps.com/purchase-professional-version/?"
+"utm_source=plugin&utm_medium=link&utm_campaign=advanced\">$14.99 once off</"
+"a>. Support and updates included forever."
+msgstr ""
+"Saa käyttöösi kaikki nämä lisäominaisuuden Pro-versiossa  <a href=\"http://"
+"www.wpgmaps.com/purchase-professional-version/?"
+"utm_source=plugin&utm_medium=link&utm_campaign=advanced\">$14.99 "
+"kertamaksulla</a>. Sisältää elinikäisen tuen ja päivitykset."
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1824
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:566
+msgid "Enable Directions?"
+msgstr "Aktivoi reittiohjeet?"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1834
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:575
+msgid "Directions Box Open by Default?"
+msgstr "Onko Direction Box oletuksena auki?"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1839
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:580
+msgid "Yes, on the left"
+msgstr "Kyllä, vasemmalla"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1840
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:581
+msgid "Yes, on the right"
+msgstr "Kyllä, oikealla"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1841
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:582
+msgid "Yes, above"
+msgstr "Ja, yläpuolella"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1842
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:583
+msgid "Yes, below"
+msgstr "Ja, alapuolella"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1848
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:589
+msgid "Directions Box Width"
+msgstr "Directions Box:in leveys"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1864
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:612
+msgid "Default Marker Image"
+msgstr "Karttamerkinnän oletuskuva"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1865
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2114
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2118
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:613
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:758
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:762
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:101
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:171
+msgid "Upload Image"
+msgstr "Lataa kuva"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1869
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:627
+msgid "List all Markers"
+msgstr "Listaa kaikki karttamerkinnät"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1871
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:629
+msgid "List all markers below the map"
+msgstr "Listaa kaikki kartan alapuoliset merkinnät"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1872
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:630
+msgid "Select this for the advanced listing functionality"
+msgstr "Valitse tämä listauksen lisäominaisuuksia varten"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1877
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:635
+msgid "Filter by Category"
+msgstr "Suodata kategorian mukaan"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1879
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:637
+msgid "Allow users to filter by category?"
+msgstr "Sallitko käyttäjien suodattaa kategorian mukaan?"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1884
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:642
+msgid "Order markers by"
+msgstr "Järjestä karttamerkinnät"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1890
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2111
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2426
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2445
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:648
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:755
+msgid "Description"
+msgstr "Kuvaus"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1893
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:653
+msgid "Descending"
+msgstr "Laskeva"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1894
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:652
+msgid "Ascending"
+msgstr "Nouseva"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1901
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:670
+msgid "Show User's Location?"
+msgstr "Näytä käyttäjän sijainti"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1910
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:678
+msgid "Enable Bicycle Layer?"
+msgstr "Aktivoi Pyöräily Layer?"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1918
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:685
+msgid "Enable Traffic Layer?"
+msgstr "Aktivoi Liikenne Layer?"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1931
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:698
+msgid "KML/GeoRSS URL"
+msgstr "KML/GeoRSS URL"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1933
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:700
+msgid "The KML/GeoRSS layer will over-ride most of your map settings"
+msgstr "KML/GeoRSS layer korvaa useimmat omat kartta-asetuksesi"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1937
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:704
+msgid "Fusion table ID"
+msgstr "Fusion tabletti ID"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:1939
+msgid "Read data directly from your Fusion Table."
+msgstr "Lue data suoraan Fusion - tabletiltasi."
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2051
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2062
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:711
+msgid "Remember to save your map!"
+msgstr "Muistaa tallentaa karttasi"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2055
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:724
+msgid "Save Map"
+msgstr "Tallenna kartta"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2057
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:726
+msgid ""
+"Tip: Use your mouse to change the layout of your map. When you have "
+"positioned the map to your desired location, press \"Save Map\" to keep your "
+"settings."
+msgstr ""
+"Vihje: Käytä hiirtäsi muuttaaksesi karttasi ulkoasua. Kun olet sijoittanut "
+"karttasi oikeaan kohtaan, paina  \"Tallenna kartta\" pitääksesi asetuksesi."
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2069
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:733
+msgid "Markers"
+msgstr "Karttamerkinnät"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2070
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:734
+msgid "Polygons"
+msgstr "Polygonit"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2071
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:735
+msgid "Polylines"
+msgstr "Polylinjat"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2077
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:740
+msgid "Add a marker"
+msgstr "Lisää karttamerkintä"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2082
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:750
+msgid "Address/GPS"
+msgstr "Osoite/GPS-koordinaatit"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2088
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:771
+msgid "Animation"
+msgstr "Animointi"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2092
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:775
+msgid "Bounce"
+msgstr "Pompi"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2093
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:776
+msgid "Drop"
+msgstr "Tiputa"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2097
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:780
+msgid "InfoWindow open by default"
+msgstr "Infoikkuna oeltuksena avoinna"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2113
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:757
+msgid "Pic URL"
+msgstr "Kuva URL"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2115
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:759
+msgid "Link URL"
+msgstr "Linkki URL"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2117
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:761
+msgid "Custom Marker"
+msgstr "Räätälöity karttamerkintä"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2120
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2424
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2443
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:649
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:764
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:433
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-store-locator/wp-google-maps-store-locator-add-on.php:164
+msgid "Category"
+msgstr "Kategoria"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2123
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:346
+msgid "Select"
+msgstr "Valitse"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2130
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:790
+msgid "Add Marker"
+msgstr "Lisää karttamerkintä"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2130
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:790
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-ugm/wp-google-maps-ugm.php:229
+msgid "Adding"
+msgstr "Lisätään"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2131
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:791
+msgid "Save Marker"
+msgstr "Tallenna karttamerkintäsi"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2131
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:791
+msgid "Saving"
+msgstr "Tallennetaan."
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2138
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:795
+msgid "Your Markers"
+msgstr "Karttamerkintäsi"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2146
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:801
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_polygons.php:25
+msgid "Add a Polygon"
+msgstr "Lisää polygon"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2149
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2158
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2169
+msgid "Add detailed information to your markers!"
+msgstr "Lisää yksityiskohtaista tietoa karttamerkintöihisi"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2149
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2158
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2169
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2173
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2177
+msgid "Add custom markers to your map!"
+msgstr "Lisää räätälöityjä karttamerkintöjä karttaasi"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2150
+msgid "Add Polygons to your maps for only"
+msgstr "Lisää polygoneja vain omiin karttoihisi"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2150
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2159
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2170
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2174
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2178
+msgid "Click"
+msgstr "Klikkaa"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2150
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2159
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2170
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2174
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2178
+msgid "here"
+msgstr "tätä"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2155
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:806
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_polylines.php:25
+msgid "Add a Polyline"
+msgstr "Lisää polyline"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2159
+msgid "Add Polylines and routes to your maps for only"
+msgstr "Lisää polylineja vain omiin karttoihisi"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2170
+msgid "Add detailed information to your markers for only"
+msgstr "Lisää yksityiskohtaista tietoa vain omiin karttamerkintöihisi"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2174
+msgid ""
+"Add different marker icons, or your own icons to make your map really stand "
+"out!"
+msgstr ""
+"Lisää muita karttakuvakkeita tai käytä omia kuvakkeita erottuaksesi muista!"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2178
+msgid "Allow your visitors to get directions to your markers!"
+msgstr "Salli kävijoidesi saada karttamerkintöjesi reittiohjeet!"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2184
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:817
+msgid ""
+"WP Google Maps encourages you to make use of the amazing icons created by "
+"Nicolas Mollet's Maps Icons Collection"
+msgstr ""
+"WP Google Maps kannustaa sinua käyttämään Nicolas MolletinMaps Icons - "
+"kokoelman kuvakkeita"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2184
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:817
+msgid "and to credit him when doing so."
+msgstr ""
+"ja mainitsemaan hänet kuvakkeiden tekijäksi, mikäli käytät hänen "
+"kuvakkeitaan."
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2210
+msgid "Edit Marker Location"
+msgstr "Muuta karttamerkinnän sijaintia"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2219
+msgid "Marker Latitude"
+msgstr "Karttamerkinnän leveysaste"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2223
+msgid "Marker Longitude"
+msgstr "Karttamerkinnän pituusaste"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2228
+msgid "Save Marker Location"
+msgstr "Tallenna karttamerkintä"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2229
+msgid ""
+"Tip: Use your mouse to change the location of the marker. Simply click and "
+"drag it to your desired location."
+msgstr ""
+"Vihje: Käytä hiirtäsi karttamerkinnän sijainnin muuttamiseen. Valitse ja "
+"siirrä hiiren kohdistin haluaamasi kohtaan."
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2354
+msgid ""
+"There are too many markers to make use of the live edit function. The "
+"maximum amount for this functionality is 2000 markers. Anything more than "
+"that could crash your browser. In order to edit your markers, you would need "
+"to download the table in CSV format, edit it and re-upload it."
+msgstr ""
+"Sinulla on liian paljon karttamerkintöjä, joiden maksimimäärä on 2000 "
+"merkintää. Tätä suurempi merkintöjen määrä voi aiheuttaa selaimen "
+"kaatumsien. Muuttaaksesi karttamerkintöjäsi, lataa ne CSV-muodossa, muuta "
+"niitä sivuston ulkopuolella ja lataa muutetut arvot uudestaan tänne."
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2386
+msgid "View this link"
+msgstr "Näytä linkki"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2400
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2401
+msgid "Edit this marker"
+msgstr "Muuta karttamerkintää"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2401
+msgid "Edit Location"
+msgstr "Muuta sijaintia"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2402
+msgid "Delete this marker"
+msgstr "Poista tämä karttamerkintä"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2402
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_polygons.php:491
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_polylines.php:519
+msgid "Delete"
+msgstr "Poista"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2427
+msgid "Image"
+msgstr "Kuva"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2429
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_polygons.php:467
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_polylines.php:495
+msgid "Action"
+msgstr "Toiminta"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2576
+msgid ""
+"The plugin directory does not have 'write' permissions. Please enable "
+"'write' permissions (755) for "
+msgstr "Puginhakemistolla ei ole kirjoitusoikeuksia. Aktivoi kirjoitusoikeudet"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2578
+msgid "in order for this plugin to work! Please see "
+msgstr "lisäosan toimimiseksi! Katso"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2580
+msgid "this page"
+msgstr "tämä sivusto"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:2582
+msgid "for help on how to do it."
+msgstr "saadaksesi apua tehtävän tekemiseen."
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:444
+msgid "including Pro &amp; Gold add-ons"
+msgstr "sisältäen Pro &amp; Gold add-ons"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:444
+msgid "including Pro add-on"
+msgstr "sisältäen Pro add-on"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:470
+msgid "Download this as a CSV file"
+msgstr "Lataa tiedot CSV-tiedostona"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:470
+msgid "Download this data as a CSV file"
+msgstr "Lataa tiedot CSV-tiedostosta"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:484
+msgid "Create your Map"
+msgstr "Luo karttasi"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:539
+msgid "Map Dimensions"
+msgstr "Karttadimensiot"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:596
+msgid "Default 'To' address"
+msgstr "Oletus määränpääosoite"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:613
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:101
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:171
+msgid ""
+"Get great map markers <a href='http://mapicons.nicolasmollet.com/' "
+"target='_BLANK' title='Great Google Map Markers'>here</a>"
+msgstr ""
+"Hae hienoja karttamerkintöjä <a href='http://mapicons.nicolasmollet.com/' "
+"target='_BLANK' title='Great Google Map Markers'>här</a>"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:706
+msgid ""
+"Read data directly from your Fusion Table. For more information, see <a "
+"href='http://googlemapsmania.blogspot.com/2010/05/fusion-tables-google-maps-"
+"api.html'>http://googlemapsmania.blogspot.com/2010/05/fusion-tables-google-"
+"maps-api.html</a>"
+msgstr ""
+"Lue data suoraan Fusion-tabletiltasi. Katso <a href='http://googlemapsmania."
+"blogspot.com/2010/05/fusion-tables-google-maps-api.html'>http://"
+"googlemapsmania.blogspot.com/2010/05/fusion-tables-google-maps-api.html</a>"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:758
+msgid "Or paste image URL"
+msgstr "Tai anna kuvan URL"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:760
+msgid "Format: http://www.domain.com"
+msgstr "Muoto: http://www.domain.com"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:762
+msgid "ignore if you want to use the default marker"
+msgstr "älä valitse tätä jos haluat käyttää oletuskarttamerkintää"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:802
+msgid "Add a New Polygon"
+msgstr "Lisää uusi polygon"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:807
+msgid "Add a New Polyline"
+msgstr "Lisää uusi polyline"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:982
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:983
+msgid "Use my location"
+msgstr "Käytä sijaintiani"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:998
+msgid "Filter by"
+msgstr "Suodata"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1090
+msgid "Get directions to"
+msgstr "Hae reittiohjeet"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1090
+msgid "Directions"
+msgstr "Reittiohjeet"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1120
+msgid "Get Directions"
+msgstr "Hae reittiohjeet"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1124
+msgid "For"
+msgstr "Annettuna henkilölle"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1126
+msgid "Driving"
+msgstr "Autolla"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1127
+msgid "Walking"
+msgstr "Kävellen"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1128
+msgid "Bicycling"
+msgstr "Pyöräillen"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1131
+msgid "show options"
+msgstr "näytä vaihtoehdot"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1132
+msgid "hide options"
+msgstr "piilota vaihtoehdot"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1134
+msgid "Avoid Tolls"
+msgstr "Vältä tietulleja"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1135
+msgid "Avoid Highways"
+msgstr "Vältä moottoriteitä"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1140
+msgid "From"
+msgstr "Lähtöpaikka"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1141
+msgid "To"
+msgstr "Saapumispaikka"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1146
+msgid "Go"
+msgstr "Mene"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1178
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1200
+msgid "Fetching directions..."
+msgstr "Haetaan reittiohjeita"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1179
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1201
+msgid "Reset directions"
+msgstr "Tyhjennä reittiohjeet"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1528
+msgid "Show _MENU_ entries"
+msgstr "Näytä _MENU_ tiedot"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1529
+msgid "Nothing found - sorry"
+msgstr "Valitettavasti mitään ei löytynyt"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1530
+msgid "Showing _START_ to _END_ of _TOTAL_ records"
+msgstr "Näytetään _START_ :sta _END_ osaa _TOTAL_ tiedoista"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1531
+msgid "Showing 0 to 0 of 0 records"
+msgstr "Näyttää 0:sta 0 kaikista 0 tiedosta"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1532
+msgid "(filtered from _MAX_ total records)"
+msgstr "(suodatettuna _MAX_ total tiedoista)"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1533
+msgid "First"
+msgstr "Ensimmäinen"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1534
+msgid "Last"
+msgstr "Viimeisin"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1535
+msgid "Next"
+msgstr "Seuraava"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1536
+msgid "Previous"
+msgstr "Edellinen"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1537
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-store-locator/wp-google-maps-store-locator-add-on.php:170
+msgid "Search"
+msgstr "Hae"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1542
+msgid "Please prove that you are human by checking the checkbox above"
+msgstr "Valitse yllä oleva ruutu todistaaksesi olevasi ihminen\""
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2233
+msgid "WP Google Maps"
+msgstr "WP Google Maps"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2233
+msgid ""
+"Please ensure you have <strong>both</strong> the <strong>Basic</strong> and "
+"<strong>Pro</strong> versions of WP Google Maps installed and activated at "
+"the same time in order for the plugin to function correctly."
+msgstr ""
+"Varmista että käytössäsi on <strong>sekä</strong> &amp; <strong>Perus</"
+"strong>että<strong>Pro</strong>WP Google Maps - versiot asennettuina ja "
+"aktivoituna samaan aikaan jotta saat lisäosan toimimaan oikein."
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2247
+msgid "Header 1 should be 'id', not"
+msgstr "Header 1 pitäisi olla 'id', ei"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2248
+msgid "Header 2 should be 'map_id', not"
+msgstr "Header 2 pitäisi olla 'map_id', ei"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2249
+msgid "Header 3 should be 'address', not"
+msgstr "Header 3 pitäisi olla 'osoite', ei"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2250
+msgid "Header 4 should be 'description', not"
+msgstr "Header 4 pitäisi olla 'kuvaus', ei"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2251
+msgid "Header 5 should be 'pic', not"
+msgstr "Header 5 pitäisi olla 'kuva', ei"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2252
+msgid "Header 6 should be 'link', not"
+msgstr "Header 6 pitäisi olla 'linkki', ei"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2253
+msgid "Header 7 should be 'icon', not"
+msgstr "Header 7 pitäisi olla 'kuvake', ei"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2254
+msgid "Header 8 should be 'lat', not"
+msgstr "Header 8 pitäisi olla 'lat', ei"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2255
+msgid "Header 9 should be 'lng', not"
+msgstr "Header 9 pitäisi olla 'lng', ei"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2256
+msgid "Header 10 should be 'anim', not"
+msgstr "Header 10 pitäisi olla 'anim', ei"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2257
+msgid "Header 11 should be 'title', not"
+msgstr "Header 11 pitäisi olla 'otsikko', ei"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2258
+msgid "Header 12 should be 'infoopen', not"
+msgstr "Header 12 pitäisi olla 'infoopen', ei"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2259
+msgid "Header 13 should be 'category', not"
+msgstr "Header 13 pitäisi olla  'kategoria', ei"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2261
+msgid "CSV import failed"
+msgstr "CSV-tiedoston tietojen siirto epäonnistui"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2289
+msgid "Your CSV file has been successfully imported"
+msgstr "CSV-tiedostosi tiedot siirrettiin onnistuneesti"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2311
+msgid "Download ALL marker data to a CSV file"
+msgstr "Lataa KAIKKI merkintätiedot CSV-tiedostoon"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2314
+msgid "Advanced Options"
+msgstr "Lisävalinnat"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2317
+msgid "OR"
+msgstr "TAI"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2318
+msgid "Upload CSV File"
+msgstr "Lataa CSV - tiedosto"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2320
+msgid "Replace existing data with data in file"
+msgstr "Korvaa nykyiset tiedot tiedoston tiedoilla"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2321
+msgid "Upload File"
+msgstr "Lataa tiedosto"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2509
+msgid "Disable Mouse Wheel Zoom"
+msgstr "Estä hiiren rullauksella zoomaaminen"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2510
+msgid "Disable Mouse Dragging"
+msgstr "Estä hiiren Drag - toiminto"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2511
+msgid "Disable Mouse Double Click Zooming"
+msgstr "Estä hiiren kaksoisklikkauksella zoomaaminen "
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2515
+msgid "Marker Listing Settings"
+msgstr "Karttamerkintäluetteloasetukset"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2517
+msgid "Hide the Icon column"
+msgstr "Piilota kuvakesarake"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2518
+msgid "Hide the Title column"
+msgstr "Piilota otsikkosarake"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2519
+msgid "Hide the Address column"
+msgstr "Piilota osoitesarake"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2520
+msgid "Hide the Category column"
+msgstr "Piilota kategoriasarake"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2521
+msgid "Hide the Description column"
+msgstr "Piilota kuvaussarake"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2559
+msgid "InfoWindow Settings"
+msgstr "InfoWindow asetukset"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2562
+msgid "Default Image Width"
+msgstr "Oletuskuvanleveys"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2566
+msgid "Default Image Height"
+msgstr "Oletuskuvankorkeus"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2570
+msgid "Image Thumbnails"
+msgstr "Pikakuvakkeet"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2572
+msgid "Do not use TimThumb"
+msgstr "Älä käytä TimThumbia"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2573
+msgid "(Tick this if you are having problems viewing your thumbnail images)"
+msgstr "(Valitse tämä jos sinulla on ongelmia kuvien pikakuvakkeiden)"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2577
+msgid "Max InfoWindow Width"
+msgstr "Max InfoWindow leveys"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2578
+msgid "(Minimum: 250px)"
+msgstr "(Minimi: 250px)"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2581
+msgid "Other settings"
+msgstr "Muita asetuksia"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2583
+msgid "Open links in a new window"
+msgstr "Avaa linkit uudessa ikkunassa"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2584
+msgid "(Tick this if you want to open your links in a new window)"
+msgstr "(Valitse tämä mikäli haluat avata linkkisi uudessa ikkunassa)"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2585
+msgid "Hide the address field"
+msgstr "Piilota osoitekenttä"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2589
+msgid "Link text"
+msgstr "Linkitä teksti"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:15
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:18
+msgid "Marker Categories"
+msgstr "Karttamerkintäkategoriat"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:15
+msgid "Add New Category"
+msgstr "Lisää uusi kategoria"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:19
+msgid "Create marker categories"
+msgstr "Luo karttamerkintäkategorioita"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:32
+msgid "There was a problem deleting the category."
+msgstr "Kategorian poistaminen epäonnistui virheen takia."
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:35
+msgid "Delete your Category"
+msgstr "Poista kategoriasi"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:35
+msgid "Are you sure you want to delete the category"
+msgstr "Oletko varma että haluat poistaa tämän kategorian"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:85
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:154
+msgid "Add a Marker Category"
+msgstr "Lisää karttamerkinnän kategoria"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:89
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:159
+msgid "Category Name"
+msgstr "Kategorian nimi"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:99
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:169
+msgid "Category Marker"
+msgstr "Kategorian karttamerkintä"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:109
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:179
+msgid "Assigned to "
+msgstr "Osoitettu henkilölle"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:122
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:193
+msgid "Save Category"
+msgstr "Tallenna kategoriasi"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:272
+msgid "Your category has been created."
+msgstr "Kategoriasi on luotu"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:336
+msgid "Your category has been saved."
+msgstr "Kategoriasi on tallennettu"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:382
+msgid "All"
+msgstr "Kaikki"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:403
+msgid "All maps"
+msgstr "Kaikki kartat"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_categories.php:435
+msgid "Linked maps"
+msgstr "Linkitetyt kartat"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_polygons.php:42
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_polygons.php:90
+msgid "Save Polygon"
+msgstr "Talenna polygon"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_polygons.php:73
+msgid "Edit Polygon"
+msgstr "Muuta polygon"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_polygons.php:466
+msgid "Polygon Data"
+msgstr "Polygon data"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_polygons.php:491
+msgid "Delete this polygon"
+msgstr "Poista polygon"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_polylines.php:42
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_polylines.php:90
+msgid "Save Polyline"
+msgstr "Tallenna polyline"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_polylines.php:73
+msgid "Edit Polyline"
+msgstr "Muuta polylinea"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_polylines.php:494
+msgid "Polyline Data"
+msgstr "Polyline data"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro_polylines.php:519
+msgid "Delete this polyline"
+msgstr "Poista tämä polyline"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-store-locator/wp-google-maps-store-locator-add-on.php:149
+msgid "ZIP / Address"
+msgstr "Postinumero / Osoite"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-store-locator/wp-google-maps-store-locator-add-on.php:154
+msgid "Radius"
+msgstr "Säde"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-store-locator/wp-google-maps-store-locator-add-on.php:188
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-ugm/wp-google-maps-ugm.php:378
+msgid "Visitor Generated Marker Settings"
+msgstr "Kävijoiden asettamien karttamerkintöjen asetukset"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-store-locator/wp-google-maps-store-locator-add-on.php:191
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-ugm/wp-google-maps-ugm.php:381
+msgid "Visitor Marker Input Settings"
+msgstr "Kävijöiden karttamerkintöjen muokkausasetukset"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-store-locator/wp-google-maps-store-locator-add-on.php:193
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-ugm/wp-google-maps-ugm.php:383
+msgid "Strip all HTML tags in descriptions and titles"
+msgstr "Ota pois kuvauksista kaikki HTML - tagit ja otsikot"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-ugm/wp-google-maps-ugm.php:89
+msgid "Visitor Generated Markers - Settings"
+msgstr "Kävijöiden ehdottamat karttamerkinnät - Asetukset"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-ugm/wp-google-maps-ugm.php:95
+msgid "Enable Visitor Generated Markers?"
+msgstr "Aktivoi kävijöiden ehdottamat karttamerkinnät?"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-ugm/wp-google-maps-ugm.php:104
+msgid "Who can add markers?"
+msgstr "Kuka voi lisätä karttamerkintöjä?"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-ugm/wp-google-maps-ugm.php:107
+msgid "Everyone"
+msgstr "Kaikki"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-ugm/wp-google-maps-ugm.php:108
+msgid "Registered Users"
+msgstr "Rekisteröityneet käyttäjät"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-ugm/wp-google-maps-ugm.php:113
+msgid "Allow users to select a marker category?"
+msgstr "Annatko luvan käyttäjien valita karttamerkintä kategorian?"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-ugm/wp-google-maps-ugm.php:204
+msgid "Marker Title"
+msgstr "Karttamerkinnän otsikko"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-ugm/wp-google-maps-ugm.php:208
+msgid "Marker Address or GPS Location"
+msgstr "Karttamerkinnän osoite tai GPS - sijainti"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-ugm/wp-google-maps-ugm.php:212
+msgid "Marker Description"
+msgstr "Karttamerkinnän kuvaus"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-ugm/wp-google-maps-ugm.php:219
+msgid "Marker Category"
+msgstr "Karttamerkintä-kategoria"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-ugm/wp-google-maps-ugm.php:225
+msgid "Please tick this box to prove you are human"
+msgstr "Valitse tämä ruutu todistaaksesi olevasi ihminen"
+
+#: C:\wamp\www\wordpress361\wp-content\plugins\wp-google-maps-ugm/wp-google-maps-ugm.php:229
+msgid "Add marker"
+msgstr "Anna karttakoordinaatit"
