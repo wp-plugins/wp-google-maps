@@ -25,9 +25,41 @@ function wpgmza_b_pro_add_polyline($mid) {
                     <h2>".__("Add a Polyline","wp-google-maps")."</h2>
                     <form action='?page=wp-google-maps-menu&action=edit&map_id=".$mid."' method='post' id='wpgmaps_add_polyline_form'>
                     <input type='hidden' name='wpgmaps_map_id' id='wpgmaps_map_id' value='".$mid."' />
-                    <p>Line Color:<input id=\"poly_line\" name=\"poly_line\" type=\"text\" class=\"color\" value=\"000000\" /></p>   
-                    <p>Opacity:<input id=\"poly_opacity\" name=\"poly_opacity\" type=\"text\" value=\"0.8\" /> (0 - 1.0) example: 0.8 for 80%</p>   
-                    <p>Line Thickness:<input id=\"poly_thickness\" name=\"poly_thickness\" type=\"text\" value=\"4\" /> (0 - 50) example: 4</p>   
+                    <table>
+                        <tr>
+                            <td>
+                                ".__("Name","wp-google-maps")."
+                            </td>
+                            <td>
+                                <input id=\"poly_line\" name=\"poly_name\" type=\"text\" value=\"\" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                ".__("Line Color","wp-google-maps")."
+                            </td>
+                            <td>
+                                <input id=\"poly_line\" name=\"poly_line\" type=\"text\" class=\"color\" value=\"000000\" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                ".__("Opacity","wp-google-maps")."
+                            </td>
+                            <td>
+                                <input id=\"poly_opacity\" name=\"poly_opacity\" type=\"text\" value=\"0.8\" /> (0 - 1.0) example: 0.8 for 80%
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                ".__("Line Thickness","wp-google-maps")."
+                            </td>
+                            <td>
+                                <input id=\"poly_thickness\" name=\"poly_thickness\" type=\"text\" value=\"4\" /> (0 - 50) example: 4
+                            </td>
+                                
+                    </tr>
+                    </table>
                     <div id=\"wpgmza_map\">&nbsp;</div>
                     <p>
                             <ul style=\"list-style:initial;\">
@@ -74,9 +106,42 @@ function wpgmza_b_pro_edit_polyline($mid) {
                     <form action='?page=wp-google-maps-menu&action=edit&map_id=".$mid."' method='post' id='wpgmaps_edit_poly_form'>
                     <input type='hidden' name='wpgmaps_map_id' id='wpgmaps_map_id' value='".$mid."' />
                     <input type='hidden' name='wpgmaps_poly_id' id='wpgmaps_poly_id' value='".$_GET['poly_id']."' />
-                    <p>Line Color:<input id=\"poly_line\" name=\"poly_line\" type=\"text\" class=\"color\" value=\"".$pol->linecolor."\" /></p>   
-                    <p>Opacity:<input id=\"poly_opacity\" name=\"poly_opacity\" type=\"text\" value=\"".$pol->opacity."\" /> (0 - 1.0) example: 0.8 for 80%</p>   
-                    <p>Line Thickness:<input id=\"poly_thickness\" name=\"poly_thickness\" type=\"text\" value=\"4\" /> (0 - 50) example: 4</p>   
+                    <table>
+                        <tr>
+                            <td>
+                                ".__("Name","wp-google-maps")."
+                            </td>
+                            <td>
+                                <input id=\"poly_line\" name=\"poly_name\" type=\"text\" value=\"".$pol->polyname."\" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                ".__("Line Color","wp-google-maps")."
+                            </td>
+                            <td>
+                                <input id=\"poly_line\" name=\"poly_line\" type=\"text\" class=\"color\" value=\"".$pol->linecolor."\" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                ".__("Opacity","wp-google-maps")."
+                            </td>
+                            <td>
+                                <input id=\"poly_opacity\" name=\"poly_opacity\" type=\"text\" value=\"".$pol->opacity."\" /> (0 - 1.0) example: 0.8 for 80%
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                ".__("Line Thickness","wp-google-maps")."
+                            </td>
+                            <td>
+                                <input id=\"poly_thickness\" name=\"poly_thickness\" type=\"text\" value=\"".$pol->linethickness."\" /> (0 - 50) example: 4
+                            </td>
+                                
+                    </tr>
+                    </table>
+
                     <div id=\"wpgmza_map\">&nbsp;</div>
                     <p>
                             <ul style=\"list-style:initial;\">
@@ -486,9 +551,9 @@ function wpgmza_b_return_polyline_list($map_id,$admin = true,$width = "100%") {
         <table id=\"wpgmza_table_polyline\" class=\"display\" cellspacing=\"0\" cellpadding=\"0\" style=\"width:$width;\">
         <thead>
         <tr>
-            <th><strong>".__("ID","wp-google-maps")."</strong></th>
-            <th><strong>".__("Polyline Data","wp-google-maps")."</strong></th>
-            <th style='width:182px;'><strong>".__("Action","wp-google-maps")."</strong></th>
+            <th align='left'><strong>".__("ID","wp-google-maps")."</strong></th>
+            <th align='left'><strong>".__("Name","wp-google-maps")."</strong></th>
+            <th align='left' style='width:182px;'><strong>".__("Action","wp-google-maps")."</strong></th>
         </tr>
         </thead>
         <tbody>
@@ -507,13 +572,15 @@ function wpgmza_b_return_polyline_list($map_id,$admin = true,$width = "100%") {
         foreach ($poly_array as $poly_single) {
             $poly_data .= $poly_single.",";
         } 
+        if (isset($result->polyname) && $result->polyname != "") { $poly_name = $result->polyname; } else { $poly_name = "Polygon".$result->id; }
+
         $wpgmza_tmp .= "
             <tr id=\"wpgmza_poly_tr_".$result->id."\">
                 <td height=\"40\">".$result->id."</td>
-                <td height=\"40\"><small>".$poly_data."</small></td>
-                <td width='170' align='center'>
-                    <a href=\"".get_option('siteurl')."/wp-admin/admin.php?page=wp-google-maps-menu&action=edit_polyline&map_id=".$map_id."&poly_id=".$result->id."\" title=\"".__("Edit","wp-google-maps")."\" class=\"wpgmza_edit_poly_btn\" id=\"".$result->id."\">".__("Edit","wp-google-maps")."</a> |
-                    <a href=\"javascript:void(0);\" title=\"".__("Delete this polyline","wp-google-maps")."\" class=\"wpgmza_polyline_del_btn\" id=\"".$result->id."\">".__("Delete","wp-google-maps")."</a>
+                <td height=\"40\">$poly_name</td>
+                <td width='170' align='left'>
+                    <a href=\"".get_option('siteurl')."/wp-admin/admin.php?page=wp-google-maps-menu&action=edit_polyline&map_id=".$map_id."&poly_id=".$result->id."\" title=\"".__("Edit","wp-google-maps")."\" class=\"wpgmza_edit_poly_btn button\" id=\"".$result->id."\"><i class=\"fa fa-edit\"> </i></a> 
+                    <a href=\"javascript:void(0);\" title=\"".__("Delete this polyline","wp-google-maps")."\" class=\"wpgmza_polyline_del_btn button\" id=\"".$result->id."\"><i class=\"fa fa-times\"> </i></a>
                 </td>
             </tr>";
         

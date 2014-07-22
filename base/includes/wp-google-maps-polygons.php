@@ -28,6 +28,9 @@ function wpgmza_b_pro_add_poly($mid) {
                     
                     <table>
                     <tr>
+                        <td>".__("Name","wp-google-maps")."</td><td><input type=\"text\" value=\"\" name=\"poly_name\" /></td>
+                    </tr>
+                    <tr>
                         <td>".__("Title","wp-google-maps")."</td><td><input disabled type=\"text\" value=\"".__("Pro version only","wp-google-maps")."\" /><i><a href='http://www.wpgmaps.com/purchase-professional-version/?utm_source=plugin&utm_medium=link&utm_campaign=polygons' title='".__("Pro Version","wp-google-maps")."'>".__("Get the Pro add-on","wp-google-maps")."</a></i></td>
                     </tr>
                     <tr>
@@ -103,10 +106,42 @@ function wpgmza_b_pro_edit_poly($mid) {
                     <form action='?page=wp-google-maps-menu&action=edit&map_id=".$mid."' method='post' id='wpgmaps_edit_poly_form'>
                     <input type='hidden' name='wpgmaps_map_id' id='wpgmaps_map_id' value='".$mid."' />
                     <input type='hidden' name='wpgmaps_poly_id' id='wpgmaps_poly_id' value='".$_GET['poly_id']."' />
-                    <p>Line Color:<input id=\"poly_line\" name=\"poly_line\" type=\"text\" class=\"color\" value=\"".$pol->linecolor."\" /></p>   
-                    <p>Line Opacity:<input id=\"poly_line_opacity\" name=\"poly_line_opacity\" type=\"text\" value=\"".$pol->lineopacity."\" /> (0 - 1.0) example: 0.5 for 50%</p>   
-                    <p>Fill Color:<input id=\"poly_fill\" name=\"poly_fill\" type=\"text\" class=\"color\" value=\"".$pol->fillcolor."\" /></p>   
-                    <p>Opacity:<input id=\"poly_opacity\" name=\"poly_opacity\" type=\"text\" value=\"".$pol->opacity."\" /> (0 - 1.0) example: 0.5 for 50%</p>   
+                        
+                    <table>
+                    <tr>
+                        <td>".__("Name","wp-google-maps")."</td><td><input type=\"text\" value=\"".$pol->polyname."\" name=\"poly_name\" /></td>
+                    </tr>
+                    <tr>
+                        <td>".__("Title","wp-google-maps")."</td><td><input disabled type=\"text\" value=\"".__("Pro version only","wp-google-maps")."\" /><i><a href='http://www.wpgmaps.com/purchase-professional-version/?utm_source=plugin&utm_medium=link&utm_campaign=polygons' title='".__("Pro Version","wp-google-maps")."'>".__("Get the Pro add-on","wp-google-maps")."</a></i></td>
+                    </tr>
+                    <tr>
+                        <td>".__("Link","wp-google-maps")."</td><td><input disabled type=\"text\" value=\"pro version only\" /></td> 
+                    </tr>
+                    <tr>
+                        <td>".__("Line Color","wp-google-maps")."</td><td><input id=\"poly_line\" name=\"poly_line\" type=\"text\" class=\"color\" value=\"".$pol->linecolor."\" /></td>   
+                    </tr>
+                    <tr>
+                        <td>".__("Line Opacity","wp-google-maps")."</td><td><input id=\"poly_line_opacity\" name=\"poly_line_opacity\" type=\"text\" value=\"".$pol->lineopacity."\" /> (0 - 1.0) example: 0.5 for 50%</td>   
+                    </tr>
+                    <tr>
+                        <td>".__("Fill Color","wp-google-maps")."</td><td><input id=\"poly_fill\" name=\"poly_fill\" type=\"text\" class=\"color\" value=\"".$pol->fillcolor."\" /></td>  
+                    </tr>
+                    <tr>
+                        <td>".__("Opacity","wp-google-maps")."</td><td><input id=\"poly_opacity\" name=\"poly_opacity\" type=\"text\" value=\"".$pol->opacity."\" /> (0 - 1.0) example: 0.5 for 50%</td>   
+                    </tr>
+                    <tr>
+                        <td>".__("On Hover Line Color","wp-google-maps")."</td><td><input disabled type=\"text\" value=\"".__("Pro version only","wp-google-maps")."\"/></td>   
+                    </tr>
+                    <tr>
+                        <td>".__("On Hover Fill Color","wp-google-maps")."</td><td><input disabled type=\"text\" value=\"".__("Pro version only","wp-google-maps")."\"/></td>  
+                    </tr>
+                    <tr>
+                        <td>".__("On Hover Opacity","wp-google-maps")."</td><td><input disabled type=\"text\"value=\"".__("Pro version only","wp-google-maps")."\" /></td>   
+                    </tr>
+                        
+                    </table>
+                    
+                             
                     <div id=\"wpgmza_map\">&nbsp;</div>
                     <p>
                             <ul style=\"list-style:initial;\">
@@ -501,9 +536,9 @@ function wpgmza_b_return_polygon_list($map_id,$admin = true,$width = "100%") {
         <table id=\"wpgmza_table_poly\" class=\"display\" cellspacing=\"0\" cellpadding=\"0\" style=\"width:$width;\">
         <thead>
         <tr>
-            <th><strong>".__("ID","wp-google-maps")."</strong></th>
-            <th><strong>".__("Polygon Data","wp-google-maps")."</strong></th>
-            <th style='width:182px;'><strong>".__("Action","wp-google-maps")."</strong></th>
+            <th align='left'><strong>".__("ID","wp-google-maps")."</strong></th>
+            <th align='left'><strong>".__("Name","wp-google-maps")."</strong></th>
+            <th align='left' style='width:182px;'><strong>".__("Action","wp-google-maps")."</strong></th>
         </tr>
         </thead>
         <tbody>
@@ -522,13 +557,15 @@ function wpgmza_b_return_polygon_list($map_id,$admin = true,$width = "100%") {
         foreach ($poly_array as $poly_single) {
             $poly_data .= $poly_single.",";
         } 
+        if (isset($result->polyname) && $result->polyname != "") { $polygon_name = $result->polyname; } else { $polygon_name = "Polygon".$result->id; }
+        
         $wpgmza_tmp .= "
             <tr id=\"wpgmza_poly_tr_".$result->id."\">
                 <td height=\"40\">".$result->id."</td>
-                <td height=\"40\"><small>".$poly_data."</small></td>
-                <td width='170' align='center'>
-                    <a href=\"".get_option('siteurl')."/wp-admin/admin.php?page=wp-google-maps-menu&action=edit_poly&map_id=".$map_id."&poly_id=".$result->id."\" title=\"".__("Edit","wp-google-maps")."\" class=\"wpgmza_edit_poly_btn\" id=\"".$result->id."\">".__("Edit","wp-google-maps")."</a> |
-                    <a href=\"javascript:void(0);\" title=\"".__("Delete this polygon","wp-google-maps")."\" class=\"wpgmza_poly_del_btn\" id=\"".$result->id."\">".__("Delete","wp-google-maps")."</a>
+                <td height=\"40\">$polygon_name</td>
+                <td width='170' align='left'>
+                    <a href=\"".get_option('siteurl')."/wp-admin/admin.php?page=wp-google-maps-menu&action=edit_poly&map_id=".$map_id."&poly_id=".$result->id."\" title=\"".__("Edit","wp-google-maps")."\" class=\"wpgmza_edit_poly_btn button\" id=\"".$result->id."\"><i class=\"fa fa-edit\"> </i></a> 
+                    <a href=\"javascript:void(0);\" title=\"".__("Delete this polygon","wp-google-maps")."\" class=\"wpgmza_poly_del_btn button\" id=\"".$result->id."\"><i class=\"fa fa-times\"> </i></a>
                 </td>
             </tr>";
         
