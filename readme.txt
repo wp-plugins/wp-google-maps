@@ -34,6 +34,7 @@ The [WP Google Maps Pro Version](http://www.wpgmaps.com/purchase-professional-ve
 * Add Polygons to your Map
 * Add Polylines / Routes to your map
 * Create a map in less than a 30 seconds!
+* Right click to add a marker to your Google map
 * No advertising or links
 * Google Maps Weather Layer
 * Google Maps Cloud Layer
@@ -113,15 +114,15 @@ Copy and paste the shortcode into your post or page and WP Google Maps will auto
 To add a marker to your Google map, scroll to below the map in your admin section and enter the address or GPS location in the Address input field. Click "Add Marker" and WP Google Maps will add your marker to the address you specified.
 
 = Setting up a Google Maps Store Locator =
-In order to make use of WP Google Maps' Store Locator functionality, simply click on the "Store Locator" tab in the map creation page and select "Yes"
+In order to make use of WP Google Maps Store Locator functionality, simply click on the "Store Locator" tab in the map creation page and select "Yes"
 
 
 
 == Frequently Asked Questions ==
 
-= How do I get the professional edition? =
+= How do I get WP Google Maps Pro? =
 
-Simply visit http://www.wpgmaps.com and purchase the WP Google Maps Professional Edition for $19.99
+Simply visit http://www.wpgmaps.com and purchase the WP Google Maps Professional Edition for $19.99 once off. Free updates and support included forever.
 
 = I've installed the plugin, now what? =
 
@@ -147,6 +148,10 @@ In order to show your custom Google map on your page or post, simply copy the sh
 This is a must for users on IIS. Older WP Google Maps versions will not be compatible.
 
 == Changelog ==
+
+= 6.0.22 2014-07-25 =
+* Fixed incorrect warning about permissions when permissions where "2755" etc.
+* Add classes to the Google map store locator elements
 
 = 6.0.21 =
 * Backend UI improvement

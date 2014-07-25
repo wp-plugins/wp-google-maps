@@ -17,7 +17,6 @@
     box-shadow: none !important;
     
 }
-
 .gm-style div { margin-top:0 !important; }
 
 #wpgmaps_directions_edit {
@@ -188,4 +187,72 @@
     padding: 0 0.6em;
     background-color: #FFFFE0;
     border-color: #E6DB55;
+}
+
+
+/* store locator styling */
+.wpgmza_sl_main_div {
+    width:100%;
+}
+.wpgmza_sl_query_div {
+    height:30px;
+    display:block;
+}
+    .wpgmza_sl_query_innerdiv1 { 
+        float:left;
+        display:block;
+        width:150px;
+    }
+    .wpgmza_sl_query_innerdiv2 {
+        display:block;
+        float:left;
+        width:250px;
+    }
+
+.wpgmza_sl_radius_div {
+    display:block; 
+    height:30px;
+    margin-top:10px;
+    clear:both;
+}
+    .wpgmza_sl_radius_innerdiv1 { 
+        float:left;
+        display:block;
+        width:150px;
+    }
+    .wpgmza_sl_radius_innerdiv2 {
+        display:block;
+        float:left;
+        width:250px;
+    }
+    
+.wpgmza_sl_radius_select {
+    
+}
+    .wpgmza_sl_select_option {
+
+    }
+
+.wpgmza_sl_category_div {
+    display:block; 
+    clear:both;
+    height:auto; 
+    overflow:auto; 
+    margin-top:10px; 
+    margin-bottom:10px; 
+    
+}
+    .wpgmza_sl_category_innerdiv1 { 
+        float:left;
+        display:block;
+        width:150px;
+    }
+    .wpgmza_sl_category_innerdiv2 {
+        
+        float:left;
+        
+    }
+
+.wpgmza_sl_search_button {
+
 }
