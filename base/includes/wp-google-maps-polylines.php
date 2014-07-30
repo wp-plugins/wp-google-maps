@@ -433,6 +433,8 @@ function wpgmaps_b_admin_edit_polyline_javascript($mapid,$polyid) {
                 
                 foreach ($poly_array as $single_poly) {
                     $poly_data_raw = str_replace(" ","",$single_poly);
+                    $poly_data_raw = str_replace(")","",$poly_data_raw );
+                    $poly_data_raw = str_replace("(","",$poly_data_raw );
                     $poly_data_raw = explode(",",$poly_data_raw);
                     $lat = $poly_data_raw[0];
                     $lng = $poly_data_raw[1];

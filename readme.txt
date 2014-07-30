@@ -149,6 +149,9 @@ This is a must for users on IIS. Older WP Google Maps versions will not be compa
 
 == Changelog ==
 
+= 6.0.23 2014-07-30 =
+* Added extra support for corrupt polyline and polygon data - Low priority update
+ 
 = 6.0.22 2014-07-25 =
 * Fixed incorrect warning about permissions when permissions where "2755" etc.
 * Add classes to the Google map store locator elements
