@@ -3,12 +3,18 @@
 Plugin Name: WP Google Maps
 Plugin URI: http://www.wpgmaps.com
 Description: The easiest to use Google Maps plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 6.0.23
+Version: 6.0.24
 Author: WP Google Maps
 Author URI: http://www.wpgmaps.com
 */
 
-/* 6.0.23
+/* 6.0.24
+ * Added extra support for folder management and error reporting
+ * Code improvements (PHP Warnings)
+ * Better polygon and polyline handling
+ * Hebrew translation added
+ * 
+ * 6.0.23
  * Added extra support for corrupt polyline and polygon data
  * 
  * 6.0.22
@@ -70,8 +76,8 @@ $wpgmza_tblname_poly = $wpdb->prefix . "wpgmza_polygon";
 $wpgmza_tblname_polylines = $wpdb->prefix . "wpgmza_polylines";
 $wpgmza_tblname_categories = $wpdb->prefix. "wpgmza_categories";
 $wpgmza_tblname_category_maps = $wpdb->prefix. "wpgmza_category_maps";
-$wpgmza_version = "6.0.23";
-$wpgmza_p_version = "6.0.23";
+$wpgmza_version = "6.0.24";
+$wpgmza_p_version = "6.0.24";
 $wpgmza_t = "basic";
 define("WPGMAPS", $wpgmza_version);
 define("WPGMAPS_DIR",plugin_dir_url(__FILE__));
@@ -292,7 +298,24 @@ function wpgmaps_handle_directory() {
     $xml_marker_location = get_option("wpgmza_xml_location");
     if (!file_exists($xml_marker_location)) {
         wp_mkdir_p($xml_marker_location);
+        
     }
+    
+    
+}
+add_action('init','wpgmaps_folder_check');
+function wpgmaps_folder_check() {
+    $xml_marker_location = get_option("wpgmza_xml_location");
+    if (!file_exists($xml_marker_location)) {
+        add_action('admin_notices', 'wpgmaps_folder_warning');
+    }
+}
+function wpgmaps_folder_warning() {
+    $xml_marker_location = get_option("wpgmza_xml_location");
+    echo '
+    <div class="error"><p>'.__('<strong>WP Google Maps cannot find the directory it uses to save marker data to. Please confirm that <strong>', 'wp-google-maps').' '.$xml_marker_location.' '.__('</strong>exists. Please also ensure that you assign file permissions of 755 (or 777) to this directory.','wp-google-maps').'</p></div>
+    ';
+
 }
 function wpgmaps_cache_permission_warning() {
     echo "<div class='error below-h1'><big>";
@@ -2175,45 +2198,53 @@ function wpgmaps_head() {
         global $wpdb;
         global $wpgmza_tblname_poly;
         $mid = esc_attr($_POST['wpgmaps_map_id']);
-        $wpgmaps_polydata = esc_attr($_POST['wpgmza_polygon']);
-        $polyname = esc_attr($_POST['poly_name']);
-        $linecolor = esc_attr($_POST['poly_line']);
-        $fillcolor = esc_attr($_POST['poly_fill']);
-        $opacity = esc_attr($_POST['poly_opacity']);
-        $line_opacity = esc_attr($_POST['poly_line_opacity']);
-        $ohlinecolor = esc_attr($_POST['poly_line_hover_line_color']);
-        $ohfillcolor = esc_attr($_POST['poly_hover_fill_color']);
-        $ohopacity = esc_attr($_POST['poly_hover_opacity']);
+        if (!isset($_POST['wpgmza_polygon']) || $_POST['wpgmza_polygon'] == "") {
+            echo "<div class='error'>";
+            _e("You cannot save a blank polygon","wp-google-maps");
+            echo "</div>";
+            
+        } else {
+            $wpgmaps_polydata = esc_attr($_POST['wpgmza_polygon']);
+        
+            if (isset($_POST['poly_name'])) { $polyname = esc_attr($_POST['poly_name']); } else { $polyname = "Polyline"; }
+            if (isset($_POST['poly_line'])) { $linecolor = esc_attr($_POST['poly_line']); } else { $linecolor = "000000"; }
+            if (isset($_POST['poly_fill'])) { $fillcolor = esc_attr($_POST['poly_fill']); } else { $fillcolor = "66FF00"; }
+            if (isset($_POST['poly_opacity'])) { $opacity = esc_attr($_POST['poly_opacity']); } else { $opacity = "0.5"; }
+            if (isset($_POST['poly_line_opacity'])) { $line_opacity = esc_attr($_POST['poly_line_opacity']); } else { $line_opacity = "0.5"; }
+            if (isset($_POST['poly_line_hover_line_color'])) { $ohlinecolor = esc_attr($_POST['poly_line_hover_line_color']); } else { $ohlinecolor = ""; }
+            if (isset($_POST['poly_hover_fill_color'])) { $ohfillcolor = esc_attr($_POST['poly_hover_fill_color']); } else { $ohfillcolor = ""; }
+            if (isset($_POST['poly_hover_opacity'])) { $ohopacity = esc_attr($_POST['poly_hover_opacity']); } else { $ohopacity = ""; }
 
-        $rows_affected = $wpdb->query( $wpdb->prepare(
-                "INSERT INTO $wpgmza_tblname_poly SET
-                map_id = %d,
-                polydata = %s,
-                polyname = %s,
-                linecolor = %s,
-                lineopacity = %s,
-                fillcolor = %s,
-                opacity = %s,
-                ohlinecolor = %s,
-                ohfillcolor = %s,
-                ohopacity = %s
-                ",
+            $rows_affected = $wpdb->query( $wpdb->prepare(
+                    "INSERT INTO $wpgmza_tblname_poly SET
+                    map_id = %d,
+                    polydata = %s,
+                    polyname = %s,
+                    linecolor = %s,
+                    lineopacity = %s,
+                    fillcolor = %s,
+                    opacity = %s,
+                    ohlinecolor = %s,
+                    ohfillcolor = %s,
+                    ohopacity = %s
+                    ",
 
-                $mid,
-                $wpgmaps_polydata,
-                $polyname,
-                $linecolor,
-                $line_opacity,
-                $fillcolor,
-                $opacity,
-                $ohlinecolor,
-                $ohfillcolor,
-                $ohopacity
-            )
-        );
-        echo "<div class='updated'>";
-        _e("Your polygon has been created.","wp-google-maps");
-        echo "</div>";
+                    $mid,
+                    $wpgmaps_polydata,
+                    $polyname,
+                    $linecolor,
+                    $line_opacity,
+                    $fillcolor,
+                    $opacity,
+                    $ohlinecolor,
+                    $ohfillcolor,
+                    $ohopacity
+                )
+            );
+            echo "<div class='updated'>";
+            _e("Your polygon has been created.","wp-google-maps");
+            echo "</div>";
+        }
 
 
     }
@@ -2222,45 +2253,54 @@ function wpgmaps_head() {
         global $wpgmza_tblname_poly;
         $mid = esc_attr($_POST['wpgmaps_map_id']);
         $pid = esc_attr($_POST['wpgmaps_poly_id']);
-        $wpgmaps_polydata = esc_attr($_POST['wpgmza_polygon']);
-        $linecolor = esc_attr($_POST['poly_line']);
-        $polyname = esc_attr($_POST['poly_name']);
-        $fillcolor = esc_attr($_POST['poly_fill']);
-        $opacity = esc_attr($_POST['poly_opacity']);
-        $line_opacity = esc_attr($_POST['poly_line_opacity']);
-        $ohlinecolor = esc_attr($_POST['poly_line_hover_line_color']);
-        $ohfillcolor = esc_attr($_POST['poly_hover_fill_color']);
-        $ohopacity = esc_attr($_POST['poly_hover_opacity']);
+        if (!isset($_POST['wpgmza_polygon']) || $_POST['wpgmza_polygon'] == "") {
+            echo "<div class='error'>";
+            _e("You cannot save a blank polygon","wp-google-maps");
+            echo "</div>";
+    
+        } else {
+            $wpgmaps_polydata = esc_attr($_POST['wpgmza_polygon']);
+        
+            if (isset($_POST['poly_name'])) { $polyname = esc_attr($_POST['poly_name']); } else { $polyname = "Polyline"; }
+            if (isset($_POST['poly_line'])) { $linecolor = esc_attr($_POST['poly_line']); } else { $linecolor = "000000"; }
+            if (isset($_POST['poly_fill'])) { $fillcolor = esc_attr($_POST['poly_fill']); } else { $fillcolor = "66FF00"; }
+            if (isset($_POST['poly_opacity'])) { $opacity = esc_attr($_POST['poly_opacity']); } else { $opacity = "0.5"; }
+            if (isset($_POST['poly_line_opacity'])) { $line_opacity = esc_attr($_POST['poly_line_opacity']); } else { $line_opacity = "0.5"; }
+            if (isset($_POST['poly_line_hover_line_color'])) { $ohlinecolor = esc_attr($_POST['poly_line_hover_line_color']); } else { $ohlinecolor = ""; }
+            if (isset($_POST['poly_hover_fill_color'])) { $ohfillcolor = esc_attr($_POST['poly_hover_fill_color']); } else { $ohfillcolor = ""; }
+            if (isset($_POST['poly_hover_opacity'])) { $ohopacity = esc_attr($_POST['poly_hover_opacity']); } else { $ohopacity = ""; }
 
-        $rows_affected = $wpdb->query( $wpdb->prepare(
-                "UPDATE $wpgmza_tblname_poly SET
-                polydata = %s,
-                polyname = %s,
-                linecolor = %s,
-                lineopacity = %s,
-                fillcolor = %s,
-                opacity = %s,
-                ohlinecolor = %s,
-                ohfillcolor = %s,
-                ohopacity = %s
-                WHERE `id` = %d"
-                ,
 
-                $wpgmaps_polydata,
-                $polyname,
-                $linecolor,
-                $line_opacity,
-                $fillcolor,
-                $opacity,
-                $ohlinecolor,
-                $ohfillcolor,
-                $ohopacity,
-                $pid
-            )
-        );
-        echo "<div class='updated'>";
-        _e("Your polygon has been saved.","wp-google-maps");
-        echo "</div>";
+            $rows_affected = $wpdb->query( $wpdb->prepare(
+                    "UPDATE $wpgmza_tblname_poly SET
+                    polydata = %s,
+                    polyname = %s,
+                    linecolor = %s,
+                    lineopacity = %s,
+                    fillcolor = %s,
+                    opacity = %s,
+                    ohlinecolor = %s,
+                    ohfillcolor = %s,
+                    ohopacity = %s
+                    WHERE `id` = %d"
+                    ,
+
+                    $wpgmaps_polydata,
+                    $polyname,
+                    $linecolor,
+                    $line_opacity,
+                    $fillcolor,
+                    $opacity,
+                    $ohlinecolor,
+                    $ohfillcolor,
+                    $ohopacity,
+                    $pid
+                )
+            );
+            echo "<div class='updated'>";
+            _e("Your polygon has been saved.","wp-google-maps");
+            echo "</div>";
+        }
 
 
     }
@@ -2268,33 +2308,42 @@ function wpgmaps_head() {
         global $wpdb;
         global $wpgmza_tblname_polylines;
         $mid = esc_attr($_POST['wpgmaps_map_id']);
-        $wpgmaps_polydata = esc_attr($_POST['wpgmza_polyline']);
-        $polyname = esc_attr($_POST['poly_name']);
-        $linecolor = esc_attr($_POST['poly_line']);
-        $linethickness = esc_attr($_POST['poly_thickness']);
-        $opacity = esc_attr($_POST['poly_opacity']);
+        if (!isset($_POST['wpgmza_polyline']) || $_POST['wpgmza_polyline'] == "") {
+            echo "<div class='error'>";
+            _e("You cannot save a blank polyline","wp-google-maps");
+            echo "</div>";
+    
+        } else {
+            $wpgmaps_polydata = esc_attr($_POST['wpgmza_polyline']);
+        
+        
+            if (isset($_POST['poly_name'])) { $polyname = esc_attr($_POST['poly_name']); } else { $polyname = ""; }
+            if (isset($_POST['poly_line'])) { $linecolor = esc_attr($_POST['poly_line']); } else { $linecolor = "000000"; }
+            if (isset($_POST['poly_thickness'])) { $linethickness = esc_attr($_POST['poly_thickness']); } else { $linethickness = "0"; }
+            if (isset($_POST['poly_opacity'])) { $opacity = esc_attr($_POST['poly_opacity']); } else { $opacity = "1"; }
 
-        $rows_affected = $wpdb->query( $wpdb->prepare(
-                "INSERT INTO $wpgmza_tblname_polylines SET
-                map_id = %d,
-                polydata = %s,
-                polyname = %s,
-                linecolor = %s,
-                linethickness = %s,
-                opacity = %s
-                ",
+            $rows_affected = $wpdb->query( $wpdb->prepare(
+                    "INSERT INTO $wpgmza_tblname_polylines SET
+                    map_id = %d,
+                    polydata = %s,
+                    polyname = %s,
+                    linecolor = %s,
+                    linethickness = %s,
+                    opacity = %s
+                    ",
 
-                $mid,
-                $wpgmaps_polydata,
-                $polyname,
-                $linecolor,
-                $linethickness,
-                $opacity
-            )
-        );
-        echo "<div class='updated'>";
-        _e("Your polyline has been created.","wp-google-maps");
-        echo "</div>";
+                    $mid,
+                    $wpgmaps_polydata,
+                    $polyname,
+                    $linecolor,
+                    $linethickness,
+                    $opacity
+                )
+            );
+            echo "<div class='updated'>";
+            _e("Your polyline has been created.","wp-google-maps");
+            echo "</div>";
+        }
 
 
     }
@@ -2303,33 +2352,40 @@ function wpgmaps_head() {
         global $wpgmza_tblname_polylines;
         $mid = esc_attr($_POST['wpgmaps_map_id']);
         $pid = esc_attr($_POST['wpgmaps_poly_id']);
-        $wpgmaps_polydata = esc_attr($_POST['wpgmza_polyline']);
-        $linecolor = esc_attr($_POST['poly_line']);
-        $polyname = esc_attr($_POST['poly_name']);
-        $linethickness = esc_attr($_POST['poly_thickness']);
-        $opacity = esc_attr($_POST['poly_opacity']);
+        if (!isset($_POST['wpgmza_polyline']) || $_POST['wpgmza_polyline'] == "") {
+            echo "<div class='error'>";
+            _e("You cannot save a blank polyline","wp-google-maps");
+            echo "</div>";
+    
+        } else {
+            $wpgmaps_polydata = esc_attr($_POST['wpgmza_polyline']);
+            if (isset($_POST['poly_name'])) { $polyname = esc_attr($_POST['poly_name']); } else { $polyname = ""; }
+            if (isset($_POST['poly_line'])) { $linecolor = esc_attr($_POST['poly_line']); } else { $linecolor = "000000"; }
+            if (isset($_POST['poly_thickness'])) { $linethickness = esc_attr($_POST['poly_thickness']); } else { $linethickness = "0"; }
+            if (isset($_POST['poly_opacity'])) { $opacity = esc_attr($_POST['poly_opacity']); } else { $opacity = "1"; }
 
-        $rows_affected = $wpdb->query( $wpdb->prepare(
-                "UPDATE $wpgmza_tblname_polylines SET
-                polydata = %s,
-                polyname = %s,
-                linecolor = %s,
-                linethickness = %s,
-                opacity = %s
-                WHERE `id` = %d"
-                ,
+            $rows_affected = $wpdb->query( $wpdb->prepare(
+                    "UPDATE $wpgmza_tblname_polylines SET
+                    polydata = %s,
+                    polyname = %s,
+                    linecolor = %s,
+                    linethickness = %s,
+                    opacity = %s
+                    WHERE `id` = %d"
+                    ,
 
-                $wpgmaps_polydata,
-                $polyname,
-                $linecolor,
-                $linethickness,
-                $opacity,
-                $pid
-            )
-        );
-        echo "<div class='updated'>";
-        _e("Your polyline has been saved.","wp-google-maps");
-        echo "</div>";
+                    $wpgmaps_polydata,
+                    $polyname,
+                    $linecolor,
+                    $linethickness,
+                    $opacity,
+                    $pid
+                )
+            );
+            echo "<div class='updated'>";
+            _e("Your polyline has been saved.","wp-google-maps");
+            echo "</div>";
+        }
 
 
     }    
@@ -2737,10 +2793,9 @@ function wpgmaps_admin_menu() {
     if (isset($wpgmza_settings['wpgmza_settings_access_level'])) { $access_level = $wpgmza_settings['wpgmza_settings_access_level']; } else { $access_level = "manage_options"; }
     add_menu_page('WPGoogle Maps', __('Maps','wp-google-maps'), $access_level, 'wp-google-maps-menu', 'wpgmaps_menu_layout', wpgmaps_get_plugin_url()."/images/map_app_small.png");
     
-    if (function_exists('wpgmza_pro_advanced_menu')) {
-        add_submenu_page('wp-google-maps-menu', 'WP Google Maps - Categories', __('Categories','wp-google-maps'), $access_level , 'wp-google-maps-menu-categories', 'wpgmaps_menu_category_layout');
-        add_submenu_page('wp-google-maps-menu', 'WP Google Maps - Advanced Options', __('Advanced','wp-google-maps'), $access_level , 'wp-google-maps-menu-advanced', 'wpgmaps_menu_advanced_layout');
-    }
+    if (function_exists('wpgmaps_menu_category_layout')) { add_submenu_page('wp-google-maps-menu', 'WP Google Maps - Categories', __('Categories','wp-google-maps'), $access_level , 'wp-google-maps-menu-categories', 'wpgmaps_menu_category_layout'); }
+    if (function_exists('wpgmaps_menu_advanced_layout')) { add_submenu_page('wp-google-maps-menu', 'WP Google Maps - Advanced Options', __('Advanced','wp-google-maps'), $access_level , 'wp-google-maps-menu-advanced', 'wpgmaps_menu_advanced_layout'); }
+    
     add_submenu_page('wp-google-maps-menu', 'WP Google Maps - Settings', __('Settings','wp-google-maps'), $access_level , 'wp-google-maps-menu-settings', 'wpgmaps_menu_settings_layout');
 
 }
@@ -2895,7 +2950,7 @@ function wpgmaps_settings_page_basic() {
     if (isset($wpgmza_settings['wpgmza_settings_map_clickzoom'])) { $wpgmza_settings_map_clickzoom = $wpgmza_settings['wpgmza_settings_map_clickzoom']; }
     if (isset($wpgmza_settings['wpgmza_api_version'])) { $wpgmza_api_version = $wpgmza_settings['wpgmza_api_version']; }
 
-    
+    $wpgmza_api_version = array();
     $wpgmza_api_version_selected[0] = "";
     $wpgmza_api_version_selected[1] = "";
     $wpgmza_api_version_selected[2] = "";
@@ -2912,6 +2967,11 @@ function wpgmaps_settings_page_basic() {
     else if ($wpgmza_settings_map_open_marker_by == '2') { $wpgmza_settings_map_open_marker_by_checked[1] = "checked='checked'"; }
     else { $wpgmza_settings_map_open_marker_by_checked[0] = "checked='checked'"; }
 
+    $wpgmza_access_level_checked[0] = "";
+    $wpgmza_access_level_checked[1] = "";
+    $wpgmza_access_level_checked[2] = "";
+    $wpgmza_access_level_checked[3] = "";
+    $wpgmza_access_level_checked[4] = "";
     if (isset($wpgmza_settings['wpgmza_settings_access_level'])) { $wpgmza_access_level = $wpgmza_settings['wpgmza_settings_access_level']; } else { $wpgmza_access_level = ""; }
     if ($wpgmza_access_level == "manage_options") { $wpgmza_access_level_checked[0] = "selected"; }
     else if ($wpgmza_access_level == "edit_pages") { $wpgmza_access_level_checked[1] = "selected"; }
@@ -2947,7 +3007,7 @@ function wpgmaps_settings_page_basic() {
     $wpgmza_file_perms = substr(sprintf('%o', fileperms($marker_location)), -4);
     $fpe = false;
     $fpe_error = "";
-    if ($wpgmza_file_perms == "0777" || $wpgmza_file_perms == "0755" || $wpgmza_file_perms == "0775" || $wpgmza_file_perms == "0705") { 
+    if ($wpgmza_file_perms == "0777" || $wpgmza_file_perms == "0755" || $wpgmza_file_perms == "0775" || $wpgmza_file_perms == "0705" || $wpgmza_file_perms == "2777" || $wpgmza_file_perms == "2755" || $wpgmza_file_perms == "2775" || $wpgmza_file_perms == "2705") { 
         $fpe = true;
         $fpe_error = "";
     }
@@ -4202,7 +4262,7 @@ function wpgmza_return_marker_list($map_id,$admin = true,$width = "100%",$mashup
             } else {
                 $wpgmza_tmp_body .= "<tr id=\"wpgmza_marker_".$result->id."\" mid=\"".$result->id."\" mapid=\"".$result->map_id."\" class=\"wpgmaps_mlist_row\">";
                 $wpgmza_tmp_body .= "   <td width='1px;' style='display:none; width:1px !important;'><span style='display:none;'>".sprintf('%02d', $result->id)."</span></td>";
-                $wpgmza_tmp_body .= "   <td class='wpgmza_table_marker' height=\"40\">".$icon."</td>";
+                $wpgmza_tmp_body .= "   <td class='wpgmza_table_marker' height=\"40\">".str_replace("'","\"",$icon)."</td>";
                 $wpgmza_tmp_body .= "   <td class='wpgmza_table_title'>".$result->title."</td>";
                 $wpgmza_tmp_body .= "   <td class='wpgmza_table_category'>".wpgmza_return_category_name($result->category)."</td>";
                 $wpgmza_tmp_body .= "   <td class='wpgmza_table_address'>".$result->address."</td>";
@@ -4433,31 +4493,7 @@ function wpgmaps_handle_db() {
 
     $table_name = $wpdb->prefix . "wpgmza";
 
-    // check for previous versions containing 'desc' instead of 'description'
-    $results = $wpdb->get_results("DESC $wpgmza_tblname");
-    $founded = 0;
-    foreach ($results as $row ) {
-        if ($row->Field == "desc") {
-            $founded++;
-        }
-    }
-    if ($founded>0) { $wpdb->query("ALTER TABLE $wpgmza_tblname CHANGE `desc` `description` MEDIUMTEXT"); }
-    // end check
 
-    
-    /* check for older version of "category" and change to varchar instead of int */
-    $results = $wpdb->get_results("DESC $wpgmza_tblname");
-    $founded = 0;
-    foreach ($results as $row ) {
-        
-        if ($row->Field == "category") {
-            if ($row->Type == "int(11)") {
-                $founded++;
-            }
-        }
-    }
-    if ($founded>0) { $wpdb->query("ALTER TABLE $wpgmza_tblname CHANGE `category` `category` VARCHAR(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '0'"); }
-    // end check
 
 
     $sql = "
@@ -4591,6 +4627,31 @@ function wpgmaps_handle_db() {
     dbDelta($sql);
 
 
+    // check for previous versions containing 'desc' instead of 'description'
+    $results = $wpdb->get_results("DESC $wpgmza_tblname");
+    $founded = 0;
+    foreach ($results as $row ) {
+        if ($row->Field == "desc") {
+            $founded++;
+        }
+    }
+    if ($founded>0) { $wpdb->query("ALTER TABLE $wpgmza_tblname CHANGE `desc` `description` MEDIUMTEXT"); }
+    // end check
+
+    
+    /* check for older version of "category" and change to varchar instead of int */
+    $results = $wpdb->get_results("DESC $wpgmza_tblname");
+    $founded = 0;
+    foreach ($results as $row ) {
+        
+        if ($row->Field == "category") {
+            if ($row->Type == "int(11)") {
+                $founded++;
+            }
+        }
+    }
+    if ($founded>0) { $wpdb->query("ALTER TABLE $wpgmza_tblname CHANGE `category` `category` VARCHAR(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '0'"); }
+    // end check
 
     add_option("wpgmza_db_version", $wpgmza_version);
     update_option("wpgmza_db_version",$wpgmza_version);

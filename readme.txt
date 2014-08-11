@@ -68,6 +68,7 @@ Get a free copy of the WP Google Maps Pro version in exchange for translating ou
 * Polish (Michal Kotnowski)
 * Finnish (Johanna Joutti)
 * Dutch (Jan Wind)
+* Hebrew (Gal Dotan)
 * Czechoslovakian^
 * Spanish^
 * French^
@@ -148,6 +149,12 @@ In order to show your custom Google map on your page or post, simply copy the sh
 This is a must for users on IIS. Older WP Google Maps versions will not be compatible.
 
 == Changelog ==
+
+= 6.0.24 2014-07-31 =
+* Added extra support for folder management and error reporting
+* Code improvements (PHP Warnings)
+* Better polygon and polyline handling
+* Hebrew translation added - thank you Gal Dotan
 
 = 6.0.23 2014-07-30 =
 * Added extra support for corrupt polyline and polygon data - Low priority update
