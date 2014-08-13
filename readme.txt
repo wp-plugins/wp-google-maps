@@ -150,6 +150,9 @@ This is a must for users on IIS. Older WP Google Maps versions will not be compa
 
 == Changelog ==
 
+= 6.0.25 2014-08-13 =
+* Removed the use of "is_dir" which caused fatal errors on some hosts
+
 = 6.0.24 2014-07-31 =
 * Added extra support for folder management and error reporting
 * Code improvements (PHP Warnings)
