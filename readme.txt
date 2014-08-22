@@ -322,4 +322,4 @@ This is a must for users on IIS. Older WP Google Maps versions will not be compa
 * Added SSL bug fixes
 * Fixed a bug that wasnt allowing users to edit the exact location
 
-For more, please view the WP Google Maps website.
+For more, please view the WP Google Maps website
