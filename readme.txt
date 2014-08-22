@@ -150,6 +150,10 @@ This is a must for users on IIS. Older WP Google Maps versions will not be compa
 
 == Changelog ==
 
+= 6.0.26 2014-08-22 =
+* Attempting to fix the "is_dir" and "open_basedir restriction" errors some users are experiencing.
+* Updated timthumb to version 2.8.14
+
 = 6.0.25 2014-08-13 =
 * Removed the use of "is_dir" which caused fatal errors on some hosts
 

@@ -3,12 +3,17 @@
 Plugin Name: WP Google Maps
 Plugin URI: http://www.wpgmaps.com
 Description: The easiest to use Google Maps plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 6.0.25
+Version: 6.0.26
 Author: WP Google Maps
 Author URI: http://www.wpgmaps.com
 */
 
-/* 6.0.25
+/* 6.0.26
+ * Attempting to fix the "is_dir" and "open_basedir restriction" errors some users are experiencing.
+ * Updated timthumb to version 2.8.14
+ * Altered all instances of "is_dir" in timthumb.php (causing fatal errors on some hosts) and replace it with 'file_exists'
+ * 
+ * 6.0.25
  * Removed the use of "is_dir" which caused fatal errors on some hosts
  * 
  * 6.0.24
@@ -79,8 +84,8 @@ $wpgmza_tblname_poly = $wpdb->prefix . "wpgmza_polygon";
 $wpgmza_tblname_polylines = $wpdb->prefix . "wpgmza_polylines";
 $wpgmza_tblname_categories = $wpdb->prefix. "wpgmza_categories";
 $wpgmza_tblname_category_maps = $wpdb->prefix. "wpgmza_category_maps";
-$wpgmza_version = "6.0.25";
-$wpgmza_p_version = "6.0.25";
+$wpgmza_version = "6.0.26";
+$wpgmza_p_version = "6.0.26";
 $wpgmza_t = "basic";
 define("WPGMAPS", $wpgmza_version);
 define("WPGMAPS_DIR",plugin_dir_url(__FILE__));
@@ -121,6 +126,8 @@ function wpgmaps_activate() {
     $table_name_maps = $wpdb->prefix . "wpgmza_maps";
     delete_option("WPGMZA");
 
+    
+    /* set defaults for the Marker XML Dir and Marker XML URL */
     if (get_option("wpgmza_xml_location") == "") {
         $upload_dir = wp_upload_dir();
         add_option("wpgmza_xml_location",$upload_dir['basedir'].'/wp-google-maps/');
@@ -300,7 +307,11 @@ function wpgmaps_handle_directory() {
     }
     $xml_marker_location = get_option("wpgmza_xml_location");
     if (!file_exists($xml_marker_location)) {
-        wp_mkdir_p($xml_marker_location);
+        if (@mkdir($xml_marker_location)) {
+            return true;
+        } else {
+            return false;
+        }
         
     }
     
@@ -316,7 +327,7 @@ function wpgmaps_folder_check() {
 function wpgmaps_folder_warning() {
     $xml_marker_location = get_option("wpgmza_xml_location");
     echo '
-    <div class="error"><p>'.__('<strong>WP Google Maps cannot find the directory it uses to save marker data to. Please confirm that <strong>', 'wp-google-maps').' '.$xml_marker_location.' '.__('</strong>exists. Please also ensure that you assign file permissions of 755 (or 777) to this directory.','wp-google-maps').'</p></div>
+    <div class="error"><p>'.__('<strong>WP Google Maps cannot find the directory it uses to save marker data to. Please confirm that <em>', 'wp-google-maps').' '.$xml_marker_location.' '.__('</em>exists. Please also ensure that you assign file permissions of 755 (or 777) to this directory.','wp-google-maps').'</strong></p></div>
     ';
 
 }
