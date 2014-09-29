@@ -7,11 +7,11 @@ Tested up to: 4.0
 Stable tag: trunk
 License: GPLv2
 
-The easiest to use Google maps plugin! Create custom maps with high quality markers containing locations, categories, descriptions, images and links.
+The easiest to use Google maps plugin! Create a custom Google map with high quality markers containing locations, categories, descriptions, images and links.
 
 == Description ==
 
-The easiest to use Google maps plugin! Add your customized Google map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss. No iFrames and super easy to use! Perfect for contact pages, coverage maps and any other use you can think of!
+The easiest to use Google maps plugin! Add a customized Google map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss. No iFrames and super easy to use! Perfect for contact page maps, routes, maps showing delivery areas and any other use you can think of!
 
 While the free version of WP Google Maps allows you to create a Google map with as many markers as you like, the Pro version allows you to do so much more! 
 
@@ -65,13 +65,14 @@ Get a free copy of the WP Google Maps Pro version in exchange for translating ou
 * English - default
 * Russian
 * German
+* French (Arnaud Thomas)
 * Polish (Michal Kotnowski)
 * Finnish (Johanna Joutti)
 * Dutch (Jan Wind)
 * Hebrew (Gal Dotan)
+* Danish (Patrick Jepsen)
 * Czechoslovakian^
 * Spanish^
-* French^
 * Italian^
 * Swedish^
 
@@ -145,10 +146,16 @@ In order to show your custom Google map on your page or post, simply copy the sh
 
 == Upgrade Notice ==
 
-= 5.05 =
-This is a must for users on IIS. Older WP Google Maps versions will not be compatible.
+= 6.0.27 =
+Please upgrade your version of WP Google Maps to version 6.0.27 as it includes multiple security improvements.
 
 == Changelog ==
+
+= 6.0.27 2014-09-29 =
+* French translation updated by Arnaud Thomas
+* Security updates (thank you www.htbridge.com)
+* Code improvements (PHP warnings)
+* Google Map Store Locator bug fix - map zoom levels on 300km, 150km and 75km were incorrect
 
 = 6.0.26 2014-08-22 =
 * Attempting to fix the "is_dir" and "open_basedir restriction" errors some users are experiencing.
