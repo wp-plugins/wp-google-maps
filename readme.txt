@@ -1,7 +1,7 @@
 === WP Google Maps ===
 Contributors: WPGMaps
 Donate link: http://www.wpgmaps.com
-Tags: google maps, maps, map, map markers, google, google map, wp maps, wp google maps, wp google map, easy map, store locator, map plugin, directions, map directions, google map plugin, routes, polygons, polylines, streetview, location, marker, latitude, longitude
+Tags: google maps, maps, map, map markers, google, google map, wp maps, wp google maps, wp google map, easy map, store locator, map plugin, directions, map directions, google map plugin, routes, polygons, polylines, streetview, location, marker, latitude, longitude, map widget
 Requires at least: 3.5
 Tested up to: 4.0
 Stable tag: trunk
@@ -71,9 +71,10 @@ Get a free copy of the WP Google Maps Pro version in exchange for translating ou
 * Dutch (Jan Wind)
 * Hebrew (Gal Dotan)
 * Danish (Patrick Jepsen)
+* Italian (Tommaso Mori)
 * Czechoslovakian^
 * Spanish^
-* Italian^
+
 * Swedish^
 
 ^Language file needs to be updated
@@ -150,6 +151,11 @@ In order to show your custom Google map on your page or post, simply copy the sh
 Please upgrade your version of WP Google Maps to version 6.0.27 as it includes multiple security improvements.
 
 == Changelog ==
+
+= 6.0.28 2014-10-22 =
+* Enfold / Avia theme conflict resolved (Google Maps API loading twice)
+* Better marker file/directory control
+* Italian translation added (Tommaso Mori)
 
 = 6.0.27 2014-09-29 =
 * French translation updated by Arnaud Thomas
