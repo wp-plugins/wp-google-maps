@@ -7,7 +7,7 @@ Tested up to: 4.0
 Stable tag: trunk
 License: GPLv2
 
-The easiest to use Google maps plugin! Create a custom Google map with high quality markers containing locations, categories, descriptions, images and links.
+The easiest to use Google maps plugin! Create a custom Google map with high quality markers containing categories, descriptions, images and links.
 
 == Description ==
 
@@ -49,6 +49,7 @@ The [WP Google Maps Pro Version](http://www.wpgmaps.com/purchase-professional-ve
 * Filter markers by category
 * Mashup multiple Google maps
 * Add different marker icons, or your own icons to make your map really stand out!
+* List your Google Map markers in the three ways; Basic listing, Carousel, Advanced Table
 * Allow your visitors to get directions to your markers.
 * Export/Import your markers to a CSV file for quick editing.
 * Link Fusion tables to your Google Maps
@@ -72,9 +73,8 @@ Get a free copy of the WP Google Maps Pro version in exchange for translating ou
 * Hebrew (Gal Dotan)
 * Danish (Patrick Jepsen)
 * Italian (Tommaso Mori)
+* Spanish (Carmelo Villegas Cruz)
 * Czechoslovakian^
-* Spanish^
-
 * Swedish^
 
 ^Language file needs to be updated
@@ -144,6 +144,7 @@ In order to show your custom Google map on your page or post, simply copy the sh
 6. WP Google Maps Pro version: General settings page
 7. WP Google Maps Pro version: Export/Import your map markers
 8. WP Google Maps Pro version: Advanced Google map options.
+9. WP Google Maps Pro version: Responsive carousel map marker listing
 
 == Upgrade Notice ==
 
@@ -151,6 +152,11 @@ In order to show your custom Google map on your page or post, simply copy the sh
 Please upgrade your version of WP Google Maps to version 6.0.27 as it includes multiple security improvements.
 
 == Changelog ==
+
+* 6.0.29 2014-11-04
+* New option: You can now show or hide the Store Locator bouncing icon
+* New feature: Add custom CSS in the settings page
+* Code improvements
 
 = 6.0.28 2014-10-22 =
 * Enfold / Avia theme conflict resolved (Google Maps API loading twice)
