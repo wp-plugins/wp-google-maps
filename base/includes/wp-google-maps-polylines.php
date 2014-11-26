@@ -452,8 +452,6 @@ function wpgmaps_b_admin_edit_polyline_javascript($mapid,$polyid) {
                 poly.setMap(MYMAP.map);
                 
                 google.maps.event.addListener(MYMAP.map, 'click', addPoint);
-                console.log("polypath: "+path);
-                console.log("marker array:"+poly_markers);
             }
             function addExistingPoint(temp_gps) {
                 

@@ -8,7 +8,7 @@
     background-color:transparent !important;
     padding:0 !important;
     box-shadow: none !important;
-    visibility: visible !important;
+    
     
 }
 #wpgmza_map img { box-shadow: none !important; }
@@ -40,10 +40,8 @@
 .wpgmza_markerbox strong,
 .wpgmza_markerbox p,
 .wpgmza_markerbox br {
-    padding-left:0 !important;
-    padding-right:0 !important;
-    margin-left:0 !important;
-    margin-right:0 !important;
+    margin:2px;
+    padding:1px;
     color:#000 !important;
 }
 
@@ -201,6 +199,7 @@
         float:left;
         display:block;
         width:150px;
+        clear:left;
     }
     .wpgmza_sl_query_innerdiv2 {
         display:block;
@@ -256,3 +255,12 @@
 
 }
 .wpgmza_marker_approval_msg { font-weight: bold; }
+
+.scrollFix {
+    line-height: 1.35;
+}
+.wpgmza_infowindow_description { white-space: normal; }
+.wpgmza_infowindow_title { white-space: normal; }
+.wpgmza_infowindow_address { white-space: normal; }
+.wpgmza_infowindow_title { font-weight: bold; }
+.gm-style-iw div {overflow:visible !important;}

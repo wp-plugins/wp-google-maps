@@ -3,12 +3,17 @@
 Plugin Name: WP Google Maps
 Plugin URI: http://www.wpgmaps.com
 Description: The easiest to use Google Maps plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 6.0.29
+Version: 6.0.30
 Author: WP Google Maps
 Author URI: http://www.wpgmaps.com
 */
 
-/* 6.0.29
+/* 6.0.30
+ * Added a check for the DOMDocument class
+ * Removed the APC Object Cache warning
+ * Added new strings to the PO file
+ * 
+ * 6.0.29
  * New option: You can now show or hide the Store Locator bouncing icon
  * New feature: Add custom CSS in the settings page
  * Code improvements
@@ -101,8 +106,8 @@ $wpgmza_tblname_poly = $wpdb->prefix . "wpgmza_polygon";
 $wpgmza_tblname_polylines = $wpdb->prefix . "wpgmza_polylines";
 $wpgmza_tblname_categories = $wpdb->prefix. "wpgmza_categories";
 $wpgmza_tblname_category_maps = $wpdb->prefix. "wpgmza_category_maps";
-$wpgmza_version = "6.0.29";
-$wpgmza_p_version = "6.0.29";
+$wpgmza_version = "6.0.30";
+$wpgmza_p_version = "6.0.30";
 $wpgmza_t = "basic";
 define("WPGMAPS", $wpgmza_version);
 define("WPGMAPS_DIR",plugin_dir_url(__FILE__));
@@ -244,7 +249,7 @@ function wpgmaps_activate() {
 
     // load first marker as an example marker
     $results = $wpdb->get_results("SELECT * FROM $table_name WHERE `map_id` = '1'");
-    if (!$results) { $rows_affected = $wpdb->insert( $table_name, array( 'map_id' => '1', 'address' => 'California', 'lat' => '36.778261', 'lng' => '-119.4179323999', 'pic' => '', 'link' => '', 'icon' => '', 'anim' => '', 'title' => '', 'infoopen' => '', 'description' => '', 'category' => 0) ); }
+    if (!$results) { $rows_affected = $wpdb->insert( $table_name, array( 'map_id' => '1', 'address' => 'California', 'lat' => '36.778261', 'lng' => '-119.4179323999', 'pic' => '', 'link' => '', 'icon' => '', 'anim' => '', 'title' => '', 'infoopen' => '', 'description' => '', 'category' => 0, 'retina' => 0) ); }
 
     
     wpgmaps_update_all_xml_file();
@@ -670,6 +675,7 @@ function wpgmaps_admin_javascript_basic() {
                     "bProcessing": true,
                     "aaSorting": [[ 0, "desc" ]]
                 });
+                
                 function wpgmza_reinitialisetbl() {
                     wpgmzaTable.fnClearTable( 0 );
                     wpgmzaTable = jQuery('#wpgmza_table').dataTable({
@@ -1651,9 +1657,9 @@ function wpgmaps_user_javascript_basic() {
                                 var d_string = "";
                                 if (radius !== null) {                                 
                                     if (distance_type === "1") {
-                                        d_string = "<br />"+Math.round(d,2)+" miles away<br />"; 
+                                        d_string = "<p style='min-width:100px; display:block;'>"+Math.round(d,2)+"<?php _e("miles away","wp-google-maps") ?> </p>"; 
                                     } else {
-                                        d_string = "<br />"+Math.round(d,2)+" km away<br />"; 
+                                        d_string = "<p style='min-width:100px; display:block;'>"+Math.round(d,2)+"<?php _e("km away","wp-google-maps") ?> </p>"; 
                                     }
                                 } else { d_string = ''; }
                                 
@@ -1760,6 +1766,15 @@ function wpgmaps_update_xml_file($mapid = false) {
         $mapid = sanitize_text_field($_GET['map_id']);
     }
     global $wpdb;
+    
+    
+    /* added in 6.0.30 */
+    if (!class_exists("DOMDocument")) {
+        return new WP_Error( 'db_query_error', __( 'DOMDocument is not enabled' ), "Please contact your host and ask them to enable the DOMDocument class. WP Google Maps uses this class to create the marker data files." );
+    }
+    
+    
+    
     $dom = new DOMDocument('1.0');
     $dom->formatOutput = true;
     $channel_main = $dom->createElement('markers');
@@ -1785,6 +1800,7 @@ function wpgmaps_update_xml_file($mapid = false) {
                 "
         );
     }
+    
 
 
     
@@ -1803,14 +1819,21 @@ function wpgmaps_update_xml_file($mapid = false) {
         $lat = $result->lat;
         $lng = $result->lng;
         $anim = $result->anim;
+        $retina = $result->retina;
         $category = $result->category;
-        if (function_exists('wpgmza_get_category_icon')) {
-            $category_icon = wpgmza_get_category_icon($category);
-            if ($category_icon) {
-                $icon = $category_icon;
+        if (function_exists('wpgmza_get_category_data')) {
+            $category_data = wpgmza_get_category_data($category);
+            if (isset($category_data->category_icon) && isset($category_data->category_icon) != "") {
+                $icon = $category_data->category_icon;
+            } else {
+               $icons = "";
+            }
+            if (isset($category_data->retina)) {
+                $retina = $category_data->retina;
             }
         }
         $infoopen = $result->infoopen;
+        
         $mtitle = stripslashes($result->title);
         $map_id = $result->map_id;
 
@@ -1837,6 +1860,8 @@ function wpgmaps_update_xml_file($mapid = false) {
         $bd->appendChild($dom->CreateTextNode($lng));
         $bd = $channel->appendChild($dom->createElement('anim'));
         $bd->appendChild($dom->CreateTextNode($anim));
+        $bd = $channel->appendChild($dom->createElement('retina'));
+        $bd->appendChild($dom->CreateTextNode($retina));
         $bd = $channel->appendChild($dom->createElement('category'));
         $bd->appendChild($dom->CreateTextNode($category));
         $bd = $channel->appendChild($dom->createElement('infoopen'));
@@ -2036,7 +2061,7 @@ function wpgmaps_action_callback_basic() {
     if ($check == 1) {
 
         if ($_POST['action'] == "add_marker") {
-            $rows_affected = $wpdb->insert( $table_name, array( 'map_id' => $_POST['map_id'], 'address' => $_POST['address'], 'lat' => $_POST['lat'], 'lng' => $_POST['lng'], 'infoopen' => $_POST['infoopen'], 'description' => '', 'title' => '', 'anim' => $_POST['anim'], 'link' => '', 'icon' => '', 'pic' => '', 'infoopen' => $_POST['infoopen'] ) );
+            $rows_affected = $wpdb->insert( $table_name, array( 'map_id' => $_POST['map_id'], 'address' => $_POST['address'], 'lat' => $_POST['lat'], 'lng' => $_POST['lng'], 'infoopen' => $_POST['infoopen'], 'description' => '', 'title' => '', 'anim' => $_POST['anim'], 'link' => '', 'icon' => '', 'pic' => '', 'infoopen' => $_POST['infoopen'], 'retina' => '0' ) );
             $wpgmza_check = wpgmaps_update_xml_file($_POST['map_id']);
             if ( is_wp_error($wpgmza_check) ) wpgmza_return_error($wpgmza_check);
         
@@ -2269,10 +2294,14 @@ function wpgmaps_head() {
     global $wpgmza_tblname_maps;
     global $wpgmza_version;
 
+    /* deprecated in version 6.0.30 as GoDaddy have added a "flush cache" feature */
+    /*
     $checker = get_dropins();
     if (isset($checker['object-cache.php'])) {
 	echo "<div id=\"message\" class=\"error\"><p>".__("Please note: <strong>WP Google Maps will not function correctly while using APC Object Cache.</strong> We have found that GoDaddy hosting packages automatically include this with their WordPress hosting packages. Please email GoDaddy and ask them to remove the object-cache.php from your wp-content/ directory.","wp-google-maps")."</p></div>";
     }
+     * 
+     */
 
     
     if (isset($_POST['wpgmza_savemap'])){
@@ -4629,7 +4658,7 @@ function wpgmza_return_marker_list($map_id,$admin = true,$width = "100%",$mashup
                 
                 $wpgmza_tmp_body .= "<tr id=\"wpgmza_tr_".$result->id."\" class=\"gradeU\">";
                 $wpgmza_tmp_body .= "<td height=\"40\">".$result->id."</td>";
-                $wpgmza_tmp_body .= "<td height=\"40\">".$icon."<input type=\"hidden\" id=\"wpgmza_hid_marker_icon_".$result->id."\" value=\"".$result->icon."\" /><input type=\"hidden\" id=\"wpgmza_hid_marker_anim_".$result->id."\" value=\"".$result->anim."\" /><input type=\"hidden\" id=\"wpgmza_hid_marker_category_".$result->id."\" value=\"".$result->category."\" /><input type=\"hidden\" id=\"wpgmza_hid_marker_infoopen_".$result->id."\" value=\"".$result->infoopen."\" /></td>";
+                $wpgmza_tmp_body .= "<td height=\"40\">".$icon."<input type=\"hidden\" id=\"wpgmza_hid_marker_icon_".$result->id."\" value=\"".$result->icon."\" /><input type=\"hidden\" id=\"wpgmza_hid_marker_anim_".$result->id."\" value=\"".$result->anim."\" /><input type=\"hidden\" id=\"wpgmza_hid_marker_category_".$result->id."\" value=\"".$result->category."\" /><input type=\"hidden\" id=\"wpgmza_hid_marker_infoopen_".$result->id."\" value=\"".$result->infoopen."\" /><input type=\"hidden\" id=\"wpgmza_hid_marker_retina_".$result->id."\" value=\"".$result->retina."\" /></td>";
                 $wpgmza_tmp_body .= "<td>".stripslashes($result->title)."<input type=\"hidden\" id=\"wpgmza_hid_marker_title_".$result->id."\" value=\"".stripslashes($result->title)."\" /></td>";
                 $wpgmza_tmp_body .= "<td>".wpgmza_return_category_name($result->category)."<input type=\"hidden\" id=\"wpgmza_hid_marker_category_".$result->id."\" value=\"".$result->category."\" /></td>";
                 $wpgmza_tmp_body .= "<td>".stripslashes($result->address)."<input type=\"hidden\" id=\"wpgmza_hid_marker_address_".$result->id."\" value=\"".stripslashes($result->address)."\" /><input type=\"hidden\" id=\"wpgmza_hid_marker_lat_".$result->id."\" value=\"".$result->lat."\" /><input type=\"hidden\" id=\"wpgmza_hid_marker_lng_".$result->id."\" value=\"".$result->lng."\" /></td>";
@@ -4877,6 +4906,7 @@ function wpgmaps_handle_db() {
           infoopen varchar(3) NOT NULL,
           category varchar(500) NOT NULL,
           approved tinyint(1) DEFAULT '1',
+          retina tinyint(1) DEFAULT '0',
           PRIMARY KEY  (id)
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
     ";
@@ -4930,6 +4960,7 @@ function wpgmaps_handle_db() {
           active TINYINT(1) NOT NULL,
           category_name VARCHAR(50) NOT NULL,
           category_icon VARCHAR(700) NOT NULL,
+          retina TINYINT(1) DEFAULT '0',
           PRIMARY KEY  (id)
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
     ";
@@ -5123,6 +5154,19 @@ function wpgmaps_load_jquery() {
 }
 add_action('wp_enqueue_scripts', 'wpgmaps_load_jquery', 9999);
 
+function wpgmza_get_category_data($cat_id) {
+    global $wpgmza_tblname_categories;
+    global $wpdb;
+    
+    $result = $wpdb->get_row("
+	SELECT `category_icon`,`retina`
+	FROM `$wpgmza_tblname_categories`
+        WHERE `id` = '$cat_id'
+        AND `active` = 0
+        LIMIT 1
+	");
+    return $result;
+}
 function wpgmza_get_category_icon($cat_id) {
     global $wpgmza_tblname_categories;
     global $wpdb;
@@ -5136,6 +5180,7 @@ function wpgmza_get_category_icon($cat_id) {
 	");
     return $result;
 }
+
 
 function wpgmza_return_error($data) {
     echo "<div id=\"message\" class=\"error\"><p><strong>".$data->get_error_message()."</strong><blockquote>".$data->get_error_data()."</blockquote></p></div>";

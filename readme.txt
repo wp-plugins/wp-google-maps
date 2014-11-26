@@ -153,7 +153,12 @@ Please upgrade your version of WP Google Maps to version 6.0.27 as it includes m
 
 == Changelog ==
 
-* 6.0.29 2014-11-04
+= 6.0.30 2014-11-26 =
+* Added a check for the DOMDocument class when creating the map marker data files
+* Removed the APC Object Cache warning
+* Added new strings to the PO file
+
+= 6.0.29 2014-11-04 =
 * New option: You can now show or hide the Store Locator bouncing icon
 * New feature: Add custom CSS in the settings page
 * Code improvements
