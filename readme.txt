@@ -349,4 +349,4 @@ Please upgrade your version of WP Google Maps to version 6.0.27 as it includes m
 * Added SSL bug fixes
 * Fixed a bug that wasnt allowing users to edit the exact location
 
-For more, please view the WP Google Maps website
+For more, please view the WP Google Maps website.
