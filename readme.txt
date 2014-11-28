@@ -153,6 +153,9 @@ Please upgrade your version of WP Google Maps to version 6.0.27 as it includes m
 
 == Changelog ==
 
+= 6.0.31 2014-11-28 Low priority =
+* Fixed a category bug
+
 = 6.0.30 2014-11-26 =
 * Added a check for the DOMDocument class when creating the map marker data files
 * Removed the APC Object Cache warning

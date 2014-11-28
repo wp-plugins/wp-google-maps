@@ -3,12 +3,15 @@
 Plugin Name: WP Google Maps
 Plugin URI: http://www.wpgmaps.com
 Description: The easiest to use Google Maps plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 6.0.30
+Version: 6.0.31
 Author: WP Google Maps
 Author URI: http://www.wpgmaps.com
 */
 
-/* 6.0.30
+/* 6.0.31
+ * Category bug fix
+ * 
+ * 6.0.30
  * Added a check for the DOMDocument class
  * Removed the APC Object Cache warning
  * Added new strings to the PO file
@@ -106,8 +109,8 @@ $wpgmza_tblname_poly = $wpdb->prefix . "wpgmza_polygon";
 $wpgmza_tblname_polylines = $wpdb->prefix . "wpgmza_polylines";
 $wpgmza_tblname_categories = $wpdb->prefix. "wpgmza_categories";
 $wpgmza_tblname_category_maps = $wpdb->prefix. "wpgmza_category_maps";
-$wpgmza_version = "6.0.30";
-$wpgmza_p_version = "6.0.30";
+$wpgmza_version = "6.0.31";
+$wpgmza_p_version = "6.0.31";
 $wpgmza_t = "basic";
 define("WPGMAPS", $wpgmza_version);
 define("WPGMAPS_DIR",plugin_dir_url(__FILE__));
@@ -1821,15 +1824,18 @@ function wpgmaps_update_xml_file($mapid = false) {
         $anim = $result->anim;
         $retina = $result->retina;
         $category = $result->category;
-        if (function_exists('wpgmza_get_category_data')) {
-            $category_data = wpgmza_get_category_data($category);
-            if (isset($category_data->category_icon) && isset($category_data->category_icon) != "") {
-                $icon = $category_data->category_icon;
-            } else {
-               $icons = "";
-            }
-            if (isset($category_data->retina)) {
-                $retina = $category_data->retina;
+        
+        if ($icon == "") {
+            if (function_exists('wpgmza_get_category_data')) {
+                $category_data = wpgmza_get_category_data($category);
+                if (isset($category_data->category_icon) && isset($category_data->category_icon) != "") {
+                    $icon = $category_data->category_icon;
+                } else {
+                   $icon = "";
+                }
+                if (isset($category_data->retina)) {
+                    $retina = $category_data->retina;
+                }
             }
         }
         $infoopen = $result->infoopen;
