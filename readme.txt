@@ -153,6 +153,9 @@ Please upgrade your version of WP Google Maps to version 6.0.27 as it includes m
 
 == Changelog ==
 
+= 6.1.0 2014-12-17 Medium priority =
+* Added an alternative method to pull the marker data
+
 = 6.0.31 2014-11-28 Low priority =
 * Fixed a category bug
 
@@ -349,4 +352,4 @@ Please upgrade your version of WP Google Maps to version 6.0.27 as it includes m
 * Added SSL bug fixes
 * Fixed a bug that wasnt allowing users to edit the exact location
 
-For more, please view the WP Google Maps website.
+For more, please view the WP Google Maps website

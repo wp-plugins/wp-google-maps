@@ -98,12 +98,14 @@
         padding-bottom: 15px !important;
         padding-right: 10px !important;
         border: 0 !important;
+        
 }
 .wpgmza_table tr { border: 0 !important; }
 .wpgmza_table th {
 	text-align: left !important;
         padding-bottom: 15px !important;
         border: 0 !important;
+        min-width:100px;    
 }
 
 .wpgmza_table_description {

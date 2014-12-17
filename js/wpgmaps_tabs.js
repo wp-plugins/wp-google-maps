@@ -20,5 +20,22 @@ jQuery("document").ready(function() {
             jQuery("#wpgmza_height_warning").show();
         }
     }); 
+    
+    jQuery('.wpgmza_settings_marker_pull').on('click', function() {
+        if (this.value === '1') {
+            jQuery(".wpgmza_marker_dir_tr").css('visibility','visible');
+            jQuery(".wpgmza_marker_dir_tr").css('display','table-row');
+            jQuery(".wpgmza_marker_url_tr").css('visibility','visible');
+            jQuery(".wpgmza_marker_url_tr").css('display','table-row');
+        } else {
+            jQuery(".wpgmza_marker_dir_tr").css('visibility','hidden');
+            jQuery(".wpgmza_marker_dir_tr").css('display','none');
+            jQuery(".wpgmza_marker_url_tr").css('visibility','hidden');
+            jQuery(".wpgmza_marker_url_tr").css('display','none');
+        }
+    });
+    
+    
+    
    
 });
