@@ -153,6 +153,10 @@ Please upgrade your version of WP Google Maps to version 6.0.27 as it includes m
 
 == Changelog ==
 
+= 6.1.1 2014-12-19 Low priority =
+* Translation file updates
+* Code improvements
+
 = 6.1.0 2014-12-17 Medium priority =
 * Added an alternative method to pull the marker data
 

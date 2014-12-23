@@ -3,12 +3,15 @@
 Plugin Name: WP Google Maps
 Plugin URI: http://www.wpgmaps.com
 Description: The easiest to use Google Maps plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 6.1.0
+Version: 6.1.1
 Author: WP Google Maps
 Author URI: http://www.wpgmaps.com
 */
 
-/* 6.1.0 2014-12-17
+/* 6.1.1 2014-12-19
+ * Code improvements
+ * 
+ * 6.1.0 2014-12-17
  * Added an alternative method to pull the marker data
  * 
  * 6.0.32
@@ -115,8 +118,8 @@ $wpgmza_tblname_poly = $wpdb->prefix . "wpgmza_polygon";
 $wpgmza_tblname_polylines = $wpdb->prefix . "wpgmza_polylines";
 $wpgmza_tblname_categories = $wpdb->prefix. "wpgmza_categories";
 $wpgmza_tblname_category_maps = $wpdb->prefix. "wpgmza_category_maps";
-$wpgmza_version = "6.1.0";
-$wpgmza_p_version = "6.1.0";
+$wpgmza_version = "6.1.1";
+$wpgmza_p_version = "6.1.1";
 $wpgmza_t = "basic";
 define("WPGMAPS", $wpgmza_version);
 define("WPGMAPS_DIR",plugin_dir_url(__FILE__));
@@ -2344,7 +2347,7 @@ function wpgmza_return_marker_path() {
         
         
         /* 6.0.32 - checked for beginning slash, but not on local host */
-        if ($_SERVER['SERVER_ADDR'] == "127.0.0.1" || $_SERVER['LOCAL_ADDR'] == "127.0.0.1") { } else {
+        if ((isset($_SERVER['SERVER_ADDR']) && $_SERVER['SERVER_ADDR'] == "127.0.0.1") || (isset($_SERVER['LOCAL_ADDR']) && $_SERVER['LOCAL_ADDR'] == "127.0.0.1")) { } else {
             if (substr($file, 0, 1) != "/") { $file = "/".$file; }
         }
         
