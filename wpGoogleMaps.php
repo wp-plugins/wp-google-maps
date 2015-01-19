@@ -3,12 +3,16 @@
 Plugin Name: WP Google Maps
 Plugin URI: http://www.wpgmaps.com
 Description: The easiest to use Google Maps plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 6.1.1
+Version: 6.1.2
 Author: WP Google Maps
 Author URI: http://www.wpgmaps.com
 */
 
-/* 6.1.1 2014-12-19
+/* 6.1.2 2015-01-19
+ * Code improvements (PHP warnings)
+ * Tested in WordPress 4.1
+ * 
+ * 6.1.1 2014-12-19
  * Code improvements
  * 
  * 6.1.0 2014-12-17
@@ -118,8 +122,8 @@ $wpgmza_tblname_poly = $wpdb->prefix . "wpgmza_polygon";
 $wpgmza_tblname_polylines = $wpdb->prefix . "wpgmza_polylines";
 $wpgmza_tblname_categories = $wpdb->prefix. "wpgmza_categories";
 $wpgmza_tblname_category_maps = $wpdb->prefix. "wpgmza_category_maps";
-$wpgmza_version = "6.1.1";
-$wpgmza_p_version = "6.1.1";
+$wpgmza_version = "6.1.2";
+$wpgmza_p_version = "6.1.2";
 $wpgmza_t = "basic";
 define("WPGMAPS", $wpgmza_version);
 define("WPGMAPS_DIR",plugin_dir_url(__FILE__));
@@ -698,7 +702,7 @@ function wpgmaps_admin_javascript_basic() {
         <script type="text/javascript" src="<?php echo wpgmaps_get_plugin_url(); ?>/js/jquery.dataTables.js"></script>
         <script type="text/javascript" >
             var marker_pull = '<?php echo $marker_pull; ?>';
-            var db_marker_array = '<?php echo $markers; ?>';
+            var db_marker_array = '<?php if (isset($markers)) { echo $markers; } else { echo ""; } ?>';
                    
                    
 
@@ -1412,11 +1416,15 @@ function wpgmaps_user_javascript_basic() {
         $res = wpgmza_get_map_data($wpgmza_current_map_id);
         $wpgmza_settings = get_option("WPGMZA_OTHER_SETTINGS");
         
-        $api_version = $wpgmza_settings['wpgmza_api_version'];
-        if (isset($api_version) && $api_version != "") {
-            $api_version_string = "v=$api_version&";
+        if (isset($wpgmza_settings['wpgmza_api_version'])) { 
+            $api_version = $wpgmza_settings['wpgmza_api_version'];
+            if (isset($api_version) && $api_version != "") {
+                $api_version_string = "v=$api_version&";
+            } else {
+                $api_version_string = "v=3.14&";
+            }
         } else {
-            $api_version_string = "v=3.14&";
+            $api_version_string = "v=3.exp&";
         }
         
         $map_other_settings = maybe_unserialize($res->other_settings);
@@ -1436,7 +1444,7 @@ function wpgmaps_user_javascript_basic() {
         $wpgmza_map_type = $res->type;
         $wpgmza_traffic = $res->traffic;
         $wpgmza_bicycle = $res->bicycle;
-        $wpgmza_open_infowindow_by = $wpgmza_settings['wpgmza_settings_map_open_marker_by'];
+        if (isset($wpgmza_settings['wpgmza_settings_map_open_marker_by'])) { $wpgmza_open_infowindow_by = $wpgmza_settings['wpgmza_settings_map_open_marker_by']; } else { $wpgmza_open_infowindow_by = '1'; }
         if ($wpgmza_open_infowindow_by == null || !isset($wpgmza_open_infowindow_by)) { $wpgmza_open_infowindow_by = '1'; }
 
         if (!$wpgmza_map_type || $wpgmza_map_type == "" || $wpgmza_map_type == "1") { $wpgmza_map_type = "ROADMAP"; }
@@ -1480,7 +1488,7 @@ function wpgmaps_user_javascript_basic() {
        
         <script type="text/javascript" >
             var marker_pull = '<?php echo $marker_pull; ?>';
-            var db_marker_array = '<?php echo $markers; ?>';
+            var db_marker_array = '<?php if(isset($markers)) { echo $markers; } else { echo ""; } ?>';
             
                    
             if ('undefined' === typeof window.jQuery) {
@@ -5675,6 +5683,14 @@ function wpgmza_return_error_log() {
     
 }
 function wpgmaps_marker_permission_check() { 
+    
+    
+    $wpgmza_settings = get_option("WPGMZA_OTHER_SETTINGS");
+    if (isset($wpgmza_settings['wpgmza_settings_marker_pull']) && $wpgmza_settings['wpgmza_settings_marker_pull'] == '0') {
+        /* using db method, do nothing */
+        return;
+    }
+    
     
     if (function_exists("wpgmza_register_pro_version")) {
         global $wpgmza_pro_version;
