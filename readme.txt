@@ -156,6 +156,12 @@ Please upgrade your version of WP Google Maps to version 6.0.27 as it includes m
 
 == Changelog ==
 
+= 6.1.3 2015-01-29 Medium priority =
+* IIS server error fix
+* Small map bug fixes
+* Brazilian portuguese language file updated
+* Activation error fixes
+
 = 6.1.2 2015-01-19 Low priority =
 * Code improvements (PHP warnings)
 * New languages added

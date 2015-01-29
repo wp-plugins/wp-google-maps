@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpgmaps\n"
 "POT-Creation-Date: 2014-12-18 07:20+0200\n"
-"PO-Revision-Date: 2015-01-16 16:35-0300\n"
+"PO-Revision-Date: 2015-01-26 15:51-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -673,7 +673,7 @@ msgstr "Polilinhas"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1378
 msgid "Add a marker"
-msgstr "Adicionar um marcador"
+msgstr "Adicionar marcador"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1388
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:4665
@@ -706,7 +706,7 @@ msgstr "Ignore se vocês quiser usar o marcador padrão"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1401
 msgid "This is a retina ready marker"
-msgstr "Esse é o marcador pronto para tela retina"
+msgstr "Esse marcador está pronto para telas Retina"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1410
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:4671
@@ -730,7 +730,7 @@ msgstr "Queda"
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:4682
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:4735
 msgid "InfoWindow open by default"
-msgstr "Janela de Informações aberta como padrão"
+msgstr "Janela de Informações aberta por padrão"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1429
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:4692
@@ -798,7 +798,7 @@ msgid ""
 "WP Google Maps encourages you to make use of the amazing icons created by Nicolas Mollet's Maps Icons "
 "Collection"
 msgstr ""
-"WP Google Maps te incentiva a fazer uso dos impressionantes ícones da Coleção de Ícones de Mapa de "
+"WP Google Maps o incentiva a fazer uso dos impressionantes ícones da Coleção de Ícones de Mapa de "
 "autoria de Nicolas Mollet"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:1481
@@ -938,7 +938,7 @@ msgstr "Obtendo o endereço de sua localização atual..."
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2550
 msgid "Show _MENU_ entries"
-msgstr "Mostrar entradas _MENU_"
+msgstr "Mostrar _MENU_ entradas"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2551
 msgid "Nothing found - sorry"
@@ -1151,8 +1151,8 @@ msgid ""
 "Having issues? Perhaps something below can give you a clue as to what's wrong. Alternatively, email this "
 "through to nick@wpgmaps.com for help!"
 msgstr ""
-"Problemas?  Talvez algo abaixo possa lhe dar uma ideia sobre o que está errado. Alternativamente, mande "
-"isso por email para nick@wpgmaps.com para obter ajuda!"
+"Está com dificuldade?  Talvez alguma coisa abaixo possa lhe dar uma ideia sobre o que está errado. Se "
+"não, envie o conteúdo abaixo para nick@wpgmaps.com para obter ajuda!"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:3929
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3888
@@ -1193,7 +1193,7 @@ msgstr "Lista de Marcadores Avançada"
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:4118
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3782
 msgid "Column settings"
-msgstr "Configurações de Coluna"
+msgstr "Configurações da Coluna"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:4120
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3784
@@ -1222,7 +1222,7 @@ msgstr "Esconder a coluna Descrição"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:4128
 msgid "Show X items by default"
-msgstr "Mostrar X itens como padrão"
+msgstr "Mostrar X itens por padrão"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:4142
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3794
@@ -1272,7 +1272,7 @@ msgstr "Preto"
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:4159
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3811
 msgid "Carousel settings"
-msgstr "Configurações do Carrosel"
+msgstr "Configurações do Carrossel"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:4161
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3813
@@ -1377,13 +1377,13 @@ msgid ""
 "We suggest that you change the two fields below ONLY if you are experiencing issues when trying to save "
 "the marker XML files."
 msgstr ""
-"Sugerimos que você mude os dois campos abaixo APENAS se você estiver enfrentando dificuldades ao tentar "
+"Sugerimos que você mude os dois campos abaixo APENAS se estiver enfrentando dificuldades ao tentar "
 "salvar os arquivos XML dos marcadores."
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:4240
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3837
 msgid "Pull marker data from"
-msgstr "Puxar informações dos marcadores de"
+msgstr "Obter as informações dos marcadores a partir do"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:4242
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3839
@@ -1468,7 +1468,7 @@ msgstr "Desativar o Zoom pelo Duplo Clique do Mouse"
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:4366
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3759
 msgid "Open Marker InfoWindows by"
-msgstr "Abrir as Janelas de Informação do Marcador por"
+msgstr "Abrir as Janelas de Informação do Marcador através de"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:4370
 msgid "Filter by category displayed as"
@@ -1485,7 +1485,7 @@ msgstr "Checkbox"
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:4379
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3722
 msgid "Troubleshooting Options"
-msgstr "Opções para solução de problemas"
+msgstr "Solução de problemas"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:4381
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:3724
@@ -2451,7 +2451,7 @@ msgstr "Ou clique com o botão direito sobre o mapa"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:4712
 msgid "Add advanced markers"
-msgstr "Adicionar marcadores avançados"
+msgstr "Adicione marcadores avançados"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:4712
 msgid "with the Pro version"
@@ -2479,17 +2479,17 @@ msgstr "Adicionar informações detalhadas aos seus marcadores!"
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:4829
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:4833
 msgid "Add custom markers to your map!"
-msgstr "Adicionar marcadores personalizados ao seu mapa!"
+msgstr "Adicione marcadores personalizados ao seu mapa!"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:4826
 msgid "Add detailed information to your markers for only"
-msgstr "Adicionar informações detalhadas aos seus marcadores somente para "
+msgstr "Adicionar informações detalhadas aos seus marcadores por apenas "
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:4826
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:4830
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:4834
 msgid "Click"
-msgstr "Clicar"
+msgstr "Clique"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:4826
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps/wpGoogleMaps.php:4830
