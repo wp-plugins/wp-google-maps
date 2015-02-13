@@ -40,6 +40,7 @@ The [WP Google Maps Pro Version](http://www.wpgmaps.com/purchase-professional-ve
 * Google Maps Cloud Layer
 * Google Maps Transport Layer
 * Google Maps Weather Layer
+* Set the max zoom level for your map
 * Latest Google Maps API (V3.14, V3.15 & V3.exp)
 
 = Professional Edition =
@@ -155,6 +156,12 @@ In order to show your custom Google map on your page or post, simply copy the sh
 Please upgrade your version of WP Google Maps to version 6.0.27 as it includes multiple security improvements.
 
 == Changelog ==
+
+= 6.1.4 2015-02-13 Medium priority =
+* Safari bug fix
+* Fixed issues with map markers containing addresses with single quotes
+* You can now set the max zoom of your google map
+* Translation file updated
 
 = 6.1.3 2015-01-29 Medium priority =
 * IIS server error fix

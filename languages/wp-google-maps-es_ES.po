@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpgmaps\n"
 "POT-Creation-Date: 2014-11-05 10:11+0200\n"
-"PO-Revision-Date: 2014-11-06 10:31+0200\n"
+"PO-Revision-Date: 2015-02-09 14:42+0200\n"
 "Last-Translator: Yago Stecher <stecher@gmail.com>\n"
 "Language-Team: \n"
 "Language: en\n"
@@ -941,7 +941,7 @@ msgstr "No encontrado - disculpe"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2376
 msgid "Showing _START_ to _END_ of _TOTAL_ records"
-msgstr "Mostrando registros desde _START_ hasta _END_of_TOTAL_"
+msgstr "Mostrando registros desde _START_ hasta _END_ of _TOTAL_"
 
 #: C:\wamp\www\wordpress38\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2377
 msgid "Showing 0 to 0 of 0 records"
