@@ -108,18 +108,7 @@
         min-width:100px;    
 }
 
-.wpgmza_table_description {
-    width:40% !important;
-}
-.wpgmza_table_marker {
-    width:10% !important;
-}
-.wpgmza_table_title {
-    width:20% !important;
-}
-.wpgmza_table_address {
-    width:30% !important;
-}
+
 .dataTables_filter input[type="text"], .dataTables_filter select { display: inline !important; }
 .dataTables_filter label { font-weight:bold; }
 .adp-placemark img { width:24px !important; max-width:none !important; }
@@ -266,3 +255,74 @@
 .wpgmza_infowindow_address { white-space: normal; }
 .wpgmza_infowindow_title { font-weight: bold; }
 .gm-style-iw div {overflow:visible !important;}
+#wpgmza_marker_list tr { vertical-align: middle !important; }
+#wpgmza_marker_list td { vertical-align: middle !important; }
+#wpgmza_marker_list td img { vertical-align: middle !important; }
+
+.wpgmza_marker_carousel { clear:both; }
+
+.wpgmza-shadow { 
+-webkit-box-shadow: 3px 3px 10px 0px rgba(107,107,107,1);
+-moz-box-shadow: 3px 3px 10px 0px rgba(107,107,107,1);
+box-shadow: 3px 3px 10px 0px rgba(107,107,107,1);
+}
+.wpgmza_innermap_holder { 
+    padding:5px;
+    background-color:white;
+    border 1px solid #ccc;
+    border-radius:5px;
+}
+.wpgmza_small_img { max-width: 14px; max-height: 14px; }
+ul.wpgmza_marker_list_class {
+    list-style: none;
+    margin-left:5px;
+    padding-left:0;
+}
+
+.wpgmza-basic-list-item { float:left; cursor:pointer; }
+.wpgmaps_blist_row { clear:both; display:block; height:auto; overflow:hidden;   }
+.wpgmaps_blist_row:hover { background-color:#EEE;  }
+.wpgmza_div_marker { width:17px; height:17px; }
+.wpgmza_div_address { padding-left:2px;}
+
+
+.wpgmza_row {
+    width:100%;
+    display:block;
+    overflow:auto;
+}
+.wpgmza_row_col {
+    width:90%;
+    float:left;
+    display:block;
+    overflow:auto;
+    margin:0.25%;
+    padding:0.2%;
+    min-height:360px;
+}
+.wpgmza_row_col h2 { 
+    font-weight:900;
+}
+.wpgmza_row_col ul li {
+    margin: 0.3em 2.5em;
+}
+
+.wpgmza_row_col ul {
+    list-style-type:disc;
+}
+
+
+@media only screen and (min-width:480px) {
+   .wpgmza_row_col {
+        width:31%;
+        float:left;
+        display:block;
+        overflow:auto;
+        margin:0.25%;
+        padding:0.2%;
+        min-height:360px;
+    } 
+    
+    
+    
+}

@@ -3,7 +3,7 @@ Contributors: WPGMaps
 Donate link: http://www.wpgmaps.com
 Tags: google maps, maps, map, map markers, google, google map, wp maps, wp google maps, wp google map, easy map, store locator, map plugin, directions, map directions, google map plugin, routes, polygons, polylines, streetview, location, marker, latitude, longitude, map widget
 Requires at least: 3.5
-Tested up to: 4.1
+Tested up to: 4.1.1
 Stable tag: trunk
 License: GPLv2
 
@@ -31,6 +31,7 @@ The [WP Google Maps Pro Version](http://www.wpgmaps.com/purchase-professional-ve
 * Define your own width, height and zoom level for your Google Map
 * Add animations to your map markers!
 * Store locator functionality
+* Restrict a store locator search by country
 * Add Polygons to your Map
 * Add Polylines / Routes to your map
 * Create a map in less than a 30 seconds!
@@ -65,7 +66,7 @@ The [WP Google Maps Pro Version](http://www.wpgmaps.com/purchase-professional-ve
 Get a free copy of the WP Google Maps Pro version in exchange for translating our plugin!
 
 * English - default
-* Russian
+* Russian (Alexandra Bondareva)
 * German
 * French (Arnaud Thomas)
 * Polish (Michal Kotnowski)
@@ -77,7 +78,9 @@ Get a free copy of the WP Google Maps Pro version in exchange for translating ou
 * Croatian (Sven Kopun)
 * Romanian (Cosmin Stroe)
 * Spanish (Carmelo Villegas Cruz)
+* Portuguese (Jose Antonio Ribeiro)
 * Brazilian Portuguese (Roberto Costa)
+* Lithuanian
 * Czechoslovakian^
 * Swedish^
 
@@ -152,10 +155,22 @@ In order to show your custom Google map on your page or post, simply copy the sh
 
 == Upgrade Notice ==
 
+= 6.1.5 =
+We no longer support timthumb and we have opted to remove it from WP Google Maps. Please update to 6.1.5 to ensure the removal of the timthumb script.
+
 = 6.0.27 =
 Please upgrade your version of WP Google Maps to version 6.0.27 as it includes multiple security improvements.
 
 == Changelog ==
+
+= 6.1.5 - 2015-03-16 - High priority =
+* Timthumb removed
+* New support page added
+* You can now restrict your store locator search by a specific country
+* Bug fix in map editor
+* SSL bug fix
+* Usability improvements when right clicking to add a marker on the map.
+* Russian, Lithuanian and Portuguese translations added
 
 = 6.1.4 2015-02-13 Medium priority =
 * Safari bug fix

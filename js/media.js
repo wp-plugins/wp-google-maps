@@ -42,20 +42,24 @@ jQuery(document).ready(function($){
         tgm_media_frame_img = wp.media.frames.tgm_media_frame = wp.media({
             className: 'media-frame tgm-media-frame',
             frame: 'select',
+            editing: true,
             multiple: false,
             title: 'Upload Image',
             library: {
                 type: 'image'
             },
-
             button: {
                 text:  'Use this image'
             }
         });
+        
 
         tgm_media_frame_img.on('select', function(){
             var media_attachment = tgm_media_frame_img.state().get('selection').first().toJSON();
-            jQuery('#wpgmza_add_pic').val(media_attachment.url);
+            if (typeof media_attachment["sizes"]["thumbnail"] === "object" && media_attachment["sizes"]["thumbnail"]["url"].length > 0) { var wpgmza_img_thumbnail = media_attachment["sizes"]["thumbnail"]["url"]; }
+            if (typeof media_attachment["sizes"]["full"] === "object" && media_attachment["sizes"]["full"]["url"].length > 0) { var wpgmza_img_full = media_attachment["sizes"]["full"]["url"]; }
+            if (typeof wpgmza_img_thumbnail !== "undefined" && wpgmza_img_thumbnail.length > 0) { jQuery('#wpgmza_add_pic').val(wpgmza_img_thumbnail); }
+            else { jQuery('#wpgmza_add_pic').val(wpgmza_img_full); }
         });
         tgm_media_frame_img.open();
     });
