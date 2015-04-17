@@ -141,6 +141,9 @@ Once installed and activated, a link should appear in your left navigation panel
 = How do I put a Google map on my page/post? =
 In order to show your custom Google map on your page or post, simply copy the shortcode supplied and paste it into your page or post. WP Google Maps will automatically configure the map to the settings you selected in the map edit page.
 
+= I want to use this but I dont have WordPress =
+Try [Nifty Maps](http://www.niftymaps.co) - Comprehensive Map Builder for all websites
+
 == Screenshots ==
 
 1. The "Lite" version of WP Google Maps.
@@ -162,6 +165,11 @@ We no longer support timthumb and we have opted to remove it from WP Google Maps
 Please upgrade your version of WP Google Maps to version 6.0.27 as it includes multiple security improvements.
 
 == Changelog ==
+
+= 6.1.6 - 2015-04-17 - Low priority =
+* Rocketscript fix
+* Dutch translation added
+* Main translation file updated
 
 = 6.1.5 - 2015-03-16 - High priority =
 * Timthumb removed

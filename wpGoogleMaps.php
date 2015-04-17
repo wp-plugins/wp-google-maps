@@ -3,12 +3,16 @@
 Plugin Name: WP Google Maps
 Plugin URI: http://www.wpgmaps.com
 Description: The easiest to use Google Maps plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 6.1.5
+Version: 6.1.6
 Author: WP Google Maps
 Author URI: http://www.wpgmaps.com
 */
 
-/* 6.1.5 - 2015-03-16 - High priority
+/* 
+ * 6.1.6 - 2015-04-17 - Low priority
+ * Rocketscript fix (Cloudfare)
+ * 
+ * 6.1.5 - 2015-03-16 - High priority
  * Timthumb removed
  * New support page added
  * You can now restrict your store locator search by a specific country
@@ -141,8 +145,8 @@ $wpgmza_tblname_poly = $wpdb->prefix . "wpgmza_polygon";
 $wpgmza_tblname_polylines = $wpdb->prefix . "wpgmza_polylines";
 $wpgmza_tblname_categories = $wpdb->prefix. "wpgmza_categories";
 $wpgmza_tblname_category_maps = $wpdb->prefix. "wpgmza_category_maps";
-$wpgmza_version = "6.1.5";
-$wpgmza_p_version = "6.1.5";
+$wpgmza_version = "6.1.6";
+$wpgmza_p_version = "6.1.6";
 $wpgmza_t = "basic";
 define("WPGMAPS", $wpgmza_version);
 define("WPGMAPS_DIR",plugin_dir_url(__FILE__));
@@ -791,7 +795,8 @@ function wpgmaps_admin_javascript_basic() {
                         wpgmza_InitMap();
                         jQuery("#wpgmza_marker_holder").html(JSON.parse(response).table_html);
                         wpgmza_reinitialisetbl();
-                        //jQuery("#wpgmza_tr_"+cur_id).css("display","none");
+                        
+                        
                     });
 
 
@@ -1339,7 +1344,7 @@ function wpgmaps_admin_javascript_basic() {
                             var html='<p class="wpgmza_infowinfow_address" style="margin-top:0; padding-top:0; margin-bottom:2px; padding-bottom:2px; font-weight:bold;">'+wpmgza_address+'</p>';
 
                             if (wpmgza_infoopen === "1") {
-                                //infoWindow.close();
+                                
                                 infoWindow.setContent(html);
                                 infoWindow.open(MYMAP.map, marker);
                             }
@@ -1402,7 +1407,7 @@ function wpgmaps_admin_javascript_basic() {
                     var html='<p class="wpgmza_infowinfow_address" style="margin-top:0; padding-top:0; margin-bottom:2px; padding-bottom:2px; font-weight:bold;">'+wpmgza_address+'</p>';
 
                     if (wpmgza_infoopen === "1") {
-                        //infoWindow.close();
+                        
                         infoWindow.setContent(html);
                         infoWindow.open(MYMAP.map, marker);
                     }
@@ -1541,7 +1546,7 @@ function wpgmaps_user_javascript_basic() {
             if ('undefined' === typeof window.jQuery) {
                 document.getElementById('wpgmza_map').innerHTML = 'Error: In order for WP Google Maps to work, jQuery must be installed. A check was done and jQuery was not present. Please see the <a href="http://www.wpgmaps.com/documentation/troubleshooting/jquery-troubleshooting/" title="WP Google Maps - jQuery Troubleshooting">jQuery troubleshooting section of our site</a> for more information.';
             } else {
-                // all good.. continue...
+                /* all good.. continue... */
             }
 
             jQuery(function() {
@@ -1808,22 +1813,22 @@ function wpgmaps_user_javascript_basic() {
                                                   radius: parseInt(radius / 0.001)
                                                 };
                                         }
-                                        // Add the circle for this city to the map.
+                                        
                                         cityCircle = new google.maps.Circle(populationOptions);
                                         check1 = check1 + 1;
                                     }
                                     var R = 0;
                                     if (distance_type === "1") {
-                                        R = 3958.7558657440545; // Radius of earth in Miles 
+                                        R = 3958.7558657440545; 
                                     } else {
-                                        R = 6378.16; // Radius of earth in kilometers 
+                                        R = 6378.16; 
                                     }
                                     var dLat = toRad(searched_center.lat()-current_lat);
                                     var dLon = toRad(searched_center.lng()-current_lng); 
                                     var a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.cos(toRad(current_lat)) * Math.cos(toRad(searched_center.lat())) * Math.sin(dLon/2) * Math.sin(dLon/2); 
                                     var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
                                     var d = R * c;
-                                    //alert("distance: "+d);
+                                    
                                     if (d < radius) { show_marker_radius = true; } else { show_marker_radius = false; }
                                 }
 
@@ -1949,22 +1954,22 @@ function wpgmaps_user_javascript_basic() {
                                                       radius: parseInt(radius / 0.001)
                                                     };
                                             }
-                                            // Add the circle for this city to the map.
+                                            
                                             cityCircle = new google.maps.Circle(populationOptions);
                                             check1 = check1 + 1;
                                         }
                                         var R = 0;
                                         if (distance_type === "1") {
-                                            R = 3958.7558657440545; // Radius of earth in Miles 
+                                            R = 3958.7558657440545; 
                                         } else {
-                                            R = 6378.16; // Radius of earth in kilometers 
+                                            R = 6378.16; 
                                         }
                                         var dLat = toRad(searched_center.lat()-current_lat);
                                         var dLon = toRad(searched_center.lng()-current_lng); 
                                         var a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.cos(toRad(current_lat)) * Math.cos(toRad(searched_center.lat())) * Math.sin(dLon/2) * Math.sin(dLon/2); 
                                         var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
                                         var d = R * c;
-                                        //alert("distance: "+d);
+                                        
                                         if (d < radius) { show_marker_radius = true; } else { show_marker_radius = false; }
                                     }
 
