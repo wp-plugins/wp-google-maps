@@ -3,7 +3,7 @@ Contributors: WPGMaps
 Donate link: http://www.wpgmaps.com
 Tags: google maps, maps, map, map markers, google, google map, wp maps, wp google maps, wp google map, easy map, store locator, map plugin, directions, map directions, google map plugin, routes, polygons, polylines, streetview, location, marker, latitude, longitude, map widget
 Requires at least: 3.5
-Tested up to: 4.1.1
+Tested up to: 4.2
 Stable tag: trunk
 License: GPLv2
 
@@ -42,6 +42,9 @@ The [WP Google Maps Pro Version](http://www.wpgmaps.com/purchase-professional-ve
 * Google Maps Transport Layer
 * Google Maps Weather Layer
 * Set the max zoom level for your map
+* Serve your map marker data via your database or an XML file
+* Compatible with caching plugins
+* Compatible with Cloudfare
 * Latest Google Maps API (V3.14, V3.15 & V3.exp)
 
 = Professional Edition =
@@ -51,13 +54,19 @@ The [WP Google Maps Pro Version](http://www.wpgmaps.com/purchase-professional-ve
 * Filter markers by category
 * Mashup multiple Google maps
 * Add different marker icons, or your own icons to make your map really stand out!
-* List your Google Map markers in the three ways; Basic listing, Carousel, Advanced Table
+* List your Google Map markers in the four ways; basic list, basic table, carousel, advanced table
 * Allow your visitors to get directions to your markers.
+* Allow visitors to use their map location as the starting or ending point for the directions
 * Export/Import your markers to a CSV file for quick editing.
 * Link Fusion tables to your Google Maps
 * Show your visitor's location on the Map
 * Import KML/KMZ files to your Google Map
 * More advanced options for the Store Locator
+* Allow users to use their map location for the store locator
+* Store locator search by category
+* Hide all map markers until a store locator search is done
+* Move your marker list inside the Google Map window
+* Add retina-ready map marker icons
 * WordPress Network friendly
 * Get the [WP Google Maps Professional Edition](http://www.wpgmaps.com/purchase-professional-version/) for only $19.99
 
@@ -165,6 +174,10 @@ We no longer support timthumb and we have opted to remove it from WP Google Maps
 Please upgrade your version of WP Google Maps to version 6.0.27 as it includes multiple security improvements.
 
 == Changelog ==
+
+= 6.1.7 - 2015-04-22 - Low priority =
+* json_encode (extra parameter) issue fixed for hosts using PHP version < 5.3
+* Plugin tested on 4.2RC3
 
 = 6.1.6 - 2015-04-17 - Low priority =
 * Rocketscript fix
