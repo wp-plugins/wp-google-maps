@@ -3,7 +3,7 @@ Contributors: WPGMaps
 Donate link: http://www.wpgmaps.com
 Tags: google maps, maps, map, map markers, google, google map, wp maps, wp google maps, wp google map, easy map, store locator, map plugin, directions, map directions, google map plugin, routes, polygons, polylines, streetview, location, marker, latitude, longitude, map widget
 Requires at least: 3.5
-Tested up to: 4.2
+Tested up to: 4.2.2
 Stable tag: trunk
 License: GPLv2
 
@@ -37,6 +37,7 @@ The [WP Google Maps Pro Version](http://www.wpgmaps.com/purchase-professional-ve
 * Create a map in less than a 30 seconds!
 * Right click to add a marker to your Google map
 * No advertising or links
+* Google Maps Autocomplete
 * Google Maps Weather Layer
 * Google Maps Cloud Layer
 * Google Maps Transport Layer
@@ -85,6 +86,7 @@ Get a free copy of the WP Google Maps Pro version in exchange for translating ou
 * Danish (Patrick Jepsen)
 * Italian (Tommaso Mori & Massimo Bregani)
 * Croatian (Sven Kopun)
+* Greek (Konstantinos Koukoulakis)
 * Romanian (Cosmin Stroe)
 * Spanish (Carmelo Villegas Cruz)
 * Portuguese (Jose Antonio Ribeiro)
@@ -174,6 +176,11 @@ We no longer support timthumb and we have opted to remove it from WP Google Maps
 Please upgrade your version of WP Google Maps to version 6.0.27 as it includes multiple security improvements.
 
 == Changelog ==
+
+= 6.1.8 - 2015-05-27 - Low priority =
+* Greek translation added - Thank you Konstantinos Koukoulakis
+* Added the Google Maps autocomplete functionality to the "add marker" section of the map editor
+* Added the Google Maps autocomplete functionality to the Store Locator
 
 = 6.1.7 - 2015-04-22 - Low priority =
 * json_encode (extra parameter) issue fixed for hosts using PHP version < 5.3

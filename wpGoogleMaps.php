@@ -3,12 +3,17 @@
 Plugin Name: WP Google Maps
 Plugin URI: http://www.wpgmaps.com
 Description: The easiest to use Google Maps plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 6.1.7
+Version: 6.1.8
 Author: WP Google Maps
 Author URI: http://www.wpgmaps.com
 */
 
 /* 
+ * 6.1.8 - 2015-05-27 - Low priority
+ * Greek translation added - Thank you Konstantinos Koukoulakis
+ * Added the Google Maps autocomplete functionality to the "add marker" section of the map editor
+ * Added the Google Maps autocomplete functionality to the Store Locator
+ * 
  * 6.1.7 - 2015-04-22 - Low priority
  * json_encode (extra parameter) issue fixed for hosts using PHP version < 5.3
  * 
@@ -150,8 +155,8 @@ $wpgmza_tblname_poly = $wpdb->prefix . "wpgmza_polygon";
 $wpgmza_tblname_polylines = $wpdb->prefix . "wpgmza_polylines";
 $wpgmza_tblname_categories = $wpdb->prefix. "wpgmza_categories";
 $wpgmza_tblname_category_maps = $wpdb->prefix. "wpgmza_category_maps";
-$wpgmza_version = "6.1.7";
-$wpgmza_p_version = "6.1.7";
+$wpgmza_version = "6.1.8";
+$wpgmza_p_version = "6.1.8";
 $wpgmza_t = "basic";
 define("WPGMAPS", $wpgmza_version);
 define("WPGMAPS_DIR",plugin_dir_url(__FILE__));
@@ -723,14 +728,14 @@ function wpgmaps_admin_javascript_basic() {
         
         <script type="text/javascript">
             var gmapsJsHost = (("https:" == document.location.protocol) ? "https://" : "http://");
-            document.write(unescape("%3Cscript src='" + gmapsJsHost + "maps.google.com/maps/api/js?<?php echo $api_version_string; ?>sensor=false&libraries=weather' type='text/javascript'%3E%3C/script%3E"));
+            document.write(unescape("%3Cscript src='" + gmapsJsHost + "maps.google.com/maps/api/js?<?php echo $api_version_string; ?>sensor=false&libraries=weather,places' type='text/javascript'%3E%3C/script%3E"));
         </script>
         
         <?php } else { ?>
         
         <script type="text/javascript">
             var gmapsJsHost = (("https:" == document.location.protocol) ? "https://" : "http://");
-            document.write(unescape("%3Cscript src='" + gmapsJsHost + "maps.google.com/maps/api/js?<?php echo $api_version_string; ?>sensor=false' type='text/javascript'%3E%3C/script%3E"));
+            document.write(unescape("%3Cscript src='" + gmapsJsHost + "maps.google.com/maps/api/js?<?php echo $api_version_string; ?>sensor=false&libraries=places' type='text/javascript'%3E%3C/script%3E"));
         </script>
 
         <?php } ?>
@@ -741,7 +746,9 @@ function wpgmaps_admin_javascript_basic() {
         <script type="text/javascript" src="<?php echo wpgmaps_get_plugin_url(); ?>/js/jquery.dataTables.min.js"></script>
         <script type="text/javascript" >
             var marker_pull = '<?php echo $marker_pull; ?>';
-            
+            var placeSearch, autocomplete;
+
+
             <?php if (isset($markers) && strlen($markers) > 0 && $markers != "[]"){ ?>var db_marker_array = JSON.stringify(<?php echo $markers; ?>);<?php } else { echo "var db_marker_array = '';"; } ?>
                    
 
@@ -755,33 +762,50 @@ function wpgmaps_admin_javascript_basic() {
         jQuery(function() {
             
             
+            function fillInAddress() {
+              // Get the place details from the autocomplete object.
+              var place = autocomplete.getPlace();
+            }
+
+
 
             jQuery(document).ready(function(){
+
+              /* initialize the autocomplete form */
+              autocomplete = new google.maps.places.Autocomplete(
+                  /** @type {HTMLInputElement} */(document.getElementById('wpgmza_add_address')),
+                  { types: ['geocode'] });
+              // When the user selects an address from the dropdown,
+              // populate the address fields in the form.
+              google.maps.event.addListener(autocomplete, 'place_changed', function() {
+                fillInAddress();
+              });
+
+            wpgmzaTable = jQuery('#wpgmza_table').dataTable({
+                "bProcessing": true,
+                "aaSorting": [[ 0, "desc" ]]
+            });
+            
+            function wpgmza_reinitialisetbl() {
+                wpgmzaTable.fnClearTable( 0 );
                 wpgmzaTable = jQuery('#wpgmza_table').dataTable({
-                    "bProcessing": true,
-                    "aaSorting": [[ 0, "desc" ]]
+                    "bProcessing": true
                 });
-                
-                function wpgmza_reinitialisetbl() {
-                    wpgmzaTable.fnClearTable( 0 );
-                    wpgmzaTable = jQuery('#wpgmza_table').dataTable({
-                        "bProcessing": true
-                    });
-                }
-                function wpgmza_InitMap() {
-                    var myLatLng = new google.maps.LatLng(<?php echo $wpgmza_lat; ?>,<?php echo $wpgmza_lng; ?>);
-                    MYMAP.init('#wpgmza_map', myLatLng, <?php echo $start_zoom; ?>);
-                    UniqueCode=Math.round(Math.random()*10000);
-                    MYMAP.placeMarkers('<?php echo wpgmaps_get_marker_url($_GET['map_id']); ?>?u='+UniqueCode,<?php echo $_GET['map_id']; ?>);
-                }
+            }
+            function wpgmza_InitMap() {
+                var myLatLng = new google.maps.LatLng(<?php echo $wpgmza_lat; ?>,<?php echo $wpgmza_lng; ?>);
+                MYMAP.init('#wpgmza_map', myLatLng, <?php echo $start_zoom; ?>);
+                UniqueCode=Math.round(Math.random()*10000);
+                MYMAP.placeMarkers('<?php echo wpgmaps_get_marker_url($_GET['map_id']); ?>?u='+UniqueCode,<?php echo $_GET['map_id']; ?>);
+            }
 
-                jQuery("#wpgmza_map").css({
-                        height:'<?php echo $wpgmza_height; ?><?php echo $wpgmza_height_type; ?>',
-                        width:'<?php echo $wpgmza_width; ?><?php echo $wpgmza_width_type; ?>'
+            jQuery("#wpgmza_map").css({
+                    height:'<?php echo $wpgmza_height; ?><?php echo $wpgmza_height_type; ?>',
+                    width:'<?php echo $wpgmza_width; ?><?php echo $wpgmza_width_type; ?>'
 
-                    });
-                var geocoder = new google.maps.Geocoder();
-                wpgmza_InitMap();
+                });
+            var geocoder = new google.maps.Geocoder();
+            wpgmza_InitMap();
 
 
 
@@ -1533,14 +1557,14 @@ function wpgmaps_user_javascript_basic() {
         
         <script type="text/javascript">
             var gmapsJsHost = (("https:" == document.location.protocol) ? "https://" : "http://");
-            document.write(unescape("%3Cscript src='" + gmapsJsHost + "maps.google.com/maps/api/js?<?php echo $api_version_string; ?>sensor=false&libraries=weather' type='text/javascript'%3E%3C/script%3E"));
+            document.write(unescape("%3Cscript src='" + gmapsJsHost + "maps.google.com/maps/api/js?<?php echo $api_version_string; ?>sensor=false&libraries=weather,places' type='text/javascript'%3E%3C/script%3E"));
         </script>
         
         <?php } else { ?>
         
         <script type="text/javascript">
             var gmapsJsHost = (("https:" == document.location.protocol) ? "https://" : "http://");
-            document.write(unescape("%3Cscript src='" + gmapsJsHost + "maps.google.com/maps/api/js?<?php echo $api_version_string; ?>sensor=false' type='text/javascript'%3E%3C/script%3E"));
+            document.write(unescape("%3Cscript src='" + gmapsJsHost + "maps.google.com/maps/api/js?<?php echo $api_version_string; ?>sensor=false&libraries=places' type='text/javascript'%3E%3C/script%3E"));
         </script>
 
         <?php } ?>
@@ -2055,8 +2079,23 @@ function wpgmaps_user_javascript_basic() {
                  jQuery('.wpgmza_sl_search_button').trigger('click');
               }
             });
+            var autocomplete;
+            function fillInAddress() {
+              // Get the place details from the autocomplete object.
+              var place = autocomplete.getPlace();
+            }
 
 
+
+              /* initialize the autocomplete form */
+              autocomplete = new google.maps.places.Autocomplete(
+                  /** @type {HTMLInputElement} */(document.getElementById('addressInput')),
+                  { types: ['geocode'] });
+              // When the user selects an address from the dropdown,
+              // populate the address fields in the form.
+              google.maps.event.addListener(autocomplete, 'place_changed', function() {
+                fillInAddress();
+              });
 
 
             function searchLocations(map_id) {
@@ -2747,12 +2786,12 @@ function wpgmaps_sl_user_output_basic($map_id) {
     
     $ret_msg .= "<div class=\"wpgmza_sl_main_div\">";
     $ret_msg .= "       <div class=\"wpgmza_sl_query_div\">";
-    $ret_msg .= "           <div class=\"wpgmza_sl_query_innerdiv1\">".$sl_query_string."</div>";
+    $ret_msg .= "           <div class=\"wpgmza_sl_query_innerdiv1\"><label for='addressInput'>".$sl_query_string."</label></div>";
     $ret_msg .= "           <div class=\"wpgmza_sl_query_innerdiv2\"><input type=\"text\" id=\"addressInput\" size=\"20\"/></div>";
     $ret_msg .= "       </div>";
 
     $ret_msg .= "       <div class=\"wpgmza_sl_radius_div\">";
-    $ret_msg .= "           <div class=\"wpgmza_sl_radius_innerdiv1\">".__("Radius","wp-google-maps").":</div>";
+    $ret_msg .= "           <div class=\"wpgmza_sl_radius_innerdiv1\"><label for='radiusSelect'>".__("Radius","wp-google-maps").":</label></div>";
     $ret_msg .= "           <div class=\"wpgmza_sl_radius_innerdiv2\">";
     $ret_msg .= "           <select class=\"wpgmza_sl_radius_select\" id=\"radiusSelect\">";
     $ret_msg .= "               ";
