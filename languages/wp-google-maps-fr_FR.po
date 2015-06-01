@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpgm_fr\n"
 "POT-Creation-Date: 2015-01-23 23:21+0200\n"
-"PO-Revision-Date: 2015-04-28 14:58+0200\n"
+"PO-Revision-Date: 2015-05-28 08:55+0200\n"
 "Last-Translator: antoine <antoine.levillain@gmail.com>\n"
 "Language-Team: French <>\n"
 "Language: fr_FR\n"
@@ -958,7 +958,7 @@ msgstr "miles de distance"
 #: C:\wamp\www\wp-plugins\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2540
 #: C:\wamp\www\wp-plugins\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2542
 msgid "Please fill out both the 'from' and 'to' fields"
-msgstr "Veuillez remplir les champs 'de' et 'à'"
+msgstr "Veuillez remplir les champs \"de\" et \"à\""
 
 #: C:\wamp\www\wp-plugins\wp-content\plugins\wp-google-maps-pro/wp-google-maps-pro.php:2544
 msgid "Getting your current location address..."

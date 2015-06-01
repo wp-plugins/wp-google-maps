@@ -177,6 +177,9 @@ Please upgrade your version of WP Google Maps to version 6.0.27 as it includes m
 
 == Changelog ==
 
+= 6.1.9 - 2015-06-01 - Low priority =
+* French translation bug fixed
+
 = 6.1.8 - 2015-05-27 - Low priority =
 * Greek translation added - Thank you Konstantinos Koukoulakis
 * Added the Google Maps autocomplete functionality to the "add marker" section of the map editor
