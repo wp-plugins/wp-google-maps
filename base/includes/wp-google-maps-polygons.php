@@ -12,6 +12,7 @@ function wpgmza_b_pro_add_poly($mid) {
     global $wpgmza_tblname_maps;
     global $wpdb;
     if ($_GET['action'] == "add_poly" && isset($mid)) {
+        $mid = sanitize_text_field($mid);
         $res = wpgmza_get_map_data($mid);
         echo "
             
@@ -91,9 +92,11 @@ function wpgmza_b_pro_add_poly($mid) {
 function wpgmza_b_pro_edit_poly($mid) {
     global $wpgmza_tblname_maps;
     global $wpdb;
+
     if ($_GET['action'] == "edit_poly" && isset($mid)) {
+        $mid = sanitize_text_field($mid);;
         $res = wpgmza_get_map_data($mid);
-        $pol = wpgmza_b_return_poly_options($_GET['poly_id']);
+        $pol = wpgmza_b_return_poly_options(sanitize_text_field($_GET['poly_id']));
 
         echo "
             
@@ -105,7 +108,7 @@ function wpgmza_b_pro_edit_poly($mid) {
                     <h2>".__("Edit Polygon","wp-google-maps")."</h2>
                     <form action='?page=wp-google-maps-menu&action=edit&map_id=".$mid."' method='post' id='wpgmaps_edit_poly_form'>
                     <input type='hidden' name='wpgmaps_map_id' id='wpgmaps_map_id' value='".$mid."' />
-                    <input type='hidden' name='wpgmaps_poly_id' id='wpgmaps_poly_id' value='".$_GET['poly_id']."' />
+                    <input type='hidden' name='wpgmaps_poly_id' id='wpgmaps_poly_id' value='".sanitize_text_field($_GET['poly_id'])."' />
                         
                     <table>
                     <tr>
@@ -170,7 +173,7 @@ function wpgmza_b_pro_edit_poly($mid) {
 
 }
 function wpgmaps_b_admin_add_poly_javascript($mapid) {
-        $res = wpgmza_get_map_data($_GET['map_id']);
+        $res = wpgmza_get_map_data(sanitize_text_field($_GET['map_id']));
         $wpgmza_settings = get_option("WPGMZA_OTHER_SETTINGS");
 
 

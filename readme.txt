@@ -50,14 +50,15 @@ The [WP Google Maps Pro Version](http://www.wpgmaps.com/purchase-professional-ve
 
 = Professional Edition =
 * Create multiple Google maps!
+* Allow your visitors to get directions to your markers.
 * Add descriptions, links and images to your map markers.
 * Add categories to your map markers
 * Filter markers by category
 * Mashup multiple Google maps
 * Add different marker icons, or your own icons to make your map really stand out!
 * List your Google Map markers in the four ways; basic list, basic table, carousel, advanced table
-* Allow your visitors to get directions to your markers.
 * Allow visitors to use their map location as the starting or ending point for the directions
+* Choose between the Default Google Maps Infowindow and the new Modern Infowindow
 * Export/Import your markers to a CSV file for quick editing.
 * Link Fusion tables to your Google Maps
 * Show your visitor's location on the Map
@@ -122,7 +123,19 @@ WP Google Maps Pro
 * [Visitor Generated Markers](http://www.wpgmaps.com/demo/visitor-generated-markers/) - (WP Google Maps VGM Add-on)
 * [Custom Map Styling](http://www.wpgmaps.com/demo/custom-map-styling/) (WP Google Maps Gold Add-on)
 
+= Documentation =
+* [Installing WP Google Maps](http://www.wpgmaps.com/documentation/installing-the-plugin/)
+* [Creating your first map](http://www.wpgmaps.com/documentation/creating-your-first-map/)
+* [Google Maps mashup (Pro)](http://www.wpgmaps.com/documentation/advanced-map-options/map-mashup/)
+* [Exporting and importing map markers (Pro)](http://www.wpgmaps.com/documentation/exporting-and-importing-your-markers/)
+* [Changing the Google Maps language](http://www.wpgmaps.com/documentation/changing-the-google-maps-language/)
+* [Create a google map and marker using custom fields (Pro)](http://www.wpgmaps.com/introducing-maps-by-custom-fields/)
+* [View all documentation](http://www.wpgmaps.com/documentation/)
 
+= Troubleshooting =
+* [My Google Map is not showing on my website](http://www.wpgmaps.com/documentation/troubleshooting/my-map-is-not-showing-on-my-website/)
+* [My markers are not showing](http://www.wpgmaps.com/documentation/troubleshooting/my-markers-are-not-showing-on-my-map/)
+* [View all troubleshooting articles](http://www.wpgmaps.com/documentation/troubleshooting/)
 
 == Installation ==
 
@@ -169,6 +182,9 @@ Try [Nifty Maps](http://www.niftymaps.co) - Comprehensive Map Builder for all we
 
 == Upgrade Notice ==
 
+= 6.1.10 =
+Please update WP Google Maps to version 6.1.10 to enable our latest security enhancements.
+
 = 6.1.5 =
 We no longer support timthumb and we have opted to remove it from WP Google Maps. Please update to 6.1.5 to ensure the removal of the timthumb script.
 
@@ -176,6 +192,11 @@ We no longer support timthumb and we have opted to remove it from WP Google Maps
 Please upgrade your version of WP Google Maps to version 6.0.27 as it includes multiple security improvements.
 
 == Changelog ==
+
+= 6.1.10 - 2015-06-10 - High priority =
+* XSS security patch
+* Security enhancements
+* Fixed a bug that didnt allow you to add a map marker if there were no markers to start with
 
 = 6.1.9 - 2015-06-01 - Low priority =
 * French translation bug fixed
