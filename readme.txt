@@ -38,8 +38,6 @@ The [WP Google Maps Pro Version](http://www.wpgmaps.com/purchase-professional-ve
 * Right click to add a marker to your Google map
 * No advertising or links
 * Google Maps Autocomplete
-* Google Maps Weather Layer
-* Google Maps Cloud Layer
 * Google Maps Transport Layer
 * Google Maps Weather Layer
 * Set the max zoom level for your map
@@ -176,9 +174,13 @@ Try [Nifty Maps](http://www.niftymaps.co) - Comprehensive Map Builder for all we
 4. WP Google Maps Pro version: Add custom markers to your Google map
 5. WP Google Maps Lite version: General settings page
 6. WP Google Maps Pro version: General settings page
-7. WP Google Maps Pro version: Export/Import your map markers
+7. WP Google Maps Pro version: InfoWindow settings page
 8. WP Google Maps Pro version: Advanced Google map options.
-9. WP Google Maps Pro version: Responsive carousel map marker listing
+9. WP Google Maps Pro version: Map marker listing options
+10. WP Google Maps Pro version: Export/Import your map markers
+11. WP Google Maps Pro version: Responsive carousel map marker listing
+12. WP Google Maps Lite version: Store Locator Settings
+13. WP Google Maps Lite version: Store Locator Map
 
 == Upgrade Notice ==
 
@@ -192,6 +194,12 @@ We no longer support timthumb and we have opted to remove it from WP Google Maps
 Please upgrade your version of WP Google Maps to version 6.0.27 as it includes multiple security improvements.
 
 == Changelog ==
+
+= 6.2.0 - Liberty Update - 2015-06-24 - Medium Priority =
+* Security enhancements (map editor, marker location, map settings)
+* Weather has been removed (deprecated by Google Maps)
+* Major bug fix (Google Map places bug) - caused the map markers not to show if the map store locator was not enabled
+* Fixed a bug that caused the jQuery error message to display br
 
 = 6.1.10 - 2015-06-10 - High priority =
 * XSS security patch
