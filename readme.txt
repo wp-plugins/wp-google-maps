@@ -184,6 +184,9 @@ Try [Nifty Maps](http://www.niftymaps.co) - Comprehensive Map Builder for all we
 
 == Upgrade Notice ==
 
+= 6.2.1 =
+Please update your WP Google Maps version to 6.2.1 to ensure you are using the latest security enhancements.
+
 = 6.1.10 =
 Please update WP Google Maps to version 6.1.10 to enable our latest security enhancements.
 
@@ -194,6 +197,9 @@ We no longer support timthumb and we have opted to remove it from WP Google Maps
 Please upgrade your version of WP Google Maps to version 6.0.27 as it includes multiple security improvements.
 
 == Changelog ==
+
+= 6.2.1 - Security Update - 2015-07-13 - High Priority =
+* Security enhancements to the map editor page, map javascript, marker categories and front end code
 
 = 6.2.0 - Liberty Update - 2015-06-24 - Medium Priority =
 * Security enhancements (map editor, marker location, map settings)

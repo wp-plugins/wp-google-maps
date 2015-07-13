@@ -93,7 +93,7 @@ function wpgmza_b_pro_edit_polyline($mid) {
     global $wpdb;
     if ($_GET['action'] == "edit_polyline" && isset($mid)) {
         $res = wpgmza_get_map_data($mid);
-        $pol = wpgmza_b_return_polyline_options($_GET['poly_id']);
+        $pol = wpgmza_b_return_polyline_options(sanitize_text_field($_GET['poly_id']));
 
         echo "
             
@@ -105,7 +105,7 @@ function wpgmza_b_pro_edit_polyline($mid) {
                     <h2>".__("Edit Polyline","wp-google-maps")."</h2>
                     <form action='?page=wp-google-maps-menu&action=edit&map_id=".$mid."' method='post' id='wpgmaps_edit_poly_form'>
                     <input type='hidden' name='wpgmaps_map_id' id='wpgmaps_map_id' value='".$mid."' />
-                    <input type='hidden' name='wpgmaps_poly_id' id='wpgmaps_poly_id' value='".$_GET['poly_id']."' />
+                    <input type='hidden' name='wpgmaps_poly_id' id='wpgmaps_poly_id' value='".sanitize_text_field($_GET['poly_id'])."' />
                     <table>
                         <tr>
                             <td>
@@ -170,7 +170,7 @@ function wpgmza_b_pro_edit_polyline($mid) {
 
 }
 function wpgmaps_b_admin_add_polyline_javascript($mapid) {
-        $res = wpgmza_get_map_data($_GET['map_id']);
+        $res = wpgmza_get_map_data(sanitize_text_field($_GET['map_id']));
         $wpgmza_settings = get_option("WPGMZA_OTHER_SETTINGS");
 
 
