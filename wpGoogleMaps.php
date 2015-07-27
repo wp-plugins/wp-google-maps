@@ -3,12 +3,16 @@
 Plugin Name: WP Google Maps
 Plugin URI: http://www.wpgmaps.com
 Description: The easiest to use Google Maps plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 6.2.1
+Version: 6.2.2
 Author: WP Google Maps
 Author URI: http://www.wpgmaps.com
 */
 
-/* 6.2.1 - Security Update - 2015-07-13 - High Priority
+/* 6.2.2 - Security Update - 2015-07-27 - High Priority
+ * Security patch
+ * Tested with WP 4.2.3
+ * 
+ * 6.2.1 - Security Update - 2015-07-13 - High Priority
  * Security enhancements to the map editor page, map javascript, marker categories and front end code
  * 
  * 6.2.0 - Liberty Update - 2015-06-24 - Medium Priority
@@ -172,8 +176,8 @@ $wpgmza_tblname_poly = $wpdb->prefix . "wpgmza_polygon";
 $wpgmza_tblname_polylines = $wpdb->prefix . "wpgmza_polylines";
 $wpgmza_tblname_categories = $wpdb->prefix. "wpgmza_categories";
 $wpgmza_tblname_category_maps = $wpdb->prefix. "wpgmza_category_maps";
-$wpgmza_version = "6.2.1";
-$wpgmza_p_version = "6.2.1";
+$wpgmza_version = "6.2.2";
+$wpgmza_p_version = "6.2.2";
 $wpgmza_t = "basic";
 define("WPGMAPS", $wpgmza_version);
 define("WPGMAPS_DIR",plugin_dir_url(__FILE__));
@@ -519,7 +523,7 @@ function wpgmaps_reload_map_on_post() {
                 var myLatLng = new google.maps.LatLng(<?php echo $wpgmza_lat; ?>,<?php echo $wpgmza_lng; ?>);
                 MYMAP.init('#wpgmza_map', myLatLng, <?php echo $start_zoom; ?>);
                 UniqueCode=Math.round(Math.random()*10010);
-                MYMAP.placeMarkers('<?php echo wpgmaps_get_marker_url($_GET['map_id']); ?>?u='+UniqueCode,<?php echo sanitize_text_field($_GET['map_id']); ?>);
+                MYMAP.placeMarkers('<?php echo wpgmaps_get_marker_url(sanitize_text_field($_GET['map_id'])); ?>?u='+UniqueCode,<?php echo sanitize_text_field($_GET['map_id']); ?>);
 
             });
         </script>
@@ -539,6 +543,7 @@ function wpgmaps_get_marker_url($mapid = false) {
         global $wpgmza_current_map_id;
         $mapid = $wpgmza_current_map_id;
     }
+    $mapid = intval($mapid);
 
     global $wpgmza_version;
     if (floatval($wpgmza_version) < 6 || $wpgmza_version == "6.0.4" || $wpgmza_version == "6.0.3" || $wpgmza_version == "6.0.2" || $wpgmza_version == "6.0.1" || $wpgmza_version == "6.0.0") {
@@ -804,11 +809,12 @@ function wpgmaps_admin_javascript_basic() {
                     "bProcessing": true
                 });
             }
+
             function wpgmza_InitMap() {
                 var myLatLng = new google.maps.LatLng(<?php echo $wpgmza_lat; ?>,<?php echo $wpgmza_lng; ?>);
                 MYMAP.init('#wpgmza_map', myLatLng, <?php echo $start_zoom; ?>);
                 UniqueCode=Math.round(Math.random()*10000);
-                MYMAP.placeMarkers('<?php echo wpgmaps_get_marker_url(sanitize_text_field($_GET['map_id'])); ?>?u='+UniqueCode,<?php echo sanitize_text_field($_GET['map_id']); ?>);
+                MYMAP.placeMarkers('<?php echo wpgmaps_get_marker_url(intval($_GET['map_id'])); ?>?u='+UniqueCode,<?php echo intval($_GET['map_id']); ?>);
             }
 
             jQuery("#wpgmza_map").css({
