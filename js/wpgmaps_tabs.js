@@ -34,6 +34,28 @@ jQuery("document").ready(function() {
             jQuery(".wpgmza_marker_url_tr").css('display','none');
         }
     });
+
+
+      jQuery(".wpgmza_theme_selection").click(function() {
+        var tid = jQuery(this).attr('tid');
+        var style_data = JSON.parse(jQuery("#rb_wpgmza_theme_data_"+tid).val());
+
+        jQuery('.wpgmza_theme_radio').each(function(i, obj) {
+          jQuery(this).attr('checked', false);
+        });
+        jQuery("#rb_wpgmza_theme_"+tid).attr('checked', true);
+        jQuery('.wpgmza_theme_selection').each(function(i, obj) {
+          jQuery(this).removeClass("wpgmza_theme_selection_activate");
+        });
+
+        jQuery("#wpgmza_theme_selection_"+tid).addClass("wpgmza_theme_selection_activate");
+        
+        
+
+
+
+        MYMAP.map.setOptions({styles: style_data});
+    });
     
     
     

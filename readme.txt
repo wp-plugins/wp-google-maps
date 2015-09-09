@@ -3,7 +3,7 @@ Contributors: WPGMaps
 Donate link: http://www.wpgmaps.com
 Tags: google maps, maps, map, map markers, google, google map, wp maps, wp google maps, wp google map, easy map, store locator, map plugin, directions, map directions, google map plugin, routes, polygons, polylines, streetview, location, marker, latitude, longitude, map widget
 Requires at least: 3.5
-Tested up to: 4.2.3
+Tested up to: 4.3
 Stable tag: trunk
 License: GPLv2
 
@@ -22,10 +22,11 @@ The [WP Google Maps Pro Version](http://www.wpgmaps.com/purchase-professional-ve
 * Create as many map markers as you need by simply typing in the address
 * Responsive maps
 * Edit your map markers with the click of a button
+* 6 popular map themes to choose from
 * Drag map markers to an exact location
 * Google Maps Streetview supported
 * UTF-8 character support
-* Map can be included as a widget
+* Map widget functionality
 * Support for localization
 * Choose from four Google maps types: roadmap, terrain, satellite and hybrid
 * Define your own width, height and zoom level for your Google Map
@@ -66,6 +67,7 @@ The [WP Google Maps Pro Version](http://www.wpgmaps.com/purchase-professional-ve
 * Store locator search by category
 * Hide all map markers until a store locator search is done
 * Move your marker list inside the Google Map window
+* Multiple map widget functionality
 * Add retina-ready map marker icons
 * WordPress Network friendly
 * Get the [WP Google Maps Professional Edition](http://www.wpgmaps.com/purchase-professional-version/) for only $19.99
@@ -90,6 +92,7 @@ Get a free copy of the WP Google Maps Pro version in exchange for translating ou
 * Spanish (Carmelo Villegas Cruz)
 * Portuguese (Jose Antonio Ribeiro)
 * Brazilian Portuguese (Roberto Costa)
+* Turkish (Suha Karalar)
 * Lithuanian
 * Czechoslovakian^
 * Swedish^
@@ -153,15 +156,16 @@ In order to make use of WP Google Maps Store Locator functionality, simply click
 == Frequently Asked Questions ==
 
 = How do I get WP Google Maps Pro? =
-
 Simply visit http://www.wpgmaps.com and purchase the WP Google Maps Professional Edition for $19.99 once off. Free updates and support included forever.
 
 = I've installed the plugin, now what? =
-
 Once installed and activated, a link should appear in your left navigation panel within your WP-ADMIN section. Click on the "WP Google Maps" link and follow the on screen instructions.
 
 = How do I put a Google map on my page/post? =
 In order to show your custom Google map on your page or post, simply copy the shortcode supplied and paste it into your page or post. WP Google Maps will automatically configure the map to the settings you selected in the map edit page.
+
+= How do I add a map widget to my widget area? =
+To add your map to your widgets area, simply go to Appearance->Widgets and drag the "WP Google Maps" Map Widget to your sidebar. You then edit the map widget to reflect the correct map.
 
 = I want to use this but I dont have WordPress =
 Try [Nifty Maps](http://www.niftymaps.co) - Comprehensive Map Builder for all websites
@@ -181,6 +185,8 @@ Try [Nifty Maps](http://www.niftymaps.co) - Comprehensive Map Builder for all we
 11. WP Google Maps Pro version: Responsive carousel map marker listing
 12. WP Google Maps Lite version: Store Locator Settings
 13. WP Google Maps Lite version: Store Locator Map
+14. WP Google Maps Lite version: Map Widget
+
 
 == Upgrade Notice ==
 
@@ -197,6 +203,18 @@ We no longer support timthumb and we have opted to remove it from WP Google Maps
 Please upgrade your version of WP Google Maps to version 6.0.27 as it includes multiple security improvements.
 
 == Changelog ==
+
+= 6.3.0 - 2015-09-04 - Low priority =
+* Added 5 map themes to the map editor
+* Added a native map widget so you can drag and drop your maps to your widget area
+* Minor bug fixes
+* All language files updated
+
+= 6.2.3 - 2015-08-20 - High priority =
+* Included the latest version of datatables to fix the bug experienced with the new jQuery being included in WordPress 4.3
+* Updated datatables.responsive to 1.0.7 and included the minified version of the file instead
+* Fixed a few styling bugs in the map editor
+* WP Google Maps tested with WordPress 4.3
 
 = 6.2.2 - Security Update - 2015-07-27 - High Priority =
 * Security patch

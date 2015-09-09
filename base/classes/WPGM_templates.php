@@ -16,21 +16,21 @@ class WPGMAPS_templates {
 
                 <h3><?php _e("What's new?","wp-google-maps"); ?></h3>
 
-                <div class="feature-section three-col  clear">
-                    <div style="width:28%;">
+                <div class="feature-section three-col">
+                    <div class="col">
                     <h4><?php _e("Store Locator","wp-google-maps"); ?></h4>
                     <p><?php _e("Let users search for products, branches and stores near them","wp-google-maps"); ?></p>
-                     <img src='<?php echo WPGMAPS_DIR; ?>base/assets/storelocator.jpg' style="border:5px solid #ccc;" />              
+                     <img src='<?php echo WPGMAPS_DIR; ?>base/assets/storelocator.jpg' style="border:1px solid #ccc;" />              
                     </div>
-                    <div style="width:28%;">
+                    <div class="col">
                     <h4><?php _e("Polygons","wp-google-maps"); ?></h4>
                     <p><?php _e("Create service areas or coverage maps with polygons","wp-google-maps"); ?></p>
-                     <img src='<?php echo WPGMAPS_DIR; ?>base/assets/polygons.png' style="border:5px solid #ccc;" />              
+                     <img src='<?php echo WPGMAPS_DIR; ?>base/assets/polygons.png' style="border:1px solid #ccc;" />              
                     </div>
-                    <div style="width:28%;">
+                    <div class="col">
                     <h4><?php _e("Polylines","wp-google-maps"); ?></h4>
                     <p><?php _e("Create custom routes or outlines using polylines","wp-google-maps"); ?></p>
-                     <img src='<?php echo WPGMAPS_DIR; ?>base/assets/polylines.png' style="border:5px solid #ccc;" style='margin-bottom:20px;' />              
+                     <img src='<?php echo WPGMAPS_DIR; ?>base/assets/polylines.png' style="border:1px solid #ccc;" style='margin-bottom:20px;' />              
                     </div>
                 </div>
                 
@@ -83,22 +83,20 @@ class WPGMAPS_templates {
                                 <?php } ?>
 
                         <div class="feature-section three-col">
-                            <div style="width:28%;">
+                            <div class='col'>
                                 <h4><?php _e("New to WP Google Maps?","wp-google-maps"); ?></h4>
                                 <p><?php _e("You may want to","wp-google-maps"); ?> <a href='http://wpgmaps.com/documentation/' target='_blank' title='Documentation'><?php _e("review our documentation","wp-google-maps"); ?></a> <?php _e("before you get started. If you're a tech-savvy individual, you may skip this step.","wp-google-maps"); ?></p>
                             </div>
-                            <div style="width:28%">
+                            <div class='col'>
                                 <h4><?php _e("Help me!","wp-google-maps"); ?></h4>
                                 <p><?php _e("Visit our","wp-google-maps"); ?> <a title='Support Forum' target='_blank' href='http://www.wpgmaps.com/forums/forum/support-forum/'><?php _e("Support Forum","wp-google-maps"); ?></a> <?php _e("for quick and friendly help. We'll answer your request within 24hours.","wp-google-maps"); ?></p>
                             </div>
-                            <div style="width:28%">
+                            <div class='col'>
                                 <h4><?php _e("Feedback","wp-google-maps"); ?></h4>
                                 <p><?php _e("We need you to help us make this plugin better.","wp-google-maps"); ?> <a href='http://www.wpgmaps.com/contact-us/' title='Feedback' target='_BLANK'><?php _e("Send us your feedback","wp-google-maps"); ?></a> <?php _e("and we'll act on it as soon as humanly possible.","wp-google-maps"); ?></p>
                             </div>
                         </div>
                         
-                                            
-
                 <a class="button-primary" href="admin.php?page=wp-google-maps-menu&override=1"><?php echo __("OK! Let's start","wp-google-maps"); ?></a>
 
             </div>

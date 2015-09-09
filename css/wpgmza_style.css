@@ -2,6 +2,9 @@
     border:0;
     
 }
+.wpgmza_hide_input { display:none !important; }
+.wpgmza_theme_selection { margin-right:20px; margin-bottom:20px; cursor:pointer; border-radius:20px; }
+
 
 .wpgmza_map img {
     border: none !important;
@@ -325,4 +328,25 @@ ul.wpgmza_marker_list_class {
     
     
     
+}
+.wpgmza_theme_selection_activate {
+    -webkit-box-shadow: 3px 2px 19px 2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 2px 19px 2px rgba(0,0,0,0.75);
+    box-shadow: 3px 2px 19px 2px rgba(0,0,0,0.75);
+    /* padding: 10px; */
+    border-radius: 10px;
+    padding-left:0px;
+    padding-right:0px;
+    
+}
+
+.wpgmza_mlist_selection_activate { 
+    -webkit-box-shadow: 3px 2px 19px 2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 2px 19px 2px rgba(0,0,0,0.75);
+    box-shadow: 3px 2px 19px 2px rgba(0,0,0,0.75);
+    /* padding: 10px; */
+    border-radius: 10px;
+    padding-left:0px;
+    padding-right:0px;
+
 }
