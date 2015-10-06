@@ -1,4 +1,5 @@
 jQuery(document).ready(function($){
+
     var tgm_media_frame_default;
 
     $(document.body).on('click.tgmOpenMediaManager', '#upload_default_marker_btn', function(e){

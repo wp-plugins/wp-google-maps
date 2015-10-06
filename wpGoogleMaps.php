@@ -3,12 +3,21 @@
 Plugin Name: WP Google Maps
 Plugin URI: http://www.wpgmaps.com
 Description: The easiest to use Google Maps plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 6.3.00
+Version: 6.3.01
 Author: WP Google Maps
 Author URI: http://www.wpgmaps.com
+Text Domain: wp-google-maps
+Domain Path: /languages
 */
 
 /* 
+ * 6.3.01 - 2015-10-06 - Low priority
+ * Added 3 new google map custom themes
+ * Corrected internationalization
+ * iPhone map marker styling fix
+ * Fixed an autocomplete bug
+ * All WP Google Maps language files have been updated
+ * 
  * 6.3.00 - 2015-09-02 - Low priority
  * Added 5 map themes to the map editor
  * Added a native map widget so you can drag and drop your maps to your widget area
@@ -189,8 +198,8 @@ $wpgmza_tblname_poly = $wpdb->prefix . "wpgmza_polygon";
 $wpgmza_tblname_polylines = $wpdb->prefix . "wpgmza_polylines";
 $wpgmza_tblname_categories = $wpdb->prefix. "wpgmza_categories";
 $wpgmza_tblname_category_maps = $wpdb->prefix. "wpgmza_category_maps";
-$wpgmza_version = "6.3.00";
-$wpgmza_p_version = "6.3.00";
+$wpgmza_version = "6.3.01";
+$wpgmza_p_version = "6.3.01";
 $wpgmza_t = "basic";
 define("WPGMAPS", $wpgmza_version);
 define("WPGMAPS_DIR",plugin_dir_url(__FILE__));
@@ -803,15 +812,18 @@ function wpgmaps_admin_javascript_basic() {
             jQuery(document).ready(function(){
 
                 if (typeof document.getElementById('wpgmza_add_address') !== "undefined") {
-                    /* initialize the autocomplete form */
-                    autocomplete = new google.maps.places.Autocomplete(
-                      /** @type {HTMLInputElement} */(document.getElementById('wpgmza_add_address')),
-                      { types: ['geocode'] });
-                    // When the user selects an address from the dropdown,
-                    // populate the address fields in the form.
-                    google.maps.event.addListener(autocomplete, 'place_changed', function() {
-                    fillInAddress();
-                    });
+                    if (typeof google === 'object' && typeof google.maps === 'object' && typeof google.maps.places === 'object' && typeof google.maps.places.Autocomplete === 'function') {
+
+                        /* initialize the autocomplete form */
+                        autocomplete = new google.maps.places.Autocomplete(
+                          /** @type {HTMLInputElement} */(document.getElementById('wpgmza_add_address')),
+                          { types: ['geocode'] });
+                        // When the user selects an address from the dropdown,
+                        // populate the address fields in the form.
+                        google.maps.event.addListener(autocomplete, 'place_changed', function() {
+                            fillInAddress();
+                        });
+                    }
                 }
             wpgmzaTable = jQuery('#wpgmza_table').dataTable({
                 "bProcessing": true,
@@ -2086,17 +2098,19 @@ function wpgmaps_user_javascript_basic() {
               var place = autocomplete.getPlace();
             }
             var elementExists = document.getElementById("addressInput");
-            if (elementExists !== null) {
-                /* initialize the autocomplete form */
-                autocomplete = new google.maps.places.Autocomplete(
-                  /** @type {HTMLInputElement} */(document.getElementById('addressInput')),
-                  { types: ['geocode'] });
-                // When the user selects an address from the dropdown,
-                // populate the address fields in the form.
-                google.maps.event.addListener(autocomplete, 'place_changed', function() {
-                fillInAddress();
-                });
-            } 
+            if (typeof google === 'object' && typeof google.maps === 'object' && typeof google.maps.places === 'object' && typeof google.maps.places.Autocomplete === 'function') {
+                if (elementExists !== null) {
+                    /* initialize the autocomplete form */
+                    autocomplete = new google.maps.places.Autocomplete(
+                      /** @type {HTMLInputElement} */(document.getElementById('addressInput')),
+                      { types: ['geocode'] });
+                    // When the user selects an address from the dropdown,
+                    // populate the address fields in the form.
+                    google.maps.event.addListener(autocomplete, 'place_changed', function() {
+                    fillInAddress();
+                    });
+                } 
+            }
 
 
             function searchLocations(map_id) {
@@ -3767,7 +3781,7 @@ function wpgmaps_menu_settings_layout() {
 
 function wpgmaps_settings_page_basic() {
     
-  
+    wpgmza_stats("settings_basic");
     
     echo"<div class=\"wrap\"><div id=\"icon-edit\" class=\"icon32 icon32-posts-post\"><br></div><h2>".__("WP Google Map Settings","wp-google-maps")."</h2>";
 
@@ -4096,16 +4110,53 @@ function wpgmaps_menu_support_layout() {
     }
 
 }
+function wpgmza_review_nag() {
+    if (!function_exists('wpgmza_register_pro_version')) {
+        $wpgmza_review_nag = get_option("wpgmza_review_nag");
+        if ($wpgmza_review_nag) { 
+            return;
+        }
+        $wpgmza_stats = get_option("wpgmza_stats");
+
+        
+        if ($wpgmza_stats) {
+            if (isset($wpgmza_stats['dashboard']['first_accessed'])) {
+                $first_acc = $wpgmza_stats['dashboard']['first_accessed'];
+                $datedif = time() - strtotime($first_acc);
+                $days_diff = floor($datedif/(60*60*24));
+
+                if ($days_diff >= 10) {
+                    $rate_text = sprintf( __( '<h3>We need your love!</h3><p>If you are enjoying our plugin, please consider <a href="%1$s" target="_blank" class="button button-primary">reviewing WP Google Maps</a>. It would mean the world to us! If you are experiencing issues with the plugin, please <a href="%2$s" target="_blank"  class="button button-secondary">contact us</a> and we will help you as soon as humanly possible!</p>', 'wp-google-maps' ),
+                        'https://wordpress.org/support/view/plugin-reviews/wp-google-maps?filter=5',
+                        'http://www.wpgmaps.com/contact-us/'
+                    );
+                    echo "<style>.wpgmza_upgrade_nag { display:none; }</style>";
+                    echo "<div class='updated wpgmza_nag_review_div'>".$rate_text."<p><a href='admin.php?page=wp-google-maps-menu&action2=close_review' class='wpgmza_close_review_nag button button-secondary' title='".__("We will not nag you again, promise!","wp-google-maps")."'>".__("Close","wp-google-maps")."</a></p></div>";
+                }
+            }
+        }
+    }
+
+}
 function wpgmza_map_page() {
     
+
+    if (isset($_GET['action2']) && $_GET['action2'] == "close_review") {
+        update_option("wpgmza_review_nag",time());
+    }
+
+    wpgmza_review_nag();
+    
     if (function_exists('wpgmza_register_pro_version')) {
+        wpgmza_stats("list_maps_pro");
         echo"<div class=\"wrap\"><div id=\"icon-edit\" class=\"icon32 icon32-posts-post\"><br></div><h2>".__("My Maps","wp-google-maps")." <a href=\"admin.php?page=wp-google-maps-menu&action=new\" class=\"add-new-h2\">".__("Add New","wp-google-maps")."</a></h2>";
         wpgmaps_check_versions();
         wpgmaps_list_maps();
     } 
     else {
+        wpgmza_stats("list_maps_basic");
         echo"<div class=\"wrap\"><div id=\"icon-edit\" class=\"icon32 icon32-posts-post\"><br></div><h2>".__("My Maps","wp-google-maps")."</h2>";
-        echo"<p><i><a href='http://www.wpgmaps.com/purchase-professional-version/?utm_source=plugin&utm_medium=link&utm_campaign=mappage_1' target=\"_BLANK\" title='".__("Pro Version","wp-google-maps")."'>".__("Create unlimited maps","wp-google-maps")."</a> ".__("with the","wp-google-maps")." <a href='http://www.wpgmaps.com/purchase-professional-version/?utm_source=plugin&utm_medium=link&utm_campaign=mappage_2' title='Pro Version'  target=\"_BLANK\">".__("Pro Version","wp-google-maps")."</a> ".__("of WP Google Maps for only","wp-google-maps")." <strong>$19.99!</strong></i></p>";
+        echo"<p class='wpgmza_upgrade_nag'><i><a href='http://www.wpgmaps.com/purchase-professional-version/?utm_source=plugin&utm_medium=link&utm_campaign=mappage_1' target=\"_BLANK\" title='".__("Pro Version","wp-google-maps")."'>".__("Create unlimited maps","wp-google-maps")."</a> ".__("with the","wp-google-maps")." <a href='http://www.wpgmaps.com/purchase-professional-version/?utm_source=plugin&utm_medium=link&utm_campaign=mappage_2' title='Pro Version'  target=\"_BLANK\">".__("Pro Version","wp-google-maps")."</a> ".__("of WP Google Maps for only","wp-google-maps")." <strong>$19.99!</strong></i></p>";
         wpgmaps_list_maps();
 
 
@@ -4361,10 +4412,10 @@ function wpgmza_basic_menu() {
     
 
     if (isset($other_settings_data['wpgmza_theme_selection'])) { $theme_sel_checked[$other_settings_data['wpgmza_theme_selection']] = "checked"; $wpgmza_theme_class[$other_settings_data['wpgmza_theme_selection']] = "wpgmza_theme_selection_activate"; } else {  $wpgmza_theme = false; $wpgmza_theme_class[0] = "wpgmza_theme_selection_activate"; }
-    for ($i=0;$i<6;$i++) {
+    for ($i=0;$i<9;$i++) {
         if (!isset($wpgmza_theme_class[$i])) { $wpgmza_theme_class[$i] = ""; }
     }
-    for ($i=0;$i<6;$i++) {
+    for ($i=0;$i<9;$i++) {
         if (!isset($theme_sel_checked[$i])) { $theme_sel_checked[$i] = ""; }
     }   
         
@@ -4389,8 +4440,7 @@ function wpgmza_basic_menu() {
     }
 
 
-    
-    
+    wpgmza_stats("dashboard");
 
     
     echo "
@@ -4514,18 +4564,27 @@ function wpgmza_basic_menu() {
                                         <img src=\"".WPGMAPS_DIR."/images/theme_3.jpg\" title=\"Grayscale\" id=\"wpgmza_theme_selection_3\" width=\"200\" class=\"wpgmza_theme_selection ".$wpgmza_theme_class[3]."\"  tid=\"3\">     
                                         <img src=\"".WPGMAPS_DIR."/images/theme_4.jpg\" title=\"Pale\" id=\"wpgmza_theme_selection_4\" width=\"200\" class=\"wpgmza_theme_selection ".$wpgmza_theme_class[4]."\"  tid=\"4\">     
                                         <img src=\"".WPGMAPS_DIR."/images/theme_5.jpg\" title=\"Red\" id=\"wpgmza_theme_selection_5\" width=\"200\" class=\"wpgmza_theme_selection ".$wpgmza_theme_class[5]."\"  tid=\"5\">     
+                                        <img src=\"".WPGMAPS_DIR."/images/theme_6.jpg\" title=\"Dark Grey\" id=\"wpgmza_theme_selection_6\" width=\"200\" class=\"wpgmza_theme_selection ".$wpgmza_theme_class[6]."\"  tid=\"6\">     
+                                        <img src=\"".WPGMAPS_DIR."/images/theme_7.jpg\" title=\"Monochrome\" id=\"wpgmza_theme_selection_7\" width=\"200\" class=\"wpgmza_theme_selection ".$wpgmza_theme_class[7]."\"  tid=\"7\">     
+                                        <img src=\"".WPGMAPS_DIR."/images/theme_8.jpg\" title=\"Old Fashioned\" id=\"wpgmza_theme_selection_8\" width=\"200\" class=\"wpgmza_theme_selection ".$wpgmza_theme_class[8]."\"  tid=\"8\">     
                                         <input type=\"radio\" name=\"wpgmza_theme\" id=\"rb_wpgmza_theme_0\" value=\"0\" ".$theme_sel_checked[0]." class=\"wpgmza_theme_radio wpgmza_hide_input\">
                                         <input type=\"radio\" name=\"wpgmza_theme\" id=\"rb_wpgmza_theme_1\" value=\"1\" ".$theme_sel_checked[1]." class=\"wpgmza_theme_radio wpgmza_hide_input\">
                                         <input type=\"radio\" name=\"wpgmza_theme\" id=\"rb_wpgmza_theme_2\" value=\"2\" ".$theme_sel_checked[2]." class=\"wpgmza_theme_radio wpgmza_hide_input\">
                                         <input type=\"radio\" name=\"wpgmza_theme\" id=\"rb_wpgmza_theme_3\" value=\"3\" ".$theme_sel_checked[3]." class=\"wpgmza_theme_radio wpgmza_hide_input\">
                                         <input type=\"radio\" name=\"wpgmza_theme\" id=\"rb_wpgmza_theme_4\" value=\"4\" ".$theme_sel_checked[4]." class=\"wpgmza_theme_radio wpgmza_hide_input\">
                                         <input type=\"radio\" name=\"wpgmza_theme\" id=\"rb_wpgmza_theme_5\" value=\"5\" ".$theme_sel_checked[5]." class=\"wpgmza_theme_radio wpgmza_hide_input\">
+                                        <input type=\"radio\" name=\"wpgmza_theme\" id=\"rb_wpgmza_theme_6\" value=\"6\" ".$theme_sel_checked[6]." class=\"wpgmza_theme_radio wpgmza_hide_input\">
+                                        <input type=\"radio\" name=\"wpgmza_theme\" id=\"rb_wpgmza_theme_7\" value=\"7\" ".$theme_sel_checked[7]." class=\"wpgmza_theme_radio wpgmza_hide_input\">
+                                        <input type=\"radio\" name=\"wpgmza_theme\" id=\"rb_wpgmza_theme_8\" value=\"8\" ".$theme_sel_checked[8]." class=\"wpgmza_theme_radio wpgmza_hide_input\">
                                         <textarea name=\"wpgmza_theme_data_0\" id=\"rb_wpgmza_theme_data_0\" class=\"wpgmza_hide_input\">"."[ \"visibility\", \"invert_lightness\", \"color\", \"weight\", \"hue\", \"saturation\", \"lightness\", \"gamma\"]"."</textarea>
                                         <textarea name=\"wpgmza_theme_data_1\" id=\"rb_wpgmza_theme_data_1\" class=\"wpgmza_hide_input\">"."[{\"featureType\": \"administrative\",\"elementType\": \"labels.text.fill\",\"stylers\": [{\"color\": \"#444444\"}]},{\"featureType\": \"landscape\",\"elementType\": \"all\",\"stylers\": [{\"color\": \"#f2f2f2\"}]},{\"featureType\": \"poi\",\"elementType\": \"all\",\"stylers\": [{\"visibility\": \"off\"}]},{\"featureType\": \"road\",\"elementType\": \"all\",\"stylers\": [{\"saturation\": -100},{\"lightness\": 45}]},{\"featureType\": \"road.highway\",\"elementType\": \"all\",\"stylers\": [{\"visibility\": \"simplified\"}]},{\"featureType\": \"road.arterial\",\"elementType\": \"labels.icon\",\"stylers\": [{\"visibility\": \"off\"}]},{\"featureType\": \"transit\",\"elementType\": \"all\",\"stylers\": [{\"visibility\": \"off\"}]},{\"featureType\": \"water\",\"elementType\": \"all\",\"stylers\": [{\"color\": \"#46bcec\"},{\"visibility\": \"on\"}]}]"."</textarea>
                                         <textarea name=\"wpgmza_theme_data_2\" id=\"rb_wpgmza_theme_data_2\" class=\"wpgmza_hide_input\">"."[{\"featureType\":\"landscape.man_made\",\"elementType\":\"geometry\",\"stylers\":[{\"color\":\"#f7f1df\"}]},{\"featureType\":\"landscape.natural\",\"elementType\":\"geometry\",\"stylers\":[{\"color\":\"#d0e3b4\"}]},{\"featureType\":\"landscape.natural.terrain\",\"elementType\":\"geometry\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"poi\",\"elementType\":\"labels\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"poi.business\",\"elementType\":\"all\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"poi.medical\",\"elementType\":\"geometry\",\"stylers\":[{\"color\":\"#fbd3da\"}]},{\"featureType\":\"poi.park\",\"elementType\":\"geometry\",\"stylers\":[{\"color\":\"#bde6ab\"}]},{\"featureType\":\"road\",\"elementType\":\"geometry.stroke\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"road\",\"elementType\":\"labels\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"road.highway\",\"elementType\":\"geometry.fill\",\"stylers\":[{\"color\":\"#ffe15f\"}]},{\"featureType\":\"road.highway\",\"elementType\":\"geometry.stroke\",\"stylers\":[{\"color\":\"#efd151\"}]},{\"featureType\":\"road.arterial\",\"elementType\":\"geometry.fill\",\"stylers\":[{\"color\":\"#ffffff\"}]},{\"featureType\":\"road.local\",\"elementType\":\"geometry.fill\",\"stylers\":[{\"color\":\"black\"}]},{\"featureType\":\"transit.station.airport\",\"elementType\":\"geometry.fill\",\"stylers\":[{\"color\":\"#cfb2db\"}]},{\"featureType\":\"water\",\"elementType\":\"geometry\",\"stylers\":[{\"color\":\"#a2daf2\"}]}]"."</textarea>
                                         <textarea name=\"wpgmza_theme_data_3\" id=\"rb_wpgmza_theme_data_3\" class=\"wpgmza_hide_input\">"."[{\"featureType\":\"landscape\",\"stylers\":[{\"saturation\":-100},{\"lightness\":65},{\"visibility\":\"on\"}]},{\"featureType\":\"poi\",\"stylers\":[{\"saturation\":-100},{\"lightness\":51},{\"visibility\":\"simplified\"}]},{\"featureType\":\"road.highway\",\"stylers\":[{\"saturation\":-100},{\"visibility\":\"simplified\"}]},{\"featureType\":\"road.arterial\",\"stylers\":[{\"saturation\":-100},{\"lightness\":30},{\"visibility\":\"on\"}]},{\"featureType\":\"road.local\",\"stylers\":[{\"saturation\":-100},{\"lightness\":40},{\"visibility\":\"on\"}]},{\"featureType\":\"transit\",\"stylers\":[{\"saturation\":-100},{\"visibility\":\"simplified\"}]},{\"featureType\":\"administrative.province\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"water\",\"elementType\":\"labels\",\"stylers\":[{\"visibility\":\"on\"},{\"lightness\":-25},{\"saturation\":-100}]},{\"featureType\":\"water\",\"elementType\":\"geometry\",\"stylers\":[{\"hue\":\"#ffff00\"},{\"lightness\":-25},{\"saturation\":-97}]}]"."</textarea>
                                         <textarea name=\"wpgmza_theme_data_4\" id=\"rb_wpgmza_theme_data_4\" class=\"wpgmza_hide_input\">"."[{\"featureType\":\"administrative\",\"elementType\":\"all\",\"stylers\":[{\"visibility\":\"on\"},{\"lightness\":33}]},{\"featureType\":\"landscape\",\"elementType\":\"all\",\"stylers\":[{\"color\":\"#f2e5d4\"}]},{\"featureType\":\"poi.park\",\"elementType\":\"geometry\",\"stylers\":[{\"color\":\"#c5dac6\"}]},{\"featureType\":\"poi.park\",\"elementType\":\"labels\",\"stylers\":[{\"visibility\":\"on\"},{\"lightness\":20}]},{\"featureType\":\"road\",\"elementType\":\"all\",\"stylers\":[{\"lightness\":20}]},{\"featureType\":\"road.highway\",\"elementType\":\"geometry\",\"stylers\":[{\"color\":\"#c5c6c6\"}]},{\"featureType\":\"road.arterial\",\"elementType\":\"geometry\",\"stylers\":[{\"color\":\"#e4d7c6\"}]},{\"featureType\":\"road.local\",\"elementType\":\"geometry\",\"stylers\":[{\"color\":\"#fbfaf7\"}]},{\"featureType\":\"water\",\"elementType\":\"all\",\"stylers\":[{\"visibility\":\"on\"},{\"color\":\"#acbcc9\"}]}]"."</textarea>
                                         <textarea name=\"wpgmza_theme_data_5\" id=\"rb_wpgmza_theme_data_5\" class=\"wpgmza_hide_input\">[{\"stylers\": [ {\"hue\": \"#890000\"}, {\"visibility\": \"simplified\"}, {\"gamma\": 0.5}, {\"weight\": 0.5} ] }, { \"elementType\": \"labels\", \"stylers\": [{\"visibility\": \"off\"}] }, { \"featureType\": \"water\", \"stylers\": [{\"color\": \"#890000\"}] } ]</textarea>
+                                        <textarea name=\"wpgmza_theme_data_6\" id=\"rb_wpgmza_theme_data_6\" class=\"wpgmza_hide_input\">[{\"featureType\":\"all\",\"elementType\":\"labels.text.fill\",\"stylers\":[{\"saturation\":36},{\"color\":\"#000000\"},{\"lightness\":40}]},{\"featureType\":\"all\",\"elementType\":\"labels.text.stroke\",\"stylers\":[{\"visibility\":\"on\"},{\"color\":\"#000000\"},{\"lightness\":16}]},{\"featureType\":\"all\",\"elementType\":\"labels.icon\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"administrative\",\"elementType\":\"geometry.fill\",\"stylers\":[{\"color\":\"#000000\"},{\"lightness\":20}]},{\"featureType\":\"administrative\",\"elementType\":\"geometry.stroke\",\"stylers\":[{\"color\":\"#000000\"},{\"lightness\":17},{\"weight\":1.2}]},{\"featureType\":\"landscape\",\"elementType\":\"geometry\",\"stylers\":[{\"color\":\"#000000\"},{\"lightness\":20}]},{\"featureType\":\"poi\",\"elementType\":\"geometry\",\"stylers\":[{\"color\":\"#000000\"},{\"lightness\":21}]},{\"featureType\":\"road.highway\",\"elementType\":\"geometry.fill\",\"stylers\":[{\"color\":\"#000000\"},{\"lightness\":17}]},{\"featureType\":\"road.highway\",\"elementType\":\"geometry.stroke\",\"stylers\":[{\"color\":\"#000000\"},{\"lightness\":29},{\"weight\":0.2}]},{\"featureType\":\"road.arterial\",\"elementType\":\"geometry\",\"stylers\":[{\"color\":\"#000000\"},{\"lightness\":18}]},{\"featureType\":\"road.local\",\"elementType\":\"geometry\",\"stylers\":[{\"color\":\"#000000\"},{\"lightness\":16}]},{\"featureType\":\"transit\",\"elementType\":\"geometry\",\"stylers\":[{\"color\":\"#000000\"},{\"lightness\":19}]},{\"featureType\":\"water\",\"elementType\":\"geometry\",\"stylers\":[{\"color\":\"#000000\"},{\"lightness\":17}]}]</textarea>
+                                        <textarea name=\"wpgmza_theme_data_7\" id=\"rb_wpgmza_theme_data_7\" class=\"wpgmza_hide_input\">[{\"featureType\":\"administrative.locality\",\"elementType\":\"all\",\"stylers\":[{\"hue\":\"#2c2e33\"},{\"saturation\":7},{\"lightness\":19},{\"visibility\":\"on\"}]},{\"featureType\":\"landscape\",\"elementType\":\"all\",\"stylers\":[{\"hue\":\"#ffffff\"},{\"saturation\":-100},{\"lightness\":100},{\"visibility\":\"simplified\"}]},{\"featureType\":\"poi\",\"elementType\":\"all\",\"stylers\":[{\"hue\":\"#ffffff\"},{\"saturation\":-100},{\"lightness\":100},{\"visibility\":\"off\"}]},{\"featureType\":\"road\",\"elementType\":\"geometry\",\"stylers\":[{\"hue\":\"#bbc0c4\"},{\"saturation\":-93},{\"lightness\":31},{\"visibility\":\"simplified\"}]},{\"featureType\":\"road\",\"elementType\":\"labels\",\"stylers\":[{\"hue\":\"#bbc0c4\"},{\"saturation\":-93},{\"lightness\":31},{\"visibility\":\"on\"}]},{\"featureType\":\"road.arterial\",\"elementType\":\"labels\",\"stylers\":[{\"hue\":\"#bbc0c4\"},{\"saturation\":-93},{\"lightness\":-2},{\"visibility\":\"simplified\"}]},{\"featureType\":\"road.local\",\"elementType\":\"geometry\",\"stylers\":[{\"hue\":\"#e9ebed\"},{\"saturation\":-90},{\"lightness\":-8},{\"visibility\":\"simplified\"}]},{\"featureType\":\"transit\",\"elementType\":\"all\",\"stylers\":[{\"hue\":\"#e9ebed\"},{\"saturation\":10},{\"lightness\":69},{\"visibility\":\"on\"}]},{\"featureType\":\"water\",\"elementType\":\"all\",\"stylers\":[{\"hue\":\"#e9ebed\"},{\"saturation\":-78},{\"lightness\":67},{\"visibility\":\"simplified\"}]}]</textarea>
+                                        <textarea name=\"wpgmza_theme_data_8\" id=\"rb_wpgmza_theme_data_8\" class=\"wpgmza_hide_input\">[{\"featureType\":\"administrative\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"poi\",\"stylers\":[{\"visibility\":\"simplified\"}]},{\"featureType\":\"road\",\"elementType\":\"labels\",\"stylers\":[{\"visibility\":\"simplified\"}]},{\"featureType\":\"water\",\"stylers\":[{\"visibility\":\"simplified\"}]},{\"featureType\":\"transit\",\"stylers\":[{\"visibility\":\"simplified\"}]},{\"featureType\":\"landscape\",\"stylers\":[{\"visibility\":\"simplified\"}]},{\"featureType\":\"road.highway\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"road.local\",\"stylers\":[{\"visibility\":\"on\"}]},{\"featureType\":\"road.highway\",\"elementType\":\"geometry\",\"stylers\":[{\"visibility\":\"on\"}]},{\"featureType\":\"water\",\"stylers\":[{\"color\":\"#84afa3\"},{\"lightness\":52}]},{\"stylers\":[{\"saturation\":-17},{\"gamma\":0.36}]},{\"featureType\":\"transit.line\",\"elementType\":\"geometry\",\"stylers\":[{\"color\":\"#3f518c\"}]}]</textarea>
                                     </td>
 
                                 </tr>
@@ -5857,6 +5916,30 @@ function wpgmaps_trash_map($map_id) {
     }
 }
 
+function wpgmza_stats($sec) {
+    $wpgmza_stats = get_option("wpgmza_stats");
+    if ($wpgmza_stats) {
+        if (isset($wpgmza_stats[$sec]["views"])) {
+            $wpgmza_stats[$sec]["views"] = $wpgmza_stats[$sec]["views"] + 1;
+            $wpgmza_stats[$sec]["last_accessed"] = date("Y-m-d H:i:s");
+        } else {
+            $wpgmza_stats[$sec]["views"] = 1;
+            $wpgmza_stats[$sec]["last_accessed"] = date("Y-m-d H:i:s");
+            $wpgmza_stats[$sec]["first_accessed"] = date("Y-m-d H:i:s");
+        }
+
+
+    } else {
+
+        $wpgmza_stats[$sec]["views"] = 1;
+        $wpgmza_stats[$sec]["last_accessed"] = date("Y-m-d H:i:s");
+        $wpgmza_stats[$sec]["first_accessed"] = date("Y-m-d H:i:s");
+
+
+    }
+    update_option("wpgmza_stats",$wpgmza_stats);
+
+}
 
 function wpgmaps_filter(&$array) {
     $clean = array();
@@ -6026,6 +6109,7 @@ function wpgmaps_marker_permission_check() {
 }
 
 function wpgmza_basic_support_menu() {
+    wpgmza_stats("support_basic");
 ?>   
         <h1><?php _e("WP Google Maps Support","wp-google-maps"); ?></h1>
         <div class="wpgmza_row">

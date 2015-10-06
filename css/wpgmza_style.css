@@ -350,3 +350,12 @@ ul.wpgmza_marker_list_class {
     padding-right:0px;
 
 }
+
+/*The following CSS will fix text from overflowing in the info window on an iPhone*/
+@media only screen and (min-width: 320px) and (max-width:568px) and (-webkit-min-device-pixel-ratio: 2) {
+    .wpgmza_infowindow_description,
+    .wpgmza_infowindow_address,
+    .wpgmza_infowindow_title {
+        width:140px !important;
+    }
+}

@@ -1,7 +1,7 @@
 === WP Google Maps ===
-Contributors: WPGMaps
+Contributors: WPGMaps, NickDuncan, CodeCabin_, Jarryd Long
 Donate link: http://www.wpgmaps.com
-Tags: google maps, maps, map, map markers, google, google map, wp maps, wp google maps, wp google map, easy map, store locator, map plugin, directions, map directions, google map plugin, routes, polygons, polylines, streetview, location, marker, latitude, longitude, map widget
+Tags: google maps, maps, map, map markers, google, google map, google maps plugin, wp maps, wp google maps, wp google map, easy map, store locator, map plugin, directions, map directions, google map plugin, routes, polygons, polylines, streetview, location, marker, latitude, longitude, map widget, map themes
 Requires at least: 3.5
 Tested up to: 4.3
 Stable tag: trunk
@@ -18,11 +18,12 @@ While the free version of WP Google Maps allows you to create a Google map with 
 The [WP Google Maps Pro Version](http://www.wpgmaps.com/purchase-professional-version/) version allows you create custom Google maps with high quality markers containing locations, descriptions, images, categories, links and directions. 
 
 = Lite Version (Free) =
+* The most popular Google Maps plugin on WordPress
 * Super easy to use, no coding required!
 * Create as many map markers as you need by simply typing in the address
 * Responsive maps
 * Edit your map markers with the click of a button
-* 6 popular map themes to choose from
+* 9 popular map themes to choose from
 * Drag map markers to an exact location
 * Google Maps Streetview supported
 * UTF-8 character support
@@ -203,6 +204,13 @@ We no longer support timthumb and we have opted to remove it from WP Google Maps
 Please upgrade your version of WP Google Maps to version 6.0.27 as it includes multiple security improvements.
 
 == Changelog ==
+
+= 6.3.01 - 2015-10-06 - Low priority =
+* Added 3 new google maps custom themes
+* Corrected internationalization
+* iPhone map marker styling fix
+* Fixed an autocomplete bug
+* All WP Google Maps language files have been updated
 
 = 6.3.0 - 2015-09-04 - Low priority =
 * Added 5 map themes to the map editor
