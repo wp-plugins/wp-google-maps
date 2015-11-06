@@ -24,6 +24,7 @@ The [WP Google Maps Pro Version](http://www.wpgmaps.com/purchase-professional-ve
 * Responsive maps
 * Edit your map markers with the click of a button
 * 9 popular map themes to choose from
+* Create or add your own map theme
 * Drag map markers to an exact location
 * Google Maps Streetview supported
 * UTF-8 character support
@@ -204,6 +205,9 @@ We no longer support timthumb and we have opted to remove it from WP Google Maps
 Please upgrade your version of WP Google Maps to version 6.0.27 as it includes multiple security improvements.
 
 == Changelog ==
+
+= 6.3.02 - 2015-11-06 - Low priority =
+* A new theme directory has been created - this allows you to use any map theme or style that you want simply by copying and pasting it's data
 
 = 6.3.01 - 2015-10-06 - Low priority =
 * Added 3 new google maps custom themes
