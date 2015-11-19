@@ -206,6 +206,9 @@ Please upgrade your version of WP Google Maps to version 6.0.27 as it includes m
 
 == Changelog ==
 
+= 6.3.03 - 2015-11-19 - Medium Priority =
+* Fixed a bug that caused the map to not display when a theme was not selected
+
 = 6.3.02 - 2015-11-06 - Low priority =
 * A new theme directory has been created - this allows you to use any map theme or style that you want simply by copying and pasting it's data
 

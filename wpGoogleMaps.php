@@ -3,14 +3,17 @@
 Plugin Name: WP Google Maps
 Plugin URI: http://www.wpgmaps.com
 Description: The easiest to use Google Maps plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 6.3.02
+Version: 6.3.03
 Author: WP Google Maps
 Author URI: http://www.wpgmaps.com
 Text Domain: wp-google-maps
 Domain Path: /languages
 */
 
-/* 
+/* 6.3.03 - 2015-11-19 - Low Priority
+ * Fixed a bug that caused the map to not display when a theme was not selected
+ *
+ * 
  * 6.3.02 - 2015-11-06 - Low priority
  * A new theme directory has been created - this allows you to use any map theme or style that you want simply by copying and pasting it's data
  * 
@@ -201,8 +204,8 @@ $wpgmza_tblname_poly = $wpdb->prefix . "wpgmza_polygon";
 $wpgmza_tblname_polylines = $wpdb->prefix . "wpgmza_polylines";
 $wpgmza_tblname_categories = $wpdb->prefix. "wpgmza_categories";
 $wpgmza_tblname_category_maps = $wpdb->prefix. "wpgmza_category_maps";
-$wpgmza_version = "6.3.02";
-$wpgmza_p_version = "6.3.02";
+$wpgmza_version = "6.3.03";
+$wpgmza_p_version = "6.3.03";
 $wpgmza_t = "basic";
 define("WPGMAPS", $wpgmza_version);
 define("WPGMAPS_DIR",plugin_dir_url(__FILE__));
@@ -1176,7 +1179,7 @@ function wpgmaps_admin_javascript_basic() {
             this.bounds = new google.maps.LatLngBounds();
 
 
-            <?php if ($wpgmza_theme_data !== false && isset($wpgmza_theme_data)) { ?>
+            <?php if ($wpgmza_theme_data !== false && isset($wpgmza_theme_data) && $wpgmza_theme_data != '') { ?>
             this.map.setOptions({styles: <?php echo stripslashes($wpgmza_theme_data); ?>});
             <?php } ?>
 
@@ -1664,8 +1667,9 @@ function wpgmaps_user_javascript_basic() {
 
                 this.map = new google.maps.Map(jQuery(selector)[0], myOptions);
                 this.bounds = new google.maps.LatLngBounds();
-                <?php if ($wpgmza_theme_data !== false && isset($wpgmza_theme_data)) { ?>
-                this.map.setOptions({styles: <?php echo stripslashes($wpgmza_theme_data); ?>});
+
+                <?php if ($wpgmza_theme_data !== false && isset($wpgmza_theme_data) && $wpgmza_theme_data != '') { ?>
+                    this.map.setOptions({styles: <?php echo stripslashes($wpgmza_theme_data); ?>});
                 <?php } ?>
                 
                 
@@ -3896,7 +3900,7 @@ function wpgmaps_settings_page_basic() {
     }
     $upload_dir = wp_upload_dir();
     
-    
+        $map_settings_action = '';
             
             $ret = "<form action='' method='post' id='wpgmaps_options'>";
             $ret .= "    <p>$prov_msg</p>";
@@ -4098,7 +4102,7 @@ function wpgmaps_settings_page_basic() {
             $ret .=  "</div>";
             
             echo $ret;
-
+            
 
 }
 
@@ -4449,6 +4453,13 @@ function wpgmza_basic_menu() {
 
     wpgmza_stats("dashboard");
 
+    if( isset( $other_settings_data['wpgmza_theme_data'] ) ){
+        $wpgmza_theme_data_custom = $other_settings_data['wpgmza_theme_data'];
+    } else {
+        $wpgmza_theme_data_custom  = '';
+    }
+    
+
     
     echo "
 
@@ -4597,7 +4608,7 @@ function wpgmza_basic_menu() {
                                     <h3>".__("Or use a custom theme","wp-google-maps")."</h3>
                                     <p><a href='http://www.wpgmaps.com/map-themes/?utm_source=plugin&utm_medium=link&utm_campaign=browse_themes' title='' target='_BLANK' class='button button-primary'>".__("Browse the theme directory","wp-google-maps")."</a></p>
                                     <p>".__("Paste your custom theme data here:","wp-google-maps")."</p>
-                                        <textarea name=\"wpgmza_styling_json\" id=\"wpgmza_styling_json\" rows=\"8\" cols=\"40\">".stripslashes($other_settings_data['wpgmza_theme_data'])."</textarea>
+                                        <textarea name=\"wpgmza_styling_json\" id=\"wpgmza_styling_json\" rows=\"8\" cols=\"40\">".stripslashes($wpgmza_theme_data_custom)."</textarea>
                                     <p><a href='javascript:void(0);' title='".__("Preview","wp-google-maps")."' class='button button-seconday' id='wpgmza_preview_theme'>".__("Preview","wp-google-maps")."</a></p>
                                     </td>
 
